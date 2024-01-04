@@ -35,9 +35,17 @@
                 </div>
             </div>
         </section>
-        <section class="tentang mt-6">
+        <section class="tentang my-10">
             <div class="text-center">
-                <span class="font-semibold text-4xl text-gray-900">Tentang Kami</span>
+                <h1 class="font-semibold text-3xl text-gray-900">Tentang Kami</h1>
+                <span class="font-medium text-xl text-gray-900">Indekost adalah platform pencarian kost terkemuka yang
+                    didedikasikan untuk menyediakan solusi terbaik bagi para pencari tempat tinggal. Kami berkomitmen untuk
+                    memudahkan proses pencarian kost dengan menyediakan informasi yang akurat, foto-foto berkualitas, dan
+                    fitur pencarian yang canggih.</span>
+            </div>
+            <div class="benefit text-center mt-5">
+                <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Keuntungan ketika mencari lewat <span class="text-lime-700">IN DE KOST</span></h5>
+                
             </div>
         </section>
     </div>
