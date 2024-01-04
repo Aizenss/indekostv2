@@ -3,7 +3,7 @@
 @extends('layout.sidebar_user')
 
 @section('isi')
-    <div class="sm:ml-64">
+<div class="sm:ml-64">
         <section class="corausel bg-lime-700 p-4">
             <div id="default-carousel" class="relative w-full" data-carousel="slide">
                 <!-- Carousel wrapper -->
@@ -43,10 +43,10 @@
                     memudahkan proses pencarian kost dengan menyediakan informasi yang akurat, foto-foto berkualitas, dan
                     fitur pencarian yang canggih.</span>
             </div>
-            <div class="benefit text-center mt-5">
+            <div class="benefit text-center my-10">
                 <h5 class="mb-2 text-3xl font-bold text-gray-900">Keuntungan ketika mencari lewat <span
                         class="text-lime-700">IN DE KOST</span></h5>
-                <div class="grid grid-cols-3 gap-5 mt-8 ">
+                <div class="grid grid-cols-3 gap-5 mt-12 ">
                     <div class="mempermudah ">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                             class="w-24 h-24 mx-auto">
@@ -79,18 +79,89 @@
                 </div>
             </div>
         </section>
-        <section class="kamarkami bg-lime-700 p-8 mb-24">
+        <section class="kamarkami bg-lime-700 p-8">
             <h1 class="font-semibold text-2xl text-gray-900 text-white text-center mt-3">Kamar Tersedia</h1>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 my-8">
                 <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/header1.jpeg') }}" alt="" />
+                    <img class="rounded-t-lg" src="{{ asset('foto/header1.jpeg') }}" alt="" />
                     <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Nama Kost</h5>
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Nama Kost</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
+                            technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                    </div>
+                </div>
+                <div class="max-w-sm bg-white rounded-lg shadow-xl">
+                    <img class="rounded-t-lg" src="{{ asset('foto/header1.jpeg') }}" alt="" />
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Nama Kost</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
+                            technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                    </div>
+                </div>
+                <div class="max-w-sm bg-white rounded-lg shadow-xl">
+                    <img class="rounded-t-lg" src="{{ asset('foto/header1.jpeg') }}" alt="" />
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Nama Kost</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
+                            technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                    </div>
+                </div>
+                <div class="max-w-sm bg-white rounded-lg shadow-xl">
+                    <img class="rounded-t-lg" src="{{ asset('foto/header1.jpeg') }}" alt="" />
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Nama Kost</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
+                            technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                    </div>
+                </div>
+                <div class="max-w-sm bg-white rounded-lg shadow-xl">
+                    <img class="rounded-t-lg" src="{{ asset('foto/header1.jpeg') }}" alt="" />
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Nama Kost</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
+                            technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                    </div>
+                </div>
+                <div class="max-w-sm bg-white rounded-lg shadow-xl">
+                    <img class="rounded-t-lg" src="{{ asset('foto/header1.jpeg') }}" alt="" />
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Nama Kost</h5>
                         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
                             technology acquisitions of 2021 so far, in reverse chronological order.</p>
                     </div>
                 </div>
             </div>
+            <div class="text-center">
+                <a href="" class="bg-lime-800 text-white font-medium text-lg rounded-lg p-4">Lihat Selengkapnya</a>
+            </div>
+        </section>
+        <section class="kamarkami p-8">
+            <h1 class="font-semibold text-2xl text-gray-900 text-center mt-3">Top Area Kost</h1>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+                <div class="max-w-sm bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-[250px] h-[200px] flex flex-col justify-center">
+                    <div class="p-4 text-center">
+                        <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                    </div>
+                </div>
+                <div class="max-w-sm bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-[250px] h-[200px] flex flex-col justify-center">
+                    <div class="p-4 text-center">
+                        <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                    </div>
+                </div>
+                <div class="max-w-sm bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-[250px] h-[200px] flex flex-col justify-center">
+                    <div class="p-4 text-center">
+                        <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                    </div>
+                </div>
+                <div class="max-w-sm bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-[250px] h-[200px] flex flex-col justify-center">
+                    <div class="p-4 text-center">
+                        <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="" class="bg-lime-700 text-white font-medium text-lg rounded-lg p-4">Lihat Selengkapnya</a>
+            </div>
         </section>
     </div>
-@endsection
+    @endsection

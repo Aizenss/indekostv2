@@ -1,5 +1,5 @@
 
-    <footer class="bg-lime-700 ">
+    <footer class="bg-lime-700 sm:ml-64">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between">
               <div class="mb-6 md:mb-0">
@@ -8,8 +8,7 @@
                       <span class="self-center text-2xl font-semibold whitespace-nowrap "></span>
                     </a>
                     <br>
-                    <p>Dapatkan "info kost murah" hanya</p>
-                    <p> di <span class="text-white">IN DE KOS.</span></p>
+                    <p class="max-w-sm">Kemudahan menemukan kost sesuai keinginan Anda ada di ujung jari Anda! Gunakan Indekost untuk menjelajahi tempat tinggal yang nyaman dan sesuai dengan anggaran Anda.</p>
                     <br>
               </div>
               <div class="grid grid-cols-2 gap-8 sm:gap-40 sm:grid-cols-3">
@@ -71,11 +70,10 @@
                   </div>
               </div>
           </div>
-          <hr class="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
-          <div class="sm:flex sm:items-center sm:justify-between">
+          <hr class="my-6 border-gray-200  lg:my-8" />
+          <div class="text-center">
               <span class="text-sm text-white sm:text-center ">© 2024 <a href="https://flowbite.com/" class="hover:underline">INDEKOS™</a>. All Rights Reserved.
-              </span>
-
+              </span>   
           </div>
         </div>
     </footer>
