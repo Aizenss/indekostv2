@@ -16,14 +16,14 @@
                     <label for="phone" class="block text-sm font-medium text-gray-900 dark:text-dark mb-2">Nomor Handphone</label>
                     <input type="tel" name="phone" id="phone" pattern="[0-9]{10,15}"
                         class="shadow-md bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        placeholder="081234567890" required>
+                        placeholder="08XXXXXXXXXX">
                     <small class="text-gray-500">Format: 10 sampai 15 digit</small>
                 </div>
                 <div class="mb-4">
                     <label for="email" class="block text-sm font-medium text-gray-900 dark:text-dark mb-2">Email</label>
                     <input type="email" name="email" id="email"
                         class="shadow-md bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        placeholder="user@gmail.com" required>
+                        placeholder="user@gmail.com">
                 </div>
                 <div class="mb-4">
                     <label for="password" class="block text-sm font-medium text-gray-900 dark:text-dark mb-2">Password</label>

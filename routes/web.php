@@ -17,11 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/login', function () {
-    return view('login');
+    return view('auth.login');
 });
 Route::get('/register', function () {
-    return view('register');
+    return view('auth.Register');
 });
 Route::get('/forgotpassword', function () {
-    return view('forgotpassword');
+    return view('auth.forgotpassword');
+});
+Route::get('/toparea', function(){
+    return view('toparea');
 });
