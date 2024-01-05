@@ -144,45 +144,57 @@
                 </a>
             </div>
             <div class="text-center">
-                <a href="" class="bg-lime-800 text-white font-medium text-lg rounded-lg p-4">Lihat Selengkapnya</a>
+                <a href="" class="bg-lime-800 text-white font-medium text-lg rounded-lg sm:text-sm p-4">Lihat Selengkapnya</a>
             </div>
         </section>
         <section class="kamarkami p-8">
             <h1 class="font-semibold text-2xl text-gray-900 text-center mt-3">Top Area Kost</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-8 justify-center">
-                <div class="bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-[210px] h-[175px] flex flex-col justify-center mx-auto">
-                    <div class="p-4 text-center">
-                        <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                <a href="">
+                    <div class="bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-full h-[150px] flex flex-col justify-center mx-auto">
+                        <div class="p-4 text-center">
+                            <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-[210px] h-[175px] flex flex-col justify-center mx-auto">
-                    <div class="p-4 text-center">
-                        <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                </a>
+                <a href="">
+                    <div class="bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-full h-[150px] flex flex-col justify-center mx-auto">
+                        <div class="p-4 text-center">
+                            <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-[210px] h-[175px] flex flex-col justify-center mx-auto">
-                    <div class="p-4 text-center">
-                        <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                </a>
+                <a href="">
+                    <div class="bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-full h-[150px] flex flex-col justify-center mx-auto">
+                        <div class="p-4 text-center">
+                            <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-[210px] h-[175px] flex flex-col justify-center mx-auto">
-                    <div class="p-4 text-center">
-                        <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                </a>
+                <a href="">
+                    <div class="bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-full h-[150px] flex flex-col justify-center mx-auto">
+                        <div class="p-4 text-center">
+                            <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-[210px] h-[175px] flex flex-col justify-center mx-auto">
-                    <div class="p-4 text-center">
-                        <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                </a>
+                <a href="">
+                    <div class="bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-full h-[150px] flex flex-col justify-center mx-auto">
+                        <div class="p-4 text-center">
+                            <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-[210px] h-[175px] flex flex-col justify-center mx-auto">
-                    <div class="p-4 text-center">
-                        <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                </a>
+                <a href="">
+                    <div class="bg-white rounded-lg shadow-xl bg-cover bg-[url('foto/map.jpeg')] w-full h-[150px] flex flex-col justify-center mx-auto">
+                        <div class="p-4 text-center">
+                            <span class="text-lg font-semibold text-gray-800 bg-gray-50/75 rounded-lg p-2">Karang Ploso</span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="text-center">
-                <a href="" class="bg-lime-700 text-white font-medium text-lg rounded-lg p-4">Lihat Selengkapnya</a>
+                <a href="" class="bg-lime-700 text-white font-medium text-lg rounded-lg sm:text-sm p-4">Lihat Selengkapnya</a>
             </div>
         </section>
     </div>
