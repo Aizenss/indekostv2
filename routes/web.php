@@ -28,3 +28,6 @@ Route::get('/forgotpassword', function () {
 Route::get('/toparea', function(){
     return view('toparea');
 });
+Route::get('/kamarkami', function () {
+    return view('kamarkami');
+});

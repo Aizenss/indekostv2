@@ -2,7 +2,7 @@
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
-                <a href="https://flowbite.com/" class="flex items-center">
+                <a href="#" class="flex items-center">
                     <img src="{{ asset('foto/inilogo-white.png') }}" class="h-20 me-3" alt="FlowBite Logo" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap "></span>
                 </a>
@@ -16,13 +16,13 @@
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase ">IN DE KOS</h2>
                     <ul class="text-white  font-medium ">
                         <li class="mb-6">
-                            <a href="https://flowbite.com/" class="hover:underline">Tentang Kami</a>
+                            <a href="#" class="hover:underline">Tentang Kami</a>
                         </li>
                         <li class="mb-6">
-                            <a href="https://tailwindcss.com/" class="hover:underline">Promosikan Kost Anda</a>
+                            <a href="#" class="hover:underline">Promosikan Kost Anda</a>
                         </li>
                         <li class="mb-6">
-                            <a href="https://tailwindcss.com/" class="hover:underline">Pusat Bantuan</a>
+                            <a href="#" class="hover:underline">Pusat Bantuan</a>
                         </li>
                     </ul>
                 </div>
@@ -30,7 +30,7 @@
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Follow us</h2>
                     <ul class="text-white font-medium">
                         <li class="mb-6">
-                            <a href="https://github.com/themesberg/flowbite" class="hover:underline flex items-center">
+                            <a href="#" class="hover:underline flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="25"
                                     viewBox="0 0 128 128">
                                     <rect width="118.35" height="118.35" x="4.83" y="4.83" fill="#3d5a98" rx="6.53"
@@ -42,7 +42,7 @@
                             </a>
                         </li>
                         <li class="mb-6">
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline flex items-center">
+                            <a href="#" class="hover:underline flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22.45" height="32"
                                     viewBox="0 0 256 193">
                                     <g fill="none">
@@ -75,35 +75,24 @@
                                 <span class="ml-2">INDEKOS</span>
                             </a>
                         </li>
-                        <li class="mb-6">
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="32"
-                                    viewBox="0 0 256 256">
-                                    <path fill="#4285F4"
-                                        d="M58.182 192.05V93.14L27.507 65.077L0 49.504v125.091c0 9.658 7.825 17.455 17.455 17.455z" />
-                                    <path fill="#34A853"
-                                        d="M197.818 192.05h40.727c9.659 0 17.455-7.826 17.455-17.455V49.505l-31.156 17.837l-27.026 25.798z" />
-                                    <path fill="#EA4335"
-                                        d="m58.182 93.14l-4.174-38.647l4.174-36.989L128 69.868l69.818-52.364l4.669 34.992l-4.669 40.644L128 145.504z" />
-                                    <path fill="#FBBC04"
-                                        d="M197.818 17.504V93.14L256 49.504V26.231c0-21.585-24.64-33.89-41.89-20.945z" />
-                                    <path fill="#C5221F"
-                                        d="m0 49.504l26.759 20.07L58.182 93.14V17.504L41.89 5.286C24.61-7.66 0 4.646 0 26.23z" />
-                                </svg>
-                                <span class="ml-2">indekos@gmail.com</span>
-                            </a>
-                        </li>
+
                     </ul>
                 </div>
 
                 <div>
-                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase ">Legal</h2>
+                    {{-- <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase ">Legal</h2> --}}
                     <ul class="text-white  font-medium">
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Privacy Policy</a>
+                        <li class="mb-6">
+                            <a href="#" class="hover:underline flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M20 18h-2V9.25L12 13L6 9.25V18H4V6h1.2l6.8 4.25L18.8 6H20m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>
+                                <span class="ml-2">indekos@gmail.com</span>
+                            </a>
                         </li>
-                        <li>
-                            <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                        <li class="mb-6">
+                            <a href="#" class="hover:underline flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path fill="currentColor" d="M4.05 21H3v-5.875L8 14.1l2.9 2.9q1-.575 1.863-1.237t1.587-1.388q.775-.75 1.45-1.625t1.225-1.85l-2.85-2.875L15.1 3H21v1.05q0 3.15-1.35 6.2T15.8 15.8q-2.5 2.5-5.562 3.85T4.05 21"/></svg>
+                                <span class="ml-2">02(0129)2883128</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -111,7 +100,7 @@
         </div>
         <hr class="my-6 border-gray-200  lg:my-8" />
         <div class="text-center">
-            <span class="text-sm text-white sm:text-center ">© 2024 <a href="https://flowbite.com/"
+            <span class="text-sm text-white sm:text-center ">© 2024 <a href="#"
                     class="hover:underline">INDEKOS™</a>. All Rights Reserved.
             </span>
         </div>
