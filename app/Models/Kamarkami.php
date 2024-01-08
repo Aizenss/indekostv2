@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Toparea extends Model
+class Kamarkami extends Model
 {
     use HasFactory;
+    protected $table = "Kamarkami";
+    protected $guarded = [];
 }

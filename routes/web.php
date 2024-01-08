@@ -25,9 +25,7 @@ Route::get('/register', function () {
 Route::get('/forgotpassword', function () {
     return view('auth.forgotpassword');
 });
-Route::get('/toparea', function(){
-    return view('toparea');
-});
+
 Route::get('/kamarkami', function () {
     return view('kamarkami');
 });
