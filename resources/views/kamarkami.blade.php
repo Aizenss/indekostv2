@@ -9,26 +9,24 @@
             <div class="grid grid-cols-2 gap-4">
                 <div class="p-4">
                     <form>
-                        <label for="default-search"
-                            class="mb-2 text-sm font-medium text-gray-900 sr-only">Cari</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                 <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                 </svg>
                             </div>
                             <input type="search" id="default-search"
                                 class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="Cari area..." required>
-                            <button type="submit"
-                                class="text-white absolute end-2.5 bottom-2.5 bg-green-500 hover:bg-green-800 duration-500 focus:ring-4 focus:outline-none focus:ring-lime-5
-                                    00 font-medium rounded-lg text-sm px-4 py-2">Search</button>
+                                placeholder="Cari area...">
                         </div>
+                        <button type="submit"
+                            class="text-white absolute end-2.5 bottom-2.5 bg-green-500 hover:bg-green-800 duration-500 focus:ring-4 focus:outline-none focus:ring-lime-5
+                                    00 font-medium rounded-lg text-sm px-4 py-2">Search</button>
                     </form>
                 </div>
-    
+
                 <div class="tombol-modal py-5">
                     <!-- Modal toggle -->
                     <button data-modal-target="default-modal" data-modal-toggle="default-modal"
@@ -63,19 +61,22 @@
                         </div>
                         <!-- Modal body -->
                         <div class="p-4 md:p-5 space-y-4">
-                            <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                With less than a month to go before the European Union enacts new consumer privacy laws for
-                                its
-                                citizens, companies around the world are updating their terms of service agreements to
-                                comply.
-                            </p>
-                            <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May
-                                25
-                                and is meant to ensure a common set of data rights in the European Union. It requires
-                                organizations to notify users as soon as possible of high-risk data breaches that could
-                                personally affect them.
-                            </p>
+
+                            <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                <input id="bordered-radio-1" type="radio" value="" name="bordered-radio"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="bordered-radio-1"
+                                    class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Default
+                                    radio</label>
+                            </div>
+                            <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="bordered-radio-2"
+                                    class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Checked
+                                    state</label>
+                            </div>
+
                         </div>
                         <!-- Modal footer -->
                         <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
@@ -92,43 +93,100 @@
         <section class="body">
             <div class="bg-gray-100 p-8 mx-6 my-5 rounded-lg">
                 <div class="grid grid-rows-4 gap-4">
-                    @foreach ($toptempat as $top)
-                    <a href="tempat{{ $top->id }}">
-                        <div class="grid grid-cols-2 gap-3">
+                    <a href="" class="bg-gray-200 rounded-xl p-4">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
                             <div class="foto-tempat">
-                                <img src="{{ asset('foto/header1.jpeg') }}" alt="" class="w-[500px] h-[250px] bg-cover rounded-xl">
+                                <img src="{{ asset('foto/kontrakan.png') }}" alt=""
+                                    class="w-[500px] h-[250px] bg-cover rounded-xl">
                             </div>
-                            <div class="deskripsi-tempat my-1">
-                                <span class="text-black font-semibold text-2xl">Karang Ploso</span>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 my-4 text-center">
-                                    <div class="bg-blue-400 p-2 w-28 h-28 rounded-xl grid grid-rows-2 gap-2 content-center">
-                                        <span>Cowok</span>
-                                        <span>500</span>
-                                    </div>
-                                    <div class="bg-pink-400 p-2 w-28 h-28 rounded-xl grid grid-rows-2 gap-2 content-center">
-                                        <span>Cowok</span>
-                                        <span>500</span>
-                                    </div>
-                                    <div class="bg-emerald-400 p-2 w-28 h-28 rounded-xl grid grid-rows-2 gap-2 content-center">
-                                        <span>Cowok</span>
-                                        <span>500</span>
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-2 gap-2">
-                                    <div class="rating flex flex-col">
-                                        <span class="text-xl font-semibold">Rating</span>
+                            <div class="deskripsi-tempat my-1 pe-4">
+                                <span class="bg-blue-500 rounded-full p-2 text-white font-md text-lg mt-4">Cowok</span>
+                                <h4 class="text-black font-semibold text-2xl mt-4">Kontrakan Los Santos</h4>
+                                <p class="text-gray-700 text-lg font-md">Blok KK15, Jl. Griya Permata Alam, Perun Gpa,
+                                    Ngijo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152</p>
+                                <span class="text-gray-400 text-lg font-md">Semua ada kecuali kakbah</span>
+                                <div class="grid grid-cols-2 gap-2 mt-7">
+                                    <div class="rating ">
                                         <span class="text-xl font-semibold">⭐⭐⭐⭐⭐/5</span>
                                     </div>
-                                    <div class="range-harga">
-                                        <p class="text-xl font-semibold"><span>Rp 500.000</span> - <span>Rp 1.500.000</span></p>
+                                    <div class="range-harga text-end">
+                                        <p class="text-xl font-semibold"><span>Rp. 300.000</span></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </a>
-                    @endforeach
+                    <a href="" class="bg-gray-200 rounded-xl p-4">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                            <div class="foto-tempat">
+                                <img src="{{ asset('foto/kontrakan.png') }}" alt=""
+                                    class="w-[500px] h-[250px] bg-cover rounded-xl">
+                            </div>
+                            <div class="deskripsi-tempat my-1 pe-4">
+                                <span class="bg-pink-500 rounded-full p-2 text-white font-md text-lg mt-4">Cewek</span>
+                                <h4 class="text-black font-semibold text-2xl mt-4">Kontrakan Los Santos</h4>
+                                <p class="text-gray-700 text-lg font-md">Blok KK15, Jl. Griya Permata Alam, Perun Gpa,
+                                    Ngijo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152</p>
+                                <span class="text-gray-400 text-lg font-md">Semua ada kecuali kakbah</span>
+                                <div class="grid grid-cols-2 gap-2 mt-7">
+                                    <div class="rating ">
+                                        <span class="text-xl font-semibold">⭐⭐⭐⭐⭐/5</span>
+                                    </div>
+                                    <div class="range-harga text-end">
+                                        <p class="text-xl font-semibold"><span>Rp. 300.000</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="" class="bg-gray-200 rounded-xl p-4">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                            <div class="foto-tempat">
+                                <img src="{{ asset('foto/kontrakan.png') }}" alt=""
+                                    class="w-[500px] h-[250px] bg-cover rounded-xl">
+                            </div>
+                            <div class="deskripsi-tempat my-1 pe-4">
+                                <span class="bg-violet-500 rounded-full p-2 text-white font-md text-lg mt-4">Campur</span>
+                                <h4 class="text-black font-semibold text-2xl mt-4">Kontrakan Los Santos</h4>
+                                <p class="text-gray-700 text-lg font-md">Blok KK15, Jl. Griya Permata Alam, Perun Gpa,
+                                    Ngijo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152</p>
+                                <span class="text-gray-400 text-lg font-md">Semua ada kecuali kakbah</span>
+                                <div class="grid grid-cols-2 gap-2 mt-7">
+                                    <div class="rating ">
+                                        <span class="text-xl font-semibold">⭐⭐⭐⭐⭐/5</span>
+                                    </div>
+                                    <div class="range-harga text-end">
+                                        <p class="text-xl font-semibold"><span>Rp. 300.000</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="" class="bg-gray-200 rounded-xl p-4">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                            <div class="foto-tempat">
+                                <img src="{{ asset('foto/kontrakan.png') }}" alt=""
+                                    class="w-[500px] h-[250px] bg-cover rounded-xl">
+                            </div>
+                            <div class="deskripsi-tempat my-1 pe-4">
+                                <span class="bg-violet-500 rounded-full p-2 text-white font-md text-lg mt-4">Campur</span>
+                                <h4 class="text-black font-semibold text-2xl mt-4">Kontrakan Los Santos</h4>
+                                <p class="text-gray-700 text-lg font-md">Blok KK15, Jl. Griya Permata Alam, Perun Gpa,
+                                    Ngijo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152</p>
+                                <span class="text-gray-400 text-lg font-md">Semua ada kecuali kakbah</span>
+                                <div class="grid grid-cols-2 gap-2 mt-7">
+                                    <div class="rating ">
+                                        <span class="text-xl font-semibold">⭐⭐⭐⭐⭐/5</span>
+                                    </div>
+                                    <div class="range-harga text-end">
+                                        <p class="text-xl font-semibold"><span>Rp. 300.000</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                {{ $toptempat->links() }}
+
             </div>
         </section>
     </div>
