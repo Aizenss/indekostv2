@@ -28,7 +28,7 @@
                 </div>
                 <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center shadow-md transition-colors duration-300 ease-in-out dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Masuk</button>
                 <div class="text-sm font-medium text-gray-500 dark:text-gray-300 mt-2">
-                    Belum register? <a href="{{ url('/register') }}" class="text-blue-700 hover:underline dark:text-blue-500">Buat Akun</a>
+                    Belum Punya Akun? <a href="{{ url('/register') }}" class="text-blue-700 hover:underline dark:text-blue-500">Buat Akun</a>
                 </div>
             </form>
         </div>

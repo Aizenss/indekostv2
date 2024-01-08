@@ -13,11 +13,10 @@
                 </form>
                 <br>
                 <div class="mb-4">
-                    <label for="phone" class="block text-sm font-medium text-gray-900 dark:text-dark mb-2">Nomor Handphone</label>
-                    <input type="tel" name="phone" id="phone" pattern="[0-9]{10,15}"
+                    <label for="username" class="block text-sm font-medium text-gray-900 dark:text-dark mb-2">Username</label>
+                    <input type="text" name="name" id="name" pattern="[0-9]{10,15}"
                         class="shadow-md bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        placeholder="08XXXXXXXXXX">
-                    <small class="text-gray-500">Format: 10 sampai 15 digit</small>
+                        placeholder="ur username">
                 </div>
                 <div class="mb-4">
                     <label for="email" class="block text-sm font-medium text-gray-900 dark:text-dark mb-2">Email</label>
@@ -42,7 +41,7 @@
                 <button type="submit"
                     class="w-full text-dark bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center shadow-md transition-colors duration-300 ease-in-out dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Masuk</button>
                 <div class="text-sm font-medium text-gray-500 dark:text-gray-300 mt-2">
-                    Sudah punya akun? <a href="{{ url('/login') }}" class="text-blue-700 hover:underline dark:text-blue-500">Login</a>
+                    Sudah punya akun? <a href="{{ url('/login') }}" class="text-blue-700 hover:underline dark:text-blue-500">Masuk</a>
                 </div>
             </form>
         </div>
