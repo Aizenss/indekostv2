@@ -31,3 +31,7 @@ Route::get('/toparea', function(){
 Route::get('/kamarkami', function () {
     return view('kamarkami');
 });
+Route::get('/kelolaowner', function () {
+    return view('admin.kelolaowner');
+});
+
