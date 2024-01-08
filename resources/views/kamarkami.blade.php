@@ -3,8 +3,8 @@
 @extends('layout.sidebar_user')
 
 @section('isi')
-    <div class="sm:ml-64">
-        <section class="header my-10">
+    <div class="sm:ml-64 px-1">
+        <section class="header mt-7 mb-4">
             <h1 class="text-center mb-5">Top Area Kost</h1>
             <div class="grid grid-cols-2 gap-4">
                 <div class="p-4">
@@ -23,8 +23,8 @@
                                 class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="Cari area..." required>
                             <button type="submit"
-                                class="text-white absolute end-2.5 bottom-2.5 bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-lime-5
-                                00 font-medium rounded-lg text-sm px-4 py-2">Search</button>
+                                class="text-white absolute end-2.5 bottom-2.5 bg-green-500 hover:bg-green-800 duration-500 focus:ring-4 focus:outline-none focus:ring-lime-5
+                                    00 font-medium rounded-lg text-sm px-4 py-2">Search</button>
                         </div>
                     </form>
                 </div>
@@ -32,7 +32,7 @@
                 <div class="tombol-modal py-5">
                     <!-- Modal toggle -->
                     <button data-modal-target="default-modal" data-modal-toggle="default-modal"
-                        class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                        class="block text-white bg-green-500 hover:bg-green-800 duration-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                         type="button">
                         Toggle modal
                     </button>
@@ -90,7 +90,46 @@
             </div>
         </section>
         <section class="body">
-            <div class="bg-gray-50 p-4"></div>
+            <div class="bg-gray-100 p-8 mx-6 my-5 rounded-lg">
+                <div class="grid grid-rows-4 gap-4">
+                    @foreach ($toptempat as $top)
+                    <a href="tempat{{ $top->id }}">
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="foto-tempat">
+                                <img src="{{ asset('foto/header1.jpeg') }}" alt="" class="w-[500px] h-[250px] bg-cover rounded-xl">
+                            </div>
+                            <div class="deskripsi-tempat my-1">
+                                <span class="text-black font-semibold text-2xl">Karang Ploso</span>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 my-4 text-center">
+                                    <div class="bg-blue-400 p-2 w-28 h-28 rounded-xl grid grid-rows-2 gap-2 content-center">
+                                        <span>Cowok</span>
+                                        <span>500</span>
+                                    </div>
+                                    <div class="bg-pink-400 p-2 w-28 h-28 rounded-xl grid grid-rows-2 gap-2 content-center">
+                                        <span>Cowok</span>
+                                        <span>500</span>
+                                    </div>
+                                    <div class="bg-emerald-400 p-2 w-28 h-28 rounded-xl grid grid-rows-2 gap-2 content-center">
+                                        <span>Cowok</span>
+                                        <span>500</span>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="rating flex flex-col">
+                                        <span class="text-xl font-semibold">Rating</span>
+                                        <span class="text-xl font-semibold">⭐⭐⭐⭐⭐/5</span>
+                                    </div>
+                                    <div class="range-harga">
+                                        <p class="text-xl font-semibold"><span>Rp 500.000</span> - <span>Rp 1.500.000</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    @endforeach
+                </div>
+                {{ $toptempat->links() }}
+            </div>
         </section>
     </div>
 @endsection
