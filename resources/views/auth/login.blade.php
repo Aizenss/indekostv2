@@ -3,7 +3,8 @@
 <div class="flex h-screen bg-dark text-dark-700">
     <div class="ciba flex-1 flex items-center justify-center">
         <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-dark dark:border-gray-700">
-            <form class="space-y-6" action="#">
+            <form class="space-y-6" action="{{route('login')}}" method="POST">
+                @csrf
                 <h5 class="text-2xl font-extrabold text-gray-900 dark:text-dark text-center mb-4">Login</h5>
                 <div class="mb-4">
                     <label for="email" class="block text-sm font-medium text-gray-900 dark:text-dark mb-2">Email</label>
@@ -28,7 +29,7 @@
                 </div>
                 <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center shadow-md transition-colors duration-300 ease-in-out dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Masuk</button>
                 <div class="text-sm font-medium text-gray-500 dark:text-gray-300 mt-2">
-                    Belum Punya Akun? <a href="{{ url('/register') }}" class="text-blue-700 hover:underline dark:text-blue-500">Buat Akun</a>
+                    Belum register? <a href="{{ url('/register') }}" class="text-blue-700 hover:underline dark:text-blue-500">Buat Akun</a>
                 </div>
             </form>
         </div>

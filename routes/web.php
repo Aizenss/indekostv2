@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\KamarkamiController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,20 +18,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login', function () {
-    return view('auth.login');
-});
-Route::get('/register', function () {
-    return view('auth.Register');
-});
-Route::get('/forgotpassword', function () {
-    return view('auth.forgotpassword');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/kamarkami', function () {
-    return view('kamarkami');
-});
-Route::get('/kelolaowner', function () {
-    return view('admin.kelolaowner');
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    // Route::get('/kelolaowner', [ProfileController::class, 'edit'])->name('profile.edit');
 });
 
+Route::middleware(['auth', 'role:user'])->group(function () {
+    Route::get('/kamarkami', [KamarkamiController::class, 'index'])->name('kamarkami');
+});
+
+Route::middleware(['auth', 'role:owner'])->group(function () {
+    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+});
+
+require __DIR__ . '/auth.php';
