@@ -137,7 +137,7 @@
         <section class="body">
             <div class="bg-gray-100 p-8 mx-6 my-5 rounded-lg">
                 <div class="grid grid-rows-4 gap-4">
-                    <a href="" class="bg-gray-200 rounded-xl p-4">
+                    <a href="{{ route('user.detailkost') }}" class="bg-gray-200 rounded-xl p-4">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
                             <div class="foto-tempat">
                                 <img src="{{ asset('foto/kontrakan.png') }}" alt=""

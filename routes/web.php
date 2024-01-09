@@ -5,6 +5,7 @@ use App\Http\Controllers\KamarkamiController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\OwnerKosController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DetailKostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +44,7 @@ Route::get('/kelolaowner', function () {
 
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/kamarkami', [KamarkamiController::class, 'index'])->name('user.kamarkami');
+    Route::get('/detail-kost', [DetailKostController::class, 'index'])->name('user.detailkost');
 });
 
 Route::middleware(['auth', 'role:owner'])->group(function () {

@@ -138,7 +138,7 @@
                 </a>
             </div>
             <div class="text-center">
-                <a href="{{ route('kamarkami') }}" class="bg-lime-800 text-white font-medium text-lg rounded-lg sm:text-sm p-4 shadow-lg hover:bg-lime-600 duration-300">Lihat Selengkapnya</a>
+                <a href="{{ route('user.kamarkami') }}" class="bg-lime-800 text-white font-medium text-lg rounded-lg sm:text-sm p-4 shadow-lg hover:bg-lime-600 duration-300">Lihat Selengkapnya</a>
             </div>
         </section>
     </div>
