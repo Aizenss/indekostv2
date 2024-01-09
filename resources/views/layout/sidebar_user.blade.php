@@ -19,9 +19,13 @@
                 </div>
             </li>
             <li>
+                @auth
+                <div class="nama-user flex gap-3 items-center">
+                    <img src="{{ asset('foto/dummy.jpeg') }}" alt="" width="40" class="rounded-full ring ring-black ring-2 ring-offset-2">
+                    <span class="font-medium text-lg text-gray-800">Halo Wok</span>
+                </div>
+                @else
                 <div class="grid grid-cols-2 gap-1">
-                    @auth
-                    @else
                         <div class="register">
                             <a href="/login" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -70,25 +74,13 @@
                 </a>
             </li>
             <li>
-                <a href="/toparea"
-                    class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('/toparea') ? 'bg-lime-700 text-white' : 'bg-gray-200' }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                        <path fill-rule="evenodd"
-                            d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <span class="ms-3">Top Area Kost</span>
-                </a>
-            </li>
-            <li>
                 @auth
                     <!-- Authentication -->
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <a :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                            {{ __('Log Out') }}
+                        <a :href="route('logout')" class="flex items-center p-2 text-gray-900 rounded-lg" onclick="event.preventDefault(); this.closest('form').submit();">
+                        <i class="fa-solid fa-right-from-bracket fa-lg ms-0.5" style="color: #000000;"></i>
+                        <span class="ms-3">Log Out</span>
                         </a>
                     </form>
                 @endauth

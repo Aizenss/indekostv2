@@ -84,67 +84,61 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-8">
                 <a href="">
                     <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/header1.jpeg') }}" alt="" />
+                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
                         <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Nama Kost</h5>
-                            <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise
-                                technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
+                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
                         </div>
                     </div>
                 </a>
                 <a href="">
                     <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                    <img class="rounded-t-lg" src="{{ asset('foto/header1.jpeg') }}" alt="" />
+                    <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
                     <div class="p-5">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Nama Kost</h5>
-                        <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise
-                            technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
+                        <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
                     </div>
                 </div>
             </a>
                 <a href="">
                     <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/header1.jpeg') }}" alt="" />
+                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
                         <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Nama Kost</h5>
-                            <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise
-                                technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
+                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
                         </div>
                     </div>
                 </a>
                 <a href="">
                     <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/header1.jpeg') }}" alt="" />
+                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
                         <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Nama Kost</h5>
-                            <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise
-                                technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
+                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
                         </div>
                     </div>
                 </a>
                 <a href="">
                     <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/header1.jpeg') }}" alt="" />
+                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
                         <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Nama Kost</h5>
-                            <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise
-                                technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
+                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
                         </div>
                     </div>
                 </a>
                 <a href="">
                     <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/header1.jpeg') }}" alt="" />
+                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" /> 
                         <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Nama Kost</h5>
-                            <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise
-                                technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
+                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="text-center">
-                <a href="" class="bg-lime-800 text-white font-medium text-lg rounded-lg sm:text-sm p-4">Lihat Selengkapnya</a>
+                <a href="{{ route('kamarkami') }}" class="bg-lime-800 text-white font-medium text-lg rounded-lg sm:text-sm p-4 shadow-lg hover:bg-lime-600 duration-300">Lihat Selengkapnya</a>
             </div>
         </section>
     </div>

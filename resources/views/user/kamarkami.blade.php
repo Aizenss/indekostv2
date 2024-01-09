@@ -5,14 +5,14 @@
 @section('isi')
     <div class="sm:ml-64 px-1">
         <section class="header mt-7 mb-4">
-            <h1 class="text-center mb-5">Top Area Kost</h1>
-            <div class="grid grid-cols-2 gap-4">
+            <h1 class="text-center mb-5 font-semibold text-lg">Top Area Kost</h1>
+            <div class="flex gap-4 mx-2 ">
                 <div class="p-4">
                     <form>
                         <div class="relative">
                             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                <svg class="w-4 h-4 text-gray-500" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 20 20">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                 </svg>
@@ -20,19 +20,17 @@
                             <input type="search" id="default-search"
                                 class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="Cari area...">
+                            <button type="submit"
+                                class="text-white absolute end-2.5 bottom-2.5 bg-green-500 hover:bg-green-800 duration-500 focus:ring-4 focus:outline-none focus:ring-lime-500 font-medium rounded-lg text-sm px-4 py-2">Search</button>
                         </div>
-                        <button type="submit"
-                            class="text-white absolute end-2.5 bottom-2.5 bg-green-500 hover:bg-green-800 duration-500 focus:ring-4 focus:outline-none focus:ring-lime-5
-                                    00 font-medium rounded-lg text-sm px-4 py-2">Search</button>
                     </form>
                 </div>
-
-                <div class="tombol-modal py-5">
+                <div class="tombol-modal py-5 mt-0.5 lg:mt-1">
                     <!-- Modal toggle -->
                     <button data-modal-target="default-modal" data-modal-toggle="default-modal"
-                        class="block text-white bg-green-500 hover:bg-green-800 duration-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                        class="block text-white bg-green-500 hover:bg-green-800 duration-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-5 text-center"
                         type="button">
-                        Toggle modal
+                        <i class="fa-solid fa-filter fa-lg" style="color: #ffff;"></i>
                     </button>
                 </div>
             </div>
@@ -46,7 +44,7 @@
                         <!-- Modal header -->
                         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                             <h3 class="text-xl font-semibold text-gray-900">
-                                Terms of Service
+                                Filter
                             </h3>
                             <button type="button"
                                 class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
@@ -61,30 +59,76 @@
                         </div>
                         <!-- Modal body -->
                         <div class="p-4 md:p-5 space-y-4">
+                            <form action="">
+                                <span class="text-md font-semibold text-black">Jenis Kost</span>
+                                <style>
+                                    input[type="radio"]:checked {
+                                        background-color: limegreen;
+                                    }
 
-                            <div class="flex items-center ps-4 border border-gray-200 rounded">
-                                <input id="bordered-radio-1" type="radio" value="" name="bordered-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
-                                <label for="bordered-radio-1"
-                                    class="w-full py-4 ms-2 text-sm font-medium text-gray-900">Default
-                                    radio</label>
-                            </div>
-                            <div class="flex items-center ps-4 border border-gray-200 rounded">
-                                <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
-                                <label for="bordered-radio-2"
-                                    class="w-full py-4 ms-2 text-sm font-medium text-gray-900">Checked
-                                    state</label>
-                            </div>
-
+                                    input[type="radio"]:focus {
+                                        outline: none;
+                                    }
+                                </style>
+                                <div class="flex gap-5 my-3">
+                                    <div class="flex items-center px-4 border border-gray-200 rounded-xl">
+                                        <input checked id="bordered-radio-1" type="radio" value="" name="jenis_kost"
+                                            class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300">
+                                        <label for="bordered-radio-1"
+                                            class="w-full py-4 ms-2 text-sm font-medium text-gray-900">Cewek</label>
+                                    </div>
+                                    <div class="flex items-center px-4 border border-gray-200 rounded-xl">
+                                        <input id="bordered-radio-2" type="radio" value="" name="jenis_kost"
+                                            class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300">
+                                        <label for="bordered-radio-2"
+                                            class="w-full py-4 ms-2 text-sm font-medium text-gray-900">Cowok</label>
+                                    </div>
+                                    <div class="flex items-center px-4 border border-gray-200 rounded-xl">
+                                        <input id="bordered-radio-3" type="radio" value="" name="jenis_kost"
+                                            class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300">
+                                        <label for="bordered-radio-3"
+                                            class="w-full py-4 ms-2 text-sm font-medium text-gray-900">Campur</label>
+                                    </div>
+                                </div>
+                                <span class="text-md font-semibold text-black">Harga</span>
+                                <div class="flex gap-5 my-3 items-center">
+                                    <input type="number" id="number-input" aria-describedby="helper-text-explanation" name="min"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="Min Harga">
+                                    -
+                                    <input type="number" id="number-input" aria-describedby="helper-text-explanation" name="max"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="Max Harga">
+                                </div>
+                                <span class="text-md font-semibold text-black">Rating</span>
+                                <div class="flex gap-5 my-3">
+                                    <div class="flex items-center px-4 border border-gray-200 rounded-xl">
+                                        <input checked id="bordered-radio-1" type="radio" value="5" name="jenis_kost"
+                                            class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300">
+                                        <label for="bordered-radio-1"
+                                            class="w-full py-4 ms-2 text-sm font-medium text-gray-900">⭐⭐⭐⭐⭐</label>
+                                    </div>
+                                    <div class="flex items-center px-4 border border-gray-200 rounded-xl">
+                                        <input id="bordered-radio-2" type="radio" value="4" name="jenis_kost"
+                                            class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300">
+                                        <label for="bordered-radio-2"
+                                            class="w-full py-4 ms-2 text-sm font-medium text-gray-900">⭐⭐⭐⭐</label>
+                                    </div>
+                                    <div class="flex items-center px-4 border border-gray-200 rounded-xl">
+                                        <input id="bordered-radio-3" type="radio" value="3" name="jenis_kost"
+                                            class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300">
+                                        <label for="bordered-radio-3"
+                                            class="w-full py-4 ms-2 text-sm font-medium text-gray-900">⭐⭐⭐</label>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                         <!-- Modal footer -->
                         <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
                             <button data-modal-hide="default-modal" type="button"
-                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">I
-                                accept</button>
+                                class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Filter</button>
                             <button data-modal-hide="default-modal" type="button"
-                                class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">Decline</button>
+                                class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">Keluar</button>
                         </div>
                     </div>
                 </div>
