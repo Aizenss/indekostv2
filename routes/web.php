@@ -32,4 +32,7 @@ Route::get('/kamarkami', function () {
 Route::get('/kelolaowner', function () {
     return view('admin.kelolaowner');
 });
+Route::get('/approvaladmin', function () {
+    return view('admin.approvaladmin');
+});
 
