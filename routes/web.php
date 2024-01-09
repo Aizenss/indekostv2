@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ApprovalOwnerController;
 use App\Http\Controllers\KamarkamiController;
+use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\OwnerKosController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,11 +36,13 @@ Route::get('/approvaladmin', function () {
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
-    Route::get('/kamarkami', [KamarkamiController::class, 'index'])->name('kamarkami');
+    Route::get('/kamarkami', [KamarkamiController::class, 'index'])->name('user.kamarkami');
 });
 
 Route::middleware(['auth', 'role:owner'])->group(function () {
-    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/dashboard/owner', [OwnerController::class, 'index'])->name('owner.dashboard');
+    Route::get('/approval/owner', [ApprovalOwnerController::class, 'index'])->name('owner.approval');
+    Route::get('/kos/owner', [OwnerKosController::class, 'index'])->name('owner.kos');
 });
 
 require __DIR__ . '/auth.php';
