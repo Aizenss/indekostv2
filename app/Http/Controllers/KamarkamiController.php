@@ -11,7 +11,7 @@ class KamarkamiController extends Controller
      */
     public function index()
     {
-        return view('kamarkami');
+        return view('user.kamarkami');
     }
 
     /**
