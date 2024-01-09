@@ -31,6 +31,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::get('/approvaladmin', function () {
     return view('admin.approvaladmin');
 });
+Route::get('/transaksiowner', function () {
+    return view('admin.transaksiowner');
+});
+Route::get('/kelolaowner', function () {
+    return view('admin.kelolaowner');
+});
 
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/kamarkami', [KamarkamiController::class, 'index'])->name('kamarkami');
