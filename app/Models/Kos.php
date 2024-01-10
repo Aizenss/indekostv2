@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Kos extends Model
 {
@@ -11,6 +12,7 @@ class Kos extends Model
     protected $table = 'kosts';
     protected $primaryKey = 'id';
     protected $fillable = [
+        'owner_id',
         'nama_kost',
         'ketentuan',
         'lokasi',
@@ -24,4 +26,9 @@ class Kos extends Model
         'foto_dalam',
         'foto_tambahan'
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'owner_id');
+    }
 }

@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\ApprovalAdminController;
 use App\Http\Controllers\ApprovalOwnerController;
 use App\Http\Controllers\KamarkamiController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\OwnerKosController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DetailKostController;
+use App\Http\Controllers\KelolaAdminController;
+use App\Http\Controllers\TransaksiAdminController;
 use App\Http\Controllers\KelolaOwnerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
@@ -32,25 +35,19 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    // Route::get('/kelolaowner', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/approvaladmin', [ApprovalAdminController::class, 'index'])->name('admin.approvaladmin');
+    Route::patch('/approvaladmin/setuju/{kos}', [ApprovalAdminController::class, 'setuju'])->name('admin.approvaladmin.setuju');
+    Route::patch('/approvaladmin/tolak/{kos}', [ApprovalAdminController::class, 'tolak'])->name('admin.approvaladmin.tolak');
+    Route::get('/transaksiowner', [TransaksiAdminController::class, 'index'])->name('admin.transaksiowner');
+    Route::get('/kelolaowner', [KelolaAdminController::class, 'index'])->name('admin.kelolaowner');
+    Route::get('/admin-kelolaowner', [KelolaOwnerController::class, 'index'])->name('kelola-admin');
+    Route::get('/admin-kelolaowner/{owner}', [KelolaOwnerController::class, 'show'])->name('kelolaowner.show');
+    Route::get('/admin-kelolaowner/{owner}/delete', [KelolaOwnerController::class, 'delete'])->name('kelolaowner.delete');
 });
-Route::get('/approvaladmin', function () {
-    return view('admin.approvaladmin');
-});
-Route::get('/transaksiowner', function () {
-    return view('admin.transaksiowner');
-});
-
-Route::get('/admin-kelolaowner', [KelolaOwnerController::class, 'index'])->name('kelola-admin');
-Route::get('/admin-kelolaowner/{owner}', [KelolaOwnerController::class, 'show'])->name('kelolaowner.show');
-Route::get('/admin-kelolaowner/{owner}/delete', [KelolaOwnerController::class, 'delete'])->name('kelolaowner.delete');
-require __DIR__ . '/auth.php';
-Route::get('/admin-dashboardadmin', [DashboardController::class, 'dashboard'])->name('dashboard-admin');
-
 
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/kamarkami', [KamarkamiController::class, 'index'])->name('user.kamarkami');
-    Route::get('/detail-kost', [DetailKostController::class, 'index'])->name('user.detailkost');
+    Route::get('/detail-kost/{kos}', [DetailKostController::class, 'index'])->name('user.detailkost');
 });
 
 Route::middleware(['auth', 'role:owner'])->group(function () {
@@ -65,6 +62,6 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
         Route::put('owner/edit/proses/{id}', [OwnerKosController::class, 'ubahProses'])->name('owner.kos.edit.proses');
         Route::delete('owner/hapus/{id}', [OwnerKosController::class, 'hapus'])->name('owner.kos.hapus');
     });
-
 });
 
+require __DIR__ . '/auth.php';

@@ -49,45 +49,49 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($kosts as $kost)
-                            <tr class="bg-white dark:bg-gray-800 items-center">
-                                <th scope="row"
-                                    class="px-6 py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $loop->iteration }}
-                                </th>
-                                <td class="px-6 py-4 text-xs">
-                                    {{ $kost->nama_kost }}
-                                </td>
-                                <td class="px-6 py-4 text-xs ellipsis">
-                                    {{ $kost->ketentuan }}
-                                </td>
-                                <td class="px-6 py-4 text-xs ellipsis">
-                                    {{ $kost->lokasi }}
-                                </td>
-                                <td class="px-6 py-4 text-xs ellipsis">
-                                    Rp.{{ number_format($kost->harga, 0, ',', '.') }}
-                                </td>
-                                <td class="px-6 py-4 text-xs flex items-center gap-3">
-                                    <button data-modal-target="show{{ $kost->id }}"
-                                        data-modal-toggle="show{{ $kost->id }}" class="text-blue-500 self-center"
-                                        type="button">
-                                        show
-                                    </button>
-                                    <form action="{{ route('owner.kos.edit', ['id' => $kost->id]) }}" method="post"
-                                        class="my-auto">
-                                        @method('get')
-                                        <button type="submit" class="text-yellow-500 self-center">edit</button>
-                                    </form>
-                                    <form action="{{ route('owner.kos.hapus', ['id' => $kost->id]) }}" method="post"
-                                        class="my-auto">
-                                        @method('delete')
-                                        @csrf
-                                        <button type="submit" class="text-red-500 self-center">Delete</button>
-                                    </form>
+                        @forelse ($kosts as $kost)
+                            {{-- @if ($kost->status != 'pending') --}}
+                                <tr class="bg-white dark:bg-gray-800 items-center">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{ $loop->iteration }}
+                                    </th>
+                                    <td class="px-6 py-4 text-xs">
+                                        {{ $kost->nama_kost }}
+                                    </td>
+                                    <td class="px-6 py-4 text-xs ellipsis">
+                                        {{ $kost->ketentuan }}
+                                    </td>
+                                    <td class="px-6 py-4 text-xs ellipsis">
+                                        {{ $kost->lokasi }}
+                                    </td>
+                                    <td class="px-6 py-4 text-xs ellipsis">
+                                        Rp.{{ number_format($kost->harga, 0, ',', '.') }}
+                                    </td>
+                                    <td class="px-6 py-4 text-xs flex items-center gap-3">
+                                        <button data-modal-target="show{{ $kost->id }}"
+                                            data-modal-toggle="show{{ $kost->id }}" class="text-blue-500 self-center"
+                                            type="button">
+                                            show
+                                        </button>
+                                        <form action="{{ route('owner.kos.edit', ['id' => $kost->id]) }}" method="post"
+                                            class="my-auto">
+                                            @method('get')
+                                            <button type="submit" class="text-yellow-500 self-center">edit</button>
+                                        </form>
+                                        <form action="{{ route('owner.kos.hapus', ['id' => $kost->id]) }}" method="post"
+                                            class="my-auto">
+                                            @method('delete')
+                                            @csrf
+                                            <button type="submit" class="text-red-500 self-center">Delete</button>
+                                        </form>
 
-                                </td>
-                            </tr>
-                        @endforeach
+                                    </td>
+                                </tr>
+                            {{-- @endif --}}
+                        @empty
+                            data kosong
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -119,14 +123,14 @@
                         </button>
                     </div>
                     <div class="p-4 md:p-5 space-y-4">
-                        <img src="{{ asset('kosts/'. $item->foto_depan) }}" alt="">
+                        <img src="{{ asset('kosts/' . $item->foto_depan) }}" alt="">
                         <h1>Peraturan:<span class="text-">{{ $item->peraturan }}</span></h1>
                         <h1>Spesifikasi:<span class="text-">{{ $item->spesifikasi }}</span></h1>
 
                     </div>
                     <!-- Modal footer -->
                     <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                        
+
                     </div>
                 </div>
             </div>

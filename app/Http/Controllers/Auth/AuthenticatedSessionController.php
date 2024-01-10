@@ -29,7 +29,19 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $user = $request->user();
+        $role = $user->role; // Asumsikan role disimpan dalam properti "role" pada model User
+
+        // Tentukan redirect URL berdasarkan role
+        $redirectUrl = match ($role) {
+            'admin' => '/dashboard/owner',
+            'owner' => '/dashboard/owner',
+            'user' => '/',
+                // Tambahkan kasus untuk role lainnya jika diperlukan
+            default => RouteServiceProvider::HOME, // Redirect ke halaman default jika role tidak ditemukan
+        };
+
+        return redirect()->intended($redirectUrl);
     }
 
     /**

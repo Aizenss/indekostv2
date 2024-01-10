@@ -8,80 +8,72 @@
             <div class="galeri md:col-span-2">
                 <div class="grid gap-4">
                     <div>
-                        <img class="h-auto max-w-full rounded-lg"
-                            src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg" alt="">
+                        <img class="h-auto max-w-full rounded-lg" src="{{ asset('kosts/' . $kos->foto_depan) }}"
+                            alt="">
                     </div>
                     <div class="grid grid-cols-5 gap-4">
                         <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
+                            <img class="h-auto max-w-full rounded-lg" src="{{ asset('kosts/' . $kos->foto_dalam) }}"
+                                alt="">
                         </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="">
-                        </div>
+                        @if ($kos->foto_tambahan != null)
+                            @foreach ($kos->foto_tambahan as $item)
+                                <div>
+                                    <img class="h-auto max-w-full rounded-lg"
+                                        src="{{ asset('kosts/' . $kos->foto_tambahan) }}" alt="">
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
                 {{-- Galeri --}}
                 <div class="informasi-lanjut px-2">
                     <div class="grid grid-cols-3 gap-4 my-5">
                         <div class="nama-kost col-span-2">
-                            <span class="font-semibold text-lg md:text-3xl mt-3 text-black">Los Santos</span>
+                            <span class="font-semibold text-lg md:text-3xl mt-3 text-black">{{ $kos->nama_kost }}</span>
                         </div>
                         <div class="flex justify-center items-center">
-                            <span class="py-1 px-2 mt-1 bg-blue-500 text-white rounded-xl">Cowok</span>
+                            <span class="py-1 px-2 mt-1 bg-blue-500 text-white rounded-xl">{{ $kos->ketentuan }}</span>
                         </div>
                     </div>
                     <div class="grid grid-rows-7 gap-3">
                         <div class="infomasi ms-2 border-b py-2">
                             <h1 class="font-semibold text-xl text-black">Kost Disewakan Oleh P. Andika</h1>
                             <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i> Perum Griya Permata Alam,No.5 Blok KK, Perun Gpa, Ngijo,
-                                Kec. Karang Ploso, Kabupaten Malang</span>
+                                    style="color: #000000;"></i> {{ $kos->lokasi }}</span>
                         </div>
                         <div class="infomasi ms-2 border-b py-2">
                             <h1 class="font-semibold text-xl text-black">Spesifikasi Kamar</h1>
                             <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i> Luas kamar 3x4 meter, 4 Lantai,Termasuk Listrik</span>
+                                    style="color: #000000;"></i> {{ $kos->spesifikasi }}</span>
                         </div>
                         <div class="infomasi ms-2 border-b py-2">
                             <h1 class="font-semibold text-xl text-black">Fasilitas Kamar</h1>
                             <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i> Kipas angin, kasur, bantal, guling, lemari, dan
-                                stopkontak</span>
+                                    style="color: #000000;"></i>
+                                <input name="fasilitas_kamar" type="text" hidden value="{{ $kos->fasilitas_kamar }}"
+                                    disabled>
+                            </span>
                         </div>
                         <div class="infomasi ms-2 border-b py-2">
                             <h1 class="font-semibold text-xl text-black">Fasilitas Kamar Mandi</h1>
                             <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i> Kamar mandi dalam, shower, wc duduk, mesin cuci</span>
+                                    style="color: #000000;"></i> {{$kos->fasilitas_kamar_mandi}}</span>
                         </div>
                         <div class="infomasi ms-2 border-b py-2">
                             <h1 class="font-semibold text-xl text-black">Peraturan Khusus Kamar Ini</h1>
                             <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i> Kamar diisi maks. 2 orang, boleh pasutri asal menyertakan
-                                surat nikah, denda keterlambatan Rp100.000/5 hari</span>
+                                    style="color: #000000;"></i> </span>
                         </div>
                         <div class="infomasi ms-2 border-b py-2">
                             <h1 class="font-semibold text-xl text-black">Fasilitas Umum</h1>
                             <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i> WiFI, kulkas, dapur</span>
+                                    style="color: #000000;"></i> </span>
                         </div>
                         <div class="infomasi ms-2 border-b py-2">
                             <h1 class="font-semibold text-xl text-black">Fasilitas Parkir</h1>
                             <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i> Parkir sepeda dan motor</span>
+                                    style="color: #000000;"></i> {{$kos->fasilitas_tempat_parkir}}</span>
                         </div>
                     </div>
                     <div class="infomasi ms-2 border-b py-2">
@@ -91,12 +83,12 @@
                                 color: rgb(218, 218, 4);
                                 cursor: pointer;
                             }
-                        
+
                             .fa-star:hover {
                                 transform: scale(1.1);
                             }
                         </style>
-                        
+
                         <form action="">
                             <div class="rating mb-3">
                                 <input type="number" name="rating" hidden>
@@ -106,16 +98,17 @@
                                 <i class="far fa-star fa-lg"></i>
                                 <i class="far fa-star fa-lg"></i>
                             </div>
-                            <textarea name="Ulasan" class="rounded-lg" id="" cols="50" rows="2" placeholder="Tulis Ulasan Anda Mengenai Kost Ini"></textarea><br>
+                            <textarea name="Ulasan" class="rounded-lg" id="" cols="50" rows="2"
+                                placeholder="Tulis Ulasan Anda Mengenai Kost Ini"></textarea><br>
                             <button type="submit" class="bg-green-600 text-white py-1 px-3 rounded-lg my-3">Kirim</button>
                         </form>
-                        
+
                         <script>
                             const allstr = document.querySelectorAll('.rating .fa-star');
                             const ratingInput = document.querySelector('.rating input[name="rating"]');
-                        
+
                             allstr.forEach((item, idx) => {
-                                item.addEventListener('click', function () {
+                                item.addEventListener('click', function() {
                                     for (let i = 0; i < allstr.length; i++) {
                                         if (i <= idx) {
                                             allstr[i].classList.replace('far', 'fas');
@@ -205,8 +198,23 @@
         </div>
     </div>
 
+
+    <script src="https://unpkg.com/@yaireo/tagify"></script>
+    <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+    <script>
+        var input = document.querySelector('input[name=fasilitas_kamar]');
+        var tagify = new Tagify(input);
+
+        tagify.on('change', function(e) {
+            var fasilitas_kamar = e.detail.fasilitas_kamar.reduce(function(acc, tag) {
+                acc.push(tag.value);
+                return acc;
+            }, []);
+        });
+    </script>
+
     {{-- <script>
-        function kalkulator() { 
+        function kalkulator() {
             let pack = document.getElementById("select-bulan");
             let packselect = pack.value;
 

@@ -92,19 +92,21 @@
                                 </div>
                                 <span class="text-md font-semibold text-black">Harga</span>
                                 <div class="flex gap-5 my-3 items-center">
-                                    <input type="number" id="number-input" aria-describedby="helper-text-explanation" name="min"
+                                    <input type="number" id="number-input" aria-describedby="helper-text-explanation"
+                                        name="min"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Min Harga">
                                     -
-                                    <input type="number" id="number-input" aria-describedby="helper-text-explanation" name="max"
+                                    <input type="number" id="number-input" aria-describedby="helper-text-explanation"
+                                        name="max"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Max Harga">
                                 </div>
                                 <span class="text-md font-semibold text-black">Rating</span>
                                 <div class="flex gap-5 my-3">
                                     <div class="flex items-center px-4 border border-gray-200 rounded-xl">
-                                        <input checked id="bordered-radio-1" type="radio" value="5" name="jenis_kost"
-                                            class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300">
+                                        <input checked id="bordered-radio-1" type="radio" value="5"
+                                            name="jenis_kost" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300">
                                         <label for="bordered-radio-1"
                                             class="w-full py-4 ms-2 text-sm font-medium text-gray-900">⭐⭐⭐⭐⭐</label>
                                     </div>
@@ -137,101 +139,51 @@
         <section class="body">
             <div class="bg-gray-100 p-8 mx-6 my-5 rounded-lg">
                 <div class="grid grid-rows-4 gap-4">
-                    <a href="{{ route('user.detailkost') }}" class="bg-gray-200 rounded-xl p-4">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
-                            <div class="foto-tempat">
-                                <img src="{{ asset('foto/kontrakan.png') }}" alt=""
-                                    class="w-[500px] h-[250px] bg-cover rounded-xl">
-                            </div>
-                            <div class="deskripsi-tempat my-1 pe-4">
-                                <span class="bg-blue-500 rounded-full p-2 text-white font-md text-lg mt-4">Cowok</span>
-                                <h4 class="text-black font-semibold text-2xl mt-4">Kontrakan Los Santos</h4>
-                                <p class="text-gray-700 text-lg font-md">Blok KK15, Jl. Griya Permata Alam, Perun Gpa,
-                                    Ngijo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152</p>
-                                <span class="text-gray-400 text-lg font-md">Semua ada kecuali kakbah</span>
-                                <div class="grid grid-cols-2 gap-2 mt-7">
-                                    <div class="rating ">
-                                        <span class="text-xl font-semibold">⭐⭐⭐⭐⭐/5</span>
-                                    </div>
-                                    <div class="range-harga text-end">
-                                        <p class="text-xl font-semibold"><span>Rp. 300.000</span></p>
+                    @foreach ($kosts as $kost)
+                        <a href="{{ route('user.detailkost', $kost) }}" class="bg-gray-200 rounded-xl p-4">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                                <div class="foto-tempat">
+                                    <img src="{{ asset('kosts/' . $kost->foto_depan) }}" alt=""
+                                        class="w-[500px] h-[250px] bg-cover rounded-xl">
+                                </div>
+                                <div class="deskripsi-tempat my-1 pe-4">
+                                    <span
+                                        class="bg-blue-500 rounded-full p-2 text-white font-md text-lg mt-4">{{ $kost->ketentuan }}</span>
+                                    <h4 class="text-black font-semibold text-2xl mt-4">{{ $kost->nama_kost }}</h4>
+                                    <p class="text-gray-700 text-lg font-md">{{ $kost->lokasi }}</p>
+                                    <span class="text-gray-400 text-lg font-md">
+                                        <input name="fasilitas_kamar" type="text" hidden value="{{ $kost->fasilitas_kamar }}" disabled>
+                                    </span>
+                                    <div class="grid grid-cols-2 gap-2 mt-7">
+                                        <div class="rating ">
+                                            <span class="text-xl font-semibold">⭐⭐⭐⭐⭐/5</span>
+                                        </div>
+                                        <div class="range-harga text-end">
+                                            <p class="text-xl font-semibold">
+                                                <span>Rp.{{ number_format($kost->harga, 0, ',', '.') }}</span>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                    <a href="" class="bg-gray-200 rounded-xl p-4">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
-                            <div class="foto-tempat">
-                                <img src="{{ asset('foto/kontrakan.png') }}" alt=""
-                                    class="w-[500px] h-[250px] bg-cover rounded-xl">
-                            </div>
-                            <div class="deskripsi-tempat my-1 pe-4">
-                                <span class="bg-pink-500 rounded-full p-2 text-white font-md text-lg mt-4">Cewek</span>
-                                <h4 class="text-black font-semibold text-2xl mt-4">Kontrakan Los Santos</h4>
-                                <p class="text-gray-700 text-lg font-md">Blok KK15, Jl. Griya Permata Alam, Perun Gpa,
-                                    Ngijo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152</p>
-                                <span class="text-gray-400 text-lg font-md">Semua ada kecuali kakbah</span>
-                                <div class="grid grid-cols-2 gap-2 mt-7">
-                                    <div class="rating ">
-                                        <span class="text-xl font-semibold">⭐⭐⭐⭐⭐/5</span>
-                                    </div>
-                                    <div class="range-harga text-end">
-                                        <p class="text-xl font-semibold"><span>Rp. 300.000</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="" class="bg-gray-200 rounded-xl p-4">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
-                            <div class="foto-tempat">
-                                <img src="{{ asset('foto/kontrakan.png') }}" alt=""
-                                    class="w-[500px] h-[250px] bg-cover rounded-xl">
-                            </div>
-                            <div class="deskripsi-tempat my-1 pe-4">
-                                <span class="bg-violet-500 rounded-full p-2 text-white font-md text-lg mt-4">Campur</span>
-                                <h4 class="text-black font-semibold text-2xl mt-4">Kontrakan Los Santos</h4>
-                                <p class="text-gray-700 text-lg font-md">Blok KK15, Jl. Griya Permata Alam, Perun Gpa,
-                                    Ngijo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152</p>
-                                <span class="text-gray-400 text-lg font-md">Semua ada kecuali kakbah</span>
-                                <div class="grid grid-cols-2 gap-2 mt-7">
-                                    <div class="rating ">
-                                        <span class="text-xl font-semibold">⭐⭐⭐⭐⭐/5</span>
-                                    </div>
-                                    <div class="range-harga text-end">
-                                        <p class="text-xl font-semibold"><span>Rp. 300.000</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="" class="bg-gray-200 rounded-xl p-4">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
-                            <div class="foto-tempat">
-                                <img src="{{ asset('foto/kontrakan.png') }}" alt=""
-                                    class="w-[500px] h-[250px] bg-cover rounded-xl">
-                            </div>
-                            <div class="deskripsi-tempat my-1 pe-4">
-                                <span class="bg-violet-500 rounded-full p-2 text-white font-md text-lg mt-4">Campur</span>
-                                <h4 class="text-black font-semibold text-2xl mt-4">Kontrakan Los Santos</h4>
-                                <p class="text-gray-700 text-lg font-md">Blok KK15, Jl. Griya Permata Alam, Perun Gpa,
-                                    Ngijo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152</p>
-                                <span class="text-gray-400 text-lg font-md">Semua ada kecuali kakbah</span>
-                                <div class="grid grid-cols-2 gap-2 mt-7">
-                                    <div class="rating ">
-                                        <span class="text-xl font-semibold">⭐⭐⭐⭐⭐/5</span>
-                                    </div>
-                                    <div class="range-harga text-end">
-                                        <p class="text-xl font-semibold"><span>Rp. 300.000</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    @endforeach
                 </div>
-
             </div>
         </section>
     </div>
+
+    <script src="https://unpkg.com/@yaireo/tagify"></script>
+    <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+    <script>
+        var input = document.querySelector('input[name=fasilitas_kamar]');
+        var tagify = new Tagify(input);
+
+        tagify.on('change', function(e) {
+            var fasilitas_kamar = e.detail.fasilitas_kamar.reduce(function(acc, tag) {
+                acc.push(tag.value);
+                return acc;
+            }, []);
+        });
+    </script>
 @endsection

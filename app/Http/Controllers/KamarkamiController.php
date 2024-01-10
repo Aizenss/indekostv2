@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kos;
 use Illuminate\Http\Request;
 
 class KamarkamiController extends Controller
@@ -11,7 +12,8 @@ class KamarkamiController extends Controller
      */
     public function index()
     {
-        return view('user.kamarkami');
+        $kosts = Kos::all();
+        return view('user.kamarkami', compact('kosts'));
     }
 
     /**

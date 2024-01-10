@@ -53,8 +53,6 @@
                 acc.push(tag.value);
                 return acc;
             }, []);
-
-            console.log(fasilitas_kamar); // Output: ["bagag", "aglbalg"]
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>

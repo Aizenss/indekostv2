@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Psy\CodeCleaner\ReturnTypePass;
 
 class OwnerKosController extends Controller
@@ -11,7 +12,7 @@ class OwnerKosController extends Controller
 
     public function index()
     {
-        $kosts = Kos::all();
+        $kosts = Kos::with('user')->get();
         return view('owner.kos', compact('kosts'));
     }
 
@@ -68,6 +69,7 @@ class OwnerKosController extends Controller
         }
 
         $result = Kos::create([
+            'owner_id' => Auth::user()->id,
             'nama_kost' => $request->nama_kost,
             'ketentuan' => $request->ketentuan,
             'lokasi' => $request->lokasi,
@@ -170,6 +172,7 @@ class OwnerKosController extends Controller
 
 
         $kos->update([
+            'owner_id' => Auth::user()->id,
             'nama_kost' => $request->nama_kost,
             'ketentuan' => $request->ketentuan,
             'lokasi' => $request->lokasi,
