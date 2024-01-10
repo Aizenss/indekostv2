@@ -43,12 +43,8 @@ Route::get('/transaksiowner', function () {
 
 Route::get('/admin-kelolaowner', [KelolaOwnerController::class, 'index'])->name('kelola-admin');
 Route::get('/admin-kelolaowner/{owner}', [KelolaOwnerController::class, 'show'])->name('kelolaowner.show');
-
-// Add this route to handle the delete action
 Route::get('/admin-kelolaowner/{owner}/delete', [KelolaOwnerController::class, 'delete'])->name('kelolaowner.delete');
-
 require __DIR__ . '/auth.php';
-// Route::get('/dashboard',[DashboardController::class, 'dashboard']);
 Route::get('/admin-dashboardadmin', [DashboardController::class, 'dashboard'])->name('dashboard-admin');
 
 

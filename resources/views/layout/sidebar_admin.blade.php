@@ -1,79 +1,97 @@
-<button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar"
-    type="button"
-    class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
-    <span class="sr-only">Open sidebar</span>
-    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path clip-rule="evenodd" fill-rule="evenodd"
-            d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
-        </path>
-    </svg>
-</button>
+<nav class="py-2 px-3 md:hidden bg-[#D2E3C8]">
+    <ul class="flex justify-between items-center">
+        <li>
+            <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar"
+                aria-controls="default-sidebar" type="button"
+                class="inline-flex items-center p-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-[#739072] duration-300 focus:outline-none focus:ring-2 focus:ring-gray-200">
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" fill-rule="evenodd"
+                        d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                    </path>
+                </svg>
+            </button>
+        </li>
+        <li>
+            <div class="inline-flex rounded-md shadow-sm" role="group">
+                <button type="button"
+                    class="px-2 py-1 text-sm font-medium text-gray-900 bg-white border border-[#739072] rounded-s-lg hover:bg-[#739072] hover:text-white duration-300">
+                    Login
+                </button>
+                <button type="button"
+                    class="px-2 py-1 text-sm font-medium text-gray-900 bg-white border border-[#739072] rounded-e-lg hover:bg-[#739072] hover:text-white duration-300">
+                    Daftar
+                </button>
+            </div>
+        </li>
+    </ul>
+</nav>
 
 <aside id="default-sidebar"
     class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
     aria-label="Sidebar">
-    <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50">
+    <div class="h-full px-3 py-4 overflow-y-auto bg-[#D2E3C8]">
         <ul class="space-y-2 font-medium">
             <li>
-                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
+                <div class="flex justify-center">
+                    <img src="{{ asset('foto/inilogo.png') }}" alt="" width="150">
+                </div>
+            </li>
+
+            <li>
+                <a href="/admin-dashboardadmin"
+                    class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('/admin-dashboardadmin') ? 'bg-[#739072] text-white' : 'bg-gray-200' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                         <path
-                            d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
+                            d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
                         <path
-                            d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+                            d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
                     </svg>
                     <span class="ms-3">Dashboard</span>
                 </a>
             </li>
-            <li>
-                <a href="/kelolaowner" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                        <path
-                            d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Kelola Owner</span>
-                    <span
-                        class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full">Pro</span>
-                </a>
-            </li>
-            <li>
-                <a href="/approvaladmin" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                            d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Approval</span>
-                    <span
-                        class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full">3</span>
-                </a>
-            </li>
-            <li>
-                @auth
-                <a href="/transaksiowner" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
-                        <path
-                            d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Transaksi</span>
-                </a>
-            </li>
-            <li>
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <a :href="route('logout')" class="flex items-center p-2 text-gray-900 rounded-lg"
-                        onclick="event.preventDefault(); this.closest('form').submit();">
-                        <i class="fa-solid fa-right-from-bracket fa-lg ms-0.5" style="color: #000000;"></i>
-                        <span class="ms-3">Log Out</span>
+            @auth
+                <li>
+                    <a href="/approvaladmin"
+                        class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('/approvaladmin') ? 'bg-lime-700 text-white' : 'bg-gray-200' }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" class="w-6 h-6 d="M20 16v-6h2v6a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2h8v2H8v12zm-9.09-8.92L14 10.17l6.59-6.59L22 5l-8 8l-4.5-4.5zM16 20v2H4a2 2 0 0 1-2-2V7h2v13z"/></svg>
+                        <span class="ms-3">Approval Kos</span>
                     </a>
-                </form>
-            @endauth
-        </li>
+                </li>
+                <li>
+                    <a href="/admin-kelolaowner"
+                        class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('/admin-kelolaowner') ? 'bg-lime-700 text-white' : 'bg-gray-200' }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd"
+                                d="M3 6a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3V6ZM3 15.75a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-2.25Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3v-2.25Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="ms-3">Kelola Owner</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/transaksiowner"
+                        class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('/transaksiowner') ? 'bg-lime-700 text-white' : 'bg-gray-200' }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd"
+                                d="M3 6a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3V6ZM3 15.75a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-2.25Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3v-2.25Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="ms-3">Transaksi</span>
+                    </a>
+                </li>
+                    <li>
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a :href="route('logout')" class="flex items-center p-2 text-gray-900 rounded-lg"
+                                onclick="event.preventDefault(); this.closest('form').submit();">
+                                <i class="fa-solid fa-right-from-bracket fa-lg ms-0.5" style="color: #000000;"></i>
+                                <span class="ms-3">Log Out</span>
+                            </a>
+                        </form>
+                    @endauth
+                </li>
         </ul>
     </div>
 </aside>
-
