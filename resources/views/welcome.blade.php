@@ -4,10 +4,24 @@
 
 @section('isi')
 <div class="sm:ml-64 ">
+    <section class="section-hero bg-[#E8F1E3] pt-20">
+        <div class="mx-[15px] md:mx-[140px] grid grid-cols-1  md:grid-cols-2 gap-4 items-center">
+            <div class="textt">
+                <h1 class="text-4xl font-semibold text-[#537256]">Selamat Datang</h1>
+                <h2 class="text-4xl font-semibold text-black">Di Website In De Kost</h2>
+                <p class="mb-2">Indekost adalah platform pencarian kost terkemuka yang didedikasikan untuk menyediakan solusi terbaik bagi para pencari tempat tinggal. Menyediakan informasi yang akurat, foto-foto berkualitas, dan fitur pencarian yang canggih.</p>
+                <a href="" class="bg-[#86A789] py-1 px-3 rounded-xl">Mulai<i class="fa-solid fa-arrow-right text-black ms-2"></i></a>
+            </div>
+            <div class="gambar-wellcome">
+                <img src="{{ asset('foto/hero-section.png') }}" alt="">
+            </div>
+        </div>
+    </section>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#E8F1E3" fill-opacity="1" d="M0,128L17.1,160C34.3,192,69,256,103,250.7C137.1,245,171,171,206,165.3C240,160,274,224,309,224C342.9,224,377,160,411,138.7C445.7,117,480,139,514,138.7C548.6,139,583,117,617,117.3C651.4,117,686,139,720,128C754.3,117,789,75,823,96C857.1,117,891,203,926,234.7C960,267,994,245,1029,213.3C1062.9,181,1097,139,1131,112C1165.7,85,1200,75,1234,80C1268.6,85,1303,107,1337,117.3C1371.4,128,1406,128,1423,128L1440,128L1440,0L1422.9,0C1405.7,0,1371,0,1337,0C1302.9,0,1269,0,1234,0C1200,0,1166,0,1131,0C1097.1,0,1063,0,1029,0C994.3,0,960,0,926,0C891.4,0,857,0,823,0C788.6,0,754,0,720,0C685.7,0,651,0,617,0C582.9,0,549,0,514,0C480,0,446,0,411,0C377.1,0,343,0,309,0C274.3,0,240,0,206,0C171.4,0,137,0,103,0C68.6,0,34,0,17,0L0,0Z"></path></svg>
         <section class="corausel bg-lime-700 p-4">
             <div id="default-carousel" class="relative w-full" data-carousel="slide">
                 <!-- Carousel wrapper -->
-                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                <div class="relative h-[300px] overflow-hidden rounded-lg md:h-[500px]">
                     <!-- Item 1 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
                         <img src="{{ asset('foto/header1.jpeg') }}"
@@ -80,7 +94,7 @@
             </div>
         </section>
         <section class="kamarkami bg-lime-700 p-8">
-            <h1 class="font-semibold text-2xl text-gray-900 text-white text-center mt-3">Kamar Tersedia</h1>
+            <h1 class="font-semibold text-2xl text-white text-center mt-3">Kamar Tersedia</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-8">
                 <a href="">
                     <div class="max-w-sm bg-white rounded-lg shadow-xl">
