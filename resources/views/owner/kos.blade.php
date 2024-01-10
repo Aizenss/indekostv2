@@ -18,11 +18,12 @@
 </style>
 
 @section('owner')
-    <div
-        class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow">
         <h1 class="text-xl">List Kos Saya</h1>
-        <div
-            class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <div class="flex justify-end my-3">
+            <a href="{{ route('owner.kos.create') }}" class="bg-green-500 px-4 rounded-md py-1 text-white">+</a>
+        </div>
+        <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow">
             <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -48,44 +49,40 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white dark:bg-gray-800 items-center">
-                            <th scope="row"
-                                class="px-6 py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
-                                1
-                            </th>
-                            <td class="px-6 py-4 text-xs">
-                                Kontrakan Kuning 
-                            </td>
-                            <td class="px-6 py-4 text-xs ellipsis">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, distinctio neque. Sit,
-                                consequatur! Doloremque exercitationem fugit illum. Quasi nihil nemo pariatur rem ab ea
-                                porro enim, est, minus harum ex.
-                            </td>
-                            <td class="px-6 py-4 text-xs ellipsis">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos minus hic vero ullam. Quam
-                                labore quidem explicabo molestias libero repudiandae ducimus fuga totam commodi atque id,
-                                molestiae expedita doloribus voluptate.
-                            </td>
-                            <td class="px-6 py-4 text-xs ellipsis">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate accusantium vero
-                                corporis distinctio, dicta placeat optio eveniet quos explicabo porro quisquam eum delectus
-                                magni in aspernatur rem quia dolores nihil.
-                            </td>
-                            <td class="px-6 py-4 text-xs flex items-center gap-3">
-                                <form action="#" method="post" class="my-auto">
-                                    @method('patch')
-                                    <button type="submit" class="text-blue-600 self-center">show</button>
-                                </form>
-                                <form action="#" method="post" class="my-auto">
-                                    @method('patch')
-                                    <button type="submit" class="text-yellow-500 self-center">edit</button>
-                                </form>
-                                <form action="#" method="post" class="my-auto">
-                                    @method('patch')
-                                    <button type="submit" class="text-red-600 self-center">delete</button>
-                                </form>
-                            </td>
-                        </tr>
+                        @foreach ($kosts as $kost)
+                            <tr class="bg-white dark:bg-gray-800 items-center">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{$loop->iteration}}
+                                </th>
+                                <td class="px-6 py-4 text-xs">
+                                    {{$kost->nama_kost}}
+                                </td>
+                                <td class="px-6 py-4 text-xs ellipsis">
+                                    {{$kost->ketentuan}}
+                                </td>
+                                <td class="px-6 py-4 text-xs ellipsis">
+                                    {{$kost->lokasi}}
+                                </td>
+                                <td class="px-6 py-4 text-xs ellipsis">
+                                    Rp.{{number_format($kost->harga, 0, ',', '.')}}
+                                </td>
+                                <td class="px-6 py-4 text-xs flex items-center gap-3">
+                                    <form action="#" method="post" class="my-auto">
+                                        @method('patch')
+                                        <button type="submit" class="text-blue-500 self-center">show</button>
+                                    </form>
+                                    <form action="#" method="post" class="my-auto">
+                                        @method('patch')
+                                        <button type="submit" class="text-yellow-500 self-center">edit</button>
+                                    </form>
+                                    <form action="#" method="post" class="my-auto">
+                                        @method('patch')
+                                        <button type="submit" class="text-red-500 self-center">delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

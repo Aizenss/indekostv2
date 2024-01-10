@@ -50,7 +50,13 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 Route::middleware(['auth', 'role:owner'])->group(function () {
     Route::get('/dashboard/owner', [OwnerController::class, 'index'])->name('owner.dashboard');
     Route::get('/approval/owner', [ApprovalOwnerController::class, 'index'])->name('owner.approval');
-    Route::get('/kos/owner', [OwnerKosController::class, 'index'])->name('owner.kos');
+
+    Route::prefix('kos')->group(function () {
+        Route::get('owner', [OwnerKosController::class, 'index'])->name('owner.kos');
+        Route::get('owner/create', [OwnerKosController::class, 'tambah'])->name('owner.kos.create');
+        Route::post('owner/create/proses', [OwnerKosController::class, 'tambahProses'])->name('owner.kos.create.proses');
+    });
+
 });
 
 require __DIR__ . '/auth.php';
