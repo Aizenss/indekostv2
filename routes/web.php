@@ -6,6 +6,7 @@ use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\OwnerKosController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DetailKostController;
+use App\Http\Controllers\KelolaOwnerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,9 +39,13 @@ Route::get('/approvaladmin', function () {
 Route::get('/transaksiowner', function () {
     return view('admin.transaksiowner');
 });
-Route::get('/kelolaowner', function () {
-    return view('admin.kelolaowner');
-});
+
+Route::get('/admin-kelolaowner', [KelolaOwnerController::class, 'index'])->name('kelola-admin');
+Route::get('/admin-kelolaowner/{owner}', [KelolaOwnerController::class, 'show'])->name('kelolaowner.show');
+
+// Add this route to handle the delete action
+Route::get('/admin-kelolaowner/{owner}/delete', [KelolaOwnerController::class, 'delete'])->name('kelolaowner.delete');
+
 
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/kamarkami', [KamarkamiController::class, 'index'])->name('user.kamarkami');
