@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DetailKostController;
 use App\Http\Controllers\KelolaOwnerController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,7 @@ Route::get('/transaksiowner', function () {
     return view('admin.transaksiowner');
 });
 
+<<<<<<< Updated upstream
 Route::get('/admin-kelolaowner', [KelolaOwnerController::class, 'index'])->name('kelola-admin');
 Route::get('/admin-kelolaowner/{owner}', [KelolaOwnerController::class, 'show'])->name('kelolaowner.show');
 
@@ -65,3 +67,6 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+=======
+Route::get('/dashboard',[DashboardController::class, 'dashboard']);
+>>>>>>> Stashed changes
