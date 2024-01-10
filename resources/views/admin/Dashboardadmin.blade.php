@@ -4,6 +4,8 @@
 
 @section('isi')
 <div class="sm:ml-64">
+
+
     <div class="max-w-full bg-white rounded-lg shadow p-4 md:p-6">
         <div class="flex justify-between pb-4 mb-4 border-b border-gray-200">
                 <div class="flex items-center">
@@ -17,8 +19,8 @@
                         </svg>
                     </div>
                     <div>
-                        <h5 class="leading-none text-2xl font-bold text-gray-900 dark:text-white pb-1">3.4k</h5>
-                        <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Leads generated per week</p>
+                        <h5 class="leading-none text-2xl font-bold text-gray-900 -1">3.4k</h5>
+                        <p class="text-sm font-normal text-gray-500 ">Leads generated per week</p>
                     </div>
                 </div>
                 <div>
@@ -62,8 +64,8 @@
                     </button>
                     <!-- Dropdown menu -->
                     <div id="lastDaysdropdown"
-                        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+                        <ul class="py-2 text-sm text-gray-700 " aria-labelledby="dropdownDefaultButton">
                             <li>
                                 <a href="#" class="block px-4 py-2 hover:bg-gray-100 ">Yesterday</a>
                             </li>
@@ -265,7 +267,7 @@
                     show: true,
                     style: {
                         fontFamily: "Inter, sans-serif",
-                        cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+                        cssClass: 'text-xs font-normal fill-gray-500 '
                     }
                 },
                 axisBorder: {

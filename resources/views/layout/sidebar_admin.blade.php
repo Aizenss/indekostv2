@@ -51,6 +51,7 @@
                 </a>
             </li>
             <li>
+                @auth
                 <a href="/transaksiowner" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
@@ -61,18 +62,17 @@
                 </a>
             </li>
             <li>
-                @auth
-                    <!-- Authentication -->
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <a :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                            {{ __('Log Out') }}
-                        </a>
-                    </form>
-                @endauth
-            </li>
+                <!-- Authentication -->
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a :href="route('logout')" class="flex items-center p-2 text-gray-900 rounded-lg"
+                        onclick="event.preventDefault(); this.closest('form').submit();">
+                        <i class="fa-solid fa-right-from-bracket fa-lg ms-0.5" style="color: #000000;"></i>
+                        <span class="ms-3">Log Out</span>
+                    </a>
+                </form>
+            @endauth
+        </li>
         </ul>
     </div>
 </aside>

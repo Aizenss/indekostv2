@@ -85,18 +85,18 @@
                             <span class="ms-3">Kamar Kami</span>
                         </a>
                     </li>
-                    <li>
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <a :href="route('logout')" class="flex items-center p-2 text-gray-900 rounded-lg"
-                                onclick="event.preventDefault(); this.closest('form').submit();">
-                                <i class="fa-solid fa-right-from-bracket fa-lg ms-0.5" style="color: #000000;"></i>
-                                <span class="ms-3">Log Out</span>
-                            </a>
-                        </form>
-                    @endauth
-                </li>
+                        <li>
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a :href="route('logout')" class="flex items-center p-2 text-gray-900 rounded-lg"
+                                    onclick="event.preventDefault(); this.closest('form').submit();">
+                                    <i class="fa-solid fa-right-from-bracket fa-lg ms-0.5" style="color: #000000;"></i>
+                                    <span class="ms-3">Log Out</span>
+                                </a>
+                            </form>
+                        @endauth
+                    </li>
             </ul>
         </div>
     </aside>
