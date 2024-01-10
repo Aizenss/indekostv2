@@ -19,8 +19,10 @@ return new class extends Migration
             $table->string('spesifikasi');
             $table->integer('harga');
             $table->json('fasilitas_kamar');
+            $table->string('peraturan');
             $table->string('fasilitas_kamar_mandi');
             $table->string('fasilitas_tempat_parkir');
+            $table->string('status')->default('pending');
             $table->string('foto_depan');
             $table->string('foto_dalam');
             $table->json('foto_tambahan')->nullable();

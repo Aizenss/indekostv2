@@ -15,6 +15,7 @@ class Kos extends Model
         'ketentuan',
         'lokasi',
         'spesifikasi',
+        'peraturan',
         'harga',
         'fasilitas_kamar',
         'fasilitas_kamar_mandi',

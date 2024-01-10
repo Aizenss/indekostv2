@@ -62,6 +62,9 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
         Route::get('owner', [OwnerKosController::class, 'index'])->name('owner.kos');
         Route::get('owner/create', [OwnerKosController::class, 'tambah'])->name('owner.kos.create');
         Route::post('owner/create/proses', [OwnerKosController::class, 'tambahProses'])->name('owner.kos.create.proses');
+        Route::get('owner/edit/{id}', [OwnerKosController::class, 'ubah'])->name('owner.kos.edit');
+        Route::put('owner/edit/proses/{id}', [OwnerKosController::class, 'ubahProses'])->name('owner.kos.edit.proses');
+        Route::delete('owner/hapus/{id}', [OwnerKosController::class, 'hapus'])->name('owner.kos.hapus');
     });
 
 });

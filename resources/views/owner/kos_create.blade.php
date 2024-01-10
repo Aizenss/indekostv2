@@ -16,7 +16,7 @@
                     <div>
                         <label for="nama_kost" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
                             Kost</label>
-                        <input type="text" id="nama_kost" name="nama_kost"
+                        <input type="text" id="nama_kost" name="nama_kost" value="{{ old('nama_kost') }}"
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Cth: Arumba 2 Gpa">
                         @error('nama_kost')
@@ -26,9 +26,12 @@
                     <div>
                         <label for="ketentuan"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ketentuan</label>
-                        <input type="text" id="ketentuan" name="ketentuan"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Cth: Perempuan">
+                            <select id="ketentuan" name="ketentuan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected disabled>Pilih kententuan kos</option>
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                            <option value="Campur">Campur</option>
+                        </select>
                         @error('ketentuan')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -36,7 +39,7 @@
                     <div>
                         <label for="lokasi"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">lokasi</label>
-                        <input type="text" id="lokasi" name="lokasi"
+                        <input type="text" id="lokasi" name="lokasi" value="{{ old('lokasi') }}"
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Cth: Jl. Griya Permata Alam Ngijo, KarangPloso">
                         @error('lokasi')
@@ -46,7 +49,7 @@
                     <div>
                         <label for="peraturan"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">peraturan</label>
-                        <input type="text" id="peraturan" name="peraturan"
+                        <input type="text" id="peraturan" name="peraturan" value="{{ old('peratuan') }}"
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Cth: Tidak boleh merokok, tidak boleh begadang">
                         @error('peraturan')
@@ -56,7 +59,7 @@
                     <div>
                         <label for="spesifikasi"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">spesifikasi</label>
-                        <input type="text" id="spesifikasi" name="spesifikasi"
+                        <input type="text" id="spesifikasi" name="spesifikasi" value="{{ old('spesifikasi') }}"
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Cth: Luas rumah 80 meter, luas kamar 5 meter">
                         @error('spesifikasi')
@@ -66,7 +69,7 @@
                     <div>
                         <label for="harga"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">harga</label>
-                        <input type="number" id="harga" name="harga"
+                        <input type="number" id="harga" name="harga" value="{{ old('harga') }}"
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="1.000.000">
                         @error('harga')
@@ -77,7 +80,7 @@
                 <div class="">
                     <div class="">
                         <label for="fasilitas_kamar" class="block mb-2 text-sm text-gray-600">fasilitas kamar</label>
-                        <input type="text"
+                        <input type="text" value="{{ old('fasilitas_kamar') }}"
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             name="fasilitas_kamar" value="" placeholder="Cth : Kasur"/>
                         @error('fasilitas_kamar')
@@ -90,7 +93,7 @@
                             mandi</label>
                         <input type="text" id="fasilitas_kamar_mandi" name="fasilitas_kamar_mandi"
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Cth : 4 Kamar mandi bawah dan 2 Kamar mandi atas">
+                            placeholder="Cth : 4 Kamar mandi bawah dan 2 Kamar mandi atas" value="{{ old('fasilitas_kamar_mandi') }}">
                         @error('fasilitas_kamar_mandi')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -99,7 +102,7 @@
                         <label for="fasilitas_tempat_parkir"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">fasilitas tempat
                             parkir</label>
-                        <input type="text" id="fasilitas_tempat_parkir" name="fasilitas_tempat_parkir"
+                        <input type="text" id="fasilitas_tempat_parkir" name="fasilitas_tempat_parkir" value="{{ old('fasilitas_tempat_parkir') }}"
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Cth : Tempat parkir dengan ukuran 180 meter: 20 meter">
                         @error('fasilitas_tempat_parkir')
@@ -109,7 +112,7 @@
                     <div>
                         <label for="foto_depan"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">foto_depan</label>
-                        <input type="file" id="foto_depan" name="foto_depan"
+                        <input type="file" id="foto_depan" name="foto_depan" value="{{ old('foto_depan') }}"
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="nama kost">
                         @error('foto_depan')
@@ -119,7 +122,7 @@
                     <div>
                         <label for="foto_dalam" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">foto
                             dalam</label>
-                        <input type="file" id="foto_dalam" name="foto_dalam"
+                        <input type="file" id="foto_dalam" name="foto_dalam" value="{{ old('foto_dalam') }}"
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="nama kost">
                         @error('foto_dalam')
