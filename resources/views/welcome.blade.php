@@ -3,17 +3,17 @@
 @extends('layout.sidebar_user')
 
 @section('isi')
-    <div class="sm:ml-64 ">
+    <div class="sm:ml-64 mb-20">
         <section class="section-hero bg-[#E8F1E3] pt-20">
             <div class="mx-[15px] md:mx-[140px] grid grid-cols-1  md:grid-cols-2 gap-4 items-center">
                 <div class="textt">
                     <h1 class="text-4xl font-semibold text-[#537256]">Selamat Datang</h1>
-                    <h2 class="text-4xl font-semibold text-black">Di Website In De Kost</h2>
-                    <p class="mb-2">Indekost adalah platform pencarian kost terkemuka yang didedikasikan untuk menyediakan
+                    <h2 class="text-4xl font-semibold text-black mt-3">Di Website In De Kost</h2>
+                    <p class="mb-4 mt-3">Indekost adalah platform pencarian kost terkemuka yang didedikasikan untuk menyediakan
                         solusi terbaik bagi para pencari tempat tinggal. Menyediakan informasi yang akurat, foto-foto
                         berkualitas, dan fitur pencarian yang canggih.</p>
-                    <a href="" class="bg-[#86A789] py-1 px-3 rounded-xl">Mulai<i
-                            class="fa-solid fa-arrow-right text-black ms-2"></i></a>
+                    <a href="" class="bg-[#86A789] py-1 px-3 rounded-xl text-white">Mulai<i
+                            class="fa-solid fa-arrow-right text-white ms-2"></i></a>
                 </div>
                 <div class="gambar-wellcome">
                     <img src="{{ asset('ilustrasi/hero-section.png') }}" alt="">
@@ -30,7 +30,7 @@
                 <div class="grid grid-cols-2 gap-5 items-center">
                     <div class="apa-itu">
                         <h1 class="text-2xl text-[#537256] font-semibold">Apa Itu In De Kost?</h1>
-                        <p class="text-[#252525] text-base font-medium">In De Kost adalah solusi canggih dari para
+                        <p class="text-[#252525] text-base font-medium mt-3">In De Kost adalah solusi canggih dari para
                             pengembang untuk memudahkan pencarian tempat kost, dengan menawarkan layanan pengecekan
                             ekstensif terhadap setiap properti yang terdaftar. Kami berkomitmen untuk memastikan bahwa
                             setiap kost yang terdaftar dijamin aman, nyaman, dan layak huni</p>
@@ -45,19 +45,19 @@
                     </div>
                     <div class="yang-didapatkan">
                         <h1 class="text-2xl text-[#537256] font-semibold">Apa Keuntungan Memakai In De Kost?</h1>
-                        <p class="text-[#252525] text-base font-medium">Raih Pengalaman Hunian yang Luar Biasa dengan In De
+                        <p class="text-[#252525] text-base font-medium mt-3">Raih Pengalaman Hunian yang Luar Biasa dengan In De
                             Kost! Berikut Keuntungan Yang Didapat</p>
                     </div>
                 </div>
             </div>
-            <div class="px-[15px] md:px-[140px] py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-top bg-[#E8F1E3]">
+            <div class="px-[15px] md:px-[140px] py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-top bg-[#E8F1E3] text-center">
                 <div class="keuntungan-1">
                     <div class="fapa-itu">
                         <img src="{{ asset('ilustrasi/waktu.png') }}" alt="" class="w-[300px]">
                     </div>
                     <div class="yang-didapatkan">
                         <h1 class="text-2xl text-[#537256] font-semibold">Menghemat waktu Dalam Mencari Kost</h1>
-                        <p class="text-[#252525] text-base font-medium">Dengan In De Kost, hematkan waktu dan temukan
+                        <p class="text-[#252525] text-base font-medium mt-3">Dengan In De Kost, hematkan waktu dan temukan
                             kost impianmu tanpa repot. Pilihan kost terbaik menanti, membebaskanmu untuk fokus pada
                             momen-momen berharga. Nikmati hidup dengan lebih banyak kebebasan bersama In De Kost!</p>
                     </div>
@@ -68,7 +68,7 @@
                     </div>
                     <div class="yang-didapatkan">
                         <h1 class="text-2xl text-[#537256] font-semibold">Keamanan dalam bayar berbayar</h1>
-                        <p class="text-[#252525] text-base font-medium">Keamanan pembayaran Anda adalah prioritas utama
+                        <p class="text-[#252525] text-base font-medium mt-3">Keamanan pembayaran Anda adalah prioritas utama
                             kami. Sistem pembayaran In De Kost diawasi secara cermat oleh tim admin terpercaya,
                             memberikan jaminan keamanan tak tertandingi.</p>
                     </div>
@@ -78,81 +78,133 @@
                         <img src="{{ asset('ilustrasi/enjoy.png') }}" alt="" class="w-[300px]">
                     </div>
                     <div class="yang-didapatkan">
-                        <h1 class="text-2xl text-[#537256] font-semibold">Kost yang terdaftar dipastikan aman dan nyaman</h1>
-                        <p class="text-[#252525] text-base font-medium">Kami mengutamakan keamanan dan kenyamanan di setiap tempat kost yang terdaftar. Dengan fasilitas terjaga dan lingkungan yang aman, In De Kost memberikan rasa nyaman sejak langkah pertama Anda</p>
+                        <h1 class="text-2xl text-[#537256] font-semibold">Kost dipastikan aman dan nyaman</h1>
+                        <p class="text-[#252525] text-base font-medium mt-3">Kami mengutamakan keamanan dan kenyamanan di setiap tempat kost yang terdaftar. Dengan fasilitas terjaga dan lingkungan yang aman, In De Kost memberikan rasa nyaman sejak langkah pertama Anda</p>
                     </div>
                 </div>
             </div>
         </section>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#E8F1E3" fill-opacity="1" d="M0,160L8,170.7C16,181,32,203,48,224C64,245,80,267,96,256C112,245,128,203,144,202.7C160,203,176,245,192,234.7C208,224,224,160,240,160C256,160,272,224,288,229.3C304,235,320,181,336,154.7C352,128,368,128,384,138.7C400,149,416,171,432,160C448,149,464,107,480,106.7C496,107,512,149,528,186.7C544,224,560,256,576,261.3C592,267,608,245,624,208C640,171,656,117,672,96C688,75,704,85,720,128C736,171,752,245,768,282.7C784,320,800,320,816,288C832,256,848,192,864,160C880,128,896,128,912,149.3C928,171,944,213,960,229.3C976,245,992,235,1008,229.3C1024,224,1040,224,1056,202.7C1072,181,1088,139,1104,112C1120,85,1136,75,1152,90.7C1168,107,1184,149,1200,181.3C1216,213,1232,235,1248,250.7C1264,267,1280,277,1296,250.7C1312,224,1328,160,1344,154.7C1360,149,1376,203,1392,202.7C1408,203,1424,149,1432,122.7L1440,96L1440,0L1432,0C1424,0,1408,0,1392,0C1376,0,1360,0,1344,0C1328,0,1312,0,1296,0C1280,0,1264,0,1248,0C1232,0,1216,0,1200,0C1184,0,1168,0,1152,0C1136,0,1120,0,1104,0C1088,0,1072,0,1056,0C1040,0,1024,0,1008,0C992,0,976,0,960,0C944,0,928,0,912,0C896,0,880,0,864,0C848,0,832,0,816,0C800,0,784,0,768,0C752,0,736,0,720,0C704,0,688,0,672,0C656,0,640,0,624,0C608,0,592,0,576,0C560,0,544,0,528,0C512,0,496,0,480,0C464,0,448,0,432,0C416,0,400,0,384,0C368,0,352,0,336,0C320,0,304,0,288,0C272,0,256,0,240,0C224,0,208,0,192,0C176,0,160,0,144,0C128,0,112,0,96,0C80,0,64,0,48,0C32,0,16,0,8,0L0,0Z"></path></svg>
-        <section class="kamarkami p-8">
-            <h1 class="font-semibold text-2xl text-black text-center mt-3">Kamar Tersedia</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-8">
-                <a href="">
-                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
-                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
-                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
-                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
-                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
-                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
-                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
-                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
-                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
-                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
-                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
-                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
-                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
-                        </div>
-                    </div>
-                </a>
+        <section class="kamarkami px-[8px] lg:px-[140px] py-8 ">
+            <div class="flex justify-between items-center">
+                <div class="judul">
+                    <h1 class="font-semibold text-2xl text-black text-center mt-3">Kost Tersedia</h1>
+                </div>
+                <div class="text-center">
+                    <a href="{{ route('user.kamarkami') }}"
+                        class="bg-[#86A789] text-white font-medium text-lg rounded-lg sm:text-sm p-2 shadow-lg hover:bg-[#4F6F52] hover:shadow-2xl hover:shadow-[#4F6F52] duration-300">Lihat
+                        Selengkapnya</a>
+                </div>
             </div>
-            <div class="text-center">
-                <a href="{{ route('user.kamarkami') }}"
-                    class="bg-[#86A789] text-white font-medium text-lg rounded-lg sm:text-sm p-4 shadow-lg hover:bg-[#4F6F52] duration-300">Lihat
-                    Selengkapnya</a>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8 mb-10">
+                <a href="" class="shadow-lg hover:shadow-2xl hover:shadow-[#4F6F52] duration-300 rounded-xl">
+                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
+                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
+                        <div class="p-5">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
+                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
+                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
+                            <div class="flex justify-between items-center">
+                                <div class="ratingnya font-semibold text-md text-black">
+                                    ⭐⭐⭐⭐⭐/5
+                                </div>
+                                <div class="tombol-lihat">
+                                    <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="shadow-lg hover:shadow-2xl hover:shadow-[#4F6F52] duration-300 rounded-xl">
+                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
+                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
+                        <div class="p-5">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
+                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
+                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
+                            <div class="flex justify-between items-center">
+                                <div class="ratingnya font-semibold text-md text-black">
+                                    ⭐⭐⭐⭐⭐/5
+                                </div>
+                                <div class="tombol-lihat">
+                                    <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="shadow-lg hover:shadow-2xl hover:shadow-[#4F6F52] duration-300 rounded-xl">
+                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
+                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
+                        <div class="p-5">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
+                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
+                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
+                            <div class="flex justify-between items-center">
+                                <div class="ratingnya font-semibold text-md text-black">
+                                    ⭐⭐⭐⭐⭐/5
+                                </div>
+                                <div class="tombol-lihat">
+                                    <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="shadow-lg hover:shadow-2xl hover:shadow-[#4F6F52] duration-300 rounded-xl">
+                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
+                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
+                        <div class="p-5">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
+                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
+                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
+                            <div class="flex justify-between items-center">
+                                <div class="ratingnya font-semibold text-md text-black">
+                                    ⭐⭐⭐⭐⭐/5
+                                </div>
+                                <div class="tombol-lihat">
+                                    <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="shadow-lg hover:shadow-2xl hover:shadow-[#4F6F52] duration-300 rounded-xl">
+                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
+                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
+                        <div class="p-5">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
+                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
+                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
+                            <div class="flex justify-between items-center">
+                                <div class="ratingnya font-semibold text-md text-black">
+                                    ⭐⭐⭐⭐⭐/5
+                                </div>
+                                <div class="tombol-lihat">
+                                    <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="shadow-lg hover:shadow-2xl hover:shadow-[#4F6F52] duration-300 rounded-xl">
+                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
+                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
+                        <div class="p-5">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
+                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
+                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
+                            <div class="flex justify-between items-center">
+                                <div class="ratingnya font-semibold text-md text-black">
+                                    ⭐⭐⭐⭐⭐/5
+                                </div>
+                                <div class="tombol-lihat">
+                                    <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </section>
     </div>

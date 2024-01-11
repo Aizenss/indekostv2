@@ -19,9 +19,17 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
+    public function flowas(): View
+    {
+        return view('auth.flowas');
+    }
+    public function index(): View
+    {
+        return view('auth.register-user');
+    }
     public function create(): View
     {
-        return view('auth.register');
+        return view('auth.register-owner');
     }
 
     /**

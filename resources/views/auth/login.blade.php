@@ -23,7 +23,7 @@
                 </div>
                 <button type="submit" class="w-full text-white bg-[#4F6F52] hover:bg-[#000] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center shadow-md transition-colors duration-300 ease-in-out ">Masuk</button>
                 <div class="text-sm font-medium text-gray-700">
-                    Belum register? <a href="{{ url('/register') }}" class="text-blue-700 hover:underline ">Buat Akun</a>
+                    Belum register? <a href="{{ url('/flowas') }}" class="text-white hover:underline ">Buat Akun</a>
                 </div>
             </form>
         </div>

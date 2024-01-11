@@ -53,7 +53,7 @@
                                 </a>
                             </div>
                             <div class="login">
-                                <a href="/register"
+                                <a href="/flowas"
                                     class="flex items-center py-2 text-gray-900 rounded-lg hover:bg-[#739072] duration-300 hover:text-white border border-[#739072]">
                                     <span class="ms-3"><i class="fa-solid fa-user-plus fa-md me-1"></i>Register</span>
                                 </a>
