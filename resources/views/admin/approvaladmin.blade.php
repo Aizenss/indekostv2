@@ -28,6 +28,9 @@
                             Alamat
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Status
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Aksi
                         </th>
                     </tr>
@@ -54,6 +57,9 @@
                             </td>
                             <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                                 {{ $kost->lokasi }}
+                            </td>
+                            <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                {{ $kost->status }}
                             </td>
                             <td class="px-6 py-4">
                                 <a href="#">
