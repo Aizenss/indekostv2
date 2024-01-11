@@ -5,6 +5,7 @@
 @section('isi')
 <div class="sm:ml-64">
 <h1 class="mb-4 mt-4 ml-4  text-3xl font-black text-gray-900 dark:text-white">Kelola Owner</h1>
+<br>
 </div>
 <div class="sm:ml-64 grid grid-cols-3 gap-4">
 <div class=" ml-6 bg-gray-200 p-4 text-center w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -24,4 +25,3 @@
 </div>
 <br><br><br>
 @endsection
-Hari ini kelompok kami melakukan presentasi di depan dan mendapatkan banyak sekali revisi, setelah selesai presentasi kami langsung memperbaiki revisi yang telah di berikan

@@ -10,8 +10,8 @@ use App\Http\Controllers\DetailKostController;
 use App\Http\Controllers\KelolaAdminController;
 use App\Http\Controllers\TransaksiAdminController;
 use App\Http\Controllers\KelolaOwnerController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KamarOwnerController;
 use App\Models\Kamarkami;
 use App\Http\Controllers\UlasanController;
@@ -46,6 +46,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin-kelolaowner', [KelolaOwnerController::class, 'index'])->name('kelola-admin');
     Route::get('/admin-kelolaowner/{owner}', [KelolaOwnerController::class, 'show'])->name('kelolaowner.show');
     Route::get('/admin-kelolaowner/{owner}/delete', [KelolaOwnerController::class, 'delete'])->name('kelolaowner.delete');
+    Route::get('/dashboard/admin', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {

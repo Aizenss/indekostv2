@@ -4,9 +4,11 @@
 
 @section('isi')
 <div class="sm:ml-64 mt-8 ml-2 justify-center">
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <h1 class="mb-4 mt-4 ml-4  text-3xl font-black text-gray-900 dark:text-white">Transaksi</h1>
+<br>
+    <div class="ml-8 mr-8 relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-right text-white">
-            <thead class="text-xs text-white uppercase bg-lime-700 ">
+            <thead class="text-xs text-white uppercase bg-[#4F6F52] ">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         No
