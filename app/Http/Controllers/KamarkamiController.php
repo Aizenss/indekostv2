@@ -10,11 +10,40 @@ class KamarkamiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $kosts = Kos::all();
-        return view('user.kamarkami', compact('kosts'));
+        $keyword = $request->input('cari');
+        $ketentuan = $request->jenis_kost;
+        $harga = $request->harga;
+        $rating = $request->rating;
+
+        $kost = Kos::where('status', 'disetujui')
+            ->when($ketentuan == 'Laki-laki', function ($query) use ($request) {
+                $query->where('ketentuan',  'Laki-laki');
+            })
+            ->when($ketentuan == 'Perempuan', function ($query) use ($request) {
+                $query->where('ketentuan',  'Perempuan');
+            })
+            ->when($ketentuan == 'Campur', function ($query) use ($request) {
+                $query->where('ketentuan',  'Campur');
+            })
+            ->when($harga == 'asc', function ($query) use ($request) {
+                $query->orderBy('harga');
+            })
+            ->when($harga == 'desc', function ($query) use ($request) {
+                $query->orderByDesc('harga');
+            })
+            ->when($keyword, function ($query) use ($keyword) {
+                $query->where('nama_kost', 'like', '%' . $keyword . '%');
+            })
+            ->when($rating == '5', function ($query) {
+                $query->whereHas('ulasan', function ($subQuery) {
+                    $subQuery->where('rating', 5);
+            });
+            })->paginate(5);
+        return view('user.kamarkami', compact('kost', 'keyword', 'harga', 'ketentuan', 'rating'));
     }
+
 
     /**
      * Show the form for creating a new resource.

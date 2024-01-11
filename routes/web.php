@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KamarOwnerController;
 use App\Models\Kamarkami;
+use App\Http\Controllers\UlasanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/kamarkami', [KamarkamiController::class, 'index'])->name('user.kamarkami');
     Route::get('/detail-kost/{kos}', [DetailKostController::class, 'index'])->name('user.detailkost');
+    Route::post('/buat/ulasan', [UlasanController::class, 'buat'])->name('ratting.buat');
 });
 
 Route::middleware(['auth', 'role:owner'])->group(function () {

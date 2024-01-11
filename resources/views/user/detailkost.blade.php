@@ -89,7 +89,9 @@
                             }
                         </style>
 
-                        <form action="">
+                        <form action="{{ route('ratting.buat') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="kos_id" value="{{ $kos->id }}">
                             <div class="rating mb-3">
                                 <input type="number" name="rating" hidden>
                                 <i class="far fa-star fa-lg"></i>
@@ -98,7 +100,7 @@
                                 <i class="far fa-star fa-lg"></i>
                                 <i class="far fa-star fa-lg"></i>
                             </div>
-                            <textarea name="Ulasan" class="rounded-lg" id="" cols="50" rows="2"
+                            <textarea name="ulasan" class="rounded-lg" id="" cols="50" rows="2"
                                 placeholder="Tulis Ulasan Anda Mengenai Kost Ini"></textarea><br>
                             <button type="submit" class="bg-green-600 text-white py-1 px-3 rounded-lg my-3">Kirim</button>
                         </form>
