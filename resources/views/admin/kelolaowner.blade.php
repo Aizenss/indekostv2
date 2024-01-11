@@ -7,7 +7,7 @@
 <h1 class="mb-4 mt-4 ml-4  text-3xl font-black text-gray-900 dark:text-white">Kelola Owner</h1>
 </div>
 <div class="sm:ml-64 grid grid-cols-3 gap-4">
-<div class="bg-gray-200 p-4 text-center w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class=" ml-6 bg-gray-200 p-4 text-center w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     @foreach($owners as $owner)
     <div class="flex flex-col items-center pb-10">
         <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ asset('asset/images/default/default.png') }}" alt="Bonnie image"/>
@@ -24,3 +24,4 @@
 </div>
 <br><br><br>
 @endsection
+Hari ini kelompok kami melakukan presentasi di depan dan mendapatkan banyak sekali revisi, setelah selesai presentasi kami langsung memperbaiki revisi yang telah di berikan
