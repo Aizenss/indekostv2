@@ -29,8 +29,10 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ketentuan</label>
                         <select id="ketentuan" name="ketentuan"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option value="Laki-Laki" {{ $kos->ketentuan === 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
-                            <option value="Perempuan" {{ $kos->ketentuan === 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                            <option value="Laki-Laki" {{ $kos->ketentuan === 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki
+                            </option>
+                            <option value="Perempuan" {{ $kos->ketentuan === 'Perempuan' ? 'selected' : '' }}>Perempuan
+                            </option>
                             <option value="Campur" {{ $kos->ketentuan === 'Campur' ? 'selected' : '' }}>Campur</option>
                         </select>
                         @error('ketentuan')
@@ -74,6 +76,20 @@
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="1.000.000">
                         @error('harga')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div>
+                        <label for="night"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">price/</label>
+                        <select id="night" name="night"
+                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected disabled>pilih bulan</option>
+                            <option value="1" {{$kos->night === '1' ? 'selected' : ''}}>1 bulan</option>
+                            <option value="6" {{$kos->night === '6' ? 'selected' : ''}}>6 bulan</option>
+                            <option value="12" {{$kos->night === '12' ? 'selected' : ''}}>12 bulan</option>
+                        </select>
+                        @error('night')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>

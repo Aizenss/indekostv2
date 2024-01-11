@@ -19,9 +19,11 @@ class Kos extends Model
         'spesifikasi',
         'peraturan',
         'harga',
+        'night',
         'fasilitas_kamar',
         'fasilitas_kamar_mandi',
         'fasilitas_tempat_parkir',
+        'status',
         'foto_depan',
         'foto_dalam',
         'foto_tambahan'

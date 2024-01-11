@@ -6,7 +6,7 @@
 @endsection
 
 @section('owner')
-    <h1 class="text-xl my-5">Persetujuan Pembayaran</h1>
+    <h1 class="text-xl my-5">Create data kos</h1>
 
     <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow">
         <form action="{{ route('owner.kos.create.proses') }}" method="post" enctype="multipart/form-data">
@@ -26,7 +26,8 @@
                     <div>
                         <label for="ketentuan"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ketentuan</label>
-                            <select id="ketentuan" name="ketentuan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <select id="ketentuan" name="ketentuan"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected disabled>Pilih kententuan kos</option>
                             <option value="Laki-Laki">Laki-Laki</option>
                             <option value="Perempuan">Perempuan</option>
@@ -76,13 +77,26 @@
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
+                    <div>
+                        <label for="night" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">price/</label>
+                        <select id="night" name="night"
+                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected disabled>pilih bulan</option>
+                            <option value="1">1 bulan</option>
+                            <option value="6">6 bulan</option>
+                            <option value="12">12 bulan</option>
+                        </select>
+                        @error('night')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
                 </div>
                 <div class="">
                     <div class="">
                         <label for="fasilitas_kamar" class="block mb-2 text-sm text-gray-600">fasilitas kamar</label>
                         <input type="text" value="{{ old('fasilitas_kamar') }}"
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            name="fasilitas_kamar" value="" placeholder="Cth : Kasur"/>
+                            name="fasilitas_kamar" value="" placeholder="Cth : Kasur" />
                         @error('fasilitas_kamar')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -93,7 +107,8 @@
                             mandi</label>
                         <input type="text" id="fasilitas_kamar_mandi" name="fasilitas_kamar_mandi"
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Cth : 4 Kamar mandi bawah dan 2 Kamar mandi atas" value="{{ old('fasilitas_kamar_mandi') }}">
+                            placeholder="Cth : 4 Kamar mandi bawah dan 2 Kamar mandi atas"
+                            value="{{ old('fasilitas_kamar_mandi') }}">
                         @error('fasilitas_kamar_mandi')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -102,7 +117,8 @@
                         <label for="fasilitas_tempat_parkir"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">fasilitas tempat
                             parkir</label>
-                        <input type="text" id="fasilitas_tempat_parkir" name="fasilitas_tempat_parkir" value="{{ old('fasilitas_tempat_parkir') }}"
+                        <input type="text" id="fasilitas_tempat_parkir" name="fasilitas_tempat_parkir"
+                            value="{{ old('fasilitas_tempat_parkir') }}"
                             class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Cth : Tempat parkir dengan ukuran 180 meter: 20 meter">
                         @error('fasilitas_tempat_parkir')
@@ -147,7 +163,7 @@
             </div>
             <button type="submit" class="bg-green-500 text-white px-3 py-1 rounded-md">tambah</button>
         </form>
-        <a href="{{route('owner.kos')}}">kembali</a>
+        <a href="{{ route('owner.kos') }}">kembali</a>
     </div>
 @endsection
 

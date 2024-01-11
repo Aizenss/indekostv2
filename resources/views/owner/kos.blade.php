@@ -44,6 +44,9 @@
                                 Harga
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                status
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Aksi
                             </th>
                         </tr>
@@ -51,24 +54,30 @@
                     <tbody>
                         @forelse ($kosts as $kost)
                             {{-- @if ($kost->status != 'pending') --}}
-                                <tr class="bg-white dark:bg-gray-800 items-center">
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
-                                        {{ $loop->iteration }}
-                                    </th>
-                                    <td class="px-6 py-4 text-xs">
-                                        {{ $kost->nama_kost }}
-                                    </td>
-                                    <td class="px-6 py-4 text-xs ellipsis">
-                                        {{ $kost->ketentuan }}
-                                    </td>
-                                    <td class="px-6 py-4 text-xs ellipsis">
-                                        {{ $kost->lokasi }}
-                                    </td>
-                                    <td class="px-6 py-4 text-xs ellipsis">
-                                        Rp.{{ number_format($kost->harga, 0, ',', '.') }}
-                                    </td>
-                                    <td class="px-6 py-4 text-xs flex items-center gap-3">
+                            <tr class="bg-white dark:bg-gray-800 items-center">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $loop->iteration }}
+                                </th>
+                                <td class="px-6 py-4 text-xs">
+                                    {{ $kost->nama_kost }}
+                                </td>
+                                <td class="px-6 py-4 text-xs ellipsis">
+                                    {{ $kost->ketentuan }}
+                                </td>
+                                <td class="px-6 py-4 text-xs ellipsis">
+                                    {{ $kost->lokasi }}
+                                </td>
+                                <td class="px-6 py-4 text-xs ellipsis">
+                                    Rp.{{ number_format($kost->harga, 0, ',', '.') }} / {{ $kost->night }} bulan
+                                </td>
+                                <td class="px-6 py-4 text-xs ellipsis">
+                                    {{ $kost->status }}
+                                </td>
+                                <td class="px-6 py-4 text-xs flex items-center gap-3">
+                                    @if ($kost->status == 'pending')
+                                        -
+                                    @else
                                         <button data-modal-target="show{{ $kost->id }}"
                                             data-modal-toggle="show{{ $kost->id }}" class="text-blue-500 self-center"
                                             type="button">
@@ -85,12 +94,35 @@
                                             @csrf
                                             <button type="submit" class="text-red-500 self-center">Delete</button>
                                         </form>
-
-                                    </td>
-                                </tr>
+                                    @endif
+                                </td>
+                            </tr>
                             {{-- @endif --}}
                         @empty
-                            data kosong
+                            <tr class="bg-white dark:bg-gray-800 items-center">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
+                                    -
+                                </th>
+                                <td class="px-6 py-4">
+                                    -
+                                </td>
+                                <td class="px-6 py-4">
+                                    -
+                                </td>
+                                <td class="px-6 py-4">
+                                    -
+                                </td>
+                                <td class="px-6 py-4">
+                                    -
+                                </td>
+                                <td class="px-6 py-4">
+                                    -
+                                </td>
+                                <td class="px-6 py-4">
+                                    -
+                                </td>
+                            </tr>
                         @endforelse
                     </tbody>
                 </table>

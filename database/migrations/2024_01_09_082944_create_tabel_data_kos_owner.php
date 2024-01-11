@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('lokasi');
             $table->string('spesifikasi');
             $table->integer('harga');
+            $table->enum('night',['1','6','12']);
             $table->json('fasilitas_kamar');
             $table->string('peraturan');
             $table->string('fasilitas_kamar_mandi');

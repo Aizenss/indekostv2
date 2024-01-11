@@ -40,20 +40,20 @@
                                 {{ $loop->iteration }}
                             </td>
                             <td class="p-4">
-                                <img src="{{ asset('kosts/'. $kost->foto_depan) }}" class="w-16 md:w-32 max-w-full max-h-full"
-                                    alt="Apple Watch">
+                                <img src="{{ asset('kosts/' . $kost->foto_depan) }}"
+                                    class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
                             </td>
                             <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                {{$kost->user->name}}
+                                {{ $kost->user->name }}
                             </td>
                             <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                {{$kost->nama_kost}}
+                                {{ $kost->nama_kost }}
                             </td>
                             <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                {{number_format($kost->harga, 0, ',', '.')}}
+                                {{ number_format($kost->harga, 0, ',', '.') }}
                             </td>
                             <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                {{$kost->lokasi}}
+                                {{ $kost->lokasi }}
                             </td>
                             <td class="px-6 py-4">
                                 <a href="#">
@@ -66,30 +66,34 @@
                                         </svg>
                                     </button>
                                 </a>
-                                <form action="{{route('admin.approvaladmin.setuju', $kost->id)}}" method="post">
-                                    @csrf
-                                    @method('patch')
-                                    <button type="submit"
-                                        class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                            viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                d="m9 20.42l-6.21-6.21l2.83-2.83L9 14.77l9.88-9.89l2.83 2.83z" />
-                                        </svg>
-                                    </button>
-                                </form>
-                                <form action="{{route('admin.approvaladmin.tolak', $kost->id)}}" method="POST">
-                                    @csrf
-                                    @method('patch')
-                                    <button type="submit"
-                                        class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                            viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12z" />
-                                        </svg>
-                                    </button>
-                                </form>
+                                @if ($kost->status == 'pending')
+                                    <form action="{{ route('admin.approvaladmin.setuju', $kost) }}" method="post">
+                                        @csrf
+                                        @method('patch')
+                                        {{-- <input type="text" name="status" value="setuju" hidden> --}}
+                                        <button type="submit"
+                                            class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="m9 20.42l-6.21-6.21l2.83-2.83L9 14.77l9.88-9.89l2.83 2.83z" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                    <form action="{{ route('admin.approvaladmin.tolak', $kost) }}" method="POST">
+                                        @csrf
+                                        @method('patch')
+                                        {{-- <input type="text" name="status" value="tolak" hidden> --}}
+                                        <button type="submit"
+                                            class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24">
+                                                <path fill="currentColor"
+                                                    d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12z" />
+                                            </svg>
+                                        </button>
+                                    </form>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

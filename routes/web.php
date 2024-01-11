@@ -12,6 +12,8 @@ use App\Http\Controllers\TransaksiAdminController;
 use App\Http\Controllers\KelolaOwnerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KamarOwnerController;
+use App\Models\Kamarkami;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +64,11 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
         Route::put('owner/edit/proses/{id}', [OwnerKosController::class, 'ubahProses'])->name('owner.kos.edit.proses');
         Route::delete('owner/hapus/{id}', [OwnerKosController::class, 'hapus'])->name('owner.kos.hapus');
     });
+
+    Route::get('/kamar/owner', [KamarOwnerController::class, 'index'])->name('owner.kamar');
+    Route::get('/kamar/owner/create/{kos}', [KamarOwnerController::class, 'tambah'])->name('owner.kamar.tambah');
+    Route::get('/kamar/owner/create/{kos}/detail', [KamarOwnerController::class, 'tambahKamar'])->name('owner.kamar.tambah.detail');
+    Route::post('/kamar/owner/create/{kos}/detail/proses', [KamarOwnerController::class, 'tambahKamarProses'])->name('owner.kamar.tambah.detail.proses');
 });
 
 require __DIR__ . '/auth.php';

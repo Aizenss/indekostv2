@@ -64,7 +64,15 @@
                 <a href="/kos/owner"
                     class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('kos/owner') ? 'bg-lime-700 text-white' : 'bg-gray-200' }}">
                     <img src="{{asset('icon/7088614_bit_byte_server_data_database_icon.png')}}" class="w-6 h-6" alt="">
-                    <span class="ms-3">Kos Saya</span>
+                    <span class="ms-3">Kost</span>
+                </a>
+            </li>
+            <li>
+            <li>
+                <a href="/kamar/owner"
+                    class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('kamar/owner') ? 'bg-lime-700 text-white' : 'bg-gray-200' }}">
+                    <img src="{{asset('icon/7088614_bit_byte_server_data_database_icon.png')}}" class="w-6 h-6" alt="">
+                    <span class="ms-3">Kamar</span>
                 </a>
             </li>
             <li>

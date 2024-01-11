@@ -14,16 +14,13 @@ class ApprovalAdminController extends Controller
     }
 
     public function setuju(Request $request, Kos $kos){
-        $kos->update([
-            'status' => 'setuju'
-        ]);
+        // dd($kos);
+        $kos->update(['status' => 'setuju',]);
         return redirect()->back();
     }
 
     public function tolak(Request $request, Kos $kos){
-        $kos->update([
-            'status' => 'tolak'
-        ]);
+        $kos->update(['status' => 'tolak',]);
         return redirect()->back();
     }
 }
