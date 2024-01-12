@@ -28,7 +28,7 @@ use App\Http\Controllers\UlasanController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.listkost');
 });
 
 Route::middleware('auth')->group(function () {
