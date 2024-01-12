@@ -39,10 +39,11 @@
                 </li>
                 <li>
                     @auth
-                        <a href="{{ route('profile.edit') }}" class="nama-user flex gap-3 items-center">
+                        <a href="{{ route('profile.edit') }}" class="nama-user flex gap-3 items-center hover:bg-[#739072] py-2 px-4 rounded-xl border border-[#739072] hover:text-white text-black duration-300 hover:shadow-lg">
                             <img src="{{ asset('foto/dummy.jpeg') }}" alt="" width="40"
-                                class="rounded-full ring-black ring-2 ring-offset-2">
-                            <span class="font-medium text-lg text-gray-800">Halo Wok</span>
+                                class="rounded-full border border-[#3d4c3c]">
+                            <span class="font-medium text-lg">Halo Wok</span>
+                            <i class="fa-solid fa-pen-to-square"></i>
                         </a>
                     @else
                         <div class="grid grid-cols-2 gap-1">
@@ -63,7 +64,7 @@
                 </li>
                 <li>
                     <a href="/"
-                        class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('/') ? 'bg-[#739072] text-white' : 'bg-gray-200' }}">
+                        class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('/') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                             <path
                                 d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
@@ -76,7 +77,7 @@
                 @auth
                     <li>
                         <a href="/kamarkami"
-                            class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('/kamarkami') ? 'bg-lime-700 text-white' : 'bg-gray-200' }}">
+                            class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('/kamarkami') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                                 <path fill-rule="evenodd"
                                     d="M3 6a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3V6ZM3 15.75a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-2.25Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3v-2.25Z"

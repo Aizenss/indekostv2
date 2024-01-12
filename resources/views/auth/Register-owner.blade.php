@@ -2,11 +2,11 @@
 @section('isi')
 <style>
     body{
-        background-color: #86A789;
+        background-color: #ffffff;
     }
 </style>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 py-16">
-        <div class="formnya">
+    <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
+        <div class="formnya bg-white">
             <div class="flex flex-col gap-3">
                 <form class="mx-auto bg-[#86A789] rounded-xl py-5 px-12 border border-white shadow-lg" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                     @csrf
@@ -15,7 +15,7 @@
                     <div class="mb-1">
                         <label class="block mb-2 text-sm font-medium text-white" for="user_avatar">Upload Foto</label>
                         <input
-                            class="block w-full text-sm text-gray-400 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none  @error('foto') border-red-500 @enderror"
+                            class="block w-full text-sm text-gray-400  rounded-lg cursor-pointer bg-gray-50  focus:outline-none  @error('foto') border-red-500 @enderror"
                             value="{{ old('foto') }}" aria-describedby="user_avatar_help" id="user_avatar" type="file"
                             name="foto">
                         @error('foto')
@@ -73,7 +73,8 @@
                 </form>
             </div>
         </div>
-        <div class="fotoo p-4 justify-center items-center">
+        <div class="fotoo flex justify-between items-center bg-[#87A789] pe-14">
+            <img src="{{ asset('ilustrasi/wave90.png') }}" alt="" class="max-h-screen">
             <img src="{{ asset('ilustrasi/signowner.png') }}" alt="" class="hidden md:w-[530px] md:h-[530px] md:block">
         </div>
     </div>
