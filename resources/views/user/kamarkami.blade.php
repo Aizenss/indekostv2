@@ -72,22 +72,22 @@
                                 </style>
                                 <div class="flex gap-5 my-3">
                                     <div class="flex items-center px-4 border border-gray-200 rounded-xl">
-                                        <input  id="bordered-radio-1" type="radio" value="Perempuan" name="jenis_kost"
-                                        {{ $ketentuan == 'Perempuan' ? 'checked' : '' }}
+                                        <input id="bordered-radio-1" type="radio" value="Perempuan" name="jenis_kost"
+                                            {{ $ketentuan == 'Perempuan' ? 'checked' : '' }}
                                             class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300">
                                         <label for="bordered-radio-1"
                                             class="w-full py-4 ms-2 text-sm font-medium text-gray-900">Perempuan</label>
                                     </div>
                                     <div class="flex items-center px-4 border border-gray-200 rounded-xl">
                                         <input id="bordered-radio-2" type="radio" value="Laki-laki" name="jenis_kost"
-                                        {{ $ketentuan == 'Laki-laki' ? 'checked' : '' }}
+                                            {{ $ketentuan == 'Laki-laki' ? 'checked' : '' }}
                                             class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300">
                                         <label for="bordered-radio-2"
                                             class="w-full py-4 ms-2 text-sm font-medium text-gray-900">Laki-laki</label>
                                     </div>
                                     <div class="flex items-center px-4 border border-gray-200 rounded-xl">
                                         <input id="bordered-radio-3" type="radio" value="Campur" name="jenis_kost"
-                                        {{ $ketentuan == 'Campur' ? 'checked' : '' }}
+                                            {{ $ketentuan == 'Campur' ? 'checked' : '' }}
                                             class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300">
                                         <label for="bordered-radio-3"
                                             class="w-full py-4 ms-2 text-sm font-medium text-gray-900">Campur</label>
@@ -97,14 +97,14 @@
                                 <div class="flex gap-5 my-3 items-center">
                                     <div class="flex items-center px-4 border border-gray-200 rounded-xl">
                                         <input id="bordered-radio-2" type="radio" value="asc" name="harga"
-                                        {{ $harga == 'asc' ? 'checked' : '' }}
+                                            {{ $harga == 'asc' ? 'checked' : '' }}
                                             class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300">
                                         <label for="bordered-radio-2"
                                             class="w-full py-4 ms-2 text-sm font-medium text-gray-900">Termurah</label>
                                     </div>
                                     <div class="flex items-center px-4 border border-gray-200 rounded-xl">
                                         <input id="bordered-radio-3" type="radio" value="desc" name="harga"
-                                        {{ $harga == 'desc' ? 'checked' : '' }}
+                                            {{ $harga == 'desc' ? 'checked' : '' }}
                                             class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300">
                                         <label for="bordered-radio-3"
                                             class="w-full py-4 ms-2 text-sm font-medium text-gray-900">Termahal</label>
@@ -114,7 +114,7 @@
                                 <div class="flex gap-5 my-3">
                                     <div class="flex items-center px-4 border border-gray-200 rounded-xl">
                                         <input id="bordered-radio-1" type="radio" value="5" name="rating"
-                                        {{ $rating == 'asc' ? 'checked' : '' }}
+                                            {{ $rating == 'asc' ? 'checked' : '' }}
                                             class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300">
                                         <label for="bordered-radio-1"
                                             class="w-full py-4 ms-2 text-sm font-medium text-gray-900">⭐⭐⭐⭐⭐</label>
@@ -132,14 +132,14 @@
                                             class="w-full py-4 ms-2 text-sm font-medium text-gray-900">⭐⭐⭐</label>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
-                                <button data-modal-hide="default-modal" type="submit"
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+                            <button data-modal-hide="default-modal" type="submit"
                                 class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-lime-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Filter</button>
-                                <button data-modal-hide="default-modal" type="reset"
+                            <button data-modal-hide="default-modal" type="reset"
                                 class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">Keluar</button>
-                            </div>
+                        </div>
                         </form>
                     </div>
                 </div>
@@ -149,28 +149,29 @@
             <div class="bg-gray-100 p-8 mx-6 my-5 rounded-lg">
                 <div class="grid grid-rows-4 gap-4">
                     @foreach ($kost as $item)
-                    <a href="{{ route('user.detailkost', ['kos' => $item->id]) }}" class="bg-gray-200 rounded-xl p-4">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
-                            <div class="foto-tempat">
-                                <img src="{{ asset('foto/kontrakan.png') }}" alt=""
-                                    class="w-[500px] h-[250px] bg-cover rounded-xl">
-                            </div>
-                            <div class="deskripsi-tempat my-1 pe-4">
-                                <span class="bg-blue-500 rounded-full p-2 text-white font-md text-lg mt-4">{{ $item->ketentuan }}</span>
-                                <h4 class="text-black font-semibold text-2xl mt-4">{{ $item->nama_kost }}</h4>
-                                <p class="text-gray-700 text-lg font-md">{{ $item->lokasi }}</p>
-                                <span class="text-gray-400 text-lg font-md">{{ $item->spesifikasi }}</span>
-                                <div class="grid grid-cols-2 gap-2 mt-7">
-                                    <div class="rating ">
-                                        <span class="text-xl font-semibold">⭐⭐⭐⭐⭐/5</span>
-                                    </div>
-                                    <div class="range-harga text-end">
-                                        <p class="text-xl font-semibold"><span>Rp. 300.000</span></p>
+                        <a href="{{ route('user.detailkost', ['kos' => $item->id]) }}" class="bg-gray-200 rounded-xl p-4">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                                <div class="foto-tempat">
+                                    <img src="{{ asset('foto/kontrakan.png') }}" alt=""
+                                        class="w-[500px] h-[250px] bg-cover rounded-xl">
+                                </div>
+                                <div class="deskripsi-tempat my-1 pe-4">
+                                    <span
+                                        class="bg-blue-500 rounded-full p-2 text-white font-md text-lg mt-4">{{ $item->ketentuan }}</span>
+                                    <h4 class="text-black font-semibold text-2xl mt-4">{{ $item->nama_kost }}</h4>
+                                    <p class="text-gray-700 text-lg font-md">{{ $item->lokasi }}</p>
+                                    <span class="text-gray-400 text-lg font-md">{{ $item->spesifikasi }}</span>
+                                    <div class="grid grid-cols-2 gap-2 mt-7">
+                                        <div class="rating ">
+                                            <span class="text-xl font-semibold">⭐⭐⭐⭐⭐/5</span>
+                                        </div>
+                                        <div class="range-harga text-end">
+                                            <p class="text-xl font-semibold"><span>Rp. 300.000</span></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
                     @endforeach
                 </div>
             </div>

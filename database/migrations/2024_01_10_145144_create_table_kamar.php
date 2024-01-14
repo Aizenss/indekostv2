@@ -14,10 +14,14 @@ return new class extends Migration
         Schema::create('kamar', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('kos_id');
+            $table->bigInteger('user_id')->nullable(true);
             $table->integer('nomor_kamar');
             $table->string('fasilitas');
             $table->string('kamar_mandi');
             $table->json('foto_kamar');
+            $table->string('status')->default('kosong');
+            $table->string('snap_token')->nullable(true);
+            $table->json('result')->nullable(true);
             $table->timestamps();
         });
     }

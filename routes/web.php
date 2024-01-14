@@ -1,20 +1,22 @@
 <?php
 
+use App\Models\Kamarkami;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\UlasanController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\TerminateCsrfToken;
+use App\Http\Controllers\OwnerKosController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KamarkamiController;
+use App\Http\Controllers\DetailKostController;
+use App\Http\Controllers\KamarOwnerController;
+use App\Http\Controllers\KelolaAdminController;
+use App\Http\Controllers\KelolaOwnerController;
 use App\Http\Controllers\ApprovalAdminController;
 use App\Http\Controllers\ApprovalOwnerController;
-use App\Http\Controllers\KamarkamiController;
-use App\Http\Controllers\OwnerController;
-use App\Http\Controllers\OwnerKosController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\DetailKostController;
-use App\Http\Controllers\KelolaAdminController;
 use App\Http\Controllers\TransaksiAdminController;
-use App\Http\Controllers\KelolaOwnerController;
-use App\Http\Controllers\DashboardController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\KamarOwnerController;
-use App\Models\Kamarkami;
-use App\Http\Controllers\UlasanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,13 +54,22 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/kamarkami', [KamarkamiController::class, 'index'])->name('user.kamarkami');
+
     Route::get('/detail-kost/{kos}', [DetailKostController::class, 'index'])->name('user.detailkost');
+    Route::post('/detail-kost/{kos}/payment{kamar}', [PaymentController::class, 'pay'])->name('user.detailkost.payment');
+
     Route::post('/buat/ulasan', [UlasanController::class, 'buat'])->name('ratting.buat');
+
+    Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
+    Route::post('/payment/proses-data/{kamar}', [PaymentController::class, 'proses'])->name('payment.proses');
+    Route::put('/payment/batalkan/{kamar}', [PaymentController::class, 'batal'])->name('payment.batal');
 });
 
 Route::middleware(['auth', 'role:owner'])->group(function () {
     Route::get('/dashboard/owner', [OwnerController::class, 'index'])->name('owner.dashboard');
     Route::get('/approval/owner', [ApprovalOwnerController::class, 'index'])->name('owner.approval');
+    Route::patch('/approval/owner/terima/{kamar}', [ApprovalOwnerController::class, 'terima'])->name('owner.approval.terima');
+    Route::patch('/approval/owner/tolak/{kamar}', [ApprovalOwnerController::class, 'tolak'])->name('owner.approval.tolak');
 
     Route::prefix('kos')->group(function () {
         Route::get('owner', [OwnerKosController::class, 'index'])->name('owner.kos');
@@ -74,5 +85,7 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
     Route::get('/kamar/owner/create/{kos}/detail', [KamarOwnerController::class, 'tambahKamar'])->name('owner.kamar.tambah.detail');
     Route::post('/kamar/owner/create/{kos}/detail/proses', [KamarOwnerController::class, 'tambahKamarProses'])->name('owner.kamar.tambah.detail.proses');
 });
+
+
 
 require __DIR__ . '/auth.php';

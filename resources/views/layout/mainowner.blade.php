@@ -33,6 +33,8 @@
     <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 
     <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>

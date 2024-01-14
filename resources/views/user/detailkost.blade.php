@@ -17,10 +17,13 @@
                                 alt="">
                         </div>
                         @if ($kos->foto_tambahan != null)
-                            @foreach ($kos->foto_tambahan as $item)
+                            @php
+                                $foto_tambahan = json_decode($kos->foto_tambahan, true);
+                            @endphp
+                            @foreach ($foto_tambahan as $fotos)
                                 <div>
-                                    <img class="h-auto max-w-full rounded-lg"
-                                        src="{{ asset('kosts/' . $kos->foto_tambahan) }}" alt="">
+                                    <img class="h-auto max-w-full rounded-lg" src="{{ asset('kosts/' . $fotos) }}"
+                                        alt="">
                                 </div>
                             @endforeach
                         @endif
@@ -58,7 +61,7 @@
                         <div class="infomasi ms-2 border-b py-2">
                             <h1 class="font-semibold text-xl text-black">Fasilitas Kamar Mandi</h1>
                             <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i> {{$kos->fasilitas_kamar_mandi}}</span>
+                                    style="color: #000000;"></i> {{ $kos->fasilitas_kamar_mandi }}</span>
                         </div>
                         <div class="infomasi ms-2 border-b py-2">
                             <h1 class="font-semibold text-xl text-black">Peraturan Khusus Kamar Ini</h1>
@@ -73,7 +76,7 @@
                         <div class="infomasi ms-2 border-b py-2">
                             <h1 class="font-semibold text-xl text-black">Fasilitas Parkir</h1>
                             <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i> {{$kos->fasilitas_tempat_parkir}}</span>
+                                    style="color: #000000;"></i> {{ $kos->fasilitas_tempat_parkir }}</span>
                         </div>
                     </div>
                     <div class="infomasi ms-2 border-b py-2">
@@ -197,6 +200,34 @@
                     </form>
                 </div>
             </div>
+        </div>
+
+
+
+        <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
+            @foreach ($kamars as $kamar)
+                {{ $kamar->nomor_kamar }}
+                {{ $kamar->fasilitas }}
+                {{ $kamar->kamar_mandi }}
+                @php
+                    $foto = json_decode($kamar->foto_kamar, true);
+                @endphp
+                @foreach ($foto as $f)
+                    <img src="{{ asset('kamar/' . $f) }}" alt="">
+                @endforeach
+
+                @if ($kamar->status == 'kosong' || $kamar->status == 'tolak')
+                    <form action="{{ route('user.detailkost.payment', ['kos' => $kos, 'kamar' => $kamar]) }}"
+                        method="post">
+                        @csrf
+                        <input type="text" name="nomor_kamar" value="{{ $kamar->nomor_kamar }}">
+                        <input type="text" name="harga" value="{{ $kamar->kos->harga }}">
+                        <button type="submit">sewa</button>
+                    </form>
+                @else
+                    kamar ini sedang dipesan
+                @endif
+            @endforeach
         </div>
     </div>
 

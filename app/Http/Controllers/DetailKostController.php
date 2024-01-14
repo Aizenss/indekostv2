@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kamar;
 use App\Models\Kos;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class DetailKostController extends Controller
      */
     public function index(Kos $kos)
     {
-        return view('user.detailkost', compact('kos'));
+        $kamars = Kamar::where('kos_id', $kos->id)->get();
+        return view('user.detailkost', compact('kos', 'kamars'));
     }
 
 }

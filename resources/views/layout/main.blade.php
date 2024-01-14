@@ -28,6 +28,8 @@
         }
     </style>
     {{-- Style Font --}}
+
+    <script type="text/javascript" src="https://app.stg.midtrans.com/snap/snap.js" data-client-key={{config('midtrans.serverKey')}}></script>
 </head>
 
 <body>

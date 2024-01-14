@@ -17,7 +17,7 @@ class KamarkamiController extends Controller
         $harga = $request->harga;
         $rating = $request->rating;
 
-        $kost = Kos::where('status', 'disetujui')
+        $kost = Kos::where('status', 'setuju')
             ->when($ketentuan == 'Laki-laki', function ($query) use ($request) {
                 $query->where('ketentuan',  'Laki-laki');
             })
