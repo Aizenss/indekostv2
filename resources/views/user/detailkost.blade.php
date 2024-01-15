@@ -3,233 +3,183 @@
 @extends('layout.sidebar_user')
 
 @section('isi')
-    <div class="sm:ml-64 p-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="galeri md:col-span-2">
-                <div class="grid gap-4">
-                    <div>
-                        <img class="h-auto max-w-full rounded-lg" src="{{ asset('kosts/' . $kos->foto_depan) }}"
-                            alt="">
-                    </div>
-                    <div class="grid grid-cols-5 gap-4">
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg" src="{{ asset('kosts/' . $kos->foto_dalam) }}"
-                                alt="">
-                        </div>
-                        @if ($kos->foto_tambahan != null)
-                            @php
-                                $foto_tambahan = json_decode($kos->foto_tambahan, true);
-                            @endphp
-                            @foreach ($foto_tambahan as $fotos)
-                                <div>
-                                    <img class="h-auto max-w-full rounded-lg" src="{{ asset('kosts/' . $fotos) }}"
-                                        alt="">
-                                </div>
-                            @endforeach
-                        @endif
-                    </div>
+    <div class="sm:ml-64 py-10 px-[140px]">
+        <section class="image">
+            <div class="grid grid-cols-4 gap-6">
+                <div class="col-span-3 row-span-3">
+                    <img src="{{ asset('foto/header1.jpeg') }}" alt="" class="w-full h-full">
                 </div>
-                {{-- Galeri --}}
-                <div class="informasi-lanjut px-2">
-                    <div class="grid grid-cols-3 gap-4 my-5">
-                        <div class="nama-kost col-span-2">
-                            <span class="font-semibold text-lg md:text-3xl mt-3 text-black">{{ $kos->nama_kost }}</span>
-                        </div>
-                        <div class="flex justify-center items-center">
-                            <span class="py-1 px-2 mt-1 bg-blue-500 text-white rounded-xl">{{ $kos->ketentuan }}</span>
-                        </div>
-                    </div>
-                    <div class="grid grid-rows-7 gap-3">
-                        <div class="infomasi ms-2 border-b py-2">
-                            <h1 class="font-semibold text-xl text-black">Kost Disewakan Oleh P. Andika</h1>
-                            <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i> {{ $kos->lokasi }}</span>
-                        </div>
-                        <div class="infomasi ms-2 border-b py-2">
-                            <h1 class="font-semibold text-xl text-black">Spesifikasi Kamar</h1>
-                            <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i> {{ $kos->spesifikasi }}</span>
-                        </div>
-                        <div class="infomasi ms-2 border-b py-2">
-                            <h1 class="font-semibold text-xl text-black">Fasilitas Kamar</h1>
-                            <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i>
-                                <input name="fasilitas_kamar" type="text" hidden value="{{ $kos->fasilitas_kamar }}"
-                                    disabled>
-                            </span>
-                        </div>
-                        <div class="infomasi ms-2 border-b py-2">
-                            <h1 class="font-semibold text-xl text-black">Fasilitas Kamar Mandi</h1>
-                            <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i> {{ $kos->fasilitas_kamar_mandi }}</span>
-                        </div>
-                        <div class="infomasi ms-2 border-b py-2">
-                            <h1 class="font-semibold text-xl text-black">Peraturan Khusus Kamar Ini</h1>
-                            <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i> </span>
-                        </div>
-                        <div class="infomasi ms-2 border-b py-2">
-                            <h1 class="font-semibold text-xl text-black">Fasilitas Umum</h1>
-                            <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i> </span>
-                        </div>
-                        <div class="infomasi ms-2 border-b py-2">
-                            <h1 class="font-semibold text-xl text-black">Fasilitas Parkir</h1>
-                            <span class="font-medium text-lg text-black"><i class="fa-solid fa-map-location-dot fa-lg"
-                                    style="color: #000000;"></i> {{ $kos->fasilitas_tempat_parkir }}</span>
-                        </div>
-                    </div>
-                    <div class="infomasi ms-2 border-b py-2">
-                        <h1 class="font-semibold text-xl text-black">Ulasan Terhadap Kost</h1>
-                        <style>
-                            .rating .fa-star {
-                                color: rgb(218, 218, 4);
-                                cursor: pointer;
-                            }
-
-                            .fa-star:hover {
-                                transform: scale(1.1);
-                            }
-                        </style>
-
-                        <form action="{{ route('ratting.buat') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="kos_id" value="{{ $kos->id }}">
-                            <div class="rating mb-3">
-                                <input type="number" name="rating" hidden>
-                                <i class="far fa-star fa-lg"></i>
-                                <i class="far fa-star fa-lg"></i>
-                                <i class="far fa-star fa-lg"></i>
-                                <i class="far fa-star fa-lg"></i>
-                                <i class="far fa-star fa-lg"></i>
-                            </div>
-                            <textarea name="ulasan" class="rounded-lg" id="" cols="50" rows="2"
-                                placeholder="Tulis Ulasan Anda Mengenai Kost Ini"></textarea><br>
-                            <button type="submit" class="bg-green-600 text-white py-1 px-3 rounded-lg my-3">Kirim</button>
-                        </form>
-
-                        <script>
-                            const allstr = document.querySelectorAll('.rating .fa-star');
-                            const ratingInput = document.querySelector('.rating input[name="rating"]');
-
-                            allstr.forEach((item, idx) => {
-                                item.addEventListener('click', function() {
-                                    for (let i = 0; i < allstr.length; i++) {
-                                        if (i <= idx) {
-                                            allstr[i].classList.replace('far', 'fas');
-                                        } else {
-                                            allstr[i].classList.replace('fas', 'far');
-                                        }
-                                    }
-                                    ratingInput.value = idx + 1;
-                                });
-                            });
-                        </script>
+                <div>
+                    <img src="{{ asset('foto/header1.jpeg') }}" alt="">
+                </div>
+                <div>
+                    <img src="{{ asset('foto/header1.jpeg') }}" alt="">
+                </div>
+                <div>
+                    <img src="{{ asset('foto/header1.jpeg') }}" alt="">
+                </div>
+            </div>
+        </section>
+        <section class="informan my-5">
+            <div class="flex justify-between items-center mx-3">
+                <div class="judul">
+                    <h1 class="text-2xl text-gray-900 font-semibold">Nama Kost</h1>
+                </div>
+                <div class="owner flex">
+                    <span class="text-gray-900 text-base font-medium me-1">Dikelola Oleh NamaOwner</span>
+                    <img src="{{ asset('foto/dummy.jpeg') }}" alt="" class="w-7 h-7 rounded-full">
+                </div>
+            </div>
+            <hr>
+            <div class="flex flex-col gap-2 my-3 mx-3">
+                <div class="judul text-xl text-gray-900 font-semibold ">
+                    Peraturan Kost
+                </div>
+                <div class="informasi">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, ut. Dolorem omnis nihil incidunt,
+                    vero maiores possimus sunt repellat fugit.
+                </div>
+            </div>
+            <hr>
+            <div class="flex flex-col gap-2 my-3 mx-3">
+                <div class="judul text-xl text-gray-900 font-semibold ">
+                    Fasilitas Kost
+                </div>
+                <div class="grid grid-cols-4 gap-2">
+                    <div class="fasilitas text-gray-700">
+                        <i class="fa-solid fa-check me-2"></i><span class="font-medium text-base">Dapur Bersama</span>
                     </div>
                 </div>
             </div>
-            <div class="formbayar">
-                <div class="bg-gray-100 p-3 rounded-xl">
-                    <span class="text-center text-xl font-medium text-black my-3">Informasi</span>
-                    <hr>
-                    <div class="informasi grid grid-cols-2 gap-2 my-4">
-                        <div class="judul">
-                            <ul class="">
-                                <li>Nama Kost</li>
-                                <li>Nama Pemilik</li>
-                                <li>Harga</li>
-                            </ul>
-                        </div>
-                        <div class="isi">
-                            <ul class="">
-                                <li>: Los Santos</li>
-                                <li>: P. Andika</li>
-                                <li>: Rp. 300.000</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <hr>
-                    <span class="text-center text-xl font-medium text-black my-3">Pengajuan Sewa</span>
-                    <form action="">
-                        <div class="pengajuan grid md:grid-cols-2 gap-2 my-4">
-                            <div>
-                                <label for="tanggal" class="block mb-2 text-sm font-medium text-gray-900">Tanggal
-                                    Awal</label>
-                                <input type="date" id="tanggal"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                            </div>
-                            <div>
-                                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Pilih
-                                    Paket</label>
-                                <select
-                                    id="select-bulan"class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                    <option selected disabled>Paket</option>
-                                    </option>
-                                    <option value="1">1 Bulan</option>
-                                    <option value="6">6 Bulan</option>
-                                    </option>
-                                    <option value="12">1 Tahun</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="informasiv2">
-                            <div class="flex gap-3 flex-col">
-                                <div class="infoharga">
-                                    <ul class="flex">
-                                        <li>Jumlah Harga</li>
-                                        <li>: Rp. 300.000</li>
-                                    </ul>
-                                </div>
-                                <div class="biayaadmin">
-                                    <ul class="flex">
-                                        <li class="">Biaya Admin(5%)</li>
-                                        <li>: Rp. 15.000</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <hr class="my-3">
-                            <div class="total">
-                                <ul class="flex">
-                                    <li class="">Total</li>
-                                    <li>: Rp. 315.000</li>
-                                </ul>
-                            </div>
-                            <button type="submit"
-                                class="mt-3 bg-gray-300 w-full p-3 border border-black rounded-xl hover:bg-gray-400 duration-300">Ajukan</button>
-                        </div>
-                    </form>
+            <hr>
+            <div class="flex flex-col gap-2 my-3 mx-3">
+                <div class="judul text-xl text-gray-900 font-semibold ">
+                    Lokasi Kost
+                </div>
+                <div class="informasi">
+                    jl.giok blok kk no.15 perum griya permata alam, ngijo,karangploso,malang,jawatimur,789836262
                 </div>
             </div>
-        </div>
-
-
-
-        <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
-            @foreach ($kamars as $kamar)
-                {{ $kamar->nomor_kamar }}
-                {{ $kamar->fasilitas }}
-                {{ $kamar->kamar_mandi }}
-                @php
-                    $foto = json_decode($kamar->foto_kamar, true);
-                @endphp
-                @foreach ($foto as $f)
-                    <img src="{{ asset('kamar/' . $f) }}" alt="">
-                @endforeach
-
-                @if ($kamar->status == 'kosong' || $kamar->status == 'tolak')
-                    <form action="{{ route('user.detailkost.payment', ['kos' => $kos, 'kamar' => $kamar]) }}"
-                        method="post">
-                        @csrf
-                        <input type="text" name="nomor_kamar" value="{{ $kamar->nomor_kamar }}">
-                        <input type="text" name="harga" value="{{ $kamar->kos->harga }}">
-                        <button type="submit">sewa</button>
-                    </form>
-                @else
-                    kamar ini sedang dipesan
-                @endif
-            @endforeach
-        </div>
-    </div>
-
+            <hr class="mb-3">
+            <span class="text-xl text-gray-900 font-semibold mx-3">
+                Kamar Yang Tersedia
+            </span>
+            <div class="grid grid-cols-3 gap-3 my-3 mx-3">
+                <div class="max-w-sm bg-gray-200 border border-gray-200 rounded-lg shadow ">
+                    <img class="rounded-t-lg" src="{{ asset('foto/header2.jpeg') }}" alt="" />
+                    <div class="p-5">
+                        <div class="flex justify-between items-center">
+                            <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">Nama Kamar</h5>
+                            <h5 class=" text-base font-semibold tracking-tight text-gray-900"><i class="fa-solid fa-users me-1"></i>2 Orang</h5>
+                        </div>
+                        <span class="text-lg font-semibold text-gray-900">Fasilitas</span>
+                        <div class="grid grid-cols-2 gap-2">
+                            <span class="text-base font-medium text-gray-900"><i class="fa-solid fa-check me-1"></i>Kasur</span>
+                        </div>
+                        <span class="text-lg font-semibold text-gray-900 text-balance">Peraturan Kamar</span>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, tempore!</p>
+                        <div class="flex justify-between mt-3">
+                            <a href="" class="border border-[#4F6F52] py-1 px-3 rounded-lg text-gray-900">Info</a>
+                            <a href="" class="bg-[#4F6F52] py-1 px-3 rounded-lg text-white">Ajukan Sewa</a>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="max-w-sm bg-gray-200 border border-gray-200 rounded-lg shadow ">
+                    <img class="rounded-t-lg" src="{{ asset('foto/header2.jpeg') }}" alt="" />
+                    <div class="p-5">
+                        <div class="flex justify-between items-center">
+                            <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">Nama Kamar</h5>
+                            <h5 class=" text-base font-semibold tracking-tight text-gray-900"><i class="fa-solid fa-users me-1"></i>2 Orang</h5>
+                        </div>
+                        <span class="text-lg font-semibold text-gray-900">Fasilitas</span>
+                        <div class="grid grid-cols-2 gap-2">
+                            <span class="text-base font-medium text-gray-900"><i class="fa-solid fa-check me-1"></i>Kasur</span>
+                        </div>
+                        <span class="text-lg font-semibold text-gray-900 text-balance">Peraturan Kamar</span>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, tempore!</p>
+                        <div class="flex justify-between mt-3">
+                            <a href="" class="border border-[#4F6F52] py-1 px-3 rounded-lg text-gray-900">Info</a>
+                            <a href="" class="bg-[#4F6F52] py-1 px-3 rounded-lg text-white">Ajukan Sewa</a>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="max-w-sm bg-gray-200 border border-gray-200 rounded-lg shadow ">
+                    <img class="rounded-t-lg" src="{{ asset('foto/header2.jpeg') }}" alt="" />
+                    <div class="p-5">
+                        <div class="flex justify-between items-center">
+                            <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">Nama Kamar</h5>
+                            <h5 class=" text-base font-semibold tracking-tight text-gray-900"><i class="fa-solid fa-users me-1"></i>2 Orang</h5>
+                        </div>
+                        <span class="text-lg font-semibold text-gray-900">Fasilitas</span>
+                        <div class="grid grid-cols-2 gap-2">
+                            <span class="text-base font-medium text-gray-900"><i class="fa-solid fa-check me-1"></i>Kasur</span>
+                        </div>
+                        <span class="text-lg font-semibold text-gray-900 text-balance">Peraturan Kamar</span>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, tempore!</p>
+                        <div class="flex justify-between mt-3">
+                            <a href="" class="border border-[#4F6F52] py-1 px-3 rounded-lg text-gray-900">Info</a>
+                            <a href="" class="bg-[#4F6F52] py-1 px-3 rounded-lg text-white">Ajukan Sewa</a>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            paginate
+            <hr>
+            <div class="mt-3">
+                <span class="font-semibold text-lg">Review</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="font-bold text-[80px] ">4.5⭐</span>
+                <span class="text-base font-medium">Dari 400 User</span>
+            </div>
+            <div class="flex flex-col gap-5">
+                <div class="bg-gray-50 py-3 px-5 rounded-lg border border-gray-900">
+                    <div class="flex gap-4">
+                        <div class="profile">
+                            <img src="{{ asset('foto/dummy.jpeg') }}" alt="" width="250" class="rounded-full">
+                        </div>
+                        <div class="Informasinya">
+                            <h1 class="text-2xl font-semibold text-gray-900">Username</h1>
+                            <div class="flex">
+                                <span>⭐⭐⭐⭐</span>
+                                <span class="ms-3">15-Januari-2024</span>
+                            </div>
+                            <p class="text-balance">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nihil voluptates ipsa repellat ullam? Odio voluptatibus, rerum possimus assumenda dolor suscipit fugiat, maxime accusantium necessitatibus tempore quia deleniti! Delectus dolore similique reiciendis sed maiores quis minus accusamus iste, quaerat aliquid, saepe quae, quam possimus quasi quo. Ipsum distinctio eaque consectetur.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 py-3 px-5 rounded-lg border border-gray-900">
+                    <div class="flex gap-4">
+                        <div class="profile">
+                            <img src="{{ asset('foto/dummy.jpeg') }}" alt="" width="250" class="rounded-full">
+                        </div>
+                        <div class="Informasinya">
+                            <h1 class="text-2xl font-semibold text-gray-900">Username</h1>
+                            <div class="flex">
+                                <span>⭐⭐⭐⭐</span>
+                                <span class="ms-3">15-Januari-2024</span>
+                            </div>
+                            <p class="text-balance">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nihil voluptates ipsa repellat ullam? Odio voluptatibus, rerum possimus assumenda dolor suscipit fugiat, maxime accusantium necessitatibus tempore quia deleniti! Delectus dolore similique reiciendis sed maiores quis minus accusamus iste, quaerat aliquid, saepe quae, quam possimus quasi quo. Ipsum distinctio eaque consectetur.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 py-3 px-5 rounded-lg border border-gray-900">
+                    <div class="flex gap-4">
+                        <div class="profile">
+                            <img src="{{ asset('foto/dummy.jpeg') }}" alt="" width="250" class="rounded-full">
+                        </div>
+                        <div class="Informasinya">
+                            <h1 class="text-2xl font-semibold text-gray-900">Username</h1>
+                            <div class="flex">
+                                <span>⭐⭐⭐⭐</span>
+                                <span class="ms-3">15-Januari-2024</span>
+                            </div>
+                            <p class="text-balance">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nihil voluptates ipsa repellat ullam? Odio voluptatibus, rerum possimus assumenda dolor suscipit fugiat, maxime accusantium necessitatibus tempore quia deleniti! Delectus dolore similique reiciendis sed maiores quis minus accusamus iste, quaerat aliquid, saepe quae, quam possimus quasi quo. Ipsum distinctio eaque consectetur.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
     </div>
 @endsection
