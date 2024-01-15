@@ -33,14 +33,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth', 'verified')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 });
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::middleware(['auth', 'role:admin', 'verified'])->group(function () {
     Route::get('/approvaladmin', [ApprovalAdminController::class, 'index'])->name('admin.approvaladmin');
     Route::patch('/approvaladmin/setuju/{kos}', [ApprovalAdminController::class, 'setuju'])->name('admin.approvaladmin.setuju');
     Route::patch('/approvaladmin/tolak/{kos}', [ApprovalAdminController::class, 'tolak'])->name('admin.approvaladmin.tolak');
@@ -53,7 +53,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 });
 
-Route::middleware(['auth', 'role:user'])->group(function () {
+Route::middleware(['auth', 'role:user', 'verified'])->group(function () {
     Route::get('/list-kos', [ListKosController::class, 'index'])->name('user.kamarkami');
 
     Route::get('/detail-kost/{kos}', [DetailKostController::class, 'index'])->name('user.detailkost');
@@ -66,7 +66,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::put('/payment/batalkan/{kamar}', [PaymentController::class, 'batal'])->name('payment.batal');
 });
 
-Route::middleware(['auth', 'role:owner'])->group(function () {
+Route::middleware(['auth', 'role:owner', 'verified'])->group(function () {
     Route::get('/dashboard/owner', [OwnerController::class, 'index'])->name('owner.dashboard');
     Route::get('/approval/owner', [ApprovalOwnerController::class, 'index'])->name('owner.approval');
     Route::patch('/approval/owner/terima/{kamar}', [ApprovalOwnerController::class, 'terima'])->name('owner.approval.terima');

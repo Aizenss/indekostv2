@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => Hash::make('123456789'),
             'role' => 'admin',
+            'email_verified_at' => now()
         ]);
 
         User::create([
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'user@gmail.com',
             'password' => Hash::make('123456789'),
             'role' => 'user',
+            'email_verified_at' => now()
         ]);
 
         User::create([
@@ -40,6 +42,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'owner@gmail.com',
             'password' => Hash::make('123456789'),
             'role' => 'owner',
+            'email_verified_at' => now()
         ]);
     }
 }

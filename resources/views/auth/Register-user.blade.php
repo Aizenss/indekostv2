@@ -68,6 +68,7 @@
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
+                    <input type="text" value="user" name="role" hidden>
                     <button type="submit"
                         class="w-full mt-5 text-white bg-[#4F6F52] hover:bg-[#384F3A] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center shadow-md transition-colors duration-300 ease-in-out">Daftar</button>
                     <div class="text-sm font-medium text-white mt-2">

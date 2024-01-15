@@ -26,7 +26,7 @@
             class="card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 flex justify-between">
             <div>
                 <p class="font-normal text-gray-700 dark:text-gray-400 text-sm">Pendapatan</p>
-                <p class="font-semibold text-gray-900 dark:text-gray-400 text-sm">Rp.3</p>
+                <p class="font-semibold text-gray-900 dark:text-gray-400 text-sm">Rp.{{number_format(auth()->user()->pendapatan)}}</p>
             </div>
             <img src="{{ asset('icon/4634986_moneys_financial_layers_money_icon.png') }}" alt=""
                 style="height: 50px; width: 50px;">
