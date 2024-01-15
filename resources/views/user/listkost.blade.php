@@ -8,9 +8,9 @@
             <div class="bg-[#739072] flex px-10 space-x-4 rounded-xl pt-4">
                 {{-- search --}}
                 <div>
-                    <form class="flex items-center">
+                    <form method="GET" class="flex items-center" action="{{ route('user.kamarkami') }}">
                         <div class="relative w-full">
-                            <input type="text" id="simple-search"
+                            <input type="text" id="simple-search" name="cari" value="{{ $keyword }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#86A789] focus:border-[#86A789] block w-full p-2.5"
                                 placeholder="Cari Kost...">
                         </div>
