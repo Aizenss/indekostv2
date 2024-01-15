@@ -84,6 +84,6 @@ class PaymentController extends Controller
         // User::where('id', 1)->update(['pendapatan' => $admin]);
 
         // return response()->json(['message' => 'Data berhasil diproses']);
-        return redirect()->back();
+        return redirect()->route('payment');
     }
 }
