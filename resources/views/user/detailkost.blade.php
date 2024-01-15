@@ -231,57 +231,5 @@
         </div>
     </div>
 
-
-    <script src="https://unpkg.com/@yaireo/tagify"></script>
-    <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
-    <script>
-        var input = document.querySelector('input[name=fasilitas_kamar]');
-        var tagify = new Tagify(input);
-
-        tagify.on('change', function(e) {
-            var fasilitas_kamar = e.detail.fasilitas_kamar.reduce(function(acc, tag) {
-                acc.push(tag.value);
-                return acc;
-            }, []);
-        });
-    </script>
-
-    {{-- <script>
-        function kalkulator() {
-            let pack = document.getElementById("select-bulan");
-            let packselect = pack.value;
-
-            let hargaSewa = 0;
-            let biayaAdmin = 0;
-            let total = 0;
-
-            if (packselect == 1) {
-                hargaSewa = parseInt("{{ $promo }}");
-                biayaAdmin = 0.05 * hargaSewa;
-                total = hargaSewa + biayaAdmin;
-            } else if (packselect == 6) {
-                hargaSewa = parseInt("{{ $promo }}") * 6;
-                biayaAdmin = 0.05 * hargaSewa;
-                total = hargaSewa + biayaAdmin;
-            } else if (packselect == 12) {
-                hargaSewa = parseInt("{{ $promo }}") * 12;
-                biayaAdmin = 0.05 * hargaSewa;
-                total = hargaSewa + biayaAdmin;
-            } else {
-                hargaSewa = 0;
-                biayaAdmin = 0;
-                total = 0;
-            }
-
-            document.getElementById("harga-sewa").innerText = " : Rp. " + hargaSewa.toLocaleString();
-            document.getElementById("biaya-admin").innerText = " : Rp. " + biayaAdmin.toLocaleString();
-            document.getElementById("total").innerText = " : Rp. " + total.toLocaleString();
-        }
-
-        // Pemanggilan fungsi kalkulator() saat ada perubahan pada elemen select-bulan
-        document.getElementById("select-bulan").addEventListener("change", kalkulator);
-
-        // Pemanggilan fungsi kalkulator() pada saat halaman dimuat
-        kalkulator();
-    </script> --}}
+    </div>
 @endsection

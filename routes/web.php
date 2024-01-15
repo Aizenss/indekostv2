@@ -30,7 +30,7 @@ use App\Http\Controllers\TransaksiAdminController;
 */
 
 Route::get('/', function () {
-    return view('user.listkost');
+    return view('welcome');
 });
 
 Route::middleware('auth')->group(function () {
