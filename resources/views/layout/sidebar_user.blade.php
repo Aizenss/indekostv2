@@ -76,7 +76,7 @@
                 </li>
                 @auth
                     <li>
-                        <a href="/kamarkami"
+                        <a href="/list-kos"
                             class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('/kamarkami') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                                 <path fill-rule="evenodd"

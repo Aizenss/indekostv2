@@ -48,7 +48,7 @@
                 <span class="text-xl font-semibold text-gray-900">List Kost</span>
             </div>
             <div class="grid grid-cols-4 gap-3">
-                <a href="#">
+                <a href="{{ route('user.detailkost',['kos' => 1]) }}">
                     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                         <img class="rounded-t-lg" src="{{ asset('foto/dummy-kost.jpeg') }}" alt="" />
                         <div class="px-5 py-3">

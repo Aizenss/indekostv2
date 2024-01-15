@@ -39,9 +39,32 @@ class KamarkamiController extends Controller
             ->when($rating == '5', function ($query) {
                 $query->whereHas('ulasan', function ($subQuery) {
                     $subQuery->where('rating', 5);
-            });
-            })->paginate(5);
-        return view('user.kamarkami', compact('kost', 'keyword', 'harga', 'ketentuan', 'rating'));
+                })
+                ->withCount(['ulasan as jumlah_ulasan_rating_5' => function ($subQuery) {
+                    $subQuery->where('rating', 5);
+                }])
+                ->orderByDesc('jumlah_ulasan_rating_5');
+            })
+            ->when($rating == '4', function ($query) {
+                $query->whereHas('ulasan', function ($subQuery) {
+                    $subQuery->where('rating', 4);
+                })
+                ->withCount(['ulasan as jumlah_ulasan_rating_4' => function ($subQuery) {
+                    $subQuery->where('rating', 4);
+                }])
+                ->orderByDesc('jumlah_ulasan_rating_4');
+            })
+            ->when($rating == '3', function ($query) {
+                $query->whereHas('ulasan', function ($subQuery) {
+                    $subQuery->where('rating', 3);
+                })
+                ->withCount(['ulasan as jumlah_ulasan_rating_3' => function ($subQuery) {
+                    $subQuery->where('rating', 3);
+                }])
+                ->orderByDesc('jumlah_ulasan_rating_3');
+            })
+            ->paginate(5);
+        return view('user.listkost', compact('kost', 'keyword', 'harga', 'ketentuan', 'rating'));
     }
 
 
