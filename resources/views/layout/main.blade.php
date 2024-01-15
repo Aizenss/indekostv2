@@ -77,7 +77,7 @@
             // Simulasikan waktu pemuatan konten (ganti dengan kode aktual Anda)
             setTimeout(function() {
                 document.getElementById("preloader").classList.add("hidden");
-            }, 3000); // Ganti 3000 dengan waktu pemuatan konten yang sesuai
+            }, 1000); // Ganti 3000 dengan waktu pemuatan konten yang sesuai
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>

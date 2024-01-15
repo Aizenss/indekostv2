@@ -9,6 +9,7 @@ use App\Models\Kos;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PaymentController extends Controller
 {
@@ -74,13 +75,15 @@ class PaymentController extends Controller
         $admin = $data['gross_amount'];
         $owner = $data['gross_amount'];
 
-
-
         // dd($owner, $kamar->kos->owner_id);
-        User::where('id', $kamar->kos->owner_id)->increment('pendapatan', $owner);
-        User::where('id', 1)->increment('pendapatan', $admin);
+        $owners = User::where('id', $kamar->kos->owner_id)->first();
+        $owners->increment('pendapatan', $owner);
+
+        $admins = User::where('id', 1)->first();
+        $admins->increment('pendapatan', $admin);
         // User::where('id', 1)->update(['pendapatan' => $admin]);
 
-        return response()->json(['message' => 'Data berhasil diproses']);
+        // return response()->json(['message' => 'Data berhasil diproses']);
+        return redirect()->back();
     }
 }
