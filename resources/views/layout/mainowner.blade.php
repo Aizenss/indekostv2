@@ -24,6 +24,29 @@
         body {
             font-family: 'Poppins';
         }
+
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            /* Ganti dengan warna latar yang sesuai */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+            /* Animasi untuk menghilangkan preloader */
+        }
+
+        #preloader.hidden {
+            display: none;
+            pointer-events: none;
+            opacity: 0;
+        }
     </style>
     {{-- Style Font --}}
 
@@ -35,12 +58,21 @@
     <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 
 <body>
+    <!-- SVG Preloader -->
+    <div id="preloader">
+        <dotlottie-player src="https://lottie.host/06b1a0cc-67dd-4f3a-9565-c31559a8f1d0/Ylh9CjKg6h.json"
+            background="transparent" speed="1" style="width: 300px; height: 300px" direction="1" mode="normal"
+            loop autoplay></dotlottie-player>
+    </div>
 
     <div class="sm:ml-64 px-1">
-        @yield('owner')
+        <div id="main-content">
+            @yield('owner')
+        </div>
     </div>
     {{-- Script --}}
     <script src="https://unpkg.com/@yaireo/tagify"></script>
@@ -55,6 +87,14 @@
                 acc.push(tag.value);
                 return acc;
             }, []);
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Simulasikan waktu pemuatan konten (ganti dengan kode aktual Anda)
+            setTimeout(function() {
+                document.getElementById("preloader").classList.add("hidden");
+            }, 3000); // Ganti 3000 dengan waktu pemuatan konten yang sesuai
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
