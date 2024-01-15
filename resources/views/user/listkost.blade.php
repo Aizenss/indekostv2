@@ -25,20 +25,29 @@
                     </form>
                 </div>
                 <div>
-                    <form action="" class="space-x-4 flex">
-                        <select id="Harga"
+                    <form id="filter" action="{{ route('user.kamarkami') }}" method="GET" class="space-x-4 flex">
+                        <select id="Harga" name="harga"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#86A789] focus:border-[#86A789] block w-full p-2.5 text-center">
-                            <option selected>Harga</option>
-                            <option value="">Termahal - Termurah</option>
-                            <option value="">Termurah - Termahal</option>
+                            <option selected value="">Harga</option>
+                            <option value="desc" {{ $harga == 'desc' ? 'selected' : '' }} >Termahal - Termurah</option>
+                            <option value="asc" {{ $harga == 'asc' ? 'selected' : '' }} >Termurah - Termahal</option>
                         </select>
-                        <select id="Rating"
+                        <select id="Rating" name="rating"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#86A789] focus:border-[#86A789] block w-full p-2.5 text-center">
-                            <option selected>Rating</option>
-                            <option value="">Tertinggi - Terendah</option>
-                            <option value="">Terendah - Tertinggi</option>
+                            <option value="" selected>Rating</option>
+                            <option value="5" {{ $rating == '5' ? 'selected' : '' }}>⭐⭐⭐⭐⭐</option>
+                            <option value="4"  {{ $rating == '4' ? 'selected' : '' }}>⭐⭐⭐⭐</option>
+                            <option value="3"  {{ $rating == '3' ? 'selected' : '' }}>⭐⭐⭐</option>
                         </select>
                     </form>
+                    <script>
+                        document.getElementById('Harga').addEventListener('change', function() {
+                            document.getElementById('filter').submit();
+                        });
+                        document.getElementById('Rating').addEventListener('change', function() {
+                            document.getElementById('filter').submit();
+                        });
+                    </script>
                 </div>
                 {{-- search --}}
             </div>
@@ -80,15 +89,15 @@
                                     $numberOfRatings = count($kos->ulasan);
 
                                     foreach ($kos->ulasan as $rating) {
-                                        $totalRating += $rating->ulasan;
+                                        $totalRating += $rating->rating;
                                     }
 
-                                    $averageRating = $numberOfRatings > 0 ? number_format(round($totalRating / $numberOfRatings, 2), 2, '.', ',') : 0;
+                                    $averageRating = $numberOfRatings > 0 ? number_format(round($totalRating / $numberOfRatings, 2), 1, '.', ',') : 0;
                                 @endphp
 
                                 <div class="flex justify-between items-end gap-3">
                                     <div class="rate mb-1 font-semibold text-lg">
-                                        ⭐{{ $averageRating }}/5
+                                        <i class="fas fa-star text-yellow-300"> </i>{{ $averageRating }}/5
                                     </div>
                                     <div
                                         class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">

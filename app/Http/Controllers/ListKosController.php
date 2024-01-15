@@ -15,15 +15,6 @@ class ListKosController extends Controller
         $rating = $request->rating;
 
         $kost = Kos::where('status', 'setuju')
-            ->when($ketentuan == 'Laki-laki', function ($query) use ($request) {
-                $query->where('ketentuan',  'Laki-laki');
-            })
-            ->when($ketentuan == 'Perempuan', function ($query) use ($request) {
-                $query->where('ketentuan',  'Perempuan');
-            })
-            ->when($ketentuan == 'Campur', function ($query) use ($request) {
-                $query->where('ketentuan',  'Campur');
-            })
             ->when($harga == 'asc', function ($query) use ($request) {
                 $query->orderBy('harga');
             })
