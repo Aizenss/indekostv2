@@ -29,15 +29,15 @@
                         <select id="Harga" name="harga"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#86A789] focus:border-[#86A789] block w-full p-2.5 text-center">
                             <option selected value="">Harga</option>
-                            <option value="desc" {{ $harga == 'desc' ? 'selected' : '' }} >Termahal - Termurah</option>
-                            <option value="asc" {{ $harga == 'asc' ? 'selected' : '' }} >Termurah - Termahal</option>
+                            <option value="desc" {{ $harga == 'desc' ? 'selected' : '' }}>Termahal - Termurah</option>
+                            <option value="asc" {{ $harga == 'asc' ? 'selected' : '' }}>Termurah - Termahal</option>
                         </select>
                         <select id="Rating" name="rating"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#86A789] focus:border-[#86A789] block w-full p-2.5 text-center">
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#86A789] focus:border-[#86A789] block w-full p-2.5 ">
                             <option value="" selected>Rating</option>
                             <option value="5" {{ $rating == '5' ? 'selected' : '' }}>⭐⭐⭐⭐⭐</option>
-                            <option value="4"  {{ $rating == '4' ? 'selected' : '' }}>⭐⭐⭐⭐</option>
-                            <option value="3"  {{ $rating == '3' ? 'selected' : '' }}>⭐⭐⭐</option>
+                            <option value="4" {{ $rating == '4' ? 'selected' : '' }}>⭐⭐⭐⭐</option>
+                            <option value="3" {{ $rating == '3' ? 'selected' : '' }}>⭐⭐⭐</option>
                         </select>
                     </form>
                     <script>
