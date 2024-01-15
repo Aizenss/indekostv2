@@ -9,13 +9,13 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\TerminateCsrfToken;
 use App\Http\Controllers\OwnerKosController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\KamarkamiController;
 use App\Http\Controllers\DetailKostController;
 use App\Http\Controllers\KamarOwnerController;
 use App\Http\Controllers\KelolaAdminController;
 use App\Http\Controllers\KelolaOwnerController;
 use App\Http\Controllers\ApprovalAdminController;
 use App\Http\Controllers\ApprovalOwnerController;
+use App\Http\Controllers\ListKosController;
 use App\Http\Controllers\TransaksiAdminController;
 
 /*
@@ -53,7 +53,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
-    Route::get('/listkost', [KamarkamiController::class, 'index'])->name('user.listkost');
+    Route::get('/list-kos', [ListKosController::class, 'index'])->name('user.kamarkami');
 
     Route::get('/detail-kost/{kos}', [DetailKostController::class, 'index'])->name('user.detailkost');
     Route::post('/detail-kost/{kos}/payment{kamar}', [PaymentController::class, 'pay'])->name('user.detailkost.payment');
