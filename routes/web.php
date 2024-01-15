@@ -53,7 +53,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
-    Route::get('/list-kos', [KamarkamiController::class, 'index'])->name('user.kamarkami');
+    Route::get('/listkost', [KamarkamiController::class, 'index'])->name('user.listkost');
 
     Route::get('/detail-kost/{kos}', [DetailKostController::class, 'index'])->name('user.detailkost');
     Route::post('/detail-kost/{kos}/payment{kamar}', [PaymentController::class, 'pay'])->name('user.detailkost.payment');

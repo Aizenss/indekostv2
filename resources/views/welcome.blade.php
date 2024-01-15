@@ -44,7 +44,7 @@
                         <img src="{{ asset('ilustrasi/benefit.png') }}" alt="" class="w-[500px]">
                     </div>
                     <div class="yang-didapatkan">
-                        <h1 class="text-2xl text-[#537256] font-semibold">Apa Keuntungan Memakai In De Kost?</h1>
+                        <h1 class="text-2xl text-[#537256] font-semibold">Keuntungan Memakai In De Kost</h1>
                         <p class="text-[#252525] text-base font-medium mt-3">Raih Pengalaman Hunian yang Luar Biasa dengan In De
                             Kost! Berikut Keuntungan Yang Didapat</p>
                     </div>
@@ -106,7 +106,7 @@
                                 rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
                             <div class="flex justify-between items-center">
                                 <div class="ratingnya font-semibold text-md text-black">
-                                    ⭐⭐⭐⭐⭐/5
+                                    ⭐/5
                                 </div>
                                 <div class="tombol-lihat">
                                     <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
@@ -124,7 +124,7 @@
                                 rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
                             <div class="flex justify-between items-center">
                                 <div class="ratingnya font-semibold text-md text-black">
-                                    ⭐⭐⭐⭐⭐/5
+                                    ⭐/5
                                 </div>
                                 <div class="tombol-lihat">
                                     <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
@@ -142,7 +142,7 @@
                                 rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
                             <div class="flex justify-between items-center">
                                 <div class="ratingnya font-semibold text-md text-black">
-                                    ⭐⭐⭐⭐⭐/5
+                                    ⭐/5
                                 </div>
                                 <div class="tombol-lihat">
                                     <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
@@ -160,7 +160,7 @@
                                 rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
                             <div class="flex justify-between items-center">
                                 <div class="ratingnya font-semibold text-md text-black">
-                                    ⭐⭐⭐⭐⭐/5
+                                    ⭐/5
                                 </div>
                                 <div class="tombol-lihat">
                                     <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
@@ -178,7 +178,7 @@
                                 rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
                             <div class="flex justify-between items-center">
                                 <div class="ratingnya font-semibold text-md text-black">
-                                    ⭐⭐⭐⭐⭐/5
+                                    ⭐/5
                                 </div>
                                 <div class="tombol-lihat">
                                     <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
@@ -196,7 +196,7 @@
                                 rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
                             <div class="flex justify-between items-center">
                                 <div class="ratingnya font-semibold text-md text-black">
-                                    ⭐⭐⭐⭐⭐/5
+                                    ⭐/5
                                 </div>
                                 <div class="tombol-lihat">
                                     <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>

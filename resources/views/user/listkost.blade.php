@@ -64,7 +64,10 @@
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                             </div>
-                            <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-lg text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            <div class="flex justify-between items-end gap-3">
+                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
+                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -84,7 +87,10 @@
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                             </div>
-                            <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-lg text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            <div class="flex justify-between items-end gap-3">
+                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
+                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -104,7 +110,10 @@
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                             </div>
-                            <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-lg text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            <div class="flex justify-between items-end gap-3">
+                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
+                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -124,7 +133,10 @@
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                             </div>
-                            <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-lg text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            <div class="flex justify-between items-end gap-3">
+                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
+                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -144,7 +156,10 @@
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                             </div>
-                            <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-lg text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            <div class="flex justify-between items-end gap-3">
+                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
+                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            </div>
                         </div>
                     </div>
                 </a><a href="#">
@@ -163,7 +178,10 @@
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                             </div>
-                            <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-lg text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            <div class="flex justify-between items-end gap-3">
+                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
+                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            </div>
                         </div>
                     </div>
                 </a><a href="#">
@@ -182,7 +200,10 @@
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                             </div>
-                            <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-lg text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            <div class="flex justify-between items-end gap-3">
+                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
+                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            </div>
                         </div>
                     </div>
                 </a><a href="#">
@@ -201,7 +222,10 @@
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                                 <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
                             </div>
-                            <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-lg text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            <div class="flex justify-between items-end gap-3">
+                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
+                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
+                            </div>
                         </div>
                     </div>
                 </a>

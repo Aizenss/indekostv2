@@ -76,19 +76,19 @@
                 </li>
                 @auth
                     <li>
-                        <a href="/list-kos"
-                            class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('/kamarkami') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
+                        <a href="/listkost"
+                            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 {{ request()->is('/listkost') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                                 <path fill-rule="evenodd"
                                     d="M3 6a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3V6ZM3 15.75a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-2.25Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3v-2.25Z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span class="ms-3">Kamar Kami</span>
+                            <span class="ms-3">List Kost</span>
                         </a>
                     </li>
                     <li>
                         <a href="/payment"
-                            class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('/payment') ? 'bg-lime-700 text-white' : 'bg-gray-200' }}">
+                            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 {{ request()->is('/payment') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                                 <path fill-rule="evenodd"
                                     d="M3 6a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3V6ZM3 15.75a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-2.25Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3v-2.25Z"
@@ -101,9 +101,9 @@
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <a :href="route('logout')" class="flex items-center p-2 text-gray-900 rounded-lg"
+                                <a :href="route('logout')" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-red-500 duration-300 hover:text-white"
                                     onclick="event.preventDefault(); this.closest('form').submit();">
-                                    <i class="fa-solid fa-right-from-bracket fa-lg ms-0.5" style="color: #000000;"></i>
+                                    <i class="fa-solid fa-right-from-bracket fa-lg ms-0.5"></i>
                                     <span class="ms-3">Log Out</span>
                                 </a>
                             </form>
