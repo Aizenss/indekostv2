@@ -48,187 +48,59 @@
                 <span class="text-xl font-semibold text-gray-900">List Kost</span>
             </div>
             <div class="grid grid-cols-4 gap-3">
-                <a href="{{ route('user.detailkost',['kos' => 1]) }}">
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <img class="rounded-t-lg" src="{{ asset('foto/dummy-kost.jpeg') }}" alt="" />
-                        <div class="px-5 py-3">
-                            <h5 class=" text-xl font-bold tracking-tight text-gray-900 truncate">Nama Kost</h5>
-                            <p class="mb-1 text-sm font-normal text-gray-700 truncate"><i class="fa-solid fa-map-location-dot me-3"></i>Jl.Giok Blok KK No.15 Perum Griya Permata Alam, Ngijo,Karangploso</p>
-                            <hr class="mb-2">
-                            <span class="text-base text-gray-700 font-semibold truncate">Tersedia 24 Kamar</span>
-                            <hr class="mb-2">
-                            <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
-                            <div class="grid grid-cols-2 gap-2">
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                            </div>
-                            <div class="flex justify-between items-end gap-3">
-                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
-                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <img class="rounded-t-lg" src="{{ asset('foto/dummy-kost.jpeg') }}" alt="" />
-                        <div class="px-5 py-3">
-                            <h5 class=" text-xl font-bold tracking-tight text-gray-900 truncate">Nama Kost</h5>
-                            <p class="mb-1 text-sm font-normal text-gray-700 truncate"><i class="fa-solid fa-map-location-dot me-3"></i>Jl.Giok Blok KK No.15 Perum Griya Permata Alam, Ngijo,Karangploso</p>
-                            <hr class="mb-2">
-                            <span class="text-base text-gray-700 font-semibold truncate">Tersedia 24 Kamar</span>
-                            <hr class="mb-2">
-                            <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
-                            <div class="grid grid-cols-2 gap-2">
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                            </div>
-                            <div class="flex justify-between items-end gap-3">
-                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
-                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <img class="rounded-t-lg" src="{{ asset('foto/dummy-kost.jpeg') }}" alt="" />
-                        <div class="px-5 py-3">
-                            <h5 class=" text-xl font-bold tracking-tight text-gray-900 truncate">Nama Kost</h5>
-                            <p class="mb-1 text-sm font-normal text-gray-700 truncate"><i class="fa-solid fa-map-location-dot me-3"></i>Jl.Giok Blok KK No.15 Perum Griya Permata Alam, Ngijo,Karangploso</p>
-                            <hr class="mb-2">
-                            <span class="text-base text-gray-700 font-semibold truncate">Tersedia 24 Kamar</span>
-                            <hr class="mb-2">
-                            <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
-                            <div class="grid grid-cols-2 gap-2">
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                            </div>
-                            <div class="flex justify-between items-end gap-3">
-                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
-                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
+                @foreach ($kost as $kos)
+                    <a href="{{ route('user.detailkost', ['kos' => $kos->id]) }}" class="text-decoration-none">
+                        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                            <img class="rounded-t-lg" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt="" />
+                            <div class="px-5 py-3">
+                                <h5 class="text-xl font-bold tracking-tight text-gray-900 truncate">{{ $kos->nama_kost }}
+                                </h5>
+                                <p class="mb-1 text-sm font-normal text-gray-700 truncate">
+                                    <i class="fa-solid fa-map-location-dot me-3"></i>{{ $kos->lokasi }}
+                                </p>
+                                <hr class="mb-2">
+                                @php
+                                    $kamartersedia = $kos->kamar->where('status', 'kosong')->count();
+                                @endphp
+
+                                <span class="text-base text-gray-700 font-semibold truncate">Tersedia
+                                    {{ $kamartersedia }} Kamar</span>
+
+                                <hr class="mb-2">
+                                <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
+                                <div class="grid grid-cols-2 gap-2">
+                                    @foreach (json_decode($kos->fasilitas_kamar) as $fasilitas)
+                                        <span class="text-sm text-gray-700 font-medium truncate">
+                                            <i class="fa-solid fa-check me-2"></i>{{ $fasilitas->value }}
+                                        </span>
+                                    @endforeach
+                                </div>
+                                @php
+                                    $totalRating = 0;
+                                    $numberOfRatings = count($kos->ulasan);
+
+                                    foreach ($kos->ulasan as $rating) {
+                                        $totalRating += $rating->ulasan;
+                                    }
+
+                                    $averageRating = $numberOfRatings > 0 ? number_format(round($totalRating / $numberOfRatings, 2), 2, '.', ',') : 0;
+                                @endphp
+
+                                <div class="flex justify-between items-end gap-3">
+                                    <div class="rate mb-1 font-semibold text-lg">
+                                        ⭐{{ $averageRating }}/5
+                                    </div>
+                                    <div
+                                        class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">
+                                        Detail Kost
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <img class="rounded-t-lg" src="{{ asset('foto/dummy-kost.jpeg') }}" alt="" />
-                        <div class="px-5 py-3">
-                            <h5 class=" text-xl font-bold tracking-tight text-gray-900 truncate">Nama Kost</h5>
-                            <p class="mb-1 text-sm font-normal text-gray-700 truncate"><i class="fa-solid fa-map-location-dot me-3"></i>Jl.Giok Blok KK No.15 Perum Griya Permata Alam, Ngijo,Karangploso</p>
-                            <hr class="mb-2">
-                            <span class="text-base text-gray-700 font-semibold truncate">Tersedia 24 Kamar</span>
-                            <hr class="mb-2">
-                            <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
-                            <div class="grid grid-cols-2 gap-2">
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                            </div>
-                            <div class="flex justify-between items-end gap-3">
-                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
-                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <img class="rounded-t-lg" src="{{ asset('foto/dummy-kost.jpeg') }}" alt="" />
-                        <div class="px-5 py-3">
-                            <h5 class=" text-xl font-bold tracking-tight text-gray-900 truncate">Nama Kost</h5>
-                            <p class="mb-1 text-sm font-normal text-gray-700 truncate"><i class="fa-solid fa-map-location-dot me-3"></i>Jl.Giok Blok KK No.15 Perum Griya Permata Alam, Ngijo,Karangploso</p>
-                            <hr class="mb-2">
-                            <span class="text-base text-gray-700 font-semibold truncate">Tersedia 24 Kamar</span>
-                            <hr class="mb-2">
-                            <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
-                            <div class="grid grid-cols-2 gap-2">
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                            </div>
-                            <div class="flex justify-between items-end gap-3">
-                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
-                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
-                            </div>
-                        </div>
-                    </div>
-                </a><a href="#">
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <img class="rounded-t-lg" src="{{ asset('foto/dummy-kost.jpeg') }}" alt="" />
-                        <div class="px-5 py-3">
-                            <h5 class=" text-xl font-bold tracking-tight text-gray-900 truncate">Nama Kost</h5>
-                            <p class="mb-1 text-sm font-normal text-gray-700 truncate"><i class="fa-solid fa-map-location-dot me-3"></i>Jl.Giok Blok KK No.15 Perum Griya Permata Alam, Ngijo,Karangploso</p>
-                            <hr class="mb-2">
-                            <span class="text-base text-gray-700 font-semibold truncate">Tersedia 24 Kamar</span>
-                            <hr class="mb-2">
-                            <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
-                            <div class="grid grid-cols-2 gap-2">
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                            </div>
-                            <div class="flex justify-between items-end gap-3">
-                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
-                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
-                            </div>
-                        </div>
-                    </div>
-                </a><a href="#">
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <img class="rounded-t-lg" src="{{ asset('foto/dummy-kost.jpeg') }}" alt="" />
-                        <div class="px-5 py-3">
-                            <h5 class=" text-xl font-bold tracking-tight text-gray-900 truncate">Nama Kost</h5>
-                            <p class="mb-1 text-sm font-normal text-gray-700 truncate"><i class="fa-solid fa-map-location-dot me-3"></i>Jl.Giok Blok KK No.15 Perum Griya Permata Alam, Ngijo,Karangploso</p>
-                            <hr class="mb-2">
-                            <span class="text-base text-gray-700 font-semibold truncate">Tersedia 24 Kamar</span>
-                            <hr class="mb-2">
-                            <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
-                            <div class="grid grid-cols-2 gap-2">
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                            </div>
-                            <div class="flex justify-between items-end gap-3">
-                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
-                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
-                            </div>
-                        </div>
-                    </div>
-                </a><a href="#">
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <img class="rounded-t-lg" src="{{ asset('foto/dummy-kost.jpeg') }}" alt="" />
-                        <div class="px-5 py-3">
-                            <h5 class=" text-xl font-bold tracking-tight text-gray-900 truncate">Nama Kost</h5>
-                            <p class="mb-1 text-sm font-normal text-gray-700 truncate"><i class="fa-solid fa-map-location-dot me-3"></i>Jl.Giok Blok KK No.15 Perum Griya Permata Alam, Ngijo,Karangploso</p>
-                            <hr class="mb-2">
-                            <span class="text-base text-gray-700 font-semibold truncate">Tersedia 24 Kamar</span>
-                            <hr class="mb-2">
-                            <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
-                            <div class="grid grid-cols-2 gap-2">
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                                <span class="text-sm text-gray-700 font-medium truncate"><i class="fa-solid fa-check me-2"></i>Check</span>
-                            </div>
-                            <div class="flex justify-between items-end gap-3">
-                                <div class="rate mb-1 font-semibold text-lg">⭐/5</div>
-                                <div class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">Detail Kost</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                @endforeach
+
             </div>
         </section>
         pagination

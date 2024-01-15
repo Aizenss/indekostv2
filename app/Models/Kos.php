@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Kos extends Model
 {
@@ -37,5 +38,9 @@ class Kos extends Model
     public function ulasan()
     {
         return $this->hasMany(Ulasan::class, 'kost_id');
+    }
+    public function kamar(): HasMany
+    {
+        return $this->hasMany(Kamar::class, 'kos_id');
     }
 }
