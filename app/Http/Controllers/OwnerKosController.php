@@ -31,9 +31,7 @@ class OwnerKosController extends Controller
             'peraturan' => 'required|string|min:3|max:1000',
             'lokasi' => 'required|string|min:3|max:1000',
             'spesifikasi' => 'required|string|min:3|max:1000',
-            'harga' => 'required|numeric|min:1|max:5000000',
-            'night' => 'required|in:1,6,12',
-            'fasilitas_kamar' => 'required',
+            'fasilitas_umum' => 'required',
             'fasilitas_kamar_mandi' => 'required|string',
             'fasilitas_tempat_parkir' => 'required|string',
             'foto_depan' => 'required|image|mimes:jpeg,jpg,png',
@@ -76,9 +74,7 @@ class OwnerKosController extends Controller
             'lokasi' => $request->lokasi,
             'peraturan' => $request->peraturan,
             'spesifikasi' => $request->spesifikasi,
-            'harga' => $request->harga,
-            'night' => $request->night,
-            'fasilitas_kamar' => $request->fasilitas_kamar,
+            'fasilitas_umum' => $request->fasilitas_umum,
             'fasilitas_kamar_mandi' => $request->fasilitas_kamar_mandi,
             'fasilitas_tempat_parkir' => $request->fasilitas_tempat_parkir,
             'foto_depan' => $fotodepan,
@@ -100,14 +96,13 @@ class OwnerKosController extends Controller
 
     public function ubahProses(Request $request, $id)
     {
-
+        // dd($request->all());
         $request->validate([
             'nama_kost' => 'required|string|min:3|max:100',
             'ketentuan' => 'required|string|min:3|max:1000',
             'lokasi' => 'required|string|min:3|max:1000',
             'spesifikasi' => 'required|string|min:3|max:1000',
-            'harga' => 'required',
-            'fasilitas_kamar' => 'required',
+            'fasilitas_umum' => 'required',
             'fasilitas_kamar_mandi' => 'required|string',
             'fasilitas_tempat_parkir' => 'required|string',
             'foto_depan' => 'nullable|image|mimes:jpeg,jpg,png',
@@ -179,9 +174,7 @@ class OwnerKosController extends Controller
             'ketentuan' => $request->ketentuan,
             'lokasi' => $request->lokasi,
             'spesifikasi' => $request->spesifikasi,
-            'harga' => $request->harga,
-            'night' => $request->night,
-            'fasilitas_kamar' => $request->fasilitas_kamar,
+            'fasilitas_umum' => $request->fasilitas_umum,
             'fasilitas_kamar_mandi' => $request->fasilitas_kamar_mandi,
             'fasilitas_tempat_parkir' => $request->fasilitas_tempat_parkir,
             'foto_depan' => $fotodepan,

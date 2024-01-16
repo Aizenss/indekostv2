@@ -79,11 +79,11 @@
     <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
     @yield('script')
     <script>
-        var input = document.querySelector('input[name=fasilitas_kamar]');
+        var input = document.querySelector('input[name=fasilitas_umum]');
         var tagify = new Tagify(input);
 
         tagify.on('change', function(e) {
-            var fasilitas_kamar = e.detail.fasilitas_kamar.reduce(function(acc, tag) {
+            var fasilitas_umum = e.detail.fasilitas_umum.reduce(function(acc, tag) {
                 acc.push(tag.value);
                 return acc;
             }, []);

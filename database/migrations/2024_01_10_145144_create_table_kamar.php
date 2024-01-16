@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('kos_id');
             $table->bigInteger('user_id')->nullable(true);
-            $table->integer('nomor_kamar');
+            $table->string('nama_kamar');
             $table->string('fasilitas');
             $table->string('kamar_mandi');
             $table->json('foto_kamar');
+            $table->string('harga');
+            $table->integer('night')->max(12);
             $table->string('status')->default('kosong');
             $table->string('snap_token')->nullable(true);
             $table->json('result')->nullable(true);
