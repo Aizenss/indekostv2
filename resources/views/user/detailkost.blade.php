@@ -47,7 +47,7 @@
                 </div>
                 <div class="grid grid-cols-4 gap-2">
                     <div class="fasilitas text-gray-700">
-                        @forelse (json_decode($kos->fasilitas_kamar) ??[] as $kost)
+                        @forelse (json_decode($kos->fasilitas_umum) ??[] as $kost)
                             <i class="fa-solid fa-check me-2"></i><span
                                 class="font-medium text-base">{{ $kost->value }}</span>
                                 @empty
@@ -70,7 +70,7 @@
                 Kamar Yang Tersedia
             </span>
             <div class="grid grid-cols-3 gap-3 my-3 mx-3">
-                @foreach ($kamars as $kamar)
+                @forelse ($kamars as $kamar)
                     <div class="max-w-sm bg-gray-200 border border-gray-200 rounded-lg shadow ">
                         @foreach (json_decode($kamar->foto_kamar) as $item)
                             <img class="rounded-t-lg" src="{{ asset('kamar/' . $item) }}" alt="" />
@@ -96,7 +96,9 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+                @empty
+                    Tidak Ada Kamar
+            @endforelse
         </div>
         <div class="flex justify-center mt-4">
             {{ $kamars->links() }}
@@ -121,7 +123,7 @@
             <span class="text-base font-medium">Dari 400 User</span>
         </div>
         <div class="flex flex-col gap-5">
-            @foreach ($kos->ulasan as $rating)
+            @forelse ($kos->ulasan as $rating)
                 <div class="bg-gray-50 py-3 px-5 rounded-lg border border-gray-900">
                     <div class="flex gap-4">
                         <div class="profile">
@@ -144,7 +146,9 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+                @empty
+                Tidak ada Ulasan di Kos ini
+            @endforelse
         </div>
     </section>
 </div>
