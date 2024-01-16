@@ -112,6 +112,8 @@
 
             </div>
         </section>
-        pagination
+        <div class="flex justify-center mt-4">
+            {{ $kost->links() }}
+        </div>
     </div>
 @endsection

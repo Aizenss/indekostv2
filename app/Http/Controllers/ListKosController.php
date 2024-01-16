@@ -51,7 +51,7 @@ class ListKosController extends Controller
                 }])
                 ->orderByDesc('jumlah_ulasan_rating_3');
             })
-            ->paginate(5);
+            ->paginate(6);
         return view('user.listkost', compact('kost', 'keyword', 'harga', 'ketentuan', 'rating'));
     }
 }

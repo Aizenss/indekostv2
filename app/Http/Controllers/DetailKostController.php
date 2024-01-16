@@ -13,7 +13,7 @@ class DetailKostController extends Controller
      */
     public function index(Kos $kos)
     {
-        $kamars = Kamar::where('kos_id', $kos->id)->get();
+        $kamars = Kamar::where('kos_id', $kos->id)->paginate(6);
         return view('user.detailkost', compact('kos', 'kamars'));
     }
 

@@ -12,11 +12,13 @@
                 <div>
                     <img src="{{ asset('kosts/' . $kos->foto_dalam) }}" alt="">
                 </div>
-                @foreach (json_decode($kos->foto_tambahan) as $tambahan)
+                @forelse (json_decode($kos->foto_tambahan) ?? [] as $tambahan)
                     <div>
                         <img src="{{ asset('kosts/' . $tambahan) }}" alt="">
                     </div>
-                @endforeach
+                    @empty
+
+                @endforelse
             </div>
         </section>
         <section class="informan my-5">
@@ -45,10 +47,12 @@
                 </div>
                 <div class="grid grid-cols-4 gap-2">
                     <div class="fasilitas text-gray-700">
-                        @foreach (json_decode($kos->fasilitas_kamar) as $kost)
+                        @forelse (json_decode($kos->fasilitas_kamar) ??[] as $kost)
                             <i class="fa-solid fa-check me-2"></i><span
                                 class="font-medium text-base">{{ $kost->value }}</span>
-                        @endforeach
+                                @empty
+                                -
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -94,7 +98,9 @@
                 </div>
             @endforeach
         </div>
-        paginate
+        <div class="flex justify-center mt-4">
+            {{ $kamars->links() }}
+        </div>
         <hr>
         <div class="mt-3">
             <span class="font-semibold text-lg">Review</span>
