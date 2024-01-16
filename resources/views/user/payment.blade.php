@@ -1,41 +1,52 @@
 @extends('layout.main')
 
-@extends('layout.sidebar_user')
+@extends('layout.sidebar_admin')
 
 @section('isi')
-    <div class="sm:ml-64 p-4">
-        <table>
-            <tr>
-                <th>no</th>
-                <th>nomor kamar</th>
-                <th>status</th>
-                <th>aksi</th>
-            </tr>
-            @foreach ($kamars as $kamar)
-                @if ($kamar->status == 'terima')
+    <div class="sm:ml-64 mt-8 ml-2 justify-center">
+        <h1 class="mb-4 mt-4 ml-4 text-3xl font-black text-gray-900 dark:text-white">Pembayaran</h1>
+        <br>
+        <div class="ml-8 mr-8 relative overflow-x-auto shadow-md sm:rounded-lg mb-4">
+            <table class="w-full text-sm text-left rtl:text-right text-white">
+                <thead class="text-xs text-white uppercase bg-[#4F6F52]">
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $kamar->nomor_kamar }}</td>
-                        <td>{{ $kamar->status }}</td>
-                        <td>
-                            <button class="pay-button" data-token="{{ $kamar->snap_token }}" data-kamar-id="{{ $kamar->id }}">Bayar</button>
-                            <form action="{{ route('payment.batal', $kamar) }}" method="post">
-                                @csrf
-                                @method('put')
-                                <button type="submit">batalkan pembayaran</button>
-                            </form>
-                        </td>
+                        <th scope="col" class="px-6 py-3">No</th>
+                        <th scope="col" class="px-6 py-3">Nomor Kamar</th>
+                        <th scope="col" class="px-6 py-3">Status Kamar</th>
+                        <th scope="col" class="px-6 py-3">Aksi</th>
                     </tr>
-                    @else
-                    <tr>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                @endif
-            @endforeach
-        </table>
+                </thead>
+                <tbody>
+                    @forelse ($kamars as $kamar)
+                        <tr class="{{ $kamar->status == 'terima' ? 'bg-white border-b hover:bg-gray-50' : '' }}">
+                            <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $loop->iteration }}</td>
+                            <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $kamar->nomor_kamar }}</td>
+                            <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $kamar->status }}</td>
+                            <td class="px-6 py-4">
+                                @if ($kamar->status == 'terima')
+                                    <button class="pay-button bg-blue-500 text-white px-4 py-2" data-token="{{ $kamar->snap_token }}" data-kamar-id="{{ $kamar->id }}">Bayar</button>
+                                    <button class="cancel-button bg-red-500 text-white px-4 py-2" data-kamar-id="{{ $kamar->id }}">Batalkan Pembayaran</button>
+                                @else
+                                    <span class="text-gray-500">-</span>
+                                @endif
+                            </td>
+                        </tr>
+                    @empty
+                        <!-- Display placeholder rows -->
+                        @for ($i = 1; $i <= 1; $i++)
+                            <tr>
+                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $i }}</td>
+                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">-</td>
+                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">-</td>
+                                <td class="px-6 py-4">
+                                    <span class="text-gray-500">-</span>
+                                </td>
+                            </tr>
+                        @endfor
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
 
 
