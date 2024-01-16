@@ -70,7 +70,7 @@
     <!-- Konten utama -->
     <div id="main-content">
         <div class="foto flex justify-center">
-            <img src="{{ asset('foto/404.png') }}" alt="" width="1000">
+            <img src="{{ asset('foto/403.png') }}" alt="" width="1000">
         </div>
         <div class="link flex justify-center">
             <a href="" class="bg-[#4F6F52] py-2 px-4 rounded-lg text-white">Kembali</a>

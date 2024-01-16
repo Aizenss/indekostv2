@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Throwable;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
@@ -34,6 +35,8 @@ class Handler extends ExceptionHandler
     {
         if ($e instanceof NotFoundHttpException) {
             return response()->view('404', [], 404);
+        } elseif ($e instanceof AccessDeniedHttpException) {
+            return response()->view('403', [], 403);
         }
 
         return parent::render($request, $e);

@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
 
         // Tentukan redirect URL berdasarkan role
         $redirectUrl = match ($role) {
-            'admin' => '/dashboard/owner',
+            'admin' => '/dashboard/admin',
             'owner' => '/dashboard/owner',
             'user' => '/',
                 // Tambahkan kasus untuk role lainnya jika diperlukan
