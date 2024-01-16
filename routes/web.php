@@ -64,6 +64,10 @@ Route::middleware(['auth', 'role:user', 'verified'])->group(function () {
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
     Route::post('/payment/proses-data/{kamar}', [PaymentController::class, 'proses'])->name('payment.proses');
     Route::put('/payment/batalkan/{kamar}', [PaymentController::class, 'batal'])->name('payment.batal');
+    Route::get('/semuarating', function () {
+        return view('user.semuarating');
+    });
+
 });
 
 Route::middleware(['auth', 'role:owner', 'verified'])->group(function () {
@@ -80,7 +84,6 @@ Route::middleware(['auth', 'role:owner', 'verified'])->group(function () {
         Route::put('owner/edit/proses/{id}', [OwnerKosController::class, 'ubahProses'])->name('owner.kos.edit.proses');
         Route::delete('owner/hapus/{id}', [OwnerKosController::class, 'hapus'])->name('owner.kos.hapus');
     });
-
     Route::get('/kamar/owner', [KamarOwnerController::class, 'index'])->name('owner.kamar');
     Route::get('/kamar/owner/create/{kos}', [KamarOwnerController::class, 'tambah'])->name('owner.kamar.tambah');
     Route::get('/kamar/owner/create/{kos}/detail', [KamarOwnerController::class, 'tambahKamar'])->name('owner.kamar.tambah.detail');
