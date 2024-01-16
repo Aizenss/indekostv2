@@ -16,8 +16,7 @@
                     <div>
                         <img src="{{ asset('kosts/' . $tambahan) }}" alt="">
                     </div>
-                    @empty
-
+                @empty
                 @endforelse
             </div>
         </section>
@@ -43,17 +42,49 @@
             <hr>
             <div class="flex flex-col gap-2 my-3 mx-3">
                 <div class="judul text-xl text-gray-900 font-semibold ">
-                    Fasilitas Kost
+                    Fasilitas Umum
                 </div>
                 <div class="grid grid-cols-4 gap-2">
-                    <div class="fasilitas text-gray-700">
-                        @forelse (json_decode($kos->fasilitas_umum) ??[] as $kost)
+                    @forelse (json_decode($kos->fasilitas_umum) ??[] as $kost)
+                        <div class="fasilitas text-gray-700">
                             <i class="fa-solid fa-check me-2"></i><span
                                 class="font-medium text-base">{{ $kost->value }}</span>
-                                @empty
-                                -
-                        @endforelse
-                    </div>
+                        </div>
+                    @empty
+                        -
+                    @endforelse
+                </div>
+            </div>
+            <hr>
+            <div class="flex flex-col gap-2 my-3 mx-3">
+                <div class="judul text-xl text-gray-900 font-semibold ">
+                    Fasilitas Kamar Mandi
+                </div>
+                <div class="grid grid-cols-4 gap-2">
+                    @forelse (json_decode($kos->fasilitas_umum) ??[] as $kost)
+                        <div class="fasilitas text-gray-700">
+                            <i class="fa-solid fa-check me-2"></i><span
+                                class="font-medium text-base">{{ $kost->value }}</span>
+                        </div>
+                    @empty
+                        -
+                    @endforelse
+                </div>
+            </div>
+            <hr>
+            <div class="flex flex-col gap-2 my-3 mx-3">
+                <div class="judul text-xl text-gray-900 font-semibold ">
+                    Fasilitas Parkir
+                </div>
+                <div class="grid grid-cols-4 gap-2">
+                    @forelse (json_decode($kos->fasilitas_umum) ??[] as $kost)
+                        <div class="fasilitas text-gray-700">
+                            <i class="fa-solid fa-check me-2"></i><span
+                                class="font-medium text-base">{{ $kost->value }}</span>
+                        </div>
+                    @empty
+                        -
+                    @endforelse
                 </div>
             </div>
             <hr>
@@ -96,17 +127,61 @@
                         </div>
                     </div>
                 </div>
-                @empty
-                    Tidak Ada Kamar
+            @empty
+                Tidak Ada Kamar
             @endforelse
         </div>
         <div class="flex justify-center mt-4">
             {{ $kamars->links() }}
         </div>
         <hr>
-        <div class="mt-3">
+        <div class="my-3">
             <span class="font-semibold text-lg">Review</span>
         </div>
+        <style>
+            .rating .fa-star {
+                color: rgb(218, 218, 4);
+                cursor: pointer;
+            }
+
+            .fa-star:hover {
+                transform: scale(1.1);
+            }
+        </style>
+
+        <form action="{{ route('ratting.buat') }}" method="POST">
+            @csrf
+            <input type="hidden" name="kos_id" value="{{ $kos->id }}">
+            <div class="rating mb-3">
+                <input type="number" name="rating" hidden>
+                <i class="far fa-star fa-lg"></i>
+                <i class="far fa-star fa-lg"></i>
+                <i class="far fa-star fa-lg"></i>
+                <i class="far fa-star fa-lg"></i>
+                <i class="far fa-star fa-lg"></i>
+            </div>
+            <textarea name="ulasan" class="rounded-lg" id="" cols="50" rows="2"
+                placeholder="Tulis Ulasan Anda Mengenai Kost Ini"></textarea><br>
+            <button type="submit" class="bg-green-600 text-white py-1 px-3 rounded-lg my-3">Kirim</button>
+        </form>
+
+        <script>
+            const allstr = document.querySelectorAll('.rating .fa-star');
+            const ratingInput = document.querySelector('.rating input[name="rating"]');
+
+            allstr.forEach((item, idx) => {
+                item.addEventListener('click', function() {
+                    for (let i = 0; i < allstr.length; i++) {
+                        if (i <= idx) {
+                            allstr[i].classList.replace('far', 'fas');
+                        } else {
+                            allstr[i].classList.replace('fas', 'far');
+                        }
+                    }
+                    ratingInput.value = idx + 1;
+                });
+            });
+        </script>
         @php
             $totalRating = 0;
             $numberOfRatings = count($kos->ulasan);
@@ -146,7 +221,7 @@
                         </div>
                     </div>
                 </div>
-                @empty
+            @empty
                 Tidak ada Ulasan di Kos ini
             @endforelse
         </div>
