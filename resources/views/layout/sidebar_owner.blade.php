@@ -48,21 +48,21 @@
             </li>
             <li>
                 <a href="/dashboard/owner"
-                    class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('dashboard/owner') ? 'bg-lime-700 text-white' : 'bg-gray-200' }}">
+                    class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('dashboard/owner') ? 'bg-[#739072] text-white' : 'bg-gray-200' }}">
                     <img src="{{asset('icon/8763858_home_house_menu_dashboard_homepage_icon.png')}}" class="w-6 h-6" alt="">
                     <span class="ms-3">Beranda</span>
                 </a>
             </li>
             <li>
                 <a href="/approval/owner"
-                    class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('approval/owner') ? 'bg-lime-700 text-white' : 'bg-gray-200' }}">
+                    class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('approval/owner') ? 'bg-[#739072] text-white' : 'bg-gray-200' }}">
                     <img src="{{asset('icon/9191429_democracy_esteem_regard_accept_election_icon.png')}}" class="w-6 h-6" alt="">
                     <span class="ms-3">Persetujuan</span>
                 </a>
             </li>
             <li>
                 <a href="/kos/owner"
-                    class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('kos/owner') ? 'bg-lime-700 text-white' : 'bg-gray-200' }}">
+                    class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('kos/owner') ? 'bg-[#739072] text-white' : 'bg-gray-200' }}">
                     <img src="{{asset('icon/7088614_bit_byte_server_data_database_icon.png')}}" class="w-6 h-6" alt="">
                     <span class="ms-3">Kost</span>
                 </a>
@@ -70,7 +70,7 @@
             <li>
             <li>
                 <a href="/kamar/owner"
-                    class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('kamar/owner') ? 'bg-lime-700 text-white' : 'bg-gray-200' }}">
+                    class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('kamar/owner') ? 'bg-[#739072] text-white' : 'bg-gray-200' }}">
                     <img src="{{asset('icon/7088614_bit_byte_server_data_database_icon.png')}}" class="w-6 h-6" alt="">
                     <span class="ms-3">Kamar</span>
                 </a>
