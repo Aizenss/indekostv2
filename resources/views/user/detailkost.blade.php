@@ -61,14 +61,10 @@
                     Fasilitas Kamar Mandi
                 </div>
                 <div class="grid grid-cols-4 gap-2">
-                    @forelse (json_decode($kos->fasilitas_umum) ??[] as $kost)
                         <div class="fasilitas text-gray-700">
                             <i class="fa-solid fa-check me-2"></i><span
-                                class="font-medium text-base">{{ $kost->value }}</span>
+                                class="font-medium text-base">{{ $kos->fasilitas_kamar_mandi }}</span>
                         </div>
-                    @empty
-                        -
-                    @endforelse
                 </div>
             </div>
             <hr>
@@ -77,14 +73,10 @@
                     Fasilitas Parkir
                 </div>
                 <div class="grid grid-cols-4 gap-2">
-                    @forelse (json_decode($kos->fasilitas_umum) ??[] as $kost)
-                        <div class="fasilitas text-gray-700">
-                            <i class="fa-solid fa-check me-2"></i><span
-                                class="font-medium text-base">{{ $kost->value }}</span>
-                        </div>
-                    @empty
-                        -
-                    @endforelse
+                    <div class="fasilitas text-gray-700">
+                        <i class="fa-solid fa-check me-2"></i><span
+                            class="font-medium text-base">{{ $kos->fasilitas_tempat_parkir }}</span>
+                    </div>
                 </div>
             </div>
             <hr>
@@ -195,7 +187,7 @@
         <div class="flex items-center gap-4">
             <span class="font-bold text-[80px] ">{{ $averageRating }} <i
                     class="fas fa-star text-yellow-300"></i></span>
-            <span class="text-base font-medium">Dari 400 User</span>
+            <span class="text-base font-medium">Dari {{ $numberOfRatings }} User</span>
         </div>
         <div class="flex flex-col gap-5">
             @forelse ($kos->ulasan as $rating)

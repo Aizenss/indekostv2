@@ -19,11 +19,17 @@
                             Nama Kos
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Total Kamar
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Aksi
                         </th>
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        // $kosts->kamar
+                    @endphp
                     @forelse ($kosts as $kost)
                         @if ($kost->status == 'setuju')
                             <tr class="bg-white dark:bg-gray-800 items-center">
@@ -33,6 +39,9 @@
                                 </th>
                                 <td class="px-6 py-4">
                                     {{ $kost->nama_kost }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $kost->kamar }}
                                 </td>
                                 <td class="px-6 py-4">
                                     <a href="{{ route('owner.kamar.tambah', $kost->id) }}"
@@ -46,6 +55,9 @@
                                 class="px-6 py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
                                 -
                             </th>
+                            <td class="px-6 py-4">
+                                -
+                            </td>
                             <td class="px-6 py-4">
                                 -
                             </td>
