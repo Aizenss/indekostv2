@@ -39,9 +39,11 @@ class KamarOwnerController extends Controller
 
         $kamar->create([
             'kos_id' => $kos->id,
-            'nomor_kamar' => $request->nomor_kamar,
+            'nama_kamar' => $request->nomor_kamar,
             'fasilitas' => $request->fasilitas,
             'kamar_mandi' => $request->kamar_mandi,
+            'harga' => $request->harga,
+            'night' => $request->night,
             'foto_kamar' => $foto_json
         ]);
         return redirect()->route('owner.kamar.tambah', $kos);

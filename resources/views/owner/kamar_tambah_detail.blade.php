@@ -7,8 +7,8 @@
             class="space-y-6">
             @csrf
             <div>
-                <label for="nomor_kamar" class="text-lg font-semibold text-gray-800">Nomor Kamar</label>
-                <input type="number" name="nomor_kamar" id="nomor_kamar"
+                <label for="nomor_kamar" class="text-lg font-semibold text-gray-800">Nama Kamar</label>
+                <input type="text" name="nomor_kamar" id="nomor_kamar"
                     class="mt-2 p-3 w-full border border-blue-500 rounded-md focus:ring focus:ring-blue-500 focus:border-blue-500 focus:outline-none">
             </div>
             <div>
@@ -19,6 +19,16 @@
             <div>
                 <label for="kamar_mandi" class="text-lg font-semibold text-gray-800">Info Kamar Mandi</label>
                 <input type="text" name="kamar_mandi" id="kamar_mandi"
+                    class="mt-2 p-3 w-full border border-blue-500 rounded-md focus:ring focus:ring-blue-500 focus:border-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label for="harga" class="text-lg font-semibold text-gray-800">harga</label>
+                <input type="text" name="harga" id="harga"
+                    class="mt-2 p-3 w-full border border-blue-500 rounded-md focus:ring focus:ring-blue-500 focus:border-blue-500 focus:outline-none">
+            </div>
+            <div>
+                <label for="night" class="text-lg font-semibold text-gray-800">harga/</label>
+                <input type="number" name="night" id="night"
                     class="mt-2 p-3 w-full border border-blue-500 rounded-md focus:ring focus:ring-blue-500 focus:border-blue-500 focus:outline-none">
             </div>
             <div>

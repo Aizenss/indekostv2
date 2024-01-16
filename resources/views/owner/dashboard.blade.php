@@ -52,7 +52,7 @@
                     month -= 12;
                     year += 1;
                 }
-
+                
                 monthLabels.push(new Date(year, month, 1).toLocaleString('default', {
                     month: 'long'
                 }));
@@ -74,7 +74,7 @@
         let chartContainer = document.querySelector("#chart");
         console.log("Chart container:", chartContainer);
 
-        
+
         var options = {
             series: [{
                 name: "jumlah data",
@@ -110,6 +110,6 @@
 
         var chart = new ApexCharts(chartContainer, options);
         chart.render();
-        
+
     </script>
 @endsection

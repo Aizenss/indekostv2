@@ -14,10 +14,12 @@ class Kamar extends Model
     protected $fillable = [
         'kos_id',
         'user_id',
-        'nomor_kamar',
+        'nama_kamar',
         'fasilitas',
         'kamar_mandi',
         'foto_kamar',
+        'harga',
+        'night',
         'status',
         'snap_token',
         'result'
@@ -25,7 +27,7 @@ class Kamar extends Model
 
     public function kos(): BelongsTo
     {
-        return $this->belongsTo(Kos::class, 'kos_id');
+        return $this->belongsTo(Kos::class);
     }
     public function user(): BelongsTo
     {
