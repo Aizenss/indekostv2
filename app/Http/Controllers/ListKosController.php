@@ -11,15 +11,15 @@ class ListKosController extends Controller
     {
         $keyword = $request->input('cari');
         $ketentuan = $request->jenis_kost;
-        $harga = $request->harga;
+        $dibuat = $request->dibuat;
         $rating = $request->rating;
 
         $kost = Kos::where('status', 'setuju')
-            ->when($harga == 'asc', function ($query) use ($request) {
-                $query->orderBy('harga');
+            ->when($dibuat == 'asc', function ($query) use ($request) {
+                $query->orderBy('created_at');
             })
-            ->when($harga == 'desc', function ($query) use ($request) {
-                $query->orderByDesc('harga');
+            ->when($dibuat == 'desc', function ($query) use ($request) {
+                $query->orderByDesc('created_at');
             })
             ->when($keyword, function ($query) use ($keyword) {
                 $query->where('nama_kost', 'like', '%' . $keyword . '%');
@@ -52,6 +52,6 @@ class ListKosController extends Controller
                 ->orderByDesc('jumlah_ulasan_rating_3');
             })
             ->paginate(6);
-        return view('user.listkost', compact('kost', 'keyword', 'harga', 'ketentuan', 'rating'));
+        return view('user.listkost', compact('kost', 'keyword', 'dibuat', 'ketentuan', 'rating'));
     }
 }

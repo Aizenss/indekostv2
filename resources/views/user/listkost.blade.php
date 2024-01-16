@@ -26,11 +26,11 @@
                 </div>
                 <div>
                     <form id="filter" action="{{ route('user.kamarkami') }}" method="GET" class="space-x-4 flex">
-                        <select id="Harga" name="harga"
+                        <select id="dibuat" name="dibuat"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#86A789] focus:border-[#86A789] block w-full p-2.5 text-center">
-                            <option selected value="">Harga</option>
-                            <option value="desc" {{ $harga == 'desc' ? 'selected' : '' }}>Termahal - Termurah</option>
-                            <option value="asc" {{ $harga == 'asc' ? 'selected' : '' }}>Termurah - Termahal</option>
+                            <option selected value="">dibuat</option>
+                            <option value="desc" {{ $dibuat == 'desc' ? 'selected' : '' }}>Terbaru-Terlama</option>
+                            <option value="asc" {{ $dibuat == 'asc' ? 'selected' : '' }}>Terlama-Terbaru</option>
                         </select>
                         <select id="Rating" name="rating"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#86A789] focus:border-[#86A789] block w-full p-2.5 ">
@@ -41,7 +41,7 @@
                         </select>
                     </form>
                     <script>
-                        document.getElementById('Harga').addEventListener('change', function() {
+                        document.getElementById('dibuat').addEventListener('change', function() {
                             document.getElementById('filter').submit();
                         });
                         document.getElementById('Rating').addEventListener('change', function() {
