@@ -54,4 +54,9 @@ class ListKosController extends Controller
             ->paginate(6);
         return view('user.listkost', compact('kost', 'keyword', 'dibuat', 'ketentuan', 'rating'));
     }
+
+    public function landing() {
+        $kost = Kos::all()->take(8);
+        return view('welcome', compact('kost'));
+    }
 }

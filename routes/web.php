@@ -29,9 +29,7 @@ use App\Http\Controllers\TransaksiAdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ListKosController::class, 'landing'])->name('landing');
 
 Route::middleware('auth', 'verified')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

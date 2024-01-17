@@ -97,114 +97,69 @@
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8 mb-10">
-                <a href="" class="shadow-lg hover:shadow-2xl hover:shadow-[#4F6F52] duration-300 rounded-xl">
-                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
-                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
-                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
-                            <div class="flex justify-between items-center">
-                                <div class="ratingnya font-semibold text-md text-black">
-                                    ⭐/5
+                @forelse ($kost as $kos)
+                    <a href="{{ route('user.detailkost', ['kos' => $kos->id]) }}" class="text-decoration-none">
+                        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                            <img class="rounded-t-lg" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt="" />
+                            <div class="px-5 py-3">
+                                <h5 class="text-xl font-bold tracking-tight text-gray-900 truncate">{{ $kos->nama_kost }}
+                                </h5>
+                                <p class="mb-1 text-sm font-normal text-gray-700 truncate">
+                                    <i class="fa-solid fa-map-location-dot me-3"></i>{{ $kos->lokasi }}
+                                </p>
+                                <hr class="mb-2">
+                                @php
+                                    $kamartersedia = $kos->kamar->where('status', 'kosong')->count();
+                                @endphp
+                                @if ($kamartersedia > 0)
+                                    <span class="text-base text-gray-700 font-semibold truncate">Tersedia
+                                        {{ $kamartersedia }} Kamar</span>
+                                @else
+                                    <span class="text-xs text-gray-700 font-semibold truncate">Tidak ada kamar yang
+                                        tersedia</span>
+                                @endif
+
+                                <hr class="mb-2">
+                                <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
+                                <div class="grid grid-cols-2 gap-2">
+                                    @if ($kos->fasilitas_umum == null)
+                                    @else
+                                        @foreach (json_decode($kos->fasilitas_umum) as $fasilitas)
+                                            <span class="text-sm text-gray-700 font-medium truncate">
+                                                <i class="fa-solid fa-check me-2"></i>{{ $fasilitas->value }}
+                                            </span>
+                                        @endforeach
+                                    @endif
                                 </div>
-                                <div class="tombol-lihat">
-                                    <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
+                                @php
+                                    $totalRating = 0;
+                                    $numberOfRatings = count($kos->ulasan);
+
+                                    foreach ($kos->ulasan as $rating) {
+                                        $totalRating += $rating->rating;
+                                    }
+
+                                    $averageRating = $numberOfRatings > 0 ? number_format(round($totalRating / $numberOfRatings, 2), 1, '.', ',') : 0;
+                                @endphp
+
+                                <div class="flex justify-between items-end gap-3">
+                                    <div class="rate mb-1 font-semibold text-lg">
+                                        <i class="fas fa-star text-yellow-300"> </i>{{ $averageRating }}/5
+                                    </div>
+                                    <div
+                                        class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">
+                                        Detail Kost
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
+                    </a>
+                    @empty
+                    <div class=" flex justify-center align-middle">
+                        <img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="size-52" alt="">
                     </div>
-                </a>
-                <a href="" class="shadow-lg hover:shadow-2xl hover:shadow-[#4F6F52] duration-300 rounded-xl">
-                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
-                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
-                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
-                            <div class="flex justify-between items-center">
-                                <div class="ratingnya font-semibold text-md text-black">
-                                    ⭐/5
-                                </div>
-                                <div class="tombol-lihat">
-                                    <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="shadow-lg hover:shadow-2xl hover:shadow-[#4F6F52] duration-300 rounded-xl">
-                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
-                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
-                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
-                            <div class="flex justify-between items-center">
-                                <div class="ratingnya font-semibold text-md text-black">
-                                    ⭐/5
-                                </div>
-                                <div class="tombol-lihat">
-                                    <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="shadow-lg hover:shadow-2xl hover:shadow-[#4F6F52] duration-300 rounded-xl">
-                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
-                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
-                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
-                            <div class="flex justify-between items-center">
-                                <div class="ratingnya font-semibold text-md text-black">
-                                    ⭐/5
-                                </div>
-                                <div class="tombol-lihat">
-                                    <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="shadow-lg hover:shadow-2xl hover:shadow-[#4F6F52] duration-300 rounded-xl">
-                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
-                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
-                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
-                            <div class="flex justify-between items-center">
-                                <div class="ratingnya font-semibold text-md text-black">
-                                    ⭐/5
-                                </div>
-                                <div class="tombol-lihat">
-                                    <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="shadow-lg hover:shadow-2xl hover:shadow-[#4F6F52] duration-300 rounded-xl">
-                    <div class="max-w-sm bg-white rounded-lg shadow-xl">
-                        <img class="rounded-t-lg" src="{{ asset('foto/kontrakan.png') }}" alt="" />
-                        <div class="p-5">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kontrakan Los Santos</h5>
-                            <p class="mb-3 font-normal text-gray-700">Tempat dimana para calon imam berada dan banyak
-                                rutinitas yang ada seperti tahlil rutin, mengaji bersama, kerja bakti, dll</p>
-                            <div class="flex justify-between items-center">
-                                <div class="ratingnya font-semibold text-md text-black">
-                                    ⭐/5
-                                </div>
-                                <div class="tombol-lihat">
-                                    <button href="" class="bg-[#86A789] py-2 px-4 hover:bg-[#739072] rounded-lg text-white">Lihat <i class="fa-solid fa-eye ms-2"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                @endforelse
             </div>
         </section>
     </div>
