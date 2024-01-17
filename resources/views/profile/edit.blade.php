@@ -11,92 +11,107 @@
 @section('isi')
   <div class="sm:ml-64 bg-[#E8F1E3]">
     <div class="grid grid-cols-3 gap-5 ">
-                <div class="bg-white p-3 rounded-lg shadow-md mt-6 ml-4">
-                    <!-- Profile Image -->
-                    <div class="p-3 relative w-40 h-40 mx-auto border-4 border-white rounded-full overflow-hidden ">
-                        <img src="{{ asset('foto/dummy.jpeg') }}" alt="Profile" class="w-full rounded-full object-cover">
-                    </div>
+      <div class="bg-white p-3 rounded-lg shadow-md mt-6 ml-4">
+        <!-- Profile Image -->
+        <!-- Add this inside the div with class="p-3 relative w-40 h-40 mx-auto border-4 border-white rounded-lg overflow-hidden" -->
+        <div class=" mt-8 p-3 relative w-full h-40 mx-auto border-4 border-white rounded-lg overflow-hidden flex justify-center items-center">
+            <img src="{{ asset('foto/dummy.jpeg') }}" alt="Profile" class=" w-36 rounded-full object-cover">
 
-                    <!-- User Information -->
-                    <div class="p-3 mt-0 text-center"> <!-- Adjusted margin-top to mt-6 -->
-                        <h2 class="text-2xl font-semibold text-gray-800">Nama Pengguna</h2>
-                        <p class="text-gray-600">user@gmail.com</p>
-                    </div>
-                    <div class="p-3 mt-0 text-center"> <!-- Adjusted margin-top to mt-6 -->
+          <!-- Add the icon -->
+          <div class="absolute top-0 right-0 p-2 cursor-pointer">
+            <label for="fileInput">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
+                <path fill="currentColor"
+                  d="m232.49 55.51l-32-32a12 12 0 0 0-17 0l-96 96A12 12 0 0 0 84 128v32a12 12 0 0 0 12 12h32a12 12 0 0 0 8.49-3.51l96-96a12 12 0 0 0 0-16.98M192 49l15 15l-11 11l-15-15Zm-69 99h-15v-15l56-56l15 15Zm105-15.43V208a20 20 0 0 1-20 20H48a20 20 0 0 1-20-20V48a20 20 0 0 1 20-20h75.43a12 12 0 0 1 0 24H52v152h152v-71.43a12 12 0 0 1 24 0" />
+              </svg>
+            </label>
+            <input type="file" id="fileInput" class="hidden">
+          </div>
+        </div>
+
+
+        <!-- User Information -->
+        <div class="p-3 mt-4 text-center"> <!-- Adjusted margin-top to mt-6 -->
+          <h2 class="text-2xl font-semibold text-gray-800">Nama Pengguna</h2>
+          <p class="text-gray-600">user@gmail.com</p>
+        </div>
+        {{-- <div class="p-3 mt-0 text-center"> <!-- Adjusted margin-top to mt-6 -->
                         <button type="button" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Ganti</button>
                         <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Upload</button>
-                    </div>
-                </div>
+                    </div> --}}
+      </div>
 
       <div class=" col-span-2 bg-white rounded-md mt-6 px-[30px] py-[30px] shadow-md mr-4">
         <form id="send-verification" method="post" action="{{ route('verification.send') }}">
           @csrf
           <div class="mb-2 mt-6">
             <div class="grid grid-cols-3">
-            <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
-            <input type="nama" id="nama"
-              class="col-span-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              placeholder="nama mu" required>
-          </div>
-        </div>
-          <div class="mb-2 mt-6">
-            <div class="grid grid-cols-3">
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
-            <input type="email" id="email"
-              class="col-span-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              placeholder="emailmu@gmail.com" required>
-          </div>
+              <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
+              <input type="nama" id="nama"
+                class="col-span-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                placeholder="nama mu" required>
+            </div>
           </div>
           <div class="mb-2 mt-6">
             <div class="grid grid-cols-3">
-            <label for="number" class="block mb-2 text-sm font-medium text-gray-900">Nomor
-              Handphone</label>
-            <input type="number" id="number"
-              class="col-span-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              placeholder="08*********" required>
+              <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+              <input type="email" id="email"
+                class="col-span-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                placeholder="emailmu@gmail.com" required>
+            </div>
+          </div>
+          <div class="mb-2 mt-6">
+            <div class="grid grid-cols-3">
+              <label for="number" class="block mb-2 text-sm font-medium text-gray-900">Nomor
+                Handphone</label>
+              <input type="number" id="number"
+                class="col-span-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                placeholder="08*********" required>
             </div>
           </div>
           <div class="flex justify-end">
-            <button type="submit"class="mt-4  ml-2 mr-2 text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Simpan</button>
+            <button
+              type="submit"class="mt-4  ml-2 mr-2 text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Simpan</button>
           </div>
         </form>
       </div>
     </div>
     <div class="p-4 col-span-2 bg-white rounded-md  mt-4 shadow-md mr-4 ml-4">
-        <h5 class="text-lg font-semibold text-gray-800 mb-4 text-center mb-5">Ubah Password</h5>
-        <form id="send-verification" method="post" action="{{ route('verification.send') }}">
-          @csrf
-          <div class="mb-2 mt-4">
-            <div class="grid grid-cols-3">
-                <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Password Lama</label>
-                <input type="nama" id="nama"
-                  class="col-span-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                  placeholder="nama mu" required>
-            </div>
+      <h5 class="text-lg font-semibold text-gray-800 mb-4 text-center mb-5">Ubah Password</h5>
+      <form id="send-verification" method="post" action="{{ route('verification.send') }}">
+        @csrf
+        <div class="mb-2 mt-4">
+          <div class="grid grid-cols-3">
+            <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Password Lama</label>
+            <input type="nama" id="nama"
+              class="col-span-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+              placeholder="nama mu" required>
           </div>
-          <div class="mb-2 mt-4">
-            <div class="grid grid-cols-3">
+        </div>
+        <div class="mb-2 mt-4">
+          <div class="grid grid-cols-3">
             <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Password Baru</label>
             <input type="email" id="email"
               class="col-span-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
               placeholder="emailmu@gmail.com" required>
           </div>
         </div>
-          <div class="mb-2 mt-4">
-            <div class="grid grid-cols-3">
+        <div class="mb-2 mt-4">
+          <div class="grid grid-cols-3">
             <label for="number" class="block mb-2 text-sm font-medium text-gray-900">Konfirmasi Password</label>
             <input type="number" id="number"
               class="col-span-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
               placeholder="08*********" required>
-            </div>
           </div>
-          <div class="flex justify-end">
-            <button type="submit"class="mt-4  ml-2 mr-2 text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Simpan</button>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div class="flex justify-end">
+          <button
+            type="submit"class="mt-4  ml-2 mr-2 text-white bg-blue-600 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Simpan</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
+  </div>
 
   </div>
 @endsection
