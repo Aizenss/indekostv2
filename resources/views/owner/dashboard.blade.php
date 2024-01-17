@@ -52,7 +52,7 @@
                     month -= 12;
                     year += 1;
                 }
-                
+
                 monthLabels.push(new Date(year, month, 1).toLocaleString('default', {
                     month: 'long'
                 }));
@@ -73,12 +73,12 @@
         // Log to check if the required element is found
         let chartContainer = document.querySelector("#chart");
         console.log("Chart container:", chartContainer);
-
+        let chartData = @json($data);
 
         var options = {
             series: [{
-                name: "jumlah data",
-                data: [40, 38, 70, 23, 54],
+                name: "pedapapatan",
+                data: chartData.map(item => item.data),
             }],
             chart: {
                 height: 350,
@@ -104,7 +104,7 @@
                 },
             },
             xaxis: {
-                categories: generateMonthLabels(), // Use the generated month labels
+                categories: chartData.map(item => item.month),
             }
         };
 
