@@ -11,6 +11,8 @@
     {{-- Script --}}
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/3703331060.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.18.2/jQuery.tagify.min.js" integrity="sha512-0BtcbSASOh9qTe0JB+E7SLAi8LsIRywQ9cOHVgWGLpWel4wp4hop2BZdplRTBudoiYb7nYNSp0C84pq7gUQnyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     {{-- Script --}}
 
     {{-- Link --}}
@@ -33,14 +35,13 @@
             width: 100%;
             height: 100%;
             background-color: #fff;
-            /* Ganti dengan warna latar yang sesuai */
+
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
             opacity: 1;
             transition: opacity 0.5s ease-out;
-            /* Animasi untuk menghilangkan preloader */
         }
 
         #preloader.hidden {
