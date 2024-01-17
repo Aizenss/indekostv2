@@ -92,7 +92,8 @@ class PaymentController extends Controller
 
         $transaksi = Transaksi::create([
             'kamar_id' => $kamar->id,
-            'nominal' =>  $owners
+            'nominal_owner' =>  $owner,
+            'nominal_admin' =>  $admin
         ]);
         // User::where('id', 1)->update(['pendapatan' => $admin]);
 

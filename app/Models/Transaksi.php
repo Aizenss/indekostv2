@@ -11,7 +11,8 @@ class Transaksi extends Model
     use HasFactory;
     protected $fillable  = [
         'kamar_id',
-        'nominal'
+        'nominal_owner',
+        'nominal_admin'
     ];
 
     public function kamar(): BelongsTo
