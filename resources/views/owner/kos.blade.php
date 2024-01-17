@@ -102,27 +102,12 @@
                             <tr class="bg-white dark:bg-gray-800 items-center">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
-                                    -
                                 </th>
+                                <td></td>
+                                <td></td>
                                 <td class="px-6 py-4">
-                                    -
+                                    <img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="size-52" alt="">
                                 </td>
-                                <td class="px-6 py-4">
-                                    -
-                                </td>
-                                <td class="px-6 py-4">
-                                    -
-                                </td>
-                                <td class="px-6 py-4">
-                                    -
-                                </td>
-                                <td class="px-6 py-4">
-                                    -
-                                </td>
-                                <td class="px-6 py-4">
-                                    -
-                                </td>
-                            </tr>
                         @endforelse
                     </tbody>
                 </table>

@@ -57,7 +57,7 @@
                 <span class="text-xl font-semibold text-gray-900">List Kost</span>
             </div>
             <div class="grid grid-cols-4 gap-3">
-                @foreach ($kost as $kos)
+                @forelse ($kost as $kos)
                     <a href="{{ route('user.detailkost', ['kos' => $kos->id]) }}" class="text-decoration-none">
                         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                             <img class="rounded-t-lg" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt="" />
@@ -115,7 +115,11 @@
                             </div>
                         </div>
                     </a>
-                @endforeach
+                    @empty
+                    <div class=" flex justify-center align-middle">
+                        <img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="size-52" alt="">
+                    </div>
+                @endforelse
 
             </div>
         </section>
