@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@extends('layout.sidebar_admin')
+@extends('layout.sidebar_user')
 
 @section('isi')
     <div class="sm:ml-64 mt-8 ml-2 justify-center">
@@ -21,7 +21,7 @@
                     @forelse ($kamars as $kamar)
                         <tr class="{{ $kamar->status == 'terima' ? 'bg-white border-b hover:bg-gray-50' : '' }}">
                             <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $loop->iteration }}</td>
-                            <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $kamar->nomor_kamar }}</td>
+                            <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $kamar->nama_kamar }}</td>
                             <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $kamar->status }}</td>
                             <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">Rp.{{ number_format($kamar->harga, 0, ',', '.') }}</td>
                             <td class="px-6 py-4">

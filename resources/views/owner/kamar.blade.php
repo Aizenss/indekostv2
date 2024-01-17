@@ -27,9 +27,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @php
-                        // $kosts->kamar
-                    @endphp
+
                     @forelse ($kosts as $kost)
                         @if ($kost->status == 'setuju')
                             <tr class="bg-white dark:bg-gray-800 items-center">
@@ -40,8 +38,11 @@
                                 <td class="px-6 py-4">
                                     {{ $kost->nama_kost }}
                                 </td>
+                                @php
+                                    $total = count($kost->kamar);
+                                @endphp
                                 <td class="px-6 py-4">
-                                    {{ $kost->kamar }}
+                                    {{ $total }}
                                 </td>
                                 <td class="px-6 py-4">
                                     <a href="{{ route('owner.kamar.tambah', $kost->id) }}"
