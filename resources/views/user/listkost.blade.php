@@ -58,25 +58,30 @@
             </div>
             <div class="grid grid-cols-4 gap-3">
                 @forelse ($kost as $kos)
-                    <a href="{{ route('user.detailkost', ['kos' => $kos->id]) }}" class="text-decoration-none">
                         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                             <img class="rounded-t-lg" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt="" />
                             <div class="px-5 py-3">
                                 <h5 class="text-xl font-bold tracking-tight text-gray-900 truncate">{{ $kos->nama_kost }}
                                 </h5>
-                                <p class="mb-1 text-sm font-normal text-gray-700 truncate">
-                                    <i class="fa-solid fa-map-location-dot me-3"></i>{{ $kos->lokasi }}
-                                </p>
+                                <style>
+                                    .sc-sm::-webkit-scrollbar{
+                                        width: 0px;
+                                    }
+                                </style>
+                                <div class="overflow-y-scroll sc-sm max-h-16 max-w-40">
+                                    <p class="mb-1 text-sm font-normal text-gray-700">
+                                        gvtuiyouabepifvqapvoieq    volhqpe;ivhnqelvkojpihougbivhyugtctvyiuohipjoihuvhyigctugviuhipjoihugvyicgtu
+                                    </p>
+                                </div>
                                 <hr class="mb-2">
                                 @php
                                     $kamartersedia = $kos->kamar->where('status', 'kosong')->count();
                                 @endphp
                                 @if ($kamartersedia > 0)
-                                    <span class="text-base text-gray-700 font-semibold truncate">Tersedia
-                                        {{ $kamartersedia }} Kamar</span>
+                                    <p class="text-base text-gray-700 font-semibold truncate">Tersedia
+                                        {{ $kamartersedia }} Kamar</p>
                                 @else
-                                    <span class="text-xs text-gray-700 font-semibold truncate">Tidak ada kamar yang
-                                        tersedia</span>
+                                    <p class="text-xs text-gray-700 font-semibold truncate">Tidak Ada Kamar Tersedia</p>
                                 @endif
 
                                 <hr class="mb-2">
@@ -103,18 +108,17 @@
                                 @endphp
 
                                 <div class="flex justify-between items-end gap-3">
-                                    <div class="rate mb-1 font-semibold text-lg">
+                                    <div class="rate mb-1 font-semibold text-sm">
                                         <i class="fas fa-star text-yellow-300"> </i>{{ $averageRating }}/5
                                     </div>
-                                    <div
-                                        class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">
+                                    <a href="{{ route('user.detailkost', ['kos' => $kos->id]) }}"
+                                        class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-medium text-sm text-white rounded-lg text-center mt-5">
                                         Detail Kost
-                                    </div>
+                                    </a>
                                 </div>
 
                             </div>
                         </div>
-                    </a>
                     @empty
                     <div class=" flex justify-center align-middle">
                         <img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="size-52" alt="">
