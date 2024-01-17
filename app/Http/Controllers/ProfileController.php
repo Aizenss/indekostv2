@@ -65,6 +65,10 @@ class ProfileController extends Controller
         if ($request->file('foto')) {
             $file = $request->file('foto');
             $foto = date('YmdHi') . $file->getClientOriginalName();
+            $pathFotoLama = public_path('profiles') . '/' . $request->user()->foto;
+            if (file_exists($pathFotoLama) && $request->user()->foto != 'default.png') {
+                unlink($pathFotoLama);
+            }
             $file->move(public_path('profiles'), $foto);
         }
 

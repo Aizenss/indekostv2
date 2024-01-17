@@ -19,28 +19,32 @@
                 </div>
             </li>
             <li>
-                <div class="grid grid-cols-2 gap-1">
-                    @auth
-                    @else
+                @auth
+                @if(!empty($foto))
+                    <a href="{{ route('profile.edit') }}" class="nama-user flex gap-3 items-center hover:bg-[#739072] py-2 px-4 rounded-xl border border-[#739072] hover:text-white text-black duration-300 hover:shadow-lg">
+                        <img src="{{ asset('profiles/'. Auth::user()->foto) }}" alt="" width="40" class="rounded-full border border-[#3d4c3c]">
+                        <span class="font-medium text-lg">Halo Wok</span>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                @else
+                    <a href="{{ route('profile.edit') }}" class="nama-user flex gap-3 items-center hover:bg-[#739072] py-2 px-4 rounded-xl border border-[#739072] hover:text-white text-black duration-300 hover:shadow-lg">
+                        <img src="{{ asset('profiles/'. Auth::user()->foto) }}" alt="" width="40" class="rounded-full border border-[#3d4c3c]">
+                        <span class="font-medium text-lg">{{ ( Auth::user()->name) }}</span>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                @endif
+                @else
+                    <div class="grid grid-cols-2 gap-1">
                         <div class="register">
-                            <a href="/login" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    class="w-5 h-5">
-                                    <path fill-rule="evenodd"
-                                        d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <span class="ms-3">Login</span>
+                            <a href="/login"
+                                class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] duration-300 hover:text-white border border-[#739072]">
+                                <span class="ms-3"><i class="fa-solid fa-user fa-md me-2"></i>Login</span>
                             </a>
                         </div>
                         <div class="login">
-                            <a href="/register" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-300 ">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    class="w-5 h-5">
-                                    <path
-                                        d="M5.25 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM2.25 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM18.75 7.5a.75.75 0 0 0-1.5 0v2.25H15a.75.75 0 0 0 0 1.5h2.25v2.25a.75.75 0 0 0 1.5 0v-2.25H21a.75.75 0 0 0 0-1.5h-2.25V7.5Z" />
-                                </svg>
-                                <span class="ms-3">Register</span>
+                            <a href="/flowas"
+                                class="flex items-center py-2 text-gray-900 rounded-lg hover:bg-[#739072] duration-300 hover:text-white border border-[#739072]">
+                                <span class="ms-3"><i class="fa-solid fa-user-plus fa-md me-1"></i>Register</span>
                             </a>
                         </div>
                     </div>
@@ -49,8 +53,8 @@
             <li>
                 <a href="/dashboard/owner"
                     class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('dashboard/owner') ? 'bg-[#739072] text-white' : 'bg-gray-200' }}">
-                    <img src="{{asset('icon/8763858_home_house_menu_dashboard_homepage_icon.png')}}" class="w-6 h-6" alt="">
-                    <span class="ms-3">Beranda</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 256 256"><path fill="currentColor" d="m218.83 103.77l-80-75.48a1.14 1.14 0 0 1-.11-.11a16 16 0 0 0-21.53 0l-.11.11l-79.91 75.48A16 16 0 0 0 32 115.55V208a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16v-48h32v48a16 16 0 0 0 16 16h48a16 16 0 0 0 16-16v-92.45a16 16 0 0 0-5.17-11.78M208 208h-48v-48a16 16 0 0 0-16-16h-32a16 16 0 0 0-16 16v48H48v-92.45l.11-.1L128 40l79.9 75.43l.11.1Z"/></svg>
+                     <span class="ms-3">Beranda</span>
                 </a>
             </li>
             <li>
@@ -71,7 +75,7 @@
             <li>
                 <a href="/kamar/owner"
                     class="flex items-center p-2 text-gray-900 rounded-lg {{ request()->is('kamar/owner') ? 'bg-[#739072] text-white' : 'bg-gray-200' }}">
-                    <img src="{{asset('icon/7088614_bit_byte_server_data_database_icon.png')}}" class="w-6 h-6" alt="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" d="M1.5 18.5V4m0 14.5s0 3-1.5 3m1.5-3h21m0 0s0 3 1.5 3m-1.5-3V13A3.5 3.5 0 0 0 19 9.5h-8.5v4m-9 2h21m-14-4.1S7.5 13 6.25 13a1.75 1.75 0 0 1-1.75-1.75c0-.966.784-1.746 1.75-1.746C7.5 9.504 8.5 11.1 8.5 11.1z"/></svg>
                     <span class="ms-3">Kamar</span>
                 </a>
             </li>
