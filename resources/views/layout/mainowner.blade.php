@@ -10,7 +10,7 @@
 
     {{-- Script --}}
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <script src="https://kit.fontawesome.com/3703331060.js" crossorigin="anonymous"></script>
     {{-- Script --}}
 
     {{-- Link --}}
