@@ -12,7 +12,8 @@ class OwnerKosController extends Controller
 
     public function index()
     {
-        $kosts = Kos::with('user')->get();
+        $user = Auth::user();
+        $kosts = Kos::with('user')->where('owner_id', $user->id)->get();
         return view('owner.kos', compact('kosts'));
     }
 

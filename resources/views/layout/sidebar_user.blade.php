@@ -75,6 +75,7 @@
                     </a>
                 </li>
                 @auth
+                @if (Auth::user()->role == 'user')
                     <li>
                         <a href="/list-kos"
                             class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 {{ request()->is('/listkost') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
@@ -98,6 +99,7 @@
                         </a>
                     </li>
                         <li>
+                            @endif
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf

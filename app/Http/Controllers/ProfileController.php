@@ -55,4 +55,24 @@ class ProfileController extends Controller
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
+
+    public function uploadfoto(Request $request)
+    {
+        $request->validate([
+            'foto' => ['required','image', 'max:10000']
+        ]);
+
+        if ($request->file('foto')) {
+            $file = $request->file('foto');
+            $foto = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('profiles'), $foto);
+        }
+
+        $request->user()->update([
+            'foto' => $foto
+        ]);
+
+        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+
+    }
 }
