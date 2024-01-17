@@ -11,6 +11,7 @@ class Transaksi extends Model
     use HasFactory;
     protected $fillable  = [
         'kamar_id',
+        'owner_id',
         'nominal_owner',
         'nominal_admin'
     ];
@@ -18,5 +19,10 @@ class Transaksi extends Model
     public function kamar(): BelongsTo
     {
         return $this->belongsTo(Kamar::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

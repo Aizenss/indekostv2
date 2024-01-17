@@ -3,7 +3,7 @@
 @extends('layout.sidebar_admin')
 
 @section('isi')
-    <div class="sm:ml-64 mt-8 ml-2 justify-center">
+    <div class="sm:ml-64 mt-8 ml-2 mb-3 justify-center">
         <h1 class="mb-4 mt-4 ml-4  text-3xl font-black text-gray-900 dark:text-white">Transaksi</h1>
         <br>
         <div class="ml-8 mr-8 relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -35,7 +35,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($transaksis as $transaksi)
+                    @forelse ($transaksis as $transaksi)
                         <tr
                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <td class="px-6 py-4 font-semibold text-gray-900 ">
@@ -124,14 +124,16 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+
+                    @empty
+                        <tr>
+                            <td colspan="7" class="px-6 py-4 text-center font-semibold text-gray-900">
+                                No transactions available.
+                            </td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
-
-
-
-
-
     </div>
 @endsection

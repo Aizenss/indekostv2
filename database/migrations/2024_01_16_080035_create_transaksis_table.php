@@ -15,6 +15,8 @@ return new class extends Migration
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kamar_id')->constrained('kamar');
+            $table->foreignId('owner_id')->constrained('users');
+            $table->unsignedBigInteger('admin_id')->default(1);
             $table->integer('nominal_owner');
             $table->integer('nominal_admin');
             $table->timestamps();

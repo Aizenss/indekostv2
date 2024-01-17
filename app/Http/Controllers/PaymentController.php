@@ -92,6 +92,7 @@ class PaymentController extends Controller
 
         $transaksi = Transaksi::create([
             'kamar_id' => $kamar->id,
+            'owner_id' =>  $kamar->kos->owner_id,
             'nominal_owner' =>  $owner,
             'nominal_admin' =>  $admin
         ]);
