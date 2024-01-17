@@ -6,6 +6,7 @@ use Midtrans\Snap;
 use Midtrans\Config;
 use App\Models\Kamar;
 use App\Models\Kos;
+use App\Models\Transaksi;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,8 +35,8 @@ class PaymentController extends Controller
 
         $params = array(
             'transaction_details' => array(
-                'order_id' => $request->nomor_kamar . rand(),
-                'gross_amount' => $request->harga,
+                'order_id' => rand(),
+                'gross_amount' => $kamar->harga,
             ),
             'customer_details' => array(
                 'first_name' => Auth::user()->name,
@@ -66,14 +67,21 @@ class PaymentController extends Controller
 
     public function proses(Request $request, Kamar $kamar)
     {
+        // dd($request->all());
         $data = $request->input('data');
         $kamar->update([
             'result' => $data,
             'status' => 'paid',
         ]);
 
-        $admin = $data['gross_amount'];
-        $owner = $data['gross_amount'];
+        $grossAmount = $data['gross_amount'];
+
+        // Menghitung bagiannya
+        $ownerPercentage = 95;
+        $adminPercentage = 100 - $ownerPercentage;
+
+        $owner = ($ownerPercentage / 100) * $grossAmount;
+        $admin = ($adminPercentage / 100) * $grossAmount;
 
         // dd($owner, $kamar->kos->owner_id);
         $owners = User::where('id', $kamar->kos->owner_id)->first();
@@ -81,9 +89,14 @@ class PaymentController extends Controller
 
         $admins = User::where('id', 1)->first();
         $admins->increment('pendapatan', $admin);
+
+        $transaksi = Transaksi::create([
+            'kamar_id' => $kamar->id,
+            'nominal' =>  $owners
+        ]);
         // User::where('id', 1)->update(['pendapatan' => $admin]);
 
         // return response()->json(['message' => 'Data berhasil diproses']);
-        return redirect()->route('payment');
+        return redirect()->route('user.kamarkami');
     }
 }

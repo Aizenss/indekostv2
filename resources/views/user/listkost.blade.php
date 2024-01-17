@@ -72,21 +72,24 @@
                                     $kamartersedia = $kos->kamar->where('status', 'kosong')->count();
                                 @endphp
                                 @if ($kamartersedia > 0)
-                                <span class="text-base text-gray-700 font-semibold truncate">Tersedia
-                                    {{ $kamartersedia }} Kamar</span>
-                                    @else
-                                    <span class="text-xs text-gray-700 font-semibold truncate">Tidak ada kamar yang tersedia</span>
-
+                                    <span class="text-base text-gray-700 font-semibold truncate">Tersedia
+                                        {{ $kamartersedia }} Kamar</span>
+                                @else
+                                    <span class="text-xs text-gray-700 font-semibold truncate">Tidak ada kamar yang
+                                        tersedia</span>
                                 @endif
 
                                 <hr class="mb-2">
                                 <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
                                 <div class="grid grid-cols-2 gap-2">
-                                    @foreach (json_decode($kos->fasilitas_umum) as $fasilitas)
-                                        <span class="text-sm text-gray-700 font-medium truncate">
-                                            <i class="fa-solid fa-check me-2"></i>{{ $fasilitas->value }}
-                                        </span>
-                                    @endforeach
+                                    @if ($kos->fasilitas_umum == null)
+                                    @else
+                                        @foreach (json_decode($kos->fasilitas_umum) as $fasilitas)
+                                            <span class="text-sm text-gray-700 font-medium truncate">
+                                                <i class="fa-solid fa-check me-2"></i>{{ $fasilitas->value }}
+                                            </span>
+                                        @endforeach
+                                    @endif
                                 </div>
                                 @php
                                     $totalRating = 0;

@@ -11,8 +11,9 @@
                 <thead class="text-xs text-white uppercase bg-[#4F6F52]">
                     <tr>
                         <th scope="col" class="px-6 py-3">No</th>
-                        <th scope="col" class="px-6 py-3">Nomor Kamar</th>
+                        <th scope="col" class="px-6 py-3">Nama Kamar</th>
                         <th scope="col" class="px-6 py-3">Status Kamar</th>
+                        <th scope="col" class="px-6 py-3">Harga</th>
                         <th scope="col" class="px-6 py-3">Aksi</th>
                     </tr>
                 </thead>
@@ -22,6 +23,7 @@
                             <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $loop->iteration }}</td>
                             <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $kamar->nomor_kamar }}</td>
                             <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $kamar->status }}</td>
+                            <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">Rp.{{ number_format($kamar->harga, 0, ',', '.') }}</td>
                             <td class="px-6 py-4">
                                 @if ($kamar->status == 'terima')
                                     <button class="pay-button bg-blue-500 text-white px-4 py-2" data-token="{{ $kamar->snap_token }}" data-kamar-id="{{ $kamar->id }}">Bayar</button>
@@ -38,6 +40,7 @@
                                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $i }}</td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">-</td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">-</td>
+                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">-</td>
                                 <td class="px-6 py-4">
                                     <span class="text-gray-500">-</span>
                                 </td>
@@ -48,8 +51,6 @@
             </table>
         </div>
     </div>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>

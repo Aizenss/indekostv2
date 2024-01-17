@@ -115,7 +115,12 @@
                         <div class="flex justify-between mt-3">
                             <a href=""
                                 class="border border-[#4F6F52] py-1 px-3 rounded-lg text-gray-900">Info</a>
-                            <a href="" class="bg-[#4F6F52] py-1 px-3 rounded-lg text-white">Ajukan Sewa</a>
+                            <form action="{{ route('user.detailkost.payment', ['kos' => $kos, 'kamar' => $kamar]) }}"
+                                method="post">
+                                @csrf
+                                <button type="submit" class="bg-[#4F6F52] py-1 px-3 rounded-lg text-white">Ajukan
+                                    Sewa</button>
+                            </form>
                         </div>
                     </div>
                 </div>
