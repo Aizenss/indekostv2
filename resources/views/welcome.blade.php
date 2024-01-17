@@ -12,7 +12,7 @@
                     <p class="mb-4 mt-3">Indekost adalah platform pencarian kost terkemuka yang didedikasikan untuk menyediakan
                         solusi terbaik bagi para pencari tempat tinggal. Menyediakan informasi yang akurat, foto-foto
                         berkualitas, dan fitur pencarian yang canggih.</p>
-                    <a href="" class="bg-[#86A789] py-1 px-3 rounded-xl text-white">Mulai<i
+                    <a href="{{ url('/login') }}" class="bg-[#86A789] py-1 px-3 rounded-xl text-white">Mulai<i
                             class="fa-solid fa-arrow-right text-white ms-2"></i></a>
                 </div>
                 <div class="gambar-wellcome">
