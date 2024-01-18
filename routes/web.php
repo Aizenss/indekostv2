@@ -32,10 +32,10 @@ use App\Http\Controllers\TransaksiAdminController;
 Route::get('/', [ListKosController::class, 'landing'])->name('landing');
 
 Route::middleware('auth', 'verified')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::put('/profile', [ProfileController::class, 'uploadfoto'])->name('profile.foto.upload');
-    Route::patch('/profile', [ProfileController::class, 'passwordupdate'])->name('profile.password.update');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile/upload', [ProfileController::class, 'uploadfoto'])->name('profile.foto.upload');
+    Route::patch('/profile/password/update', [ProfileController::class, 'passwordupdate'])->name('profile.password.update');
 
 });
 

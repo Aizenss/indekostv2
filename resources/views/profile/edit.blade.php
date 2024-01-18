@@ -16,15 +16,18 @@
                 <!-- Add this inside the div with class="p-3 relative w-40 h-40 mx-auto border-4 border-white rounded-lg overflow-hidden" -->
                 <div
                     class=" mt-8 p-3 relative w-full h-40 mx-auto border-4 border-white rounded-lg overflow-hidden flex justify-center items-center">
-                    <img src="{{ asset('profiles/'. Auth::user()->foto) }}" alt="Profile" class=" w-36 rounded-full object-cover">
+                    <img src="{{ asset('profiles/' . Auth::user()->foto) }}" alt="Profile"
+                        class=" w-36 rounded-full object-cover">
 
                     <!-- Add the icon -->
                     <div class="absolute top-0 right-0 p-2 cursor-pointer">
-                        <form id="foto" action="{{ route('profile.foto.upload') }}" method="POST" enctype="multipart/form-data">
+                        <form id="foto" action="{{ route('profile.foto.upload') }}" method="POST"
+                            enctype="multipart/form-data">
                             @method('put')
                             @csrf
                             <label for="fileInput">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256" class="-ms-24 text-green-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"
+                                    class="-ms-24 text-green-400">
                                     <path fill="currentColor"
                                         d="m232.49 55.51l-32-32a12 12 0 0 0-17 0l-96 96A12 12 0 0 0 84 128v32a12 12 0 0 0 12 12h32a12 12 0 0 0 8.49-3.51l96-96a12 12 0 0 0 0-16.98M192 49l15 15l-11 11l-15-15Zm-69 99h-15v-15l56-56l15 15Zm105-15.43V208a20 20 0 0 1-20 20H48a20 20 0 0 1-20-20V48a20 20 0 0 1 20-20h75.43a12 12 0 0 1 0 24H52v152h152v-71.43a12 12 0 0 1 24 0" />
                                 </svg>
@@ -52,15 +55,15 @@
             </div>
 
             <div class=" col-span-2 bg-white rounded-md mt-6 px-[30px] py-[30px] shadow-md mr-4">
-                <form id="send-verification" method="post" action="{{ route('profile.edit') }}">
+                <form method="post" action="{{ route('profile.update') }}">
                     @method('patch')
                     @csrf
                     <div class="mb-2 mt-6">
                         <div class="grid grid-cols-3">
                             <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
                             <input type="text" id="nama" value="{{ Auth::user()->name }}" name="name"
-                            class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="nama mu" required>
+                                class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                placeholder="nama mu" required>
 
                         </div>
                     </div>
@@ -68,15 +71,15 @@
                         <div class="grid grid-cols-3">
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
                             <input type="email" id="email" value="{{ Auth::user()->email }}" name="email"
-    class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-    placeholder="emailmu@gmail.com" required>
+                                class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                placeholder="emailmu@gmail.com" required>
                         </div>
                     </div>
                     <div class="mb-2 mt-6">
                         <div class="grid grid-cols-3">
                             <label for="number" class="block mb-2 text-sm font-medium text-gray-900">Nomor
                                 Handphone</label>
-                                <input type="number" id="number" value="{{ Auth::user()->no_telp }}" name="no_telp"
+                            <input type="number" id="number" value="{{ Auth::user()->no_telp }}" name="no_telp"
                                 class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                                 placeholder="08*********" required>
                         </div>
@@ -90,23 +93,23 @@
         </div>
         <div class="p-4 col-span-2 bg-white rounded-md  mt-4 shadow-md mr-4 ml-4">
             <h5 class="text-lg font-semibold text-gray-800 mb-4 text-center">Ubah Password</h5>
-            <form id="send-verification" method="post" action="{{ route('profile.password.update') }}">
+            <form method="post" action="{{ route('profile.password.update') }}">
                 @method('patch')
                 @csrf
                 <div class="mb-2 mt-4">
                     <div class="grid grid-cols-3">
                         <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Password Lama</label>
                         <input type="password" id="nama" name="old_password"
-                        class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        placeholder="Password lama" required>
+                            class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                            placeholder="Password lama" required>
                     </div>
                 </div>
                 <div class="mb-2 mt-4">
                     <div class="grid grid-cols-3">
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Password Baru</label>
                         <input type="password" id="email" name="new_password"
-                        class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        placeholder="password" required>
+                            class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                            placeholder="password" required>
 
                     </div>
                 </div>
@@ -114,7 +117,7 @@
                     <div class="grid grid-cols-3">
                         <label for="number" class="block mb-2 text-sm font-medium text-gray-900">Konfirmasi
                             Password</label>
-                            <input type="password" id="number" name="new_password_confirm"
+                        <input type="password" id="number" name="new_password_confirm"
                             class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                             placeholder="Masukan password baru" required>
                     </div>
@@ -125,8 +128,5 @@
                 </div>
             </form>
         </div>
-    </div>
-    </div>
-
     </div>
 @endsection
