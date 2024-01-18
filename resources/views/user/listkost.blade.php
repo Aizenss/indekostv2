@@ -56,7 +56,7 @@
             <div class="mb-3">
                 <span class="text-xl font-semibold text-gray-900">List Kost</span>
             </div>
-            <div class="grid grid-cols-3 gap-3">
+            <div class="grid grid-cols-3 gap-8">
                 @forelse ($kost as $kos)
                         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                             <img class="rounded-t-lg" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt="" />
@@ -68,9 +68,9 @@
                                         width: 0px;
                                     }
                                 </style>
-                                <div class="overflow-y-scroll sc-sm max-h-16 max-w-40">
+                                <div class="overflow-y-scroll sc-sm max-h-16 max-w-56">
                                     <p class="mb-1 text-sm font-normal text-gray-700">
-                                        gvtuiyouabepifvqapvoieq    volhqpe;ivhnqelvkojpihougbivhyugtctvyiuohipjoihuvhyigctugviuhipjoihugvyicgtu
+                                        gvtuiyouabepifvqapvoieq
                                     </p>
                                 </div>
                                 <hr class="mb-2">
