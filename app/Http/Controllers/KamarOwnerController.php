@@ -2,20 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kamar;
 use App\Models\Kos;
+use App\Models\Kamar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KamarOwnerController extends Controller
 {
     //
     public function index(){
-        $kosts = Kos::all();
+        $id = Auth::user()->id;
+        $kosts = Kos::where([
+            ['owner_id', '=', $id],
+            ['status', '=', 'setuju'],
+        ])->get();
+
         return view('owner.kamar', compact('kosts'));
     }
 
     public function tambah(Kos $kos){
-        $kamars = Kamar::all();
+        $kamars = Kamar::where('kos_id', $kos->id)->get();
         return view('owner.kamar_tambah', compact('kos', 'kamars'));
     }
 
@@ -39,8 +45,8 @@ class KamarOwnerController extends Controller
 
         $kamar->create([
             'kos_id' => $kos->id,
-            'nama_kamar' => $request->nama_kamar,
-            'fasilitas' => $request->tags,
+            'nama_kamar' => $request->nomor_kamar,
+            'fasilitas' => $request->fasilitas,
             'kamar_mandi' => $request->kamar_mandi,
             'harga' => $request->harga,
             'night' => $request->night,

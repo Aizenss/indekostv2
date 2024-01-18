@@ -10,7 +10,7 @@
         </div>
         @foreach ($kamars as $kamar)
         <div class="bg-white rounded-lg shadow-lg duration-300 hover:shadow-gray-500">
-            @foreach (json_decode($kamar->foto_kamar) as $foto)
+            @foreach (json_decode($kamar->foto_kamar) ?? [] as $foto)
             <img class="rounded-t-lg" src="{{ asset('kamar/'.$foto) }}" height="50" alt="" />
             @endforeach
             <div class="p-5 ">
@@ -29,7 +29,7 @@
                     }
                 </style>
                 <div class="grid grid-cols-2 gap-3 my-2 text-center overflow-y-scroll sc-sm max-h-14">
-                    @foreach (json_decode($kamar->fasilitas) as $fasilitas)
+                    @foreach (json_decode($kamar->fasilitas) ?? [] as $fasilitas)
                     <div class="fsnya">
                         <span class="text-sm text-gray-700 font-medium"><i class="fa-solid fa-check me-2"></i>{{ $fasilitas->value }}</span>
                     </div>
@@ -44,9 +44,9 @@
                 </div>
                 <div class="flex justify-between">
 
-                    <button data-popover-target="popover-click" data-popover-trigger="click" type="button"
+                    <button data-popover-target="popover-click{{ $kamar ->id }}" data-popover-trigger="click" type="button"
                         class="text-gray-900 bg-transparent hover:bg-gray-900 hover:text-white duration-300 border border-gray-900 font-medium rounded-lg text-base px-5 py-2.5 text-center"><i class="fa-solid fa-pen-to-square me-2"></i>Aksi</button>
-                    <div data-popover id="popover-click" role="tooltip"
+                    <div data-popover id="popover-click{{ $kamar ->id }}" role="tooltip"
                         class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0">
                         <div
                             class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg flex items-center justify-between">
@@ -71,16 +71,7 @@
                         </div>
                         <div data-popper-arrow></div>
                     </div>
-                    <script>
-                        function hidePopover() {
-                            var popover = document.querySelector("[data-popover-target='popover-click']");
-                            if (popover) {
-                                setTimeout(function () {
-                                    popover.click();
-                                }, 5000);
-                            }
-                        }
-                    </script>
+
 
 
                     {{-- <button class="bg-[#4F6F52] border border-[#4F6F52] hover:bg-[#384f3a] py-2 px-5 rounded-lg duration-300">

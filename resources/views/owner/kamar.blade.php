@@ -29,7 +29,6 @@
                 <tbody>
 
                     @forelse ($kosts as $kost)
-                        @if ($kost->status == 'setuju')
                             <tr class="bg-white dark:bg-gray-800 items-center">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
@@ -49,7 +48,6 @@
                                         class="text-blue-600 hover:underline dark:text-blue-500">Tambah Kamar</a>
                                 </td>
                             </tr>
-                        @endif
                     @empty
                         <tr class="bg-white dark:bg-gray-800 items-center">
                             <tr scope="row" colspan="8"

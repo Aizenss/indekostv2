@@ -9,7 +9,8 @@
                 <div class="textt">
                     <h1 class="text-4xl font-semibold text-[#537256]">Selamat Datang</h1>
                     <h2 class="text-4xl font-semibold text-black mt-3">Di Website In De Kost</h2>
-                    <p class="mb-4 mt-3">Indekost adalah platform pencarian kost terkemuka yang didedikasikan untuk menyediakan
+                    <p class="mb-4 mt-3">Indekost adalah platform pencarian kost terkemuka yang didedikasikan untuk
+                        menyediakan
                         solusi terbaik bagi para pencari tempat tinggal. Menyediakan informasi yang akurat, foto-foto
                         berkualitas, dan fitur pencarian yang canggih.</p>
                     <a href="{{ url('/login') }}" class="bg-[#86A789] py-1 px-3 rounded-xl text-white">Mulai<i
@@ -45,12 +46,14 @@
                     </div>
                     <div class="yang-didapatkan">
                         <h1 class="text-2xl text-[#537256] font-semibold">Keuntungan Memakai In De Kost</h1>
-                        <p class="text-[#252525] text-base font-medium mt-3">Raih Pengalaman Hunian yang Luar Biasa dengan In De
+                        <p class="text-[#252525] text-base font-medium mt-3">Raih Pengalaman Hunian yang Luar Biasa dengan
+                            In De
                             Kost! Berikut Keuntungan Yang Didapat</p>
                     </div>
                 </div>
             </div>
-            <div class="px-[15px] md:px-[140px] py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-top bg-[#E8F1E3] text-center">
+            <div
+                class="px-[15px] md:px-[140px] py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-top bg-[#E8F1E3] text-center">
                 <div class="keuntungan-1">
                     <div class="fapa-itu">
                         <img src="{{ asset('ilustrasi/waktu.png') }}" alt="" class="w-[300px]">
@@ -79,12 +82,18 @@
                     </div>
                     <div class="yang-didapatkan">
                         <h1 class="text-2xl text-[#537256] font-semibold">Kost dipastikan aman dan nyaman</h1>
-                        <p class="text-[#252525] text-base font-medium mt-3">Kami mengutamakan keamanan dan kenyamanan di setiap tempat kost yang terdaftar. Dengan fasilitas terjaga dan lingkungan yang aman, In De Kost memberikan rasa nyaman sejak langkah pertama Anda</p>
+                        <p class="text-[#252525] text-base font-medium mt-3">Kami mengutamakan keamanan dan kenyamanan di
+                            setiap tempat kost yang terdaftar. Dengan fasilitas terjaga dan lingkungan yang aman, In De Kost
+                            memberikan rasa nyaman sejak langkah pertama Anda</p>
                     </div>
                 </div>
             </div>
         </section>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#E8F1E3" fill-opacity="1" d="M0,160L8,170.7C16,181,32,203,48,224C64,245,80,267,96,256C112,245,128,203,144,202.7C160,203,176,245,192,234.7C208,224,224,160,240,160C256,160,272,224,288,229.3C304,235,320,181,336,154.7C352,128,368,128,384,138.7C400,149,416,171,432,160C448,149,464,107,480,106.7C496,107,512,149,528,186.7C544,224,560,256,576,261.3C592,267,608,245,624,208C640,171,656,117,672,96C688,75,704,85,720,128C736,171,752,245,768,282.7C784,320,800,320,816,288C832,256,848,192,864,160C880,128,896,128,912,149.3C928,171,944,213,960,229.3C976,245,992,235,1008,229.3C1024,224,1040,224,1056,202.7C1072,181,1088,139,1104,112C1120,85,1136,75,1152,90.7C1168,107,1184,149,1200,181.3C1216,213,1232,235,1248,250.7C1264,267,1280,277,1296,250.7C1312,224,1328,160,1344,154.7C1360,149,1376,203,1392,202.7C1408,203,1424,149,1432,122.7L1440,96L1440,0L1432,0C1424,0,1408,0,1392,0C1376,0,1360,0,1344,0C1328,0,1312,0,1296,0C1280,0,1264,0,1248,0C1232,0,1216,0,1200,0C1184,0,1168,0,1152,0C1136,0,1120,0,1104,0C1088,0,1072,0,1056,0C1040,0,1024,0,1008,0C992,0,976,0,960,0C944,0,928,0,912,0C896,0,880,0,864,0C848,0,832,0,816,0C800,0,784,0,768,0C752,0,736,0,720,0C704,0,688,0,672,0C656,0,640,0,624,0C608,0,592,0,576,0C560,0,544,0,528,0C512,0,496,0,480,0C464,0,448,0,432,0C416,0,400,0,384,0C368,0,352,0,336,0C320,0,304,0,288,0C272,0,256,0,240,0C224,0,208,0,192,0C176,0,160,0,144,0C128,0,112,0,96,0C80,0,64,0,48,0C32,0,16,0,8,0L0,0Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#E8F1E3" fill-opacity="1"
+                d="M0,160L8,170.7C16,181,32,203,48,224C64,245,80,267,96,256C112,245,128,203,144,202.7C160,203,176,245,192,234.7C208,224,224,160,240,160C256,160,272,224,288,229.3C304,235,320,181,336,154.7C352,128,368,128,384,138.7C400,149,416,171,432,160C448,149,464,107,480,106.7C496,107,512,149,528,186.7C544,224,560,256,576,261.3C592,267,608,245,624,208C640,171,656,117,672,96C688,75,704,85,720,128C736,171,752,245,768,282.7C784,320,800,320,816,288C832,256,848,192,864,160C880,128,896,128,912,149.3C928,171,944,213,960,229.3C976,245,992,235,1008,229.3C1024,224,1040,224,1056,202.7C1072,181,1088,139,1104,112C1120,85,1136,75,1152,90.7C1168,107,1184,149,1200,181.3C1216,213,1232,235,1248,250.7C1264,267,1280,277,1296,250.7C1312,224,1328,160,1344,154.7C1360,149,1376,203,1392,202.7C1408,203,1424,149,1432,122.7L1440,96L1440,0L1432,0C1424,0,1408,0,1392,0C1376,0,1360,0,1344,0C1328,0,1312,0,1296,0C1280,0,1264,0,1248,0C1232,0,1216,0,1200,0C1184,0,1168,0,1152,0C1136,0,1120,0,1104,0C1088,0,1072,0,1056,0C1040,0,1024,0,1008,0C992,0,976,0,960,0C944,0,928,0,912,0C896,0,880,0,864,0C848,0,832,0,816,0C800,0,784,0,768,0C752,0,736,0,720,0C704,0,688,0,672,0C656,0,640,0,624,0C608,0,592,0,576,0C560,0,544,0,528,0C512,0,496,0,480,0C464,0,448,0,432,0C416,0,400,0,384,0C368,0,352,0,336,0C320,0,304,0,288,0C272,0,256,0,240,0C224,0,208,0,192,0C176,0,160,0,144,0C128,0,112,0,96,0C80,0,64,0,48,0C32,0,16,0,8,0L0,0Z">
+            </path>
+        </svg>
         <section class="kamarkami px-[8px] lg:px-[140px] py-8 ">
             <div class="flex justify-between items-center">
                 <div class="judul">
@@ -155,7 +164,7 @@
                             </div>
                         </div>
                     </a>
-                    @empty
+                @empty
                     <div class=" flex justify-center align-middle">
                         <img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="size-52" alt="">
                     </div>

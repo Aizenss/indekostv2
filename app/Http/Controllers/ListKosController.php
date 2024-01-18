@@ -56,7 +56,7 @@ class ListKosController extends Controller
     }
 
     public function landing() {
-        $kost = Kos::all()->take(8);
+        $kost = Kos::all()->take(6);
         return view('welcome', compact('kost'));
     }
 }
