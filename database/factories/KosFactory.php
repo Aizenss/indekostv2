@@ -25,17 +25,15 @@ class KosFactory extends Factory
             'lokasi' => $this->faker->address,
             'spesifikasi' => $this->faker->sentence,
             'peraturan' => $this->faker->text(200),
-            'fasilitas_umum' => json_encode(array_map(function ($word) {
+            'fasilitas_umum' => json_encode(array_map(function($word) {
                 return ['value' => $word];
             }, $this->faker->words(4, false))),
             'fasilitas_kamar_mandi' => $this->faker->words(2, true),
             'fasilitas_tempat_parkir' => $this->faker->words(2, true),
             'status' => $this->faker->randomElement(['pending', 'setuju']),
-            'foto_depan' => 'kosts/' . $this->faker->image(public_path('kosts'), 640, 480, null, false),
-            'foto_dalam' => 'kosts/' . $this->faker->image(public_path('kosts'), 640, 480, null, false),
-            'foto_tambahan' => json_encode([
-                'kosts/' . $this->faker->image(public_path('kosts'), 640, 480, null, false),
-            ]),
+            'foto_depan' => $this->faker->imageUrl(640, 480, 'kost', true),
+            'foto_dalam' => $this->faker->imageUrl(640, 480, 'kost'),
+            'foto_tambahan' => json_encode([$this->faker->imageUrl(640, 480, 'kost'), $this->faker->imageUrl(640, 480, 'kost')]),
         ];
     }
 }

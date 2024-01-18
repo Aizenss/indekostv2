@@ -23,7 +23,7 @@ class KamarFactory extends Factory
             'nama_kamar' => $this->faker->word,
             'fasilitas' => $this->faker->sentence,
             'kamar_mandi' => $this->faker->word,
-            'foto_kamar' => json_encode(['kamar/' . basename($this->faker->image(public_path('kamar'), 640, 480, null, false))]),
+            'foto_kamar' => json_encode([$this->faker->imageUrl(640, 480, 'room', true)]),
             'harga' => $this->faker->numberBetween(100000, 1000000),
             'night' => $this->faker->numberBetween(1, 12),
         ];
