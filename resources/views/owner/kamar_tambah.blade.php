@@ -13,7 +13,7 @@
             <div class="p-5 ">
                 <div class="grid grid-cols-3 gap-2 items-center">
                     <div class="judul col-span-2">
-                        <h5 class="mb-2 text-lg font-bold overflow-x-scroll sc-sm text-gray-900">Nama Kamar hgytyvhjbknuhgyuvjbkjiohugyutchv</h5>
+                        <h5 class="mb-2 text-lg font-bold overflow-x-scroll sc-sm text-gray-900">Nama Kamar</h5>
                     </div>
                     <div class="orang text-end">
                         <h5 class="mb-2 text-base font-semibold truncate text-gray-900"><i class="fa-solid fa-users me-2"></i>2</h5>
