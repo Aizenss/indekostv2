@@ -9,8 +9,8 @@
     <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow">
         <h1 class="text-xl">List Kamar</h1>
         <div class="relative overflow-x-auto">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                <thead class="text-xs text-white uppercase bg-[#4F6F52] ">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             No
@@ -45,7 +45,7 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <a href="{{ route('owner.kamar.tambah', $kost->id) }}"
-                                        class="text-blue-600 hover:underline dark:text-blue-500">Tambah Kamar</a>
+                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 "><span class="text-lg mr-4 font-black">+</span>Kamar</a>
                                 </td>
                             </tr>
                     @empty
