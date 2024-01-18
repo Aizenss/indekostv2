@@ -39,8 +39,8 @@ class KamarOwnerController extends Controller
 
         $kamar->create([
             'kos_id' => $kos->id,
-            'nama_kamar' => $request->nomor_kamar,
-            'fasilitas' => $request->fasilitas,
+            'nama_kamar' => $request->nama_kamar,
+            'fasilitas' => $request->tags,
             'kamar_mandi' => $request->kamar_mandi,
             'harga' => $request->harga,
             'night' => $request->night,

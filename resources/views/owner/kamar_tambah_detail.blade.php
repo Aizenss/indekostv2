@@ -10,7 +10,7 @@
             <div class="grid grid-cols-2 gap-4 items-center">
                 <div>
                     <label for="nomor_kamar" class="text-lg font-semibold text-gray-800">Nama Kamar</label>
-                    <input type="text" name="nomor_kamar" id="nomor_kamar"
+                    <input type="text" name="nama_kamar" id="nomor_kamar"
                         class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none">
                 </div>
                 <div>
@@ -31,17 +31,24 @@
                 <div>
                     <label for="kamar_mandi" class="text-lg font-semibold text-gray-800">Info Kamar Mandi</label>
                     <input type="text" name="kamar_mandi" id="kamar_mandi"
-                        class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none" autocomplete="off">
+                        class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
+                        autocomplete="off">
                 </div>
                 <div>
                     <label for="harga" class="text-lg font-semibold text-gray-800">harga</label>
                     <input type="number" name="harga" id="harga"
-                        class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none" autocomplete="off">
+                        class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
+                        autocomplete="off">
                 </div>
                 <div>
                     <label for="night" class="text-lg font-semibold text-gray-800">harga/</label>
-                    <input type="number" name="night" id="night"
-                        class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none" autocomplete="off">
+                    <select name="night" id="month" class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none" autocomplete="off">
+                        <script>
+                          for (var i = 1; i <= 12; i++) {
+                            document.write('<option value="' + i + '">' + i + 'Bulan' + '</option>');
+                          }
+                        </script>
+                      </select>
                 </div>
                 <div>
                     <label for="tambahin" class="text-lg font-semibold text-gray-800">Foto Kamar</label>

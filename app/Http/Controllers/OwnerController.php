@@ -47,9 +47,6 @@ class OwnerController extends Controller
 
         $data = array_values($grafikDataCollection);
 
-        // Menampilkan waktu saat ini dan zona waktu
-        // echo "Waktu Saat Ini: " . $currentTime . " Zona Waktu: " . $timezone;
-
 
         // dd($data);
 

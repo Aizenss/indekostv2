@@ -8,12 +8,15 @@
                 <i class="fa-solid fa-plus text-[50px] font-semibold"></i>
             </a>
         </div>
+        @foreach ($kamars as $kamar)
         <div class="bg-white rounded-lg shadow-lg duration-300 hover:shadow-gray-500">
-            <img class="rounded-t-lg" src="{{ asset('foto/404.png') }}" height="50" alt="" />
+            @foreach (json_decode($kamar->foto_kamar) as $foto)
+            <img class="rounded-t-lg" src="{{ asset('kamar/'.$foto) }}" height="50" alt="" />
+            @endforeach
             <div class="p-5 ">
                 <div class="grid grid-cols-3 gap-2 items-center">
                     <div class="judul col-span-2">
-                        <h5 class="mb-2 text-lg font-bold overflow-x-scroll sc-sm text-gray-900">Nama Kamar</h5>
+                        <h5 class="mb-2 text-lg font-bold overflow-x-scroll sc-sm text-gray-900">{{ $kamar->nama_kamar }}</h5>
                     </div>
                     <div class="orang text-end">
                         <h5 class="mb-2 text-base font-semibold truncate text-gray-900"><i class="fa-solid fa-users me-2"></i>2</h5>
@@ -26,38 +29,18 @@
                     }
                 </style>
                 <div class="grid grid-cols-2 gap-3 my-2 text-center overflow-y-scroll sc-sm max-h-14">
+                    @foreach (json_decode($kamar->fasilitas) as $fasilitas)
                     <div class="fsnya">
-                        <span class="text-sm text-gray-700 font-medium"><i class="fa-solid fa-check me-2"></i>Kasur</span>
+                        <span class="text-sm text-gray-700 font-medium"><i class="fa-solid fa-check me-2"></i>{{ $fasilitas->value }}</span>
                     </div>
-                    <div class="fsnya">
-                        <span class="text-sm text-gray-700 font-medium"><i class="fa-solid fa-check me-2"></i>Kasur</span>
-                    </div>
-                    <div class="fsnya">
-                        <span class="text-sm text-gray-700 font-medium"><i class="fa-solid fa-check me-2"></i>Kasur</span>
-                    </div>
-                    <div class="fsnya">
-                        <span class="text-sm text-gray-700 font-medium"><i class="fa-solid fa-check me-2"></i>Kasur</span>
-                    </div>
-                    <div class="fsnya">
-                        <span class="text-sm text-gray-700 font-medium"><i class="fa-solid fa-check me-2"></i>Kasur</span>
-                    </div>
-                    <div class="fsnya">
-                        <span class="text-sm text-gray-700 font-medium"><i class="fa-solid fa-check me-2"></i>Kasur</span>
-                    </div>
-                    <div class="fsnya">
-                        <span class="text-sm text-gray-700 font-medium"><i class="fa-solid fa-check me-2"></i>Kasur</span>
-                    </div>
-                    <div class="fsnya">
-                        <span class="text-sm text-gray-700 font-medium"><i class="fa-solid fa-check me-2"></i>Kasur</span>
-                    </div>
-                    
+                    @endforeach
                 </div>
                 <span class="text-base font-semibold text-gray-900 text-start">Peraturan Kamar</span>
                 <div class="overflow-y-scroll sc-sm max-h-16">
                     <p class="text-sm font-medium text-gray-900">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit accusantium at illum officiis voluptatibus consequatur velit ex ullam aspernatur nihil, pariatur nam laudantium, veniam, sequi animi vel! Quaerat esse corporis officiis cum eum autem, debitis modi iste iusto, maiores libero quis consequatur sunt porro? Doloribus commodi fugiat autem assumenda quasi!</p>
                 </div>
                 <div class="my-3">
-                    <span class="text-xl font-bold text-gray-700">Rp 300.000/Bulan</span>
+                    <span class="text-xl font-bold text-gray-700">{{ $kamar->harga }}/{{ $kamar->night }}Bulan</span>
                 </div>
                 <div class="flex justify-between">
 
@@ -110,5 +93,6 @@
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
 @endsection
