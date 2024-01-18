@@ -16,6 +16,8 @@
     {{-- Script --}}
 
     {{-- Link --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js" integrity="sha512-mDe5mwqn4f61Fafj3rll7+89g6qu7/1fURxsWbbEkTmOuMebO9jf1C3Esw95oDfBLUycDza2uxAiPa4gdw/hfg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.css" integrity="sha512-qc0GepkUB5ugt8LevOF/K2h2lLGIloDBcWX8yawu/5V8FXSxZLn3NVMZskeEyOhlc6RxKiEj6QpSrlAoL1D3TA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
     {{-- Link --}}
 
@@ -65,10 +67,7 @@
             background="transparent" speed="1" style="width: 300px; height: 300px" direction="1" mode="normal"
             loop autoplay></dotlottie-player>
     </div>
-
-    <!-- Konten utama -->
     <div id="main-content">
-        <!-- Isi konten utama di sini -->
         @yield('isi')
         @extends('layout.footer')
     </div>
@@ -77,11 +76,10 @@
             // Simulasikan waktu pemuatan konten (ganti dengan kode aktual Anda)
             setTimeout(function() {
                 document.getElementById("preloader").classList.add("hidden");
-            }, 1000); // Ganti 3000 dengan waktu pemuatan konten yang sesuai
+            }, 1000);
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </body>
 
 </html>

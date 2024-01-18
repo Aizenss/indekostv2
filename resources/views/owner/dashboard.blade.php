@@ -33,83 +33,110 @@
                 style="height: 50px; width: 50px;">
         </div>
     </section>
-    <section class="my-3 px-10">
+    <section class="py-10 px-5 grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div id="chart"></div>
-    </section>
-    <script>
-        console.log("Script executed");
-
-        // Function to generate date labels for the current month and the next 4 months
-        function generateMonthLabels() {
-            let currentDate = new Date();
-            let monthLabels = [];
-
-            for (let i = 0; i < 5; i++) {
-                let month = currentDate.getMonth() + i;
-                let year = currentDate.getFullYear();
-
-                if (month > 11) {
-                    month -= 12;
-                    year += 1;
-                }
-
-                monthLabels.push(new Date(year, month, 1).toLocaleString('default', {
-                    month: 'long'
-                }));
-            }
-
-            return monthLabels;
-        }
-
-        let series = {
-            yearDataSeries1: {
-                prices: [128, 345, 400, 275, 320], // Replace with your actual data
-            }
-        };
-
-        // Log to check data availability
-        console.log("Prices:", series.yearDataSeries1.prices);
-
-        // Log to check if the required element is found
-        let chartContainer = document.querySelector("#chart");
-        console.log("Chart container:", chartContainer);
-        let chartData = @json($data);
-
+        <div id="charts"></div>
+      </section>
+      <script>
         var options = {
-            series: [{
-                name: "pedapapatan",
-                data: chartData.map(item => item.data),
-            }],
-            chart: {
-                height: 350,
-                type: 'line',
-                zoom: {
-                    enabled: false
-                }
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                curve: 'smooth'
-            },
-            title: {
-                text: 'Data Perbulan',
-                align: 'left'
-            },
-            grid: {
-                row: {
-                    colors: ['#f3f3f3', 'transparent'],
-                    opacity: 0.5
-                },
-            },
-            xaxis: {
-                categories: chartData.map(item => item.month),
-            }
-        };
-
-        var chart = new ApexCharts(chartContainer, options);
-        chart.render();
-
-    </script>
+               series: [{
+               name: 'Kost Disewa',
+               data: [76, 85, 101, 98, 87],
+               color:'#4F6F52'
+             }],
+               chart: {
+               type: 'bar',
+               height: 350
+             },
+             plotOptions: {
+               bar: {
+                 horizontal: false,
+                 columnWidth: '55%',
+                 endingShape: 'rounded'
+               },
+             },
+             dataLabels: {
+               enabled: false
+             },
+             stroke: {
+               show: true,
+               width: 2,
+               colors: ['transparent']
+             },
+             xaxis: {
+               categories: ['Jan', 'Feb', 'Apr', 'May', 'Jun'],
+             },
+             yaxis: {
+               title: {
+                 text: 'Data Kost'
+               }
+             },
+             fill: {
+               opacity: 1
+             },
+             tooltip: {
+               y: {
+                 formatter: function (val) {
+                   return val
+                 }
+               }
+             }
+             };
+      
+             var chart = new ApexCharts(document.querySelector("#chart"), options);
+             chart.render();
+      
+      
+      
+            //  chart kanan
+      
+            var options = {
+               series: [{
+               name: 'Pendapatan',
+               data: [76, 85, 101, 98, 87],
+               color: '#79AC78'
+             }],
+               chart: {
+               type: 'bar',
+               height: 350
+             },
+             plotOptions: {
+               bar: {
+                 horizontal: false,
+                 columnWidth: '55%',
+                 endingShape: 'rounded'
+               },
+             },
+             dataLabels: {
+               enabled: false
+             },
+             stroke: {
+               show: true,
+               width: 2,
+               colors: ['transparent']
+             },
+             xaxis: {
+               categories: ['Jan', 'Feb', 'Apr', 'May', 'Jun'],
+             },
+             yaxis: {
+               title: {
+                 text: 'Pendapatan'
+               }
+             },
+             fill: {
+               opacity: 1
+             },
+             tooltip: {
+               y: {
+                 formatter: function (val) {
+                   return "Rp." + val
+                 }
+               }
+             }
+             };
+      
+             var chart = new ApexCharts(document.querySelector("#charts"), options);
+             chart.render();
+             
+      </script>
 @endsection
