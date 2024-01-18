@@ -7,8 +7,8 @@
         <div href="#"
             class="card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 flex justify-between">
             <div>
-                <p class="font-normal text-gray-700 dark:text-gray-400 text-sm">Kost Disewa</p>
-                <p class="font-semibold text-gray-900 dark:text-gray-400 text-sm">1</p>
+                <p class="font-normal text-gray-700 dark:text-gray-400 text-sm">Kamar Disewa</p>
+                <p class="font-semibold text-gray-900 dark:text-gray-400 text-sm">{{ $kamar }}</p>
             </div>
             <img src="{{ asset('icon/7341109_e-commerce_online_shopping_ui_receipt_icon.png') }}" alt=""
                 style="height: 50px; width: 50px;">
@@ -17,7 +17,7 @@
             class="card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 flex justify-between">
             <div>
                 <p class="font-normal text-gray-700 dark:text-gray-400 text-sm">Total Kost</p>
-                <p class="font-semibold text-gray-900 dark:text-gray-400 text-sm">2</p>
+                <p class="font-semibold text-gray-900 dark:text-gray-400 text-sm">{{ $kos }}</p>
             </div>
             <img src="{{ asset('icon/2419681_apartment_building_construction_home_hotel_icon.png') }}" alt=""
                 style="height: 50px; width: 50px;">

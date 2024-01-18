@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Kos;
 use App\Models\Kamar;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
@@ -62,7 +63,10 @@ class OwnerController extends Controller
 
         $data = array_values($grafikDataCollection);
 
+        $kos = Kos::where('owner_id', $login->id)->count();
+        $kamar = Kamar::where('status', 'paid')->count();
 
-        return view('owner.dashboard', compact('data'));
+
+        return view('owner.dashboard', compact('data', 'kos', 'kamar'));
     }
 }
