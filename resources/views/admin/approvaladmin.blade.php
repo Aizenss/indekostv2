@@ -61,43 +61,44 @@
                 {{ $kost->status }}
               </td>
 
-              <td class="px-6 py-4">
-                <a href="#">
-                  <button data-modal-target="select-modal{{ $kost->id }}"
-                    data-modal-toggle="select-modal{{ $kost->id }}" type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                      <path fill="currentColor"
-                        d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5s5 2.24 5 5s-2.24 5-5 5m0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3s3-1.34 3-3s-1.34-3-3-3" />
-                    </svg>
-                  </button>
-                </a>
-                @if ($kost->status == 'pending')
-                  <form action="{{ route('admin.approvaladmin.setuju', $kost) }}" method="post">
-                    @csrf
-                    @method('patch')
-                    {{-- <input type="text" name="status" value="setuju" hidden> --}}
-                    <button type="submit"
-                      class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="m9 20.42l-6.21-6.21l2.83-2.83L9 14.77l9.88-9.89l2.83 2.83z" />
-                      </svg>
-                    </button>
-                  </form>
-                  <form action="{{ route('admin.approvaladmin.tolak', $kost) }}" method="POST">
-                    @csrf
-                    @method('patch')
-                    {{-- <input type="text" name="status" value="tolak" hidden> --}}
-                    <button type="submit"
-                      class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+              <td class="text-center px-6 py-4">
+                <div class="inline-flex items-center space-x-2">
+                  <a href="#" class="inline-block">
+                    <button data-modal-target="select-modal{{ $kost->id }}" data-modal-toggle="select-modal{{ $kost->id }}"
+                      type="button"
+                      class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                         <path fill="currentColor"
-                          d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12z" />
+                          d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5s5 2.24 5 5s-2.24 5-5 5m0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3s3-1.34 3-3s-1.34-3-3-3" />
                       </svg>
                     </button>
-                  </form>
-                @endif
+                  </a>
+                  @if ($kost->status == 'pending')
+                    <form action="{{ route('admin.approvaladmin.setuju', $kost) }}" method="post">
+                      @csrf
+                      @method('patch')
+                      <button type="submit"
+                        class="mt-4 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                          <path fill="currentColor" d="m9 20.42l-6.21-6.21l2.83-2.83L9 14.77l9.88-9.89l2.83 2.83z" />
+                        </svg>
+                      </button>
+                    </form>
+                    <form action="{{ route('admin.approvaladmin.tolak', $kost) }}" method="POST">
+                      @csrf
+                      @method('patch')
+                      <button type="submit"
+                        class=" mt-4 text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                          <path fill="currentColor"
+                            d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12z" />
+                        </svg>
+                      </button>
+                    </form>
+                  @endif
+                </div>
               </td>
+
             </tr>
           @endforeach
         </tbody>

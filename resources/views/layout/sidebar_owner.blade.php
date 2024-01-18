@@ -22,13 +22,13 @@
                 @auth
                 @if(!empty($foto))
                     <a href="{{ route('profile.edit') }}" class="nama-user flex gap-3 items-center hover:bg-[#739072] py-2 px-4 rounded-xl border border-[#739072] hover:text-white text-black duration-300 hover:shadow-lg">
-                        <img src="{{ asset('profiles/'. Auth::user()->foto) }}" alt="" width="40" class="rounded-full border border-[#3d4c3c]">
-                        <span class="font-medium text-lg">Halo Wok</span>
+                        <img src="{{ asset('profiles/'. Auth::user()->foto) }}" alt="" width="40" class=" w-12 h-12 rounded-full border border-[#3d4c3c]">
+                        <span class="font-medium text-lg">{{(  Auth::user()->name) }}</span>
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a>
                 @else
                     <a href="{{ route('profile.edit') }}" class="nama-user flex gap-3 items-center hover:bg-[#739072] py-2 px-4 rounded-xl border border-[#739072] hover:text-white text-black duration-300 hover:shadow-lg">
-                        <img src="{{ asset('profiles/'. Auth::user()->foto) }}" alt="" width="40" class="rounded-full border border-[#3d4c3c]">
+                        <img src="{{ asset('profiles/'. Auth::user()->foto) }}" alt="" width="40" class=" w-12 h-12 rounded-full border border-[#3d4c3c]">
                         <span class="font-medium text-lg">{{ ( Auth::user()->name) }}</span>
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a>
