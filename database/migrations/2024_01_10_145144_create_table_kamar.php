@@ -16,7 +16,8 @@ return new class extends Migration
             $table->bigInteger('kos_id');
             $table->bigInteger('user_id')->nullable(true);
             $table->string('nama_kamar');
-            $table->string('fasilitas');
+            $table->json('fasilitas');
+            $table->json('peraturan_kamar');
             $table->string('kamar_mandi');
             $table->json('foto_kamar');
             $table->string('harga');

@@ -101,14 +101,14 @@
                     @endforeach
                     <div class="p-5">
                         <div class="flex justify-between items-center">
-                            <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">Nama Kamar</h5>
+                            <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">{{$kamar->nama_kamar}}</h5>
                             <h5 class=" text-base font-semibold tracking-tight text-gray-900"><i
                                     class="fa-solid fa-users me-1"></i>2 Orang</h5>
                         </div>
                         <span class="text-lg font-semibold text-gray-900">Fasilitas</span>
                         <div class="grid grid-cols-2 gap-2">
                             <span class="text-base font-medium text-gray-900"><i
-                                    class="fa-solid fa-check me-1"></i>Kasur</span>
+                                    class="fa-solid fa-check me-1"></i>{{$kamar->fasilitas}}</span>
                         </div>
                         <span class="text-lg font-semibold text-gray-900 text-balance">Peraturan Kamar</span>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, tempore!</p>
@@ -120,8 +120,8 @@
                                 <form action="{{ route('user.detailkost.payment', ['kos' => $kos, 'kamar' => $kamar]) }}" method="post">
                                     @csrf
                                     <button type="submit" class="py-1 px-3 rounded-lg text-white" style="background-color: #4F6F52;">Ajukan Sewa</button>
-                                </form> 
-                            </div>                               
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -49,8 +49,8 @@ class DatabaseSeeder extends Seeder
 
         User::factory(7)->create();
 
-        Kos::factory(9)->create();
+        // Kos::factory(9)->create();
 
-        Kamar::factory(18)->create();
+        // Kamar::factory(18)->create();
     }
 }
