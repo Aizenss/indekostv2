@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Kamar;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Charts\PendapatanOwnerChart;
+use Illuminate\Support\Facades\Auth;
 
 class OwnerController extends Controller
 {
     //
     public function index()
     {
+        $login = Auth::user();
         $currentYear = Carbon::now()->year;
         $currentMonth = Carbon::now()->month;
 
@@ -25,8 +28,15 @@ class OwnerController extends Controller
             $color = ($month == $currentMonth) ? 'blue' : 'green';
 
             $grafikData = Transaksi::whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', $currentYear)
+            ->where('owner_id', $login->id)
+            ->pluck('nominal_owner')
+            ->sum();
+
+            $grafikData2 = Kamar::whereMonth('created_at', $currentMonth)
                 ->whereYear('created_at', $currentYear)
-                ->pluck('nominal_owner')->sum();
+                ->where('status', 'paid')
+                ->count();
 
 
             $grafikDataCollection[] = [
@@ -34,6 +44,7 @@ class OwnerController extends Controller
                 'month' => $yearMonth,
                 'color' => $color,
                 'data' => $grafikData,
+                'data2' => $grafikData2,
             ];
 
             // "$grafikData";
@@ -47,8 +58,6 @@ class OwnerController extends Controller
 
         $data = array_values($grafikDataCollection);
 
-
-        // dd($data);
 
         return view('owner.dashboard', compact('data'));
     }

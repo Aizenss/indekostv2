@@ -36,107 +36,107 @@
     <section class="py-10 px-5 grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div id="chart"></div>
         <div id="charts"></div>
-      </section>
-      <script>
+    </section>
+    <script>
+
+        let chartData = @json($data);
+
         var options = {
-               series: [{
-               name: 'Kost Disewa',
-               data: [76, 85, 101, 98, 87],
-               color:'#4F6F52'
-             }],
-               chart: {
-               type: 'bar',
-               height: 350
-             },
-             plotOptions: {
-               bar: {
-                 horizontal: false,
-                 columnWidth: '55%',
-                 endingShape: 'rounded'
-               },
-             },
-             dataLabels: {
-               enabled: false
-             },
-             stroke: {
-               show: true,
-               width: 2,
-               colors: ['transparent']
-             },
-             xaxis: {
-               categories: ['Jan', 'Feb', 'Apr', 'May', 'Jun'],
-             },
-             yaxis: {
-               title: {
-                 text: 'Data Kost'
-               }
-             },
-             fill: {
-               opacity: 1
-             },
-             tooltip: {
-               y: {
-                 formatter: function (val) {
-                   return val
-                 }
-               }
-             }
-             };
-      
-             var chart = new ApexCharts(document.querySelector("#chart"), options);
-             chart.render();
-      
-      
-      
-            //  chart kanan
-      
-            var options = {
-               series: [{
-               name: 'Pendapatan',
-               data: [76, 85, 101, 98, 87],
-               color: '#79AC78'
-             }],
-               chart: {
-               type: 'bar',
-               height: 350
-             },
-             plotOptions: {
-               bar: {
-                 horizontal: false,
-                 columnWidth: '55%',
-                 endingShape: 'rounded'
-               },
-             },
-             dataLabels: {
-               enabled: false
-             },
-             stroke: {
-               show: true,
-               width: 2,
-               colors: ['transparent']
-             },
-             xaxis: {
-               categories: ['Jan', 'Feb', 'Apr', 'May', 'Jun'],
-             },
-             yaxis: {
-               title: {
-                 text: 'Pendapatan'
-               }
-             },
-             fill: {
-               opacity: 1
-             },
-             tooltip: {
-               y: {
-                 formatter: function (val) {
-                   return "Rp." + val
-                 }
-               }
-             }
-             };
-      
-             var chart = new ApexCharts(document.querySelector("#charts"), options);
-             chart.render();
-             
-      </script>
+            series: [{
+                name: 'Kamar Disewa',
+                data: chartData.map(item=> item.data2) ,
+                color: '#4F6F52'
+            }],
+            chart: {
+                type: 'bar',
+                height: 350
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    endingShape: 'rounded'
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: chartData.map(item=> item.month),
+            },
+            yaxis: {
+                title: {
+                    text: 'Data Kost'
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return val
+                    }
+                }
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+
+        // let chartData = @json($data);
+
+        var options = {
+            series: [{
+                name: 'Pendapatan',
+                data: chartData.map(item => item.data),
+                color: '#79AC78'
+            }],
+            chart: {
+                type: 'bar',
+                height: 350
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    endingShape: 'rounded'
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: chartData.map(item=>item.month),
+            },
+            yaxis: {
+                title: {
+                    text: 'Pendapatan'
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return "Rp." + val
+                    }
+                }
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#charts"), options);
+        chart.render();
+    </script>
 @endsection
