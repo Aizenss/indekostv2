@@ -46,9 +46,9 @@
                 </div>
                 <div class="grid grid-cols-4 gap-2">
                     @forelse (json_decode($kos->fasilitas_umum) ??[] as $kost)
-                        <div class="fasilitas text-gray-700">
-                            <i class="fa-solid fa-check me-2"></i><span
-                                class="font-medium text-base">{{ $kost->value }}</span>
+                        <div class="fasilitas text-gray-700 flex itmes-center">
+                            <i class="fa-solid fa-users-rays me-2 text-2xl"></i><span
+                                class="font-medium text-lg">{{ $kost->value }}</span>
                         </div>
                     @empty
                         -
@@ -62,8 +62,8 @@
                 </div>
                 <div class="grid grid-cols-4 gap-2">
                         <div class="fasilitas text-gray-700">
-                            <i class="fa-solid fa-check me-2"></i><span
-                                class="font-medium text-base">{{ $kos->fasilitas_kamar_mandi }}</span>
+                            <i class="fa-solid fa-bath me-2 text-2xl"></i><span
+                                class="font-medium text-lg">{{ $kos->fasilitas_kamar_mandi }}</span>
                         </div>
                 </div>
             </div>
@@ -74,8 +74,8 @@
                 </div>
                 <div class="grid grid-cols-4 gap-2">
                     <div class="fasilitas text-gray-700">
-                        <i class="fa-solid fa-check me-2"></i><span
-                            class="font-medium text-base">{{ $kos->fasilitas_tempat_parkir }}</span>
+                        <i class="fa-solid fa-square-parking me-2 text-2xl"></i><span
+                            class="font-medium text-lg">{{ $kos->fasilitas_tempat_parkir }}</span>
                     </div>
                 </div>
             </div>
@@ -113,19 +113,22 @@
                         <span class="text-lg font-semibold text-gray-900 text-balance">Peraturan Kamar</span>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, tempore!</p>
                         <div class="flex justify-between mt-3">
-                            <a href=""
-                                class="border border-[#4F6F52] py-1 px-3 rounded-lg text-gray-900">Info</a>
-                            <form action="{{ route('user.detailkost.payment', ['kos' => $kos, 'kamar' => $kamar]) }}"
-                                method="post">
-                                @csrf
-                                <button type="submit" class="bg-[#4F6F52] py-1 px-3 rounded-lg text-white">Ajukan
-                                    Sewa</button>
-                            </form>
+                            <div class="info mt-1">
+                                <a href="" class="border border-[#4F6F52] py-1 px-3 rounded-lg text-gray-900">Info</a>
+                            </div>
+                            <div class="aju">
+                                <form action="{{ route('user.detailkost.payment', ['kos' => $kos, 'kamar' => $kamar]) }}" method="post">
+                                    @csrf
+                                    <button type="submit" class="py-1 px-3 rounded-lg text-white" style="background-color: #4F6F52;">Ajukan Sewa</button>
+                                </form> 
+                            </div>                               
                         </div>
                     </div>
                 </div>
             @empty
-                Tidak Ada Kamar
+                <div class="span-col-3 text-center">
+                    <span class="font-semibold text-2xl text-gray-900">Data Kamar Kosong</span>
+                </div>
             @endforelse
         </div>
         <div class="flex justify-center mt-4">
@@ -199,7 +202,7 @@
                 <div class="bg-gray-50 py-3 px-5 rounded-lg border border-gray-900">
                     <div class="flex gap-4">
                         <div class="profile">
-                            <img src="{{ asset('foto/dummy.jpeg') }}" alt="" width="250"
+                            <img src="{{ asset('foto/dummy.jpeg') }}" alt="" width="50"
                                 class="rounded-full">
                         </div>
                         <div class="Informasinya">

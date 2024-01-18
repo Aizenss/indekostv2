@@ -14,10 +14,9 @@
             <div class="bg-white p-3 rounded-lg shadow-md mt-6 ml-4">
                 <!-- Profile Image -->
                 <!-- Add this inside the div with class="p-3 relative w-40 h-40 mx-auto border-4 border-white rounded-lg overflow-hidden" -->
-                <div
-                    class=" mt-8 p-3 relative w-full h-40 mx-auto border-4 border-white rounded-lg overflow-hidden flex justify-center items-center">
+                <div class=" mt-8 p-3 relative w-full cursor-pointer h-40 mx-auto border-4 border-white overflow-hidden flex justify-center items-center rounded-full">
                     <img src="{{ asset('profiles/' . Auth::user()->foto) }}" alt="Profile"
-                        class=" w-36 rounded-full object-cover">
+                        class="w-40 h-40 rounded-full object-cover">
 
                     <!-- Add the icon -->
                     <div class="absolute top-0 right-0 p-2 cursor-pointer">
