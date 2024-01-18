@@ -28,16 +28,20 @@ class OwnerController extends Controller
             $color = ($month == $currentMonth) ? 'blue' : 'green';
 
             $grafikData = Transaksi::whereMonth('created_at', $currentMonth)
-            ->whereYear('created_at', $currentYear)
-            ->where('owner_id', $login->id)
-            ->pluck('nominal_owner')
-            ->sum();
+                ->whereYear('created_at', $currentYear)
+                ->where('owner_id', $login->id)
+                ->pluck('nominal_owner')
+                ->sum();
 
-            $grafikData2 = Kamar::whereMonth('created_at', $currentMonth)
+            $grafikData2 = Kamar::whereHas('kos', function ($query) use ($login) {
+                $query->where('owner_id', $login->id);
+            })
+                ->whereMonth('created_at', $currentMonth)
                 ->whereYear('created_at', $currentYear)
                 ->where('status', 'paid')
                 ->count();
 
+            // dd($grafikData2);
 
             $grafikDataCollection[] = [
                 'year' => $currentYear,
