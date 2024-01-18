@@ -56,7 +56,7 @@
             <div class="mb-3">
                 <span class="text-xl font-semibold text-gray-900">List Kost</span>
             </div>
-            <div class="grid grid-cols-4 gap-3">
+            <div class="grid grid-cols-3 gap-3">
                 @forelse ($kost as $kos)
                         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                             <img class="rounded-t-lg" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt="" />
