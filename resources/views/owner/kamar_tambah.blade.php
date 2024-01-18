@@ -3,7 +3,7 @@
 
 @section('owner')
     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 my-10 mx-10">
-        <div class="bg-white border border-gray-200 rounded-lg flex justify-center items-center shadow-lg transition ease-in-out delay-150 hover:translate-y-3 duration-500 hover:shadow-gray-500">
+        <div class="bg-white border border-gray-200 rounded-lg flex justify-center items-center shadow-lg transition ease-in-out delay-150 hover:translate-y-3 duration-500 hover:shadow-gray-500 min-h-[300px]">
             <a href="{{ route('owner.kamar.tambah.detail', $kos) }}">
                 <i class="fa-solid fa-plus text-[50px] font-semibold"></i>
             </a>
