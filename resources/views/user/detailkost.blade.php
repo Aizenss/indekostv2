@@ -26,7 +26,7 @@
                     <h1 class="text-2xl text-gray-900 font-semibold">{{ $kos->nama_kost }}</h1>
                 </div>
                 <div class="owner flex">
-                    <span class="text-gray-900 text-base font-medium me-1">Dikelola Oleh {{ $kos->user->name }}</span>
+                    <span class="text-gray-900 text-base font-medium me-1">Dikelola Oleh {{ $kos->user }}</span>
                     <img src="{{ asset('foto/dummy.jpeg') }}" alt="" class="w-7 h-7 rounded-full">
                 </div>
             </div>
