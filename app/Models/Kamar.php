@@ -19,6 +19,7 @@ class Kamar extends Model
         'peraturan_kamar',
         'kamar_mandi',
         'foto_kamar',
+        'kapasitas',
         'harga',
         'night',
         'status',

@@ -30,6 +30,7 @@ class KamarOwnerController extends Controller
     }
 
     public function tambahKamarProses(Request $request, Kamar $kamar, Kos $kos){
+        // dd($request);
         $foto_json = null;
 
         if ($request->file('foto_kamar')) {
@@ -46,9 +47,10 @@ class KamarOwnerController extends Controller
         $kamar->create([
             'kos_id' => $kos->id,
             'nama_kamar' => $request->nama_kamar,
-            'fasilitas' => $request->fasilitas,
+            'fasilitas' => $request->tags,
             'kamar_mandi' => $request->kamar_mandi,
             'peraturan_kamar' => $request->peraturan_kamar,
+            'kapasitas' => $request->kapasitas,
             'harga' => $request->harga,
             'night' => $request->night,
             'foto_kamar' => $foto_json

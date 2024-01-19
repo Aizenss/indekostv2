@@ -42,8 +42,14 @@
                             autocomplete="off">
                     </div>
                     <div>
+                        <label for="harga" class="text-lg font-semibold text-gray-800">Kapasitas</label>
+                        <input type="number" name="kapasitas" id="harga"
+                            class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
+                            autocomplete="off">
+                    </div>
+                    <div>
                         <label for="harga" class="text-lg font-semibold text-gray-800">Peraturan kamar</label>
-                        <textarea name="peratruan_kamar" id="harga"
+                        <textarea name="peraturan_kamar" id="harga"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off"></textarea>
                     </div>

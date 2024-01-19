@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama_kamar');
             $table->integer('kapasitas');
             $table->json('fasilitas');
-            $table->json('peraturan_kamar');
+            $table->string('peraturan_kamar');
             $table->string('kamar_mandi');
             $table->json('foto_kamar');
             $table->string('harga');
