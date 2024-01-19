@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kos;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ApprovalAdminController extends Controller
@@ -10,8 +11,10 @@ class ApprovalAdminController extends Controller
     //
     public function index(){
         $kosts = Kos::all();
-        return view('admin.approvaladmin', compact('kosts'));
+        $owners = User::where('role', 'owner')->get();
+        return view('admin.approvaladmin', compact('kosts', 'owners'));
     }
+
 
     public function setuju(Request $request, Kos $kos){
         // dd($kos);

@@ -6,8 +6,7 @@
 @endsection
 
 @section('isi')
-    <div class="sm:ml-64">
-        <h1 class="text-xl my-5">Create data kos</h1>
+    <h1 class="text-xl my-5">Create data kos</h1>
 
     <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow ">
         <form action="{{ route('owner.kos.create.proses') }}" method="post" enctype="multipart/form-data">
@@ -145,7 +144,6 @@
             <button type="submit" class="bg-green-500 text-white px-3 py-1 rounded-md">tambah</button>
         </form>
         <a href="{{ route('owner.kos') }}">kembali</a>
-    </div>
     </div>
 @endsection
 

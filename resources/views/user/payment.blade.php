@@ -26,14 +26,20 @@
                             <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">Rp.{{ number_format($kamar->harga, 0, ',', '.') }}</td>
                             <td class="px-6 py-4">
                                 @if ($kamar->status == 'terima')
-                                    <button class="pay-button bg-blue-500 text-white px-4 py-2" data-token="{{ $kamar->snap_token }}" data-kamar-id="{{ $kamar->id }}">Bayar</button>
-                                    <button class="cancel-button bg-red-500 text-white px-4 py-2" data-kamar-id="{{ $kamar->id }}">Batalkan Pembayaran</button>
+                                    <button class="pay-button bg-blue-500 text-white px-4 py-2 rounded-md " data-token="{{ $kamar->snap_token }}" data-kamar-id="{{ $kamar->id }}">Bayar</button>
+                                    <button class="cancel-button bg-red-500 text-white px-4 py-2 rounded-md" data-kamar-id="{{ $kamar->id }}">Batalkan Pembayaran</button>
                                 @else
                                     <span class="text-gray-500">-</span>
                                 @endif
                             </td>
                         </tr>
                     @empty
+                    <tr>
+                        <td colspan="7" class="px-6 py-4 text-center font-semibold text-gray-900">
+                            <img src="{{ asset('foto/nodataadmin.png') }}" class="h-52 w-52 mx-auto" alt="">
+
+                        </td>
+                    </tr>
                         <!-- Display placeholder rows -->
                         @for ($i = 1; $i <= 1; $i++)
                             <tr>

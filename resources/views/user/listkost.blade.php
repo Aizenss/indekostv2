@@ -120,9 +120,12 @@
                             </div>
                         </div>
                     @empty
-                    <div class=" flex justify-center align-middle">
-                        <img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="size-52" alt="">
-                    </div>
+                    <tr>
+                        <td colspan="7" class="px-6 py-4 text-center font-semibold text-gray-900">
+                            <img src="{{ asset('foto/nodataadmin.png') }}" class="h-52 w-52 mx-auto" alt="">
+
+                        </td>
+                    </tr>
                 @endforelse
 
             </div>

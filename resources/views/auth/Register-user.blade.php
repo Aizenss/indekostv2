@@ -6,8 +6,8 @@
     }
 </style>
     <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
-        <div class="fotoo flex justify-between items-center bg-[#87A789] ps-14">
-            <img src="{{ asset('ilustrasi/signuser.png') }}" alt="" class="hidden md:w-[530px] md:h-[530px] md:block">
+        <div class="fotoo flex justify-between items-center bg-[#87A789] ps-8">
+            <img src="{{ asset('ilustrasi/signuser.png') }}" alt="" class="hidden md:w-[480px] md:h-[480px] md:block">
             <img src="{{ asset('ilustrasi/wave90m.png') }}" alt="" class="max-h-screen">
         </div>
         <div class="formnya bg-white ">
@@ -16,16 +16,6 @@
                     @csrf
                     <h5 class="text-2xl font-extrabold text-white text-center mb-5">Register Pencari Kost</h5>
                     <input type="text" class="hidden" name="role" value="user">
-                    <div class="mb-1">
-                        <label class="block mb-2 text-sm font-medium text-white" for="user_avatar">Upload Foto</label>
-                        <input
-                            class="block w-full text-sm text-gray-400  rounded-lg cursor-pointer bg-gray-50  focus:outline-none  @error('foto') border-red-500 @enderror"
-                            value="{{ old('foto') }}" aria-describedby="user_avatar_help" id="user_avatar" type="file"
-                            name="foto">
-                        @error('foto')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                    </div>
                     <div class="mb-1">
                         <label for="name"
                             class="block text-sm font-medium text-white mb-2">Nama</label>
