@@ -28,9 +28,6 @@ class DashboardController extends Controller
             $grafikData = Transaksi::whereMonth('created_at', $currentMonth)
                 ->whereYear('created_at', $currentYear)
                 ->pluck('nominal_admin')->sum();
-            $grafikData2 = Transaksi::whereMonth('created_at', $currentMonth)
-                ->whereYear('created_at', $currentYear)
-                ->pluck('nominal_owner')->sum();
             $grafikData3 = Kamar::whereMonth('created_at', $currentMonth)
                 ->whereYear('created_at', $currentYear)->count();
             $grafikData4 = Kos::whereMonth('created_at', $currentMonth)
@@ -42,7 +39,6 @@ class DashboardController extends Controller
                 'month' => $yearMonth,
                 'color' => $color,
                 'data' => $grafikData,
-                'data2' => $grafikData2,
                 'data3' => $grafikData3,
                 'data4' => $grafikData4,
             ];

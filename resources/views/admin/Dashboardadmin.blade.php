@@ -106,10 +106,6 @@
 
         var options = {
             series: [{
-                name: 'Owner',
-                data: cartData.map(item=> item.data2),
-                color: '#618264'
-            }, {
                 name: 'Admin',
                 data: cartData.map(item=> item.data),
                 color: '#79AC78'

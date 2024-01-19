@@ -41,7 +41,13 @@
                         autocomplete="off">
                 </div>
                 <div>
-                    <label for="night" class="text-lg font-semibold text-gray-800">harga/</label>
+                    <label for="harga" class="text-lg font-semibold text-gray-800">Peraturan kamar</label>
+                    <textarea name="peratruan_kamar" id="harga"
+                        class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
+                        autocomplete="off"></textarea>
+                </div>
+                <div>
+                    <label for="night" class="text-lg font-semibold text-gray-800">per/</label>
                     <select name="night" id="month" class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none" autocomplete="off">
                         <script>
                           for (var i = 1; i <= 12; i++) {
