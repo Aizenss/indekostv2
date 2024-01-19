@@ -12,13 +12,10 @@
     <div class="sm:ml-64 bg-[#E8F1E3]">
         <div class="grid grid-cols-3 gap-5 ">
             <div class="bg-white p-3 rounded-lg shadow-md mt-6 ml-4">
-                <!-- Profile Image -->
-                <!-- Add this inside the div with class="p-3 relative w-40 h-40 mx-auto border-4 border-white rounded-lg overflow-hidden" -->
-                <div class=" mt-8 p-3 relative w-full cursor-pointer h-40 mx-auto border-4 border-white overflow-hidden flex justify-center items-center rounded-full">
-                    <img src="{{ asset('profiles/' . Auth::user()->foto) }}" alt="Profile"
-                        class="w-40 h-40 rounded-full object-cover">
-
-                    <!-- Add the icon -->
+                <div class=" mt-8 p-3 relative w-full cursor-pointer h-40 mx-auto border-4 border-white overflow-hidden flex justify-center items-center">
+                    <div class="pp ">
+                        <img src="{{ asset('profiles/' . Auth::user()->foto) }}" alt="Profile" class="w-40 h-40 rounded-full object-cover">
+                    </div>
                     <div class="absolute top-0 right-0 p-2 cursor-pointer">
                         <form id="foto" action="{{ route('profile.foto.upload') }}" method="POST"
                             enctype="multipart/form-data">

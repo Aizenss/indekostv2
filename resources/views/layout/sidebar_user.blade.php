@@ -1,18 +1,62 @@
-<nav class="py-2 px-3 md:hidden bg-[#D2E3C8]">
-        <ul class="flex justify-between items-center">
-            <li>
-                <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar"
-                    aria-controls="default-sidebar" type="button"
-                    class="inline-flex items-center p-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-[#739072] duration-300 focus:outline-none focus:ring-2 focus:ring-gray-200">
-                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" fill-rule="evenodd"
-                            d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
-                        </path>
-                    </svg>
-                </button>
-            </li>
-            <li>
+<nav class="py-2 px-3 bg-[#D2E3C8] ">
+    <ul class="flex justify-between items-center">
+        <li class="sm:ml-64">
+            <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar"
+                aria-controls="default-sidebar" type="button"
+                class="inline-flex items-center p-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-[#739072] duration-300 focus:outline-none focus:ring-2 focus:ring-gray-200">
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" fill-rule="evenodd"
+                        d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                    </path>
+                </svg>
+            </button>
+        </li>
+        <li>
+            @auth
+                @if (!empty($foto))
+                    <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown"
+                        data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer"
+                        src="{{ asset('profiles/' . Auth::user()->foto) }}" alt="User dropdown">
+                @else
+                    <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown"
+                        data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer"
+                        src="{{ asset('profiles/' . Auth::user()->foto) }}" alt="User dropdown">
+                @endif
+
+                <!-- Dropdown menu -->
+                <div id="userDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-40">
+                    <div class="px-2 py-1 text-sm text-gray-900 dark:text-white ms-3">
+                        <div class="font-medium text-lg text-gray-900">{{ Auth::user()->name }}</div>
+                        <div class="font-medium text-sm text-gray-900">{{ Auth::user()->email }}</div>
+                    </div>
+                    <div class="py-1">
+                        <a href=""
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 duration-300 cursor-pointer">
+                            <span>Profil</span>
+                        </a>
+                    </div>
+                    <div class="">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a :href="route('logout')"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-red-500 duration-300 cursor-pointer"
+                                onclick="confirmSubmit(event)">
+                                Log Out
+                            </a>
+                        </form>
+                        <script>
+                            function confirmSubmit(event) {
+                                event.preventDefault();
+
+                                if (confirm('Apakah Anda yakin ingin Keluar tuan?')) {
+                                    event.target.closest('form').submit();
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
+            @else
                 <div class="inline-flex rounded-md shadow-sm" role="group">
                     <button type="button"
                         class="px-2 py-1 text-sm font-medium text-gray-900 bg-white border border-[#739072] rounded-s-lg hover:bg-[#739072] hover:text-white duration-300">
@@ -23,32 +67,37 @@
                         Daftar
                     </button>
                 </div>
-            </li>
-        </ul>
-    </nav>
+            @endauth
+        </li>
+    </ul>
+</nav>
 
-    <aside id="default-sidebar"
-        class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
-        aria-label="Sidebar">
-        <div class="h-full px-3 py-4 overflow-y-auto bg-[#D2E3C8]">
-            <ul class="space-y-2 font-medium">
-                <li>
-                    <div class="flex justify-center">
-                        <img src="{{ asset('foto/inilogo.png') }}" alt="" width="150">
-                    </div>
-                </li>
-                <li>
-                    @auth
-                    @if(!empty($foto))
-                        <a href="{{ route('profile.edit') }}" class="nama-user flex gap-3 items-center hover:bg-[#739072] py-2 px-4 rounded-xl border border-[#739072] hover:text-white text-black duration-300 hover:shadow-lg">
-                            <img src="{{ asset('profiles/'. Auth::user()->foto) }}" alt="" width="40" class="w-12 h-12 rounded-full border border-[#3d4c3c]">
-                            <span class="font-medium text-lg">{{(  Auth::user()->name) }}</span>
+<aside id="default-sidebar"
+    class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+    aria-label="Sidebar">
+    <div class="h-full px-3 py-4 overflow-y-auto bg-[#D2E3C8]">
+        <ul class="space-y-2 font-medium">
+            <li>
+                <div class="flex justify-center">
+                    <img src="{{ asset('foto/inilogo.png') }}" alt="" width="150">
+                </div>
+            </li>
+            <li>
+                @auth
+                    @if (!empty($foto))
+                        <a href="{{ route('profile.edit') }}"
+                            class="nama-user flex gap-3 items-center hover:bg-[#739072] py-2 px-4 rounded-xl border border-[#739072] hover:text-white text-black duration-300 hover:shadow-lg">
+                            <img src="{{ asset('profiles/' . Auth::user()->foto) }}" alt="" width="40"
+                                class="w-12 h-12 rounded-full border border-[#3d4c3c]">
+                            <span class="font-medium text-lg">{{ Auth::user()->name }}</span>
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
                     @else
-                        <a href="{{ route('profile.edit') }}" class="nama-user flex gap-3 items-center hover:bg-[#739072] py-2 px-4 rounded-xl border border-[#739072] hover:text-white text-black duration-300 hover:shadow-lg">
-                            <img src="{{ asset('profiles/'. Auth::user()->foto) }}" alt="" width="40" class="w-12 h-12 rounded-full border border-[#3d4c3c]">
-                            <span class="font-medium text-lg">{{ (Auth::user()->name) }}</span>
+                        <a href="{{ route('profile.edit') }}"
+                            class="nama-user flex gap-3 items-center hover:bg-[#739072] py-2 px-4 rounded-xl border border-[#739072] hover:text-white text-black duration-300 hover:shadow-lg">
+                            <img src="{{ asset('profiles/' . Auth::user()->foto) }}" alt="" width="40"
+                                class="w-12 h-12 rounded-full border border-[#3d4c3c]">
+                            <span class="font-medium text-lg">{{ Auth::user()->name }}</span>
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
                     @endif

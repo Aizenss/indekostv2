@@ -1,4 +1,4 @@
-@extends('layout.mainowner')
+@extends('layout.main')
 @extends('layout.sidebar_owner')
 
 <style>
@@ -17,7 +17,8 @@
   }
 </style>
 
-@section('owner')
+@section('isi')
+<div class="sm:ml-64">
   <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow">
     <h1 class="text-xl">List Kos Saya</h1>
     <div class="flex justify-end my-3">
@@ -155,4 +156,5 @@
       </div>
     </div>
   @endforeach
+</div>
 @endsection

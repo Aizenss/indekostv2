@@ -14,16 +14,6 @@
                     <h5 class="text-2xl font-extrabold text-white text-center mb-5">Register Pemilik Kost</h5>
                     <input type="text" class="hidden" name="role" value="owner">
                     <div class="mb-1">
-                        <label class="block mb-2 text-sm font-medium text-white" for="user_avatar">Upload Foto</label>
-                        <input
-                            class="block w-full text-sm text-gray-400  rounded-lg cursor-pointer bg-gray-50  focus:outline-none  @error('foto') border-red-500 @enderror"
-                            value="{{ old('foto') }}" aria-describedby="user_avatar_help" id="user_avatar" type="file"
-                            name="foto">
-                        @error('foto')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="mb-1">
                         <label for="name" class="block text-sm font-medium text-white mb-2">Nama</label>
                         <input type="text" name="name" id="name" value="{{ old('name') }}"
                             class="shadow-md bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4F6F52] focus:border-[#4F6F52] block w-full p-2.5 "

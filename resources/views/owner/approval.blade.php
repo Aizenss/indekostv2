@@ -1,9 +1,9 @@
-@extends('layout.mainowner')
+@extends('layout.main')
 @include('layout.sidebar_owner')
 
-@section('owner')
+@section('isi')
+<div class="sm:ml-64 px-10">
     <h1 class="text-xl my-5">Persetujuan Pembayaran</h1>
-
     <div
         class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <div class="relative overflow-x-auto">
@@ -79,4 +79,5 @@
             </table>
         </div>
     </div>
+</div>
 @endsection
