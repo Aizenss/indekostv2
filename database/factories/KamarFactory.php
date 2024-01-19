@@ -21,6 +21,8 @@ class KamarFactory extends Factory
             //
             'kos_id' => Kos::inRandomOrder()->first()->id,
             'nama_kamar' => $this->faker->word,
+            'nama_kamar' => $this->faker->word,
+            'kapasitas' => $this->faker->numberBetween(1, 10),
             'fasilitas' => json_encode(array_map(function ($word) {
                 return ['value' => $word];
             }, $this->faker->words(4, false))),
