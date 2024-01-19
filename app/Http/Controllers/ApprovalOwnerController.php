@@ -8,19 +8,31 @@ use Illuminate\Http\Request;
 class ApprovalOwnerController extends Controller
 {
     //
-    public function index(){
-        $kamars = Kamar::with('kos')->where('status', 'dipesan')->get();
+    public function index()
+    {
+        $kamars = Kamar::with('kos')
+            ->whereIn('status', ['dipesan', 'menambah waktu'])
+            ->get();
         return view('owner.approval', compact('kamars'));
     }
 
-    public function terima(Kamar $kamar){
+    public function terima(Kamar $kamar)
+    {
         $kamar->update([
             'status' => 'terima'
         ]);
         return redirect()->back();
     }
+    public function terimaLagi(Kamar $kamar)
+    {
+        $kamar->update([
+            'status' => 'diterima'
+        ]);
+        return redirect()->back();
+    }
 
-    public function tolak(Kamar $kamar){
+    public function tolak(Kamar $kamar)
+    {
         $kamar->update([
             'status' => 'tolak'
         ]);

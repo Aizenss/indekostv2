@@ -17,6 +17,7 @@ use App\Http\Controllers\ApprovalAdminController;
 use App\Http\Controllers\ApprovalOwnerController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ListKosController;
+use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\TransaksiAdminController;
 use App\Http\Controllers\TransaksiController;
 use App\Models\Transaksi;
@@ -59,7 +60,7 @@ Route::middleware(['auth', 'role:user', 'verified'])->group(function () {
     Route::get('/list-kos', [ListKosController::class, 'index'])->name('user.kamarkami');
 
     Route::get('/detail-kost/{kos}', [DetailKostController::class, 'index'])->name('user.detailkost');
-    Route::post('/detail-kost/{kos}/payment{kamar}', [PaymentController::class, 'pay'])->name('user.detailkost.payment');
+    Route::post('/detail-kost/{kos}/payment/{kamar}', [PaymentController::class, 'pay'])->name('user.detailkost.payment');
 
     Route::post('/buat/ulasan', [UlasanController::class, 'buat'])->name('ratting.buat');
 
@@ -71,6 +72,9 @@ Route::middleware(['auth', 'role:user', 'verified'])->group(function () {
     });
 
     route::get('/history', [HistoryController::class, 'index'])->name('history');
+    route::get('/history/{kamar}', [HistoryController::class, 'show'])->name('history.detail');
+    route::post('/history/{kamar}/ajukanLagi', [PaymentController::class, 'payAgain'])->name('history.detail.pay');
+    route::post('/history/{kamar}/proses', [PaymentController::class, 'prosesLagi'])->name('history.detail.proses');
 
 });
 
@@ -78,6 +82,7 @@ Route::middleware(['auth', 'role:owner', 'verified'])->group(function () {
     Route::get('/dashboard/owner', [OwnerController::class, 'index'])->name('owner.dashboard');
     Route::get('/approval/owner', [ApprovalOwnerController::class, 'index'])->name('owner.approval');
     Route::patch('/approval/owner/terima/{kamar}', [ApprovalOwnerController::class, 'terima'])->name('owner.approval.terima');
+    Route::patch('/approval/owner/terima/lagi/{kamar}', [ApprovalOwnerController::class, 'terimaLagi'])->name('owner.approval.terimaLagi');
     Route::patch('/approval/owner/tolak/{kamar}', [ApprovalOwnerController::class, 'tolak'])->name('owner.approval.tolak');
 
     Route::prefix('kos')->group(function () {

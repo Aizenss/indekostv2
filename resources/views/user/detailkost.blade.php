@@ -119,14 +119,12 @@
                         </div>
                         <span class="text-lg font-semibold text-gray-900 text-balance">Peraturan Kamar</span>
                         <div class="grid grid-cols-2 gap-2">
-                            @foreach (json_decode($kamar->peraturan_kamar) as $fasilitas)
-                                <div class="flex flex-wrap">
-                                    <span class="text-base font-medium text-gray-900">
-                                        <i class="fa-solid fa-check me-1"></i>
-                                        {{ $fasilitas->value }}
-                                    </span>
-                                </div>
-                            @endforeach
+                            <div class="flex flex-wrap">
+                                <span class="text-base font-medium text-gray-900">
+                                    <i class="fa-solid fa-check me-1"></i>
+                                    {{ $kamar->peraturan_kamar }}
+                                </span>
+                            </div>
                         </div>
                         <div class="flex justify-between mt-3">
                             <div class="info mt-1">

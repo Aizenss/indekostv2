@@ -72,6 +72,22 @@
                                 @else
                                     -
                                 @endif
+                                @if ($kamar->status == 'menambah waktu')
+                                    <form action="{{ route('owner.approval.tolak', $kamar) }}" method="post"
+                                        class="my-auto">
+                                        @csrf
+                                        @method('patch')
+                                        <button type="submit" class="text-red-600 self-center">Tolak</button>
+                                    </form>
+                                    <form action="{{ route('owner.approval.terimaLagi', $kamar) }}" method="post"
+                                        class="my-auto">
+                                        @csrf
+                                        @method('patch')
+                                        <button type="submit" class="text-green-600 self-center">Terima</button>
+                                    </form>
+                                @else
+                                    -
+                                @endif
                             </td>
                         </tr>
                     @endforeach

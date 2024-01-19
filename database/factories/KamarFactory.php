@@ -26,9 +26,7 @@ class KamarFactory extends Factory
             'fasilitas' => json_encode(array_map(function ($word) {
                 return ['value' => $word];
             }, $this->faker->words(4, false))),
-            'peraturan_kamar' => json_encode(array_map(function ($word) {
-                return ['value' => $word];
-            }, $this->faker->words(4, false))),
+            'peraturan_kamar' => $this->faker->word,
             'kamar_mandi' => $this->faker->word,
             'foto_kamar' => json_encode(['https://source.unsplash.com/random']),
             'harga' => $this->faker->numberBetween(100000, 1000000),

@@ -7,6 +7,7 @@ use App\Models\Kamar;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Tracking;
 
 class HistoryController extends Controller
 {
@@ -20,5 +21,9 @@ class HistoryController extends Controller
             })->get();
 
         return view('user.history', compact('historys'));
+    }
+
+    public function show(Kamar $kamar, Tracking $tracking){
+        return view('user.history_detail', compact('kamar', 'tracking'));
     }
 }

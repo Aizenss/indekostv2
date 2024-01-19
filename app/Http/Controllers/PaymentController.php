@@ -9,6 +9,7 @@ use App\Models\Kos;
 use App\Models\User;
 use Midtrans\Config;
 use App\Models\Kamar;
+use App\Models\Tracking;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -56,6 +57,39 @@ class PaymentController extends Controller
         // $kamar->save();
         return redirect()->back();
     }
+    public function payAgain(Request $request, Kos $kos, Kamar $kamar)
+    {
+        // dd($kamar);
+        // Set your Merchant Server Key
+        Config::$serverKey = config('midtrans.serverKey');
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        Config::$isProduction = false;
+        // Set sanitization on (default)
+        Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        Config::$is3ds = true;
+
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => rand(),
+                'gross_amount' => $kamar->harga,
+            ),
+            'customer_details' => array(
+                'first_name' => Auth::user()->name,
+                'email' => Auth::user()->email,
+            ),
+        );
+
+        $snapToken = Snap::getSnapToken($params);
+        $kamar->update([
+            'user_id' => Auth::user()->id,
+            'status' => 'menambah waktu',
+            'snap_token' => $snapToken
+        ]);
+
+        // $kamar->save();
+        return redirect()->back();
+    }
 
     public function batal(Kamar $kamar)
     {
@@ -63,6 +97,16 @@ class PaymentController extends Controller
             'user_id' => null,
             'snap_token' => null,
             'status' => 'kosong',
+        ]);
+        return redirect()->back();
+    }
+
+    public function batalLagi(Kamar $kamar)
+    {
+        $kamar->update([
+            'user_id' => null,
+            'snap_token' => null,
+            'status' => $kamar->status,
         ]);
         return redirect()->back();
     }
@@ -110,8 +154,73 @@ class PaymentController extends Controller
             'user_id' =>  auth()->user()->id,
             'nominal_owner' =>  $owner,
             'nominal_admin' =>  $admin,
+        ]);
+        $tracking = Tracking::create([
+            'kamar_id' => $kamar->id,
+            'user_id' =>  auth()->user()->id,
             'checkin' =>  $startDate,
             'checkout' =>  $endDate
+        ]);
+        // User::where('id', 1)->update(['pendapatan' => $admin]);
+        // return response()->json(['message' => 'Data berhasil diproses']);
+        return redirect()->route('user.kamarkami');
+    }
+
+    public function prosesLagi(Request $request, Kamar $kamar)
+    {
+        // dd($request->all());
+        $data = $request->input('data');
+        $kamar->update([
+            'result' => $data,
+            'status' => 'paid',
+        ]);
+
+        $grossAmount = $data['gross_amount'];
+
+        // Menghitung bagiannya
+        $ownerPercentage = 95;
+        $adminPercentage = 100 - $ownerPercentage;
+
+        $owner = ($ownerPercentage / 100) * $grossAmount;
+        $admin = ($adminPercentage / 100) * $grossAmount;
+
+        // dd($owner, $kamar->kos->owner_id);
+        $owners = User::where('id', $kamar->kos->owner_id)->first();
+        $owners->increment('pendapatan', $owner);
+
+        $admins = User::where('id', 1)->first();
+        $admins->increment('pendapatan', $admin);
+
+        $transaksi = Transaksi::updateOrCreate(
+            [
+                'kamar_id' => $kamar->id,
+                'owner_id' => $kamar->kos->owner_id,
+                'user_id' => auth()->user()->id,
+            ],
+            [
+                'nominal_owner' => $owner,
+                'nominal_admin' => $admin,
+            ]
+        );
+
+        $startDate = Carbon::now();
+        $endDateValue = Tracking::where('kamar_id', $kamar->id)->latest()->value('checkout');
+        $endDate = $endDateValue ? new Carbon($endDateValue) : $startDate;
+
+        if ($kamar->status == 'paid') {
+            $monthsToAdd = $kamar->night; // Assuming 'night' field contains the number of months
+            if ($monthsToAdd >= 1 && $monthsToAdd <= 12) {
+                $endDate = $endDate->addMonthsNoOverflow($monthsToAdd);
+            } else {
+                throw new Exception('Invalid value for night field.');
+            }
+        }
+
+        $tracking = Tracking::where('kamar_id', $kamar->id)->first();
+        $tracking->update([
+            'user_id' => auth()->user()->id,
+            'checkin' => $startDate,
+            'checkout' => $endDate
         ]);
         // User::where('id', 1)->update(['pendapatan' => $admin]);
         // return response()->json(['message' => 'Data berhasil diproses']);
