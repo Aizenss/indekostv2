@@ -16,6 +16,7 @@ class Kamar extends Model
         'user_id',
         'nama_kamar',
         'fasilitas',
+        'peraturan_kamar',
         'kamar_mandi',
         'foto_kamar',
         'harga',
@@ -27,7 +28,7 @@ class Kamar extends Model
 
     public function kos(): BelongsTo
     {
-        return $this->belongsTo(Kos::class);
+        return $this->belongsTo(Kos::class, 'kos_id');
     }
     public function user(): BelongsTo
     {

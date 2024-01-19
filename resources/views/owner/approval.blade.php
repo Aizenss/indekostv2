@@ -34,24 +34,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($kamars as $kamar)
-                    @if ($kamar->user_id != null)
+                    @foreach ($kamars as $index => $kamar)
                         <tr class="bg-white dark:bg-gray-800 items-center">
                             <th scope="row"
                                 class="px-6 py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ $loop->iteration }}
+                                {{ $index + 1 }}
                             </th>
                             <td class="px-6 py-4 text-xs">
                                 {{ $kamar->kos->nama_kost }}
                             </td>
                             <td class="px-6 py-4 text-xs">
-                                    {{ $kamar->user->name }}
-                                </td>
-                                <td class="px-6 py-4 text-xs">
-                                Rp.{{ number_format($kamar->kos->harga, 0, ',', '.') }}
+                                {{ $kamar->user->name }}
                             </td>
                             <td class="px-6 py-4 text-xs">
-                                1 bulan
+                                Rp.{{ number_format($kamar->harga, 0, ',', '.') }}
+                            </td>
+                            <td class="px-6 py-4 text-xs">
+                                {{ $kamar->night }} bulan
                             </td>
                             <td class="px-6 py-4 text-xs">
                                 {{ $kamar->status }}
@@ -59,23 +58,22 @@
                             <td class="px-6 py-4 text-xs flex items-center gap-3">
                                 @if ($kamar->status == 'dipesan')
                                     <form action="{{ route('owner.approval.tolak', $kamar) }}" method="post"
-                                    class="my-auto">
+                                        class="my-auto">
                                         @csrf
                                         @method('patch')
                                         <button type="submit" class="text-red-600 self-center">Tolak</button>
                                     </form>
                                     <form action="{{ route('owner.approval.terima', $kamar) }}" method="post"
-                                    class="my-auto">
-                                    @csrf
-                                    @method('patch')
-                                    <button type="submit" class="text-green-600 self-center">Terima</button>
-                                </form>
+                                        class="my-auto">
+                                        @csrf
+                                        @method('patch')
+                                        <button type="submit" class="text-green-600 self-center">Terima</button>
+                                    </form>
                                 @else
-                                -
+                                    -
                                 @endif
                             </td>
                         </tr>
-                        @endif
                     @endforeach
                 </tbody>
             </table>

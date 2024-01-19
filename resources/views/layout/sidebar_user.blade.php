@@ -101,6 +101,13 @@
                             <span class="ms-3">Pembayaran</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="/history"
+                            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 hover:shadow-xl {{ request()->is('history') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
+                            <i class="fa-solid fa-hand-holding-dollar text-xl ms-1"></i>
+                            <span class="ms-3">History</span>
+                        </a>
+                    </li>
                         <li>
                             @endif
                             <!-- Authentication -->

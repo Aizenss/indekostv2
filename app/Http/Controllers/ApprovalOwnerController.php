@@ -9,7 +9,7 @@ class ApprovalOwnerController extends Controller
 {
     //
     public function index(){
-        $kamars = Kamar::with('kos')->get();
+        $kamars = Kamar::with('kos')->where('status', 'dipesan')->get();
         return view('owner.approval', compact('kamars'));
     }
 

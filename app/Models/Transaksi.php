@@ -12,8 +12,11 @@ class Transaksi extends Model
     protected $fillable  = [
         'kamar_id',
         'owner_id',
+        'user_id',
         'nominal_owner',
-        'nominal_admin'
+        'nominal_admin',
+        'checkin',
+        'checkout',
     ];
 
     public function kamar(): BelongsTo

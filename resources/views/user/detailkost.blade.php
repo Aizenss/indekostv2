@@ -61,10 +61,10 @@
                     Fasilitas Kamar Mandi
                 </div>
                 <div class="grid grid-cols-4 gap-2">
-                        <div class="fasilitas text-gray-700">
-                            <i class="fa-solid fa-bath me-2 text-2xl"></i><span
-                                class="font-medium text-lg">{{ $kos->fasilitas_kamar_mandi }}</span>
-                        </div>
+                    <div class="fasilitas text-gray-700">
+                        <i class="fa-solid fa-bath me-2 text-2xl"></i><span
+                            class="font-medium text-lg">{{ $kos->fasilitas_kamar_mandi }}</span>
+                    </div>
                 </div>
             </div>
             <hr>
@@ -101,25 +101,45 @@
                     @endforeach
                     <div class="p-5">
                         <div class="flex justify-between items-center">
-                            <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">{{$kamar->nama_kamar}}</h5>
+                            <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">{{ $kamar->nama_kamar }}
+                            </h5>
                             <h5 class=" text-base font-semibold tracking-tight text-gray-900"><i
                                     class="fa-solid fa-users me-1"></i>2 Orang</h5>
                         </div>
                         <span class="text-lg font-semibold text-gray-900">Fasilitas</span>
                         <div class="grid grid-cols-2 gap-2">
-                            <span class="text-base font-medium text-gray-900"><i
-                                    class="fa-solid fa-check me-1"></i>{{$kamar->fasilitas}}</span>
+                            @foreach (json_decode($kamar->fasilitas) as $fasilitas)
+                                <div class="flex flex-wrap">
+                                    <span class="text-base font-medium text-gray-900">
+                                        <i class="fa-solid fa-check me-1"></i>
+                                        {{ $fasilitas->value }}
+                                    </span>
+                                </div>
+                            @endforeach
                         </div>
                         <span class="text-lg font-semibold text-gray-900 text-balance">Peraturan Kamar</span>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, tempore!</p>
+                        <div class="grid grid-cols-2 gap-2">
+                            @foreach (json_decode($kamar->peraturan_kamar) as $fasilitas)
+                                <div class="flex flex-wrap">
+                                    <span class="text-base font-medium text-gray-900">
+                                        <i class="fa-solid fa-check me-1"></i>
+                                        {{ $fasilitas->value }}
+                                    </span>
+                                </div>
+                            @endforeach
+                        </div>
                         <div class="flex justify-between mt-3">
                             <div class="info mt-1">
-                                <a href="" class="border border-[#4F6F52] py-1 px-3 rounded-lg text-gray-900">Info</a>
+                                <a href=""
+                                    class="border border-[#4F6F52] py-1 px-3 rounded-lg text-gray-900">Info</a>
                             </div>
                             <div class="aju">
-                                <form action="{{ route('user.detailkost.payment', ['kos' => $kos, 'kamar' => $kamar]) }}" method="post">
+                                <form
+                                    action="{{ route('user.detailkost.payment', ['kos' => $kos, 'kamar' => $kamar]) }}"
+                                    method="post">
                                     @csrf
-                                    <button type="submit" class="py-1 px-3 rounded-lg text-white" style="background-color: #4F6F52;">Ajukan Sewa</button>
+                                    <button type="submit" class="py-1 px-3 rounded-lg text-white"
+                                        style="background-color: #4F6F52;">Ajukan Sewa</button>
                                 </form>
                             </div>
                         </div>

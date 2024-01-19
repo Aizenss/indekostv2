@@ -15,8 +15,11 @@ use App\Http\Controllers\KelolaAdminController;
 use App\Http\Controllers\KelolaOwnerController;
 use App\Http\Controllers\ApprovalAdminController;
 use App\Http\Controllers\ApprovalOwnerController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ListKosController;
 use App\Http\Controllers\TransaksiAdminController;
+use App\Http\Controllers\TransaksiController;
+use App\Models\Transaksi;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +69,8 @@ Route::middleware(['auth', 'role:user', 'verified'])->group(function () {
     Route::get('/semuarating', function () {
         return view('user.semuarating');
     });
+
+    route::get('/history', [HistoryController::class, 'index'])->name('history');
 
 });
 

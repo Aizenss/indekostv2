@@ -16,9 +16,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('kamar_id')->constrained('kamar');
             $table->foreignId('owner_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->unsignedBigInteger('admin_id')->default(1);
             $table->integer('nominal_owner');
             $table->integer('nominal_admin');
+            $table->date('checkin');
+            $table->date('checkout');
             $table->timestamps();
         });
     }

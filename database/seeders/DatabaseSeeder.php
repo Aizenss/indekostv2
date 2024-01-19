@@ -47,10 +47,10 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now()
         ]);
 
-        User::factory(7)->create();
+        User::factory(3)->create();
 
-        // Kos::factory(9)->create();
+        Kos::factory(4)->create();
 
-        // Kamar::factory(18)->create();
+        Kamar::factory(8)->create();
     }
 }

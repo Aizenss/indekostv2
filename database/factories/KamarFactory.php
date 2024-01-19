@@ -21,9 +21,14 @@ class KamarFactory extends Factory
             //
             'kos_id' => Kos::inRandomOrder()->first()->id,
             'nama_kamar' => $this->faker->word,
-            'fasilitas' => $this->faker->sentence,
+            'fasilitas' => json_encode(array_map(function ($word) {
+                return ['value' => $word];
+            }, $this->faker->words(4, false))),
+            'peraturan_kamar' => json_encode(array_map(function ($word) {
+                return ['value' => $word];
+            }, $this->faker->words(4, false))),
             'kamar_mandi' => $this->faker->word,
-            'foto_kamar' => json_encode([$this->faker->imageUrl(640, 480, 'room', true)]),
+            'foto_kamar' => json_encode(['https://source.unsplash.com/random']),
             'harga' => $this->faker->numberBetween(100000, 1000000),
             'night' => $this->faker->numberBetween(1, 12),
         ];

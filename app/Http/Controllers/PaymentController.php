@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
+use Carbon\Carbon;
 use Midtrans\Snap;
+use App\Models\Kos;
+use App\Models\User;
 use Midtrans\Config;
 use App\Models\Kamar;
-use App\Models\Kos;
 use App\Models\Transaksi;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
@@ -90,14 +92,28 @@ class PaymentController extends Controller
         $admins = User::where('id', 1)->first();
         $admins->increment('pendapatan', $admin);
 
+        $startDate = Carbon::now();
+        $endDate = Carbon::now();
+
+        if ($kamar->status == 'paid') {
+            $monthsToAdd = $kamar->night; // Assuming 'night' field contains the number of months
+            if ($monthsToAdd >= 1 && $monthsToAdd <= 12) {
+                $endDate = $startDate->copy()->addMonthsNoOverflow($monthsToAdd);
+            } else {
+                throw new Exception('Invalid value for night field.');
+            }
+        }
+
         $transaksi = Transaksi::create([
             'kamar_id' => $kamar->id,
             'owner_id' =>  $kamar->kos->owner_id,
+            'user_id' =>  auth()->user()->id,
             'nominal_owner' =>  $owner,
-            'nominal_admin' =>  $admin
+            'nominal_admin' =>  $admin,
+            'checkin' =>  $startDate,
+            'checkout' =>  $endDate
         ]);
         // User::where('id', 1)->update(['pendapatan' => $admin]);
-
         // return response()->json(['message' => 'Data berhasil diproses']);
         return redirect()->route('user.kamarkami');
     }
