@@ -73,17 +73,17 @@
                     -
                   @else
                     <button data-modal-target="show{{ $kost->id }}" data-modal-toggle="show{{ $kost->id }}"
-                      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 self-center"
+                      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1 me-2 mb-2 self-center"
                       type="button">
                       show
                     </button>
                     <form action="{{ route('owner.kos.edit', ['id' => $kost->id]) }}" method="post"
-                      class="my-auto focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">
+                      class="my-auto focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-3 py-1 me-2 mb-2 ">
                       @method('get')
                       <button type="submit" class="text-white self-center">edit</button>
                     </form>
                     <form action="{{ route('owner.kos.hapus', ['id' => $kost->id]) }}" method="post"
-                      class="my-auto focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">
+                      class="my-auto focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1 me-2 mb-2">
                       @method('delete')
                       @csrf
                       <button type="submit" class="text-white self-center">Delete</button>

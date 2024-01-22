@@ -35,8 +35,9 @@
                         <div class="grid grid-cols-2 gap-3 my-2 text-center overflow-y-scroll sc-sm max-h-14">
                             @foreach (json_decode($kamar->fasilitas) ?? [] as $fasilitas)
                                 <div class="fsnya">
-                                    <span class="text-sm text-gray-700 font-medium"><i
-                                            class="fa-solid fa-check me-2"></i>{{ $fasilitas->value }}</span>
+                                    <span class="text-sm text-gray-700 font-medium"></span>
+                                    <i class="fa-solid fa-handshake me-2"></i>
+                                    {{ $fasilitas->value }}
                                 </div>
                             @endforeach
                         </div>
@@ -45,8 +46,8 @@
                             <p class="text-sm font-medium text-gray-900">{{ $kamar->peraturan_kamar }}!</p>
                         </div>
                         <div class="my-3">
-                            <span
-                                class="text-xl font-bold text-gray-700">{{ $kamar->harga }}/{{ $kamar->night }}Bulan</span>
+                            <span class="text-xl font-bold text-gray-700">Rp.
+                                {{ number_format($kamar->harga, 0, ',', '.') }}/{{ $kamar->night }}Bulan</span>
                         </div>
                         <div class="flex justify-between">
                             <div>
@@ -129,24 +130,27 @@
                             <p>fasilitas</p>
                             @foreach (json_decode($kamar->fasilitas) ?? [] as $fasilitas)
                                 <span class="text-sm text-gray-700 font-medium">
-                                    <i class="fa-solid fa-check me-2"></i>{{ $fasilitas->value }}</span>
-                                    @endforeach
-                            </div>
+                                    <i class="fa-solid fa-handshake me-2"></i>{{ $fasilitas->value }}</span>
+                            @endforeach
+                        </div>
                         <p>Peraturan: <span>{{ $kamar->peraturan_kamar }}</span></p>
-                        <p>Harga: <span>{{ $kamar->harga }}/{{ $kamar->night }}Bulan</span></p>
+                        <p>Harga: <span>Rp. {{ number_format($kamar->harga, 0, ',', '.') }}/{{ $kamar->night }}Bulan</span></p>
                     </div>
                     <!-- Modal footer -->
-                    <div class="flex items-center justify-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <div
+                        class="flex items-center justify-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
                         <!-- Edit Button Form -->
                         <form>
-                            <button data-modal-hide="detail-kamar" type="button" onclick="window.location.href='{{ route('owner.kamar.edit', ['kos' => $kos->id, 'kamar' => $kamar->id]) }}'"
+                            <button data-modal-hide="detail-kamar" type="button"
+                                onclick="window.location.href='{{ route('owner.kamar.edit', ['kos' => $kos->id, 'kamar' => $kamar->id]) }}'"
                                 class="flex items-center text-white bg-yellow-500 hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-400 dark:hover:bg-yellow-500 dark:focus:ring-yellow-500">
                                 <i class="fas fa-pencil-alt mr-2"></i> ubah
                             </button>
                         </form>
 
                         <!-- Delete Button Form -->
-                        <form action="{{ route('owner.kamar.hapus', ['kamar' => $kamar->id, 'kos' => $kos->id]) }}" method="post">
+                        <form action="{{ route('owner.kamar.hapus', ['kamar' => $kamar->id, 'kos' => $kos->id]) }}"
+                            method="post">
                             @csrf
                             @method('DELETE')
                             <button data-modal-hide="detail-kamar" type="submit"
