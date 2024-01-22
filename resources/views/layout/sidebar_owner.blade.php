@@ -79,6 +79,13 @@
                 </a>
             </li>
             <li>
+                <a href="/tracking/owner"
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 hover:shadow-xl {{ request()->is('tracking/owner') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
+                    <i class="fa-solid fa-bed"></i>
+                    <span class="ms-3">Tracking</span>
+                </a>
+            </li>
+            <li>
                 @auth
                     <!-- Authentication -->
                     <form method="POST" action="{{ route('logout') }}">
