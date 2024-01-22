@@ -4,14 +4,15 @@
 @section('isi')
     <div class="sm:ml-64">
         <div class=" mx-auto bg-white p-8 mb-6 rounded-md shadow-md">
-            <span class="font-semibold text-2xl text-gray-900">Tambah Kamar</span>
-            <form action="{{ route('owner.kamar.tambah.detail.proses', $kos) }}" method="post" enctype="multipart/form-data"
-                class="space-y-6">
+            <span class="font-semibold text-2xl text-gray-900">rubah kamar</span>
+            <form action="{{ route('owner.kamar.update', ['kamar' => $kamar->id, 'kos' => $kos->id]) }}" method="post"
+                enctype="multipart/form-data" class="space-y-6">
+                @method('put')
                 @csrf
                 <div class="grid grid-cols-2 gap-4 items-center">
                     <div>
                         <label for="nomor_kamar" class="text-lg font-semibold text-gray-800">Nama Kamar</label>
-                        <input type="text" name="nama_kamar" id="nomor_kamar"
+                        <input type="text" name="nama_kamar" id="nomor_kamar" value="{{ $kamar->nama_kamar }}"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none">
                     </div>
                     <div>
@@ -24,26 +25,26 @@
                         <div class="flex gap-3">
                             <input id="tagsInput" name="tags" type="text"
                                 class="mt-2 p-1 w-full border border-gray-900 rounded-md  focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none overflow-y-scroll sc-sm max-h-9"
-                                value="" autocomplete="off">
+                                value="{{ $kamar->fasilitas }}" autocomplete="off">
                             <button class='tags-jquery--removeAllBtn text-gray-900 text-3xl' type='button'><i
                                     class="fa-solid fa-trash-can"></i></button>
                         </div>
                     </div>
                     <div>
                         <label for="kamar_mandi" class="text-lg font-semibold text-gray-800">Info Kamar Mandi</label>
-                        <input type="text" name="kamar_mandi" id="kamar_mandi"
+                        <input type="text" name="kamar_mandi" id="kamar_mandi" value="{{ $kamar->kamar_mandi }}"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">
                     </div>
                     <div>
                         <label for="harga" class="text-lg font-semibold text-gray-800">harga</label>
-                        <input type="number" name="harga" id="harga"
+                        <input type="number" name="harga" id="harga" value="{{ $kamar->harga }}"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">
                     </div>
                     <div>
                         <label for="harga" class="text-lg font-semibold text-gray-800">Kapasitas</label>
-                        <input type="number" name="kapasitas" id="harga"
+                        <input type="number" name="kapasitas" id="harga" value="{{ $kamar->kapasitas }}"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">
                     </div>
@@ -51,18 +52,20 @@
                         <label for="harga" class="text-lg font-semibold text-gray-800">Peraturan kamar</label>
                         <textarea name="peraturan_kamar" id="harga"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
-                            autocomplete="off"></textarea>
+                            autocomplete="off">{{ $kamar->peraturan_kamar }}</textarea>
                     </div>
                     <div>
                         <label for="night" class="text-lg font-semibold text-gray-800">per/</label>
-                        <select name="night" id="month" class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none" autocomplete="off">
-                            <option disabled selected> Pilih bulan</option>
+                        <select name="night" id="month"
+                            class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
+                            autocomplete="off">
+                            <option value="{{ $kamar->night }}" selected>{{ $kamar->night }} Bulan</option>
                             <script>
-                              for (var i = 1; i <= 12; i++) {
-                                document.write('<option value="' + i + '">' + i + 'Bulan' + '</option>');
-                              }
+                                for (var i = 1; i <= 12; i++) {
+                                    document.write('<option value="' + i + '">' + i + 'Bulan' + '</option>');
+                                }
                             </script>
-                          </select>
+                        </select>
                     </div>
                     <div>
                         <label for="tambahin" class="text-lg font-semibold text-gray-800">Foto Kamar</label>
@@ -82,7 +85,7 @@
                 </div>
                 <button type="submit"
                     class="w-full bg-blue-500 text-white p-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out">
-                    Tambah Kamar
+                    ubah
                 </button>
             </form>
         </div>

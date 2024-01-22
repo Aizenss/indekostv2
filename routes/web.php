@@ -95,7 +95,9 @@ Route::middleware(['auth', 'role:owner', 'verified'])->group(function () {
     Route::get('/kamar/owner/create/{kos}', [KamarOwnerController::class, 'tambah'])->name('owner.kamar.tambah');
     Route::patch('/kamar/owner/status/update{kamar}', [KamarOwnerController::class, 'status'])->name('owner.kamar.rubah.status');
     Route::get('/kamar/owner/create/{kos}/detail', [KamarOwnerController::class, 'tambahKamar'])->name('owner.kamar.tambah.detail');
-    Route::delete('/kamar/owner//delete{kamar}', [KamarOwnerController::class, 'tambahKamar'])->name('owner.kamar.hapus');
+    Route::delete('/kamar/owner/hapus{kamar}', [KamarOwnerController::class, 'hapus'])->name('owner.kamar.hapus');
+    Route::get('/kamar/owner/create/{kos}/ubah/{kamar}', [KamarOwnerController::class, 'ubah'])->name('owner.kamar.edit');
+    Route::put('/kamar/owner/create/{kos}/ubahproses/{kamar}', [KamarOwnerController::class, 'ubahproses'])->name('owner.kamar.update');
     Route::post('/kamar/owner/create/{kos}/detail/proses', [KamarOwnerController::class, 'tambahKamarProses'])->name('owner.kamar.tambah.detail.proses');
 
     Route::get('/tracking/owner', [HistoryController::class, 'owner'])->name('owner.history');
