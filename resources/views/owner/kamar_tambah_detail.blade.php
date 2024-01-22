@@ -2,8 +2,22 @@
 @extends('layout.sidebar_owner')
 
 @section('isi')
+
     <div class="sm:ml-64">
         <div class=" mx-auto bg-white p-8 mb-6 rounded-md shadow-md">
+            @if ($errors->any())
+                <div class="mb-4">
+                    <div class="font-medium text-red-600">
+                        {{ __('Whoops! Something went wrong.') }}
+                    </div>
+
+                    <ul class="mt-3 list-disc list-inside text-sm text-red-600">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <span class="font-semibold text-2xl text-gray-900">Tambah Kamar</span>
             <form action="{{ route('owner.kamar.tambah.detail.proses', $kos) }}" method="post" enctype="multipart/form-data"
                 class="space-y-6">
@@ -13,6 +27,9 @@
                         <label for="nomor_kamar" class="text-lg font-semibold text-gray-800">Nama Kamar</label>
                         <input type="text" name="nama_kamar" id="nomor_kamar"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none">
+                        @error('nama_kamar')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <style>
@@ -25,6 +42,9 @@
                             <input id="tagsInput" name="tags" type="text"
                                 class="mt-2 p-1 w-full border border-gray-900 rounded-md  focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none overflow-y-scroll sc-sm max-h-9"
                                 value="" autocomplete="off">
+                            @error('tags')
+                                <p class="text-red-500 text-sm">{{ $message }}</p>
+                            @enderror
                             <button class='tags-jquery--removeAllBtn text-gray-900 text-3xl' type='button'><i
                                     class="fa-solid fa-trash-can"></i></button>
                         </div>
@@ -34,35 +54,52 @@
                         <input type="text" name="kamar_mandi" id="kamar_mandi"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">
+                        @error('kamar_mandi')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="harga" class="text-lg font-semibold text-gray-800">harga</label>
                         <input type="number" name="harga" id="harga"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">
+                        @error('harga')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="harga" class="text-lg font-semibold text-gray-800">Kapasitas</label>
                         <input type="number" name="kapasitas" id="harga"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">
+                        @error('kapasitas')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="harga" class="text-lg font-semibold text-gray-800">Peraturan kamar</label>
                         <textarea name="peraturan_kamar" id="harga"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off"></textarea>
+                        @error('pertauran_kamar')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="night" class="text-lg font-semibold text-gray-800">per/</label>
-                        <select name="night" id="month" class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none" autocomplete="off">
+                        <select name="night" id="month"
+                            class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
+                            autocomplete="off">
                             <option disabled selected> Pilih bulan</option>
                             <script>
-                              for (var i = 1; i <= 12; i++) {
-                                document.write('<option value="' + i + '">' + i + 'Bulan' + '</option>');
-                              }
+                                for (var i = 1; i <= 12; i++) {
+                                    document.write('<option value="' + i + '">' + i + 'Bulan' + '</option>');
+                                }
                             </script>
-                          </select>
+                        </select>
+                        @error('night')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="tambahin" class="text-lg font-semibold text-gray-800">Foto Kamar</label>
@@ -78,6 +115,9 @@
                     <div id="fotoContainer" class="container mt-4 space-y-4">
                         <input type="file" name="foto_kamar[]"
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50">
+                        @error('foto_kamar[]')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <button type="submit"

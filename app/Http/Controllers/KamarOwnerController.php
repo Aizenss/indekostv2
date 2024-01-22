@@ -37,18 +37,16 @@ class KamarOwnerController extends Controller
         // dd($request);
         $validatedData = $request->validate([
             'nama_kamar' => 'required|max:255',
-            'fasilitas' => 'required',
             'kamar_mandi' => 'required|string',
             'peraturan_kamar' => 'required|max:1000',
             'kapasitas' => 'required|numeric|min:1',
             'harga' => 'required|numeric|min:0',
             'night' => 'required|numeric|between:1,12',
             'foto_kamar' => 'nullable|array',
-            'foto_kamar.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'foto_kamar.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ], [
             'nama_kamar.required' => 'Nama kamar harus diisi.',
             'nama_kamar.max' => 'Nama kamar tidak boleh lebih dari 255 karakter.',
-            'fasilitas.required' => 'Fasilitas kamar harus diisi.',
             'kamar_mandi.required' => 'Status kamar mandi harus diisi.',
             'kamar_mandi.string' => 'Status kamar mandi harus berupa string.',
             'peraturan_kamar.required' => 'Peraturan kamar harus diisi.',
@@ -81,7 +79,7 @@ class KamarOwnerController extends Controller
             $foto_json = json_encode($foto_kamar);
         }
 
-        $kamar->create([
+        $result = $kamar->create([
             'kos_id' => $kos->id,
             'nama_kamar' => $request->nama_kamar,
             'fasilitas' => $request->tags,
@@ -92,6 +90,8 @@ class KamarOwnerController extends Controller
             'night' => $request->night,
             'foto_kamar' => $foto_json
         ]);
+
+        // dd($result);
         return redirect()->route('owner.kamar.tambah', $kos);
     }
 
