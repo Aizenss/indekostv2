@@ -23,21 +23,40 @@ class HistoryController extends Controller
         return view('user.history', compact('historys'));
     }
 
-    public function show(Kamar $kamar, Tracking $tracking){
+    public function show(Kamar $kamar)
+    {
+        // Fetch tracking data that is related to the given Kamar by its id
+        $tracking = Tracking::whereHas('kamar', function ($query) use ($kamar) {
+            $query->where('id', $kamar->id);
+        })->get();
+
         return view('user.history_detail', compact('kamar', 'tracking'));
     }
 
-    public function owner(){
+    public function owner()
+    {
         $tracking = Tracking::all();
         return view('owner.tracking', compact('tracking'));
     }
 
-    public function showTracking(Tracking $tracking){
+    public function showTracking(Tracking $tracking)
+    {
         return view('owner.tracking_edit', compact('tracking'));
     }
 
-    public function editTracking(Request $request, Tracking $tracking){
+    public function editTracking(Request $request, Tracking $tracking)
+    {
         // dd($request->all());
+        $validatedData = $request->validate([
+            'checkin' => 'required|date',
+            'checkout' => 'required|date|after_or_equal:checkin',
+        ], [
+            'checkin.required' => 'Tanggal check-in wajib diisi.',
+            'checkin.date' => 'Tanggal check-in tidak valid.',
+            'checkout.required' => 'Tanggal check-out wajib diisi.',
+            'checkout.date' => 'Tanggal check-out tidak valid.',
+            'checkout.after_or_equal' => 'Tanggal check-out harus sama atau setelah tanggal check-in.',
+        ]);
 
         $tracking->update([
             'checkin' => $request->checkin,
@@ -47,4 +66,3 @@ class HistoryController extends Controller
         return redirect()->route('owner.history');
     }
 }
-

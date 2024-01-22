@@ -10,6 +10,11 @@
             <p><strong>Nama Kamar:</strong> {{ $kamar->nama_kamar }}</p>
             <p><strong>Harga:</strong> Rp {{ number_format($kamar->harga, 0, ',', '.') }}</p>
             <!-- Tambahkan informasi kamar lainnya sesuai kebutuhan -->
+            @foreach ($tracking as $track)
+                <p>check in : {{ $track->checkin }}</p>
+                <p>check out : {{ $track->checkout }}</p>
+                <p>{{ \Carbon\Carbon::parse($track->checkin)->diffInDays(\Carbon\Carbon::parse($track->checkout)) }} Hari</p>
+            @endforeach
         </div>
 
         <form action="{{ route('history.detail.pay', ['kamar' => $kamar]) }}" method="POST">

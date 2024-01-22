@@ -15,9 +15,18 @@ class UlasanController extends Controller
         $kost_request =  $request->kos_id;
         $kost_id = Kos::find($kost_request);
 
-        $request->validate([
+        $validatedData = $request->validate([
             'rating' => 'required|numeric|min:1|max:5',
             'ulasan' => 'required|string|min:3|max:255',
+        ], [
+            'rating.required' => 'Rating harus diisi.',
+            'rating.numeric' => 'Rating harus berupa angka.',
+            'rating.min' => 'Rating minimal adalah 1.',
+            'rating.max' => 'Rating maksimal adalah 5.',
+            'ulasan.required' => 'Ulasan harus diisi.',
+            'ulasan.string' => 'Ulasan harus berupa teks.',
+            'ulasan.min' => 'Ulasan harus memiliki paling sedikit 3 karakter.',
+            'ulasan.max' => 'Ulasan tidak boleh lebih dari 255 karakter.',
         ]);
 
         ulasan::create([

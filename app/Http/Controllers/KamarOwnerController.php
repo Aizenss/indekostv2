@@ -35,6 +35,39 @@ class KamarOwnerController extends Controller
     public function tambahKamarProses(Request $request, Kamar $kamar, Kos $kos)
     {
         // dd($request);
+        $validatedData = $request->validate([
+            'nama_kamar' => 'required|max:255',
+            'fasilitas' => 'required',
+            'kamar_mandi' => 'required|string',
+            'peraturan_kamar' => 'required|max:1000',
+            'kapasitas' => 'required|numeric|min:1',
+            'harga' => 'required|numeric|min:0',
+            'night' => 'required|numeric|between:1,12',
+            'foto_kamar' => 'nullable|array',
+            'foto_kamar.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ], [
+            'nama_kamar.required' => 'Nama kamar harus diisi.',
+            'nama_kamar.max' => 'Nama kamar tidak boleh lebih dari 255 karakter.',
+            'fasilitas.required' => 'Fasilitas kamar harus diisi.',
+            'kamar_mandi.required' => 'Status kamar mandi harus diisi.',
+            'kamar_mandi.string' => 'Status kamar mandi harus berupa string.',
+            'peraturan_kamar.required' => 'Peraturan kamar harus diisi.',
+            'peraturan_kamar.max' => 'Peraturan kamar tidak boleh lebih dari 1000 karakter.',
+            'kapasitas.required' => 'Kapasitas kamar harus diisi.',
+            'kapasitas.numeric' => 'Kapasitas kamar harus berupa angka.',
+            'kapasitas.min' => 'Kapasitas kamar minimal adalah 1.',
+            'harga.required' => 'Harga kamar harus diisi.',
+            'harga.numeric' => 'Harga kamar harus berupa angka.',
+            'harga.min' => 'Harga kamar tidak boleh kurang dari 0.',
+            'night.required' => 'Durasi sewa per malam harus diisi.',
+            'night.numeric' => 'Durasi sewa per malam harus berupa angka.',
+            'night.between' => 'Durasi sewa per malam harus antara 1 sampai 12.',
+            'foto_kamar.array' => 'Foto kamar harus berupa sebuah array.',
+            'foto_kamar.*.image' => 'Foto kamar harus berupa gambar.',
+            'foto_kamar.*.mimes' => 'Foto kamar harus berupa file dengan tipe: jpeg, png, jpg, gif, atau svg.',
+            'foto_kamar.*.max' => 'Ukuran foto kamar tidak boleh lebih dari 2MB.',
+        ]);
+
         $foto_json = null;
 
         if ($request->file('foto_kamar')) {

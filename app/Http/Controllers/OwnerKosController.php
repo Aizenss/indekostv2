@@ -25,20 +25,45 @@ class OwnerKosController extends Controller
     public function tambahProses(Request $request)
     {
         // dd($request->all());
-
         $request->validate([
             'nama_kost' => 'required|string|min:3|max:100',
             'ketentuan' => 'required|string|min:3|max:1000',
-            'peraturan' => 'required|string|min:3|max:1000',
             'lokasi' => 'required|string|min:3|max:1000',
             'spesifikasi' => 'required|string|min:3|max:1000',
             'fasilitas_umum' => 'required',
             'fasilitas_kamar_mandi' => 'required|string',
             'fasilitas_tempat_parkir' => 'required|string',
-            'foto_depan' => 'required|image|mimes:jpeg,jpg,png',
-            'foto_dalam' => 'required|image|mimes:jpeg,jpg,png',
-            'foto_tambahan' => 'nullable|array',
+            'foto_depan' => 'nullable|image|mimes:jpeg,jpg,png',
+            'foto_dalam' => 'nullable|image|mimes:jpeg,jpg,png',
             'foto_tambahan.*' => 'nullable|image|mimes:jpeg,jpg,png',
+        ], [
+            'nama_kost.required' => 'Nama kost harus diisi.',
+            'nama_kost.string' => 'Nama kost harus berupa string.',
+            'nama_kost.min' => 'Nama kost harus minimal 3 karakter.',
+            'nama_kost.max' => 'Nama kost maksimal 100 karakter.',
+            'ketentuan.required' => 'Ketentuan harus diisi.',
+            'ketentuan.string' => 'Ketentuan harus berupa string.',
+            'ketentuan.min' => 'Ketentuan harus minimal 3 karakter.',
+            'ketentuan.max' => 'Ketentuan maksimal 1000 karakter.',
+            'lokasi.required' => 'Lokasi harus diisi.',
+            'lokasi.string' => 'Lokasi harus berupa string.',
+            'lokasi.min' => 'Lokasi harus minimal 3 karakter.',
+            'lokasi.max' => 'Lokasi maksimal 1000 karakter.',
+            'spesifikasi.required' => 'Spesifikasi harus diisi.',
+            'spesifikasi.string' => 'Spesifikasi harus berupa string.',
+            'spesifikasi.min' => 'Spesifikasi harus minimal 3 karakter.',
+            'spesifikasi.max' => 'Spesifikasi maksimal 1000 karakter.',
+            'fasilitas_umum.required' => 'Fasilitas umum harus diisi.',
+            'fasilitas_kamar_mandi.required' => 'Fasilitas kamar mandi harus diisi.',
+            'fasilitas_kamar_mandi.string' => 'Fasilitas kamar mandi harus berupa string.',
+            'fasilitas_tempat_parkir.required' => 'Fasilitas tempat parkir harus diisi.',
+            'fasilitas_tempat_parkir.string' => 'Fasilitas tempat parkir harus berupa string.',
+            'foto_depan.image' => 'Foto depan harus berupa gambar.',
+            'foto_depan.mimes' => 'Foto depan harus berformat jpeg, jpg, atau png.',
+            'foto_dalam.image' => 'Foto dalam harus berupa gambar.',
+            'foto_dalam.mimes' => 'Foto dalam harus berformat jpeg, jpg, atau png.',
+            'foto_tambahan.*.image' => 'Foto tambahan harus berupa gambar.',
+            'foto_tambahan.*.mimes' => 'Foto tambahan harus berformat jpeg, jpg, atau png.',
         ]);
 
         $fotodepan = null;
@@ -98,18 +123,45 @@ class OwnerKosController extends Controller
     public function ubahProses(Request $request, $id)
     {
         // dd($request->all());
-        $request->validate([
+        $validatedData = $request->validate([
             'nama_kost' => 'required|string|min:3|max:100',
             'ketentuan' => 'required|string|min:3|max:1000',
             'lokasi' => 'required|string|min:3|max:1000',
             'spesifikasi' => 'required|string|min:3|max:1000',
-            'fasilitas_umum' => 'required',
+            'fasilitas_umum' => 'required|string',
             'fasilitas_kamar_mandi' => 'required|string',
             'fasilitas_tempat_parkir' => 'required|string',
             'foto_depan' => 'nullable|image|mimes:jpeg,jpg,png',
             'foto_dalam' => 'nullable|image|mimes:jpeg,jpg,png',
-            'foto_tambahan' => 'nullable|array',
             'foto_tambahan.*' => 'nullable|image|mimes:jpeg,jpg,png',
+        ], [
+            'nama_kost.required' => 'Nama kost wajib diisi.',
+            'nama_kost.string' => 'Nama kost harus berupa teks.',
+            'nama_kost.min' => 'Nama kost harus memiliki minimal 3 karakter.',
+            'nama_kost.max' => 'Nama kost tidak boleh lebih dari 100 karakter.',
+            'ketentuan.required' => 'Ketentuan wajib diisi.',
+            'ketentuan.string' => 'Ketentuan harus berupa teks.',
+            'ketentuan.min' => 'Ketentuan harus memiliki minimal 3 karakter.',
+            'ketentuan.max' => 'Ketentuan tidak boleh lebih dari 1000 karakter.',
+            'lokasi.required' => 'Lokasi wajib diisi.',
+            'lokasi.string' => 'Lokasi harus berupa teks.',
+            'lokasi.min' => 'Lokasi harus memiliki minimal 3 karakter.',
+            'lokasi.max' => 'Lokasi tidak boleh lebih dari 1000 karakter.',
+            'spesifikasi.required' => 'Spesifikasi wajib diisi.',
+            'spesifikasi.string' => 'Spesifikasi harus berupa teks.',
+            'spesifikasi.min' => 'Spesifikasi harus memiliki minimal 3 karakter.',
+            'spesifikasi.max' => 'Spesifikasi tidak boleh lebih dari 1000 karakter.',
+            'fasilitas_umum.required' => 'Fasilitas umum wajib diisi.',
+            'fasilitas_kamar_mandi.required' => 'Fasilitas kamar mandi wajib diisi.',
+            'fasilitas_kamar_mandi.string' => 'Fasilitas kamar mandi harus berupa teks.',
+            'fasilitas_tempat_parkir.required' => 'Fasilitas tempat parkir wajib diisi.',
+            'fasilitas_tempat_parkir.string' => 'Fasilitas tempat parkir harus berupa teks.',
+            'foto_depan.image' => 'Foto depan harus berupa gambar.',
+            'foto_depan.mimes' => 'Foto depan harus berformat jpeg, jpg, atau png.',
+            'foto_dalam.image' => 'Foto dalam harus berupa gambar.',
+            'foto_dalam.mimes' => 'Foto dalam harus berformat jpeg, jpg, atau png.',
+            'foto_tambahan.*.image' => 'Semua foto tambahan harus berupa gambar.',
+            'foto_tambahan.*.mimes' => 'Semua foto tambahan harus berformat jpeg, jpg, atau png.',
         ]);
 
         $kos = Kos::find($id);
