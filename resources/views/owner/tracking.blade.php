@@ -4,7 +4,7 @@
 @section('isi')
     <div class="sm:ml-64">
         {{-- {{ $tracking }} --}}
-        <div class="relative overflow-x-auto">
+        <div class="relative my-2">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -33,10 +33,10 @@
                                 {{ $track->user->name }}
                             </th>
                             <td class="px-6 py-4">
-                                {{ $track->checkin }}
+                                {{ \Carbon\Carbon::parse($track->checkin)->isoformat(('dddd, D MMMM Y')) }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $track->checkout }}
+                                {{ \Carbon\Carbon::parse($track->checkout)->isoformat(('dddd, D MMMM Y')) }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ \Carbon\Carbon::parse($track->checkin)->diffInDays(\Carbon\Carbon::parse($track->checkout)) }} Hari

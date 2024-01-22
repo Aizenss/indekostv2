@@ -7,7 +7,7 @@
 
 @section('isi')
     <div class="sm:ml-64">
-        <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow">
+        <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow my-2">
             <h1 class="text-xl">List Kamar</h1>
             <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
@@ -28,7 +28,7 @@
                         </tr>
                     </thead>
                     <tbody>
-    
+
                         @forelse ($kosts as $kost)
                                 <tr class="bg-white dark:bg-gray-800 items-center">
                                     <th scope="row"
@@ -53,7 +53,7 @@
                             <tr class="bg-white dark:bg-gray-800 items-center">
                                 <tr scope="row" colspan="8"
                                     class="px-6 flex items-center justify-center py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
-    
+
                                 </tr>
                                 <td></td>
                                 <td></td>
