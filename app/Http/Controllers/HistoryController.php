@@ -26,4 +26,25 @@ class HistoryController extends Controller
     public function show(Kamar $kamar, Tracking $tracking){
         return view('user.history_detail', compact('kamar', 'tracking'));
     }
+
+    public function owner(){
+        $tracking = Tracking::all();
+        return view('owner.tracking', compact('tracking'));
+    }
+
+    public function showTracking(Tracking $tracking){
+        return view('owner.tracking_edit', compact('tracking'));
+    }
+
+    public function editTracking(Request $request, Tracking $tracking){
+        // dd($request->all());
+
+        $tracking->update([
+            'checkin' => $request->checkin,
+            'checkout' => $request->checkout,
+        ]);
+
+        return redirect()->route('owner.history');
+    }
 }
+

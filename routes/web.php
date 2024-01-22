@@ -97,6 +97,10 @@ Route::middleware(['auth', 'role:owner', 'verified'])->group(function () {
     Route::get('/kamar/owner/create/{kos}/detail', [KamarOwnerController::class, 'tambahKamar'])->name('owner.kamar.tambah.detail');
     Route::delete('/kamar/owner//delete{kamar}', [KamarOwnerController::class, 'tambahKamar'])->name('owner.kamar.hapus');
     Route::post('/kamar/owner/create/{kos}/detail/proses', [KamarOwnerController::class, 'tambahKamarProses'])->name('owner.kamar.tambah.detail.proses');
+
+    Route::get('/tracking/owner', [HistoryController::class, 'owner'])->name('owner.history');
+    Route::get('/tracking/owner/show/{tracking}', [HistoryController::class, 'showTracking'])->name('owner.history.show');
+    Route::put('/tracking/owner/edit/{tracking}/update', [HistoryController::class, 'editTracking'])->name('owner.history.edit');
 });
 
 
