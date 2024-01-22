@@ -4,11 +4,20 @@
 
 @section('isi')
     <div class="sm:ml-64 py-12">
-        {{$kamar}}
+        <h2 class="text-2xl font-semibold mb-4">Detail Pembelian Kamar</h2>
 
-        <form action="{{route('history.detail.pay', ['kamar' => $kamar])}}" method="POST">
+        <div class="mb-4">
+            <p><strong>Nama Kamar:</strong> {{ $kamar->nama_kamar }}</p>
+            <p><strong>Harga:</strong> Rp {{ number_format($kamar->harga, 0, ',', '.') }}</p>
+            <!-- Tambahkan informasi kamar lainnya sesuai kebutuhan -->
+        </div>
+
+        <form action="{{ route('history.detail.pay', ['kamar' => $kamar]) }}" method="POST">
             @csrf
-            <button type="submit">ajukan sewa lagi</button>
+            <button type="submit"
+                class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                Ajukan Sewa Lagi
+            </button>
         </form>
     </div>
 @endsection

@@ -135,7 +135,7 @@
 
               <div class="grid grid-cols-2 gap-4">
                 <div>
-                  <span class="font-semibold text-gray-900">Nama Owner:</span> {{ $kost->user }}
+                  <span class="font-semibold text-gray-900">Nama Owner:</span> {{ $kost->user->name }}
                 </div>
                 <div>
                   <span class="font-semibold text-gray-900">Nama Kos:</span> {{ $kost->nama_kost }}
