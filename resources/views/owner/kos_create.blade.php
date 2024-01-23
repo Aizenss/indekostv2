@@ -17,7 +17,7 @@
                         <label for="nama_kost" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
                             Kost</label>
                             <input type="text" id="nama_kost" name="nama_kost" value="{{ old('nama_kost') }}"
-                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class=" block w-full p-2 text-gray-900 border border-gray-300 rounded-lg sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Cth: Arumba 2 Gpa">
 
                         @error('nama_kost')
@@ -28,7 +28,7 @@
                     <div class="mb-5">
                         <label for="lokasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lokasi</label>
                         <textarea id="lokasi" name="lokasi" rows="4"
-                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class=" block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Cth: Jl. Griya Permata Alam Ngijo, KarangPloso">{{ old('lokasi') }}</textarea>
                         @error('lokasi')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -37,7 +37,7 @@
                     <div class="mb-5">
                         <label for="peraturan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Peraturan</label>
                         <textarea id="peraturan" name="peraturan" rows="4"
-                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class=" block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Cth: Tidak boleh merokok, tidak boleh begadang">{{ old('peraturan') }}</textarea>
                         @error('peraturan')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -46,7 +46,7 @@
                     <div class="mb-5">
                         <label for="spesifikasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Spesifikasi</label>
                         <textarea id="spesifikasi" name="spesifikasi" rows="4"
-                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class=" block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Cth: Luas rumah 80 meter, luas kamar 5 meter">{{ old('spesifikasi') }}</textarea>
                         @error('spesifikasi')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -58,7 +58,7 @@
                     <div class="mb-2">
                         <label for="ketentuan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ketentuan</label>
                         <select id="ketentuan" name="ketentuan"
-                                class="bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                class=" border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             <option value="" disabled {{ old('ketentuan') ? '' : 'selected' }}>Pilih kententuan kos</option>
                             <option value="Laki-Laki" {{ old('ketentuan') == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
                             <option value="Perempuan" {{ old('ketentuan') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
@@ -72,7 +72,7 @@
                     <div class="mb-2">
                         <label for="fasilitas_kamar_mandi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fasilitas kamar mandi</label>
                         <textarea id="fasilitas_kamar_mandi" name="fasilitas_kamar_mandi" rows="4"
-                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class=" block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Cth : 4 Kamar mandi bawah dan 2 Kamar mandi atas">{{ old('fasilitas_kamar_mandi') }}</textarea>
                         @error('fasilitas_kamar_mandi')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -81,7 +81,7 @@
                     <div class="mb-2">
                         <label for="fasilitas_tempat_parkir" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fasilitas tempat parkir</label>
                         <textarea id="fasilitas_tempat_parkir" name="fasilitas_tempat_parkir" rows="4"
-                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class=" block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Cth : Tempat parkir dengan ukuran 180 meter: 20 meter">{{ old('fasilitas_tempat_parkir') }}</textarea>
                         @error('fasilitas_tempat_parkir')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -92,7 +92,7 @@
                         <label for="foto_depan"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">foto_depan</label>
                         <input type="file" id="foto_depan" name="foto_depan" value="{{ old('foto_depan') }}"
-                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class=" block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="nama kost">
                         @error('foto_depan')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -102,7 +102,7 @@
                         <label for="foto_dalam" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">foto
                             dalam</label>
                         <input type="file" id="foto_dalam" name="foto_dalam" value="{{ old('foto_dalam') }}"
-                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class=" block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="nama kost">
                         @error('foto_dalam')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
