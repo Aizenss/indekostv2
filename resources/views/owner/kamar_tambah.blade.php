@@ -59,7 +59,7 @@
                             <span class="text-xl font-bold text-gray-700">Rp.
                                 {{ number_format($kamar->harga, 0, ',', '.') }}/{{ $kamar->night }} Bulan</span>
                         </div>
-                        <div class="flex justify-between">
+                        <div class="flex justify-center gap-2">
                             <div>
                                 <button data-modal-target="detail-kamar{{ $kamar->id }}"
                                     data-modal-toggle="detail-kamar{{ $kamar->id }}"
@@ -76,7 +76,7 @@
                                 @if ($kamar->status == 'mati')
                                     <button
                                         class="bg-[#B03E3E] border border-[#B03E3E] hover:bg-[#983636] py-2 px-3 rounded-lg duration-300">
-                                        <span class="text-base font-medium text-white">
+                                        <span class="text-base font-medium text-white flex items-center">
                                             <i class="fa-solid fa-toggle-off me-2"></i>
                                             Mati
                                         </span>
