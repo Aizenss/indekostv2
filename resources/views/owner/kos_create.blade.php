@@ -6,164 +6,176 @@
 @endsection
 
 @section('isi')
-    <h1 class="text-xl my-5">Create data kos</h1>
+<div class="sm:ml-64">
+
+    <h1 class="text-xl my-5 ml-8">Create data kos</h1>
 
     <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow ">
         <form action="{{ route('owner.kos.create.proses') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="grid md:grid-cols-2 gap-5">
                 <div class="">
-                    <div>
+                    <div class="mb-5">
                         <label for="nama_kost" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
                             Kost</label>
-                        <input type="text" id="nama_kost" name="nama_kost" value="{{ old('nama_kost') }}"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <input type="text" id="nama_kost" name="nama_kost" value="{{ old('nama_kost') }}"
+                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Cth: Arumba 2 Gpa">
+
                         @error('nama_kost')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div>
-                        <label for="ketentuan"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ketentuan</label>
+
+                    <div class="mb-5">
+                        <label for="lokasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lokasi</label>
+                        <textarea id="lokasi" name="lokasi" rows="4"
+                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Cth: Jl. Griya Permata Alam Ngijo, KarangPloso">{{ old('lokasi') }}</textarea>
+                        @error('lokasi')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="mb-5">
+                        <label for="peraturan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Peraturan</label>
+                        <textarea id="peraturan" name="peraturan" rows="4"
+                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Cth: Tidak boleh merokok, tidak boleh begadang">{{ old('peraturan') }}</textarea>
+                        @error('peraturan')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="mb-5">
+                        <label for="spesifikasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Spesifikasi</label>
+                        <textarea id="spesifikasi" name="spesifikasi" rows="4"
+                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Cth: Luas rumah 80 meter, luas kamar 5 meter">{{ old('spesifikasi') }}</textarea>
+                        @error('spesifikasi')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                </div>
+                <div class="">
+                    <div class="mb-2">
+                        <label for="ketentuan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ketentuan</label>
                         <select id="ketentuan" name="ketentuan"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option value="" disabled {{ old('ketentuan') ? '' : 'selected' }}>Pilih kententuan kos
-                            </option>
-                            <option value="Laki-Laki" {{ old('ketentuan') == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki
-                            </option>
-                            <option value="Perempuan" {{ old('ketentuan') == 'Perempuan' ? 'selected' : '' }}>Perempuan
-                            </option>
+                                class="bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                            <option value="" disabled {{ old('ketentuan') ? '' : 'selected' }}>Pilih kententuan kos</option>
+                            <option value="Laki-Laki" {{ old('ketentuan') == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
+                            <option value="Perempuan" {{ old('ketentuan') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                             <option value="Campur" {{ old('ketentuan') == 'Campur' ? 'selected' : '' }}>Campur</option>
                         </select>
                         @error('ketentuan')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div>
-                        <label for="lokasi"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">lokasi</label>
-                        <input type="text" id="lokasi" name="lokasi" value="{{ old('lokasi') }}"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Cth: Jl. Griya Permata Alam Ngijo, KarangPloso">
-                        @error('lokasi')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="peraturan"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">peraturan</label>
-                        <input type="text" id="peraturan" name="peraturan" value="{{ old('peraturan') }}"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Cth: Tidak boleh merokok, tidak boleh begadang">
-                        @error('peraturan')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="spesifikasi"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">spesifikasi</label>
-                        <input type="text" id="spesifikasi" name="spesifikasi" value="{{ old('spesifikasi') }}"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Cth: Luas rumah 80 meter, luas kamar 5 meter">
-                        @error('spesifikasi')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class=" mb">
-                        <label for="fasilitas_umum" class="block mb-2 text-sm text-gray-600">fasilitas umum</label>
-                        <input type="text" value="{{ old('fasilitas_umum') }}"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            name="fasilitas_umum" value="" placeholder="Cth : Kulkas" />
-                        @error('fasilitas_umum')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                    </div>
-                </div>
-                <div class="">
-                    <div>
-                        <label for="fasilitas_kamar_mandi"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">fasilitas kamar
-                            mandi</label>
-                        <input type="text" id="fasilitas_kamar_mandi" name="fasilitas_kamar_mandi"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Cth : 4 Kamar mandi bawah dan 2 Kamar mandi atas"
-                            value="{{ old('fasilitas_kamar_mandi') }}">
+
+                    <div class="mb-2">
+                        <label for="fasilitas_kamar_mandi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fasilitas kamar mandi</label>
+                        <textarea id="fasilitas_kamar_mandi" name="fasilitas_kamar_mandi" rows="4"
+                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Cth : 4 Kamar mandi bawah dan 2 Kamar mandi atas">{{ old('fasilitas_kamar_mandi') }}</textarea>
                         @error('fasilitas_kamar_mandi')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div>
-                        <label for="fasilitas_tempat_parkir"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">fasilitas tempat
-                            parkir</label>
-                        <input type="text" id="fasilitas_tempat_parkir" name="fasilitas_tempat_parkir"
-                            value="{{ old('fasilitas_tempat_parkir') }}"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Cth : Tempat parkir dengan ukuran 180 meter: 20 meter">
+                    <div class="mb-2">
+                        <label for="fasilitas_tempat_parkir" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fasilitas tempat parkir</label>
+                        <textarea id="fasilitas_tempat_parkir" name="fasilitas_tempat_parkir" rows="4"
+                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Cth : Tempat parkir dengan ukuran 180 meter: 20 meter">{{ old('fasilitas_tempat_parkir') }}</textarea>
                         @error('fasilitas_tempat_parkir')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div>
+
+                    <div class="mb-2">
                         <label for="foto_depan"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">foto_depan</label>
                         <input type="file" id="foto_depan" name="foto_depan" value="{{ old('foto_depan') }}"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="nama kost">
                         @error('foto_depan')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div>
+                    <div class="mb-2">
                         <label for="foto_dalam" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">foto
                             dalam</label>
                         <input type="file" id="foto_dalam" name="foto_dalam" value="{{ old('foto_dalam') }}"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="nama kost">
                         @error('foto_dalam')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div>
-                        <button type="button" onclick="addField()"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white bg=">Tambah Foto
-                            (opsional)</button>
-                        <div class="container">
-                            <input type="file" name="foto_tambahan[]"
-                                class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Masukkan data" />
-                        </div>
-                        @error('foto_tambahan')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
 
+                </div>
+
+            </div>
+            <div class="mb-5">
+                <div>
+                    <label for="foto_tambahan" class="text-lg font-semibold text-gray-800">Foto Tambahan</label>
+                    <div class="flex items-center gap-3">
+                        <button type="button" id="foto_tambahan"
+                            class="transition duration-300 ease-in-out bg-blue-500 hover:bg-blue-600 text-white px-6 py-1.5 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                            onclick="addField()">+</button>
+                        <p class="text-gray-500 text-sm">Tambahkan foto kos sesuai kebutuhan.</p>
                     </div>
                 </div>
+                @error('foto_tambahan')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+
             </div>
-            <button type="submit" class="bg-green-500 text-white px-3 py-1 rounded-md">tambah</button>
+
+            <div class="flex mt-8">
+                <a href="{{ route('owner.kos') }}" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 mr-auto">Kembali</a>
+                <button type="submit" class="focus:outline-none text-white bg-green-500 hover:bg-green-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ml-auto">Simpan</button>
+            </div>
         </form>
-        <a href="{{ route('owner.kos') }}">kembali</a>
     </div>
+</div>
 @endsection
 
 @section('script')
-    <script>
-        const fields = [];
+<script>
+    const fields = [];
 
-        function addField() {
-            const newField = document.createElement("input");
-            newField.type = "file";
-            newField.name = "foto_tambahan[]";
-            newField.classList.add("block", "w-full", "p-2", "text-gray-900", "border", "border-gray-300", "rounded-lg",
-                "bg-gray-50", 'sm:text-xs', 'focus:ring-blue-500', 'focus:border-blue-500', 'dark:bg-gray-700',
-                'dark:border-gray-600', 'dark:placeholder-gray-400', 'dark:text-white', 'dark:focus:ring-blue-500',
-                'dark:focus:border-blue-500', 'mt-2'); // Tambahkan class Tailwind untuk styling
-            fields.push(newField);
+    function addField() {
+        const newField = document.createElement("input");
+        newField.type = "file";
+        newField.name = "foto_tambahan[]";
+        newField.classList.add("block", "w-full", "text-sm", "text-gray-900", "border", "border-gray-300", "rounded-lg",
+            "cursor-pointer", "bg-gray-50", "focus:outline-none");
+        fields.push(newField);
 
-            fields.forEach((field) => {
-                document.querySelector(".container").appendChild(field);
-            });
-        }
-    </script>
+        fields.forEach((field) => {
+            document.getElementById("fotoContainer").appendChild(field);
+        });
+    }
+
+    let oldTagsValue;
+
+    let $input = $('#tagsInput').tagify({
+            whitelist: [{
+                "id": 1,
+                "value": "some string"
+            }]
+        })
+        .on('add', function(e, tagName) {
+            console.log('JQUERY EVENT: ', 'added', tagName);
+            oldTagsValue = jqTagify.value;
+        })
+        .on("invalid", function(e, tagName) {
+            console.log('JQUERY EVENT: ', "invalid", e, ' ', tagName);
+        });
+    let jqTagify = $input.data('tagify');
+
+    $('.tags-jquery--removeAllBtn').on('click', function() {
+        jqTagify.removeAllTags();
+        console.log('Old Value:', oldTagsValue);
+    });
+</script>
 @endsection
