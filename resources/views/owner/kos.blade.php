@@ -53,7 +53,7 @@
             @forelse ($kosts as $kost)
               {{-- @if ($kost->status != 'pending') --}}
               <tr class="bg-white dark:bg-gray-800 items-center">
-                <th scope="row" class="px-6 py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
+                <th scope="row" class="px-6 py-4 font-medium text-xs text-gray-900 whitespace-nowrap ">
                   {{ $loop->iteration }}
                 </th>
                 <td class="px-6 py-4 text-xs">
@@ -99,7 +99,7 @@
               {{-- @endif --}}
             @empty
               <tr class="bg-white dark:bg-gray-800 items-center">
-                <th scope="row" class="px-6 py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
+                <th scope="row" class="px-6 py-4 font-medium text-xs text-gray-900 whitespace-nowrap ">
                 </th>
                 <td></td>
                 <td></td>
@@ -123,7 +123,7 @@
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
           <!-- Modal header -->
           <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+            <h3 class="text-xl font-semibold text-gray-900 ">
               {{ $item->nama_kost }}
             </h3>
             <button type="button"
@@ -146,17 +146,14 @@
           </div>
 
           <!-- Modal footer -->
-          <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
-            <h1
-              class="font-black text-center mx-auto my-auto
-                @if ($item->status == 'pending') text-yellow-500
-                @elseif($item->status == 'setuju') text-green-500
-                @elseif($item->status == 'ditolak') text-red-500 @endif
-            ">
-              {{ $item->status }}</h1>
-
-          </div>
+          <div class="flex items-center justify-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+            <button type="button"
+                class="px-3 py-1.5 text-sm font-semibold text-gray-600 hover:text-gray-900 "
+                data-modal-hide="show{{ $item->id }}">
+                Oke
+            </button>
         </div>
+
       </div>
     </div>
   @endforeach
