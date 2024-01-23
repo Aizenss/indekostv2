@@ -65,9 +65,13 @@
             background="transparent" speed="1" style="width: 300px; height: 300px" direction="1" mode="normal"
             loop autoplay></dotlottie-player>
     </div>
-    <div id="main-content">
-        @yield('isi')
-        @extends('layout.footer')
+    <div id="main-content" class="flex flex-col min-h-screen">
+        <div class="footernya">
+            @extends('layout.footer')
+        </div>
+        <div class="main">
+            @yield('isi')
+        </div>
     </div>
     @yield('js')
     <script>

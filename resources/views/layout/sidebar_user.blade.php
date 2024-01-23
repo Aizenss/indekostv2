@@ -28,7 +28,7 @@
                 <div id="userDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-40">
                     <div class="px-2 py-1 text-sm text-gray-900 dark:text-white ms-3">
                         <div class="font-medium text-lg text-gray-900">{{ Auth::user()->name }}</div>
-                        <div class="font-medium text-sm text-gray-900">{{ Auth::user()->email }}</div>
+                        <div class="font-medium text-sm text-gray-400">{{ Auth::user()->email }}</div>
                     </div>
                     <div class="py-1">
                         <a href=""
@@ -57,17 +57,31 @@
                     </div>
                 </div>
             @else
+                <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown"
+                    data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer"
+                    src="{{ asset('profiles/default.png') }}" alt="User dropdown">
                 <div class="inline-flex rounded-md shadow-sm" role="group">
-                    <button type="button"
-                        class="px-2 py-1 text-sm font-medium text-gray-900 bg-white border border-[#739072] rounded-s-lg hover:bg-[#739072] hover:text-white duration-300">
-                        Login
-                    </button>
-                    <button type="button"
-                        class="px-2 py-1 text-sm font-medium text-gray-900 bg-white border border-[#739072] rounded-e-lg hover:bg-[#739072] hover:text-white duration-300">
-                        Daftar
-                    </button>
-                </div>
-            @endauth
+                    <div id="userDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-40">
+                        <div class="px-2 py-1 text-sm text-gray-900 dark:text-white ms-3">
+                            <div class="font-medium text-lg text-gray-900">Guest</div>
+                        </div>
+                        <div class="py-1">
+                            <a href=""
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 duration-300 cursor-pointer">
+                                <span>Masuk</span>
+                            </a>
+                        </div>
+                        <div class="">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a :href="route('logout')"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-red-500 duration-300 cursor-pointer"
+                                    onclick="confirmSubmit(event)">
+                                    Daftar
+                                </a>
+                            </form>
+                        </div>
+                    @endauth
         </li>
     </ul>
 </nav>
@@ -101,41 +115,42 @@
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
                     @endif
-                    @else
-                        <div class="grid grid-cols-2 gap-1">
-                            <div class="register">
-                                <a href="/login"
-                                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] duration-300 hover:text-white border border-[#739072]">
-                                    <span class="ms-3"><i class="fa-solid fa-user fa-md me-2"></i>Login</span>
-                                </a>
-                            </div>
-                            <div class="login">
-                                <a href="/flowas"
-                                    class="flex items-center py-2 text-gray-900 rounded-lg hover:bg-[#739072] duration-300 hover:text-white border border-[#739072]">
-                                    <span class="ms-3"><i class="fa-solid fa-user-plus fa-md me-1"></i>Register</span>
-                                </a>
-                            </div>
+                @else
+                    <div class="grid grid-cols-2 gap-1">
+                        <div class="register">
+                            <a href="/login"
+                                class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] duration-300 hover:text-white border border-[#739072]">
+                                <span class="ms-3"><i class="fa-solid fa-user fa-md me-2"></i>Login</span>
+                            </a>
                         </div>
-                    @endauth
-                </li>
-                <li>
-                    <a href="/"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 hover:shadow-xl {{ request()->is('/') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                            <path
-                                d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
-                            <path
-                                d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
-                        </svg>
-                        <span class="ms-3">Beranda</span>
-                    </a>
-                </li>
-                @auth
+                        <div class="login">
+                            <a href="/pilih-role"
+                                class="flex items-center py-2 text-gray-900 rounded-lg hover:bg-[#739072] duration-300 hover:text-white border border-[#739072]">
+                                <span class="ms-3"><i class="fa-solid fa-user-plus fa-md me-1"></i>Register</span>
+                            </a>
+                        </div>
+                    </div>
+                @endauth
+            </li>
+            <li>
+                <a href="/"
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 hover:shadow-xl {{ request()->is('/') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path
+                            d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+                        <path
+                            d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+                    </svg>
+                    <span class="ms-3">Beranda</span>
+                </a>
+            </li>
+            @auth
                 @if (Auth::user()->role == 'user')
                     <li>
                         <a href="/list-kos"
                             class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 hover:shadow-xl {{ request()->is('list-kos') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-6 h-6">
                                 <path fill-rule="evenodd"
                                     d="M3 6a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3V6ZM3 15.75a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-2.25Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3v-2.25Z"
                                     clip-rule="evenodd" />
@@ -157,19 +172,20 @@
                             <span class="ms-3">History</span>
                         </a>
                     </li>
-                        <li>
-                            @endif
-                            <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <a :href="route('logout')" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-red-500 duration-300 hover:text-white cursor-pointer"
-                                    onclick="event.preventDefault(); this.closest('form').submit();">
-                                    <i class="fa-solid fa-right-from-bracket fa-lg ms-0.5"></i>
-                                    <span class="ms-3">Log Out</span>
-                                </a>
-                            </form>
-                        @endauth
-                    </li>
-            </ul>
-        </div>
-    </aside>
+                    <li>
+                @endif
+                <!-- Authentication -->
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a :href="route('logout')"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-red-500 duration-300 hover:text-white cursor-pointer"
+                        onclick="event.preventDefault(); this.closest('form').submit();">
+                        <i class="fa-solid fa-right-from-bracket fa-lg ms-0.5"></i>
+                        <span class="ms-3">Log Out</span>
+                    </a>
+                </form>
+            @endauth
+            </li>
+        </ul>
+    </div>
+</aside>

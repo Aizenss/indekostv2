@@ -1,9 +1,9 @@
 @extends('layout.main')
 
-@extends('layout.sidebar_user')
+@extends('layout.sidenavbar')
 
 @section('isi')
-    <div class="sm:ml-64 mb-20">
+    <div class=" mb-20">
         <section class="section-hero bg-[#E8F1E3] pt-20">
             <div class="mx-[15px] md:mx-[140px] grid grid-cols-1  md:grid-cols-2 gap-4 items-center">
                 <div class="textt">

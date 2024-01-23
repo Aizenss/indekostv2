@@ -6,10 +6,8 @@
 @endsection
 
 @section('isi')
-<div class="sm:ml-64">
-
-    <h1 class="text-xl my-5 ml-8">Create data kos</h1>
-
+    <div class="sm:ml-64">
+        <h1 class="text-xl my-5">Create data kos</h1>
     <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow ">
         <form action="{{ route('owner.kos.create.proses') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -110,72 +108,49 @@
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
+                    <div>
+                        <button type="button" onclick="addField()"
+                            class="block mb-2 text-sm font-medium text-gray-900">Tambah Foto
+                            (opsional)</button>
+                        <div class="container">
+                            <input type="file" name="foto_tambahan[]"
+                                class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:outline-none cursor-pointer"
+                                placeholder="Masukkan data" />
+                        </div>
+                        @error('foto_tambahan')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
 
-                </div>
-
-            </div>
-            <div class="mb-5">
-                <div>
-                    <label for="foto_tambahan" class="text-lg font-semibold text-gray-800">Foto Tambahan</label>
-                    <div class="flex items-center gap-3">
-                        <button type="button" id="foto_tambahan"
-                            class="transition duration-300 ease-in-out bg-blue-500 hover:bg-blue-600 text-white px-6 py-1.5 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                            onclick="addField()">+</button>
-                        <p class="text-gray-500 text-sm">Tambahkan foto kos sesuai kebutuhan.</p>
                     </div>
                 </div>
-                @error('foto_tambahan')
-                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                @enderror
-
             </div>
+            <div class="fotoContainer">
 
-            <div class="flex mt-8">
-                <a href="{{ route('owner.kos') }}" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 mr-auto">Kembali</a>
-                <button type="submit" class="focus:outline-none text-white bg-green-500 hover:bg-green-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ml-auto">Simpan</button>
             </div>
         </form>
+        <a href="{{ route('owner.kos') }}">kembali</a>
     </div>
-</div>
+    </div>
 @endsection
 
 @section('script')
-<script>
-    const fields = [];
+    <script>
+        let fieldCounter = 0; // Counter to generate unique names for input fields
+        const fields = [];
 
-    function addField() {
-        const newField = document.createElement("input");
-        newField.type = "file";
-        newField.name = "foto_tambahan[]";
-        newField.classList.add("block", "w-full", "text-sm", "text-gray-900", "border", "border-gray-300", "rounded-lg",
-            "cursor-pointer", "bg-gray-50", "focus:outline-none");
-        fields.push(newField);
+        function addField() {
+            fieldCounter++; // Increment the counter
 
-        fields.forEach((field) => {
-            document.getElementById("fotoContainer").appendChild(field);
-        });
-    }
+            const newField = document.createElement("input");
+            newField.type = "file";
+            newField.name = "foto_kamar[" + fieldCounter + "]"; // Use a unique name for each field
+            newField.classList.add("block", "w-full", "text-sm", "text-gray-900", "border", "border-gray-300", "rounded-lg",
+                "cursor-pointer", "bg-gray-50", "focus:outline-none");
+            fields.push(newField);
 
-    let oldTagsValue;
-
-    let $input = $('#tagsInput').tagify({
-            whitelist: [{
-                "id": 1,
-                "value": "some string"
-            }]
-        })
-        .on('add', function(e, tagName) {
-            console.log('JQUERY EVENT: ', 'added', tagName);
-            oldTagsValue = jqTagify.value;
-        })
-        .on("invalid", function(e, tagName) {
-            console.log('JQUERY EVENT: ', "invalid", e, ' ', tagName);
-        });
-    let jqTagify = $input.data('tagify');
-
-    $('.tags-jquery--removeAllBtn').on('click', function() {
-        jqTagify.removeAllTags();
-        console.log('Old Value:', oldTagsValue);
-    });
-</script>
+            fields.forEach((field) => {
+                document.getElementById("fotoContainer").appendChild(field);
+            });
+        }
+    </script>
 @endsection

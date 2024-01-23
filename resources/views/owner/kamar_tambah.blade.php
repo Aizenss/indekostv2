@@ -34,10 +34,9 @@
                         </style>
                         <div class="grid grid-cols-2 gap-3 my-2 text-center overflow-y-scroll sc-sm max-h-14">
                             @foreach (json_decode($kamar->fasilitas) ?? [] as $fasilitas)
-                                <div class="fsnya">
-                                    <span class="text-sm text-gray-700 font-medium"></span>
+                                <div class="fsnya flex">
                                     <i class="fa-solid fa-handshake me-2"></i>
-                                    {{ $fasilitas->value }}
+                                    <span class="text-sm text-gray-700 font-medium truncate">{{ $fasilitas->value }}</span>
                                 </div>
                             @endforeach
                         </div>
