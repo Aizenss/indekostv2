@@ -2,7 +2,6 @@
 @extends('layout.sidebar_owner')
 
 @section('isi')
-
     <div class="sm:ml-64">
         <div class=" mx-auto bg-white p-8 mb-6 rounded-md shadow-md">
             <span class="font-semibold text-2xl text-gray-900">Tambah Kamar</span>
@@ -29,12 +28,12 @@
                             <input id="tagsInput" name="tags" type="text"
                                 class="mt-2 p-1 w-full border border-gray-900 rounded-md  focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none overflow-y-scroll sc-sm max-h-9"
                                 value="" autocomplete="off">
-                                <button class='tags-jquery--removeAllBtn text-gray-900 text-3xl' type='button'><i
+                            <button class='tags-jquery--removeAllBtn text-gray-900 text-3xl' type='button'><i
                                     class="fa-solid fa-trash-can"></i></button>
-                                </div>
-                                @error('tags')
-                                    <p class="text-red-500 text-sm">{{ $message }}</p>
-                                @enderror
+                        </div>
+                        @error('tags')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="kamar_mandi" class="text-lg font-semibold text-gray-800">Info Kamar Mandi</label>

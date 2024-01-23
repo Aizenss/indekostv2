@@ -29,6 +29,7 @@ class OwnerKosController extends Controller
             'nama_kost' => 'required|string|min:3|max:100',
             'ketentuan' => 'required|string|min:3|max:1000',
             'lokasi' => 'required|string|min:3|max:1000',
+            'peraturan' => 'required',
             'spesifikasi' => 'required|string|min:3|max:1000',
             'fasilitas_umum' => 'required',
             'fasilitas_kamar_mandi' => 'required|string',
@@ -37,6 +38,7 @@ class OwnerKosController extends Controller
             'foto_dalam' => 'nullable|image|mimes:jpeg,jpg,png',
             'foto_tambahan.*' => 'nullable|image|mimes:jpeg,jpg,png',
         ], [
+            'peraturan.required' => 'peraturan harus di isi',
             'nama_kost.required' => 'Nama kost harus diisi.',
             'nama_kost.string' => 'Nama kost harus berupa string.',
             'nama_kost.min' => 'Nama kost harus minimal 3 karakter.',
@@ -128,6 +130,7 @@ class OwnerKosController extends Controller
             'ketentuan' => 'required|string|min:3|max:1000',
             'lokasi' => 'required|string|min:3|max:1000',
             'spesifikasi' => 'required|string|min:3|max:1000',
+            'peraturan' => 'required',
             'fasilitas_umum' => 'required|string',
             'fasilitas_kamar_mandi' => 'required|string',
             'fasilitas_tempat_parkir' => 'required|string',
@@ -135,6 +138,7 @@ class OwnerKosController extends Controller
             'foto_dalam' => 'nullable|image|mimes:jpeg,jpg,png',
             'foto_tambahan.*' => 'nullable|image|mimes:jpeg,jpg,png',
         ], [
+            'peraturan.required' => 'peraturan wajib di isi',
             'nama_kost.required' => 'Nama kost wajib diisi.',
             'nama_kost.string' => 'Nama kost harus berupa teks.',
             'nama_kost.min' => 'Nama kost harus memiliki minimal 3 karakter.',
@@ -210,6 +214,7 @@ class OwnerKosController extends Controller
 
                     $foto_tambahan[] = $fototambahans;
                 } else {
+                    
                 }
             }
 

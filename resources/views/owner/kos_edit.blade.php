@@ -1,4 +1,4 @@
-/////////////////////////////@extends('layout.main')
+@extends('layout.main')
 @extends('layout.sidebar_owner')
 
 @section('style')
@@ -20,8 +20,7 @@
                             <label for="nama_kost" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
                                 Kost</label>
                             <input type="text" id="nama_kost" name="nama_kost"
-                                class="
-bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500"
+                                class="bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="Cth: Arumba 2 Gpa" value="{{ $kos->nama_kost }}">
                             @error('nama_kost')
                                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -92,17 +91,18 @@ bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg
                         </div>
                     </div>
                     <div class="">
-
-                        <div>
-                            <label for="fasilitas_umum"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fasilitas
-                                kamar</label>
-                            <input type="text"
-                                class="
-bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg sm:text-xs focus:ring-blue-500 focus:border-blue-500"
-                                name="fasilitas_umum" value="{{ $kos->fasilitas_umum }}" placeholder="Cth : Kulkas" />
-                            @error('fasilitas_umum')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <div class="mb-5">
+                            <label for="spesifikasi"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fasilitas umum</label>
+                            <div class="flex gap-3">
+                                <input id="tagsInput" name="fasilitas_umum" type="text"
+                                    class="mt-2 p-1 w-full border border-gray-900 rounded-md  focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none overflow-y-scroll sc-sm max-h-9"
+                                    value="{{ $kos->fasilitas_umum }}" autocomplete="off">
+                                <button class='tags-jquery--removeAllBtn text-gray-900 text-3xl' type='button'><i
+                                        class="fa-solid fa-trash-can"></i></button>
+                            </div>
+                            @error('tags')
+                                <p class="text-red-500 text-sm">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
@@ -157,11 +157,18 @@ bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg
                             <p class="text-gray-500 text-sm">Tambahkan foto kos sesuai kebutuhan.</p>
                         </div>
                     </div>
-                    @error('foto_tambahan')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                    @enderror
-
+                    <div class="mb-2 mt-5">
+                        <div id="fotoContainer" class="container mt-4 space-y-4">
+                            <!-- New input for additional photos -->
+                            <input type="file" name="new_foto_tambahan[]"
+                                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50">
+                            @error('new_foto_tambahan[]')
+                                <p class="text-red-500 text-sm">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
                 </div>
+
                 <br>
                 <div class="flex">
                     <a href="{{ route('owner.kos') }}"
@@ -174,9 +181,7 @@ bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg
 
         </div>
     </div>
-@endsection
 
-@section('script')
     <script>
         const fields = [];
 
@@ -184,15 +189,35 @@ bg-green-100 block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg
             const newField = document.createElement("input");
             newField.type = "file";
             newField.name = "foto_tambahan[]";
-            newField.classList.add("block", "w-full", "p-2", "text-gray-900", "border", "border-gray-300", "rounded-lg",
-                "bg-gray-50", 'sm:text-xs', 'focus:ring-blue-500', 'focus:border-blue-500', 'dark:bg-gray-700',
-                'dark:border-gray-600', 'dark:placeholder-gray-400', 'dark:text-white', 'dark:focus:ring-blue-500',
-                'dark:focus:border-blue-500', 'mt-2'); // Tambahkan class Tailwind untuk styling
+            newField.classList.add("block", "w-full", "text-sm", "text-gray-900", "border", "border-gray-300", "rounded-lg",
+                "cursor-pointer", "bg-gray-50", "focus:outline-none");
             fields.push(newField);
 
             fields.forEach((field) => {
-                document.querySelector(".container").appendChild(field);
+                document.getElementById("fotoContainer").appendChild(field);
             });
         }
+
+        let oldTagsValue;
+
+        let $input = $('#tagsInput').tagify({
+                whitelist: [{
+                    "id": 1,
+                    "value": "some string"
+                }]
+            })
+            .on('add', function(e, tagName) {
+                console.log('JQUERY EVENT: ', 'added', tagName);
+                oldTagsValue = jqTagify.value;
+            })
+            .on("invalid", function(e, tagName) {
+                console.log('JQUERY EVENT: ', "invalid", e, ' ', tagName);
+            });
+        let jqTagify = $input.data('tagify');
+
+        $('.tags-jquery--removeAllBtn').on('click', function() {
+            jqTagify.removeAllTags();
+            console.log('Old Value:', oldTagsValue);
+        });
     </script>
 @endsection
