@@ -73,7 +73,15 @@
             <img src="{{ asset('foto/403.png') }}" alt="" width="1000">
         </div>
         <div class="link flex justify-center">
-            <a href="" class="bg-[#4F6F52] py-2 px-4 rounded-lg text-white">Kembali</a>
+            @auth
+                @if (auth()->user()->role == 'admin')
+                    <a href="{{ url('/dashboard/admin') }}" class="bg-[#4F6F52] py-2 px-4 rounded-lg text-white">Kembali</a>
+                @elseif(auth()->user()->role == 'owner')
+                    <a href="{{ url('/dashboard/owner') }}" class="bg-[#4F6F52] py-2 px-4 rounded-lg text-white">Kembali</a>
+                @else
+                    <a href="{{ url('/list-kos') }}" class="bg-[#4F6F52] py-2 px-4 rounded-lg text-white">Kembali</a>
+                @endif
+            @endauth
         </div>
     </div>
     <script>
