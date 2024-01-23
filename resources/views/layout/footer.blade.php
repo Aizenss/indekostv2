@@ -4,7 +4,7 @@
 <footer class="bg-[#E8F1E3] sm:ml-64">
 
 @endif
-    <div class="md:px-[140px] w-full py-6 lg:py-8">
+    <div class="md:px-[140px] w-full py-6 lg:py-8" id="kontak">
         <a href="" class="flex items-center justify-center">
             <img src="{{ asset('foto/inilogo.png') }}" class="h-20 me-3" alt="logo" />
         </a>
