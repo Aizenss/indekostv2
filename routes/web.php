@@ -83,6 +83,9 @@ Route::middleware(['auth', 'role:owner', 'verified'])->group(function () {
     Route::patch('/approval/owner/terima/{kamar}', [ApprovalOwnerController::class, 'terima'])->name('owner.approval.terima');
     Route::patch('/approval/owner/tolak/{kamar}', [ApprovalOwnerController::class, 'tolak'])->name('owner.approval.tolak');
 
+    Route::patch('/approval/owner/terima/lagi/{kamar}', [ApprovalOwnerController::class, 'terimaLagi'])->name('owner.approval.terimaLagi');
+    Route::patch('/approval/owner/tolak/{kamar}', [ApprovalOwnerController::class, 'tolak'])->name('owner.approval.tolak');
+
     Route::prefix('kos')->group(function () {
         Route::get('owner', [OwnerKosController::class, 'index'])->name('owner.kos');
         Route::get('owner/create', [OwnerKosController::class, 'tambah'])->name('owner.kos.create');

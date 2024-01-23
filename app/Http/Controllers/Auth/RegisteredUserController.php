@@ -40,15 +40,14 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'foto' => ['nullable', 'mimes:png,jpg,jpeg'],
+            'name' => ['required', 'string', 'max:255', 'unique:' . User::class],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ], [
             'name.required' => 'Kolom nama wajib diisi.',
+            'name.unique' => 'Username sudah di gunakan.',
             'name.string' => 'Kolom nama harus berupa teks.',
             'name.max' => 'Kolom nama maksimal :max karakter.',
-            'foto.mimes' => 'Kolom foto harus berupa file dengan format PNG, JPG, atau JPEG.',
             'email.required' => 'Kolom email wajib diisi.',
             'email.string' => 'Kolom email harus berupa teks.',
             'email.lowercase' => 'Kolom email harus dalam huruf kecil.',
@@ -64,18 +63,9 @@ class RegisteredUserController extends Controller
             'password.symbols' => 'Kolom password harus mengandung setidaknya satu karakter simbol.',
         ]);
 
-        $filename = null; // Initialize $filename
-
-        if ($request->file('foto')) {
-            $file = $request->file('foto');
-            $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('users'), $filename);
-        }
-
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'foto' => $filename,
             'password' => Hash::make($request->password),
             'role' => $request->role,
         ]);

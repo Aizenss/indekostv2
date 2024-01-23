@@ -10,12 +10,18 @@
                     <label for="email" class="block text-sm font-medium text-white  mb-2">Email</label>
                     <div class="relative">
                         <input type="email" name="email" id="email" class="shadow-md bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 font-thin" placeholder="Contoh@gmail.com">
+                        @error('email')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="mb-2">
                     <label for="password" class="block text-sm font-medium text-white  mb-2">Password</label>
                     <div class="relative">
                         <input type="password" name="password" id="password" placeholder="••••••••" class="shadow-md bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 font-thin block w-full p-2.5 ">
+                        @error('password')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <button type="submit" class="w-full text-white bg-[#4F6F52] hover:bg-[#3e5741] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center shadow-md transition-colors duration-300 ease-in-out ">Masuk</button>
@@ -24,7 +30,7 @@
                     <div class="text-sm font-medium text-gray-50"><a href="{{ url('/flowas') }}" class="text-[#3c4d3b] hover:underline ">Buat Akun</a>
                     </div>
                 </div>
-                
+
             </form>
         </div>
     </div>

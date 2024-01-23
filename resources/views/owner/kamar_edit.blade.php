@@ -11,9 +11,12 @@
                 @csrf
                 <div class="grid grid-cols-2 gap-4 items-center">
                     <div>
-                        <label for="nomor_kamar" class="text-lg font-semibold text-gray-800">Nama Kamar</label>
-                        <input type="text" name="nama_kamar" id="nomor_kamar" value="{{ $kamar->nama_kamar }}"
+                        <label for="nama_kamar" class="text-lg font-semibold text-gray-800">Nama Kamar</label>
+                        <input type="text" name="nama_kamar" id="nama_kamar" value="{{ $kamar->nama_kamar }}"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none">
+                        @error('nama_kamar')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <style>
@@ -29,30 +32,45 @@
                             <button class='tags-jquery--removeAllBtn text-gray-900 text-3xl' type='button'><i
                                     class="fa-solid fa-trash-can"></i></button>
                         </div>
+                        @error('tags')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="kamar_mandi" class="text-lg font-semibold text-gray-800">Info Kamar Mandi</label>
                         <input type="text" name="kamar_mandi" id="kamar_mandi" value="{{ $kamar->kamar_mandi }}"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">
+                        @error('kamar_mandi')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="harga" class="text-lg font-semibold text-gray-800">harga</label>
                         <input type="number" name="harga" id="harga" value="{{ $kamar->harga }}"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">
+                        @error('harga')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="harga" class="text-lg font-semibold text-gray-800">Kapasitas</label>
                         <input type="number" name="kapasitas" id="harga" value="{{ $kamar->kapasitas }}"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">
+                        @error('kapasitas')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="harga" class="text-lg font-semibold text-gray-800">Peraturan kamar</label>
                         <textarea name="peraturan_kamar" id="harga"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">{{ $kamar->peraturan_kamar }}</textarea>
+                        @error('peraturan_kamar')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="night" class="text-lg font-semibold text-gray-800">per/</label>
@@ -66,6 +84,9 @@
                                 }
                             </script>
                         </select>
+                        @error('night')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="tambahin" class="text-lg font-semibold text-gray-800">Foto Kamar</label>
@@ -92,7 +113,7 @@
     </div>
 
     <script>
-        const fields = [];
+        const fields = []; 
 
         function addField() {
             const newField = document.createElement("input");
