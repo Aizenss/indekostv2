@@ -38,7 +38,6 @@ class KamarOwnerController extends Controller
         $validatedData = $request->validate([
             'nama_kamar' => 'required|max:255',
             'kamar_mandi' => 'required|string',
-            'tags' => 'required|array',
             'peraturan_kamar' => 'required|max:1000',
             'kapasitas' => 'required|numeric|min:1',
             'harga' => 'required|numeric|min:0',
@@ -46,7 +45,6 @@ class KamarOwnerController extends Controller
             'foto_kamar' => 'nullable|array',
             'foto_kamar.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ], [
-            'tags.required' => 'fasilitas harus di isi',
             'nama_kamar.required' => 'Nama kamar harus diisi.',
             'nama_kamar.max' => 'Nama kamar tidak boleh lebih dari 255 karakter.',
             'kamar_mandi.required' => 'Status kamar mandi harus diisi.',
@@ -118,9 +116,9 @@ class KamarOwnerController extends Controller
         if ($kamar->status != 'paid') {
             $kamar->delete();
 
-            return response()->json('berhaisl');
+            return redirect()->route('owner.kamar');
         } else {
-            return response()->json('gagl');
+            return redirect()->route('owner.kamar');
         }
     }
 
@@ -141,7 +139,6 @@ class KamarOwnerController extends Controller
 
         $request->validate([
             'nama_kamar' => 'required|string',
-            'tags' => 'required', // Mengasumsikan 'tags' adalah sebuah array
             'kamar_mandi' => 'required|string',
             'peraturan_kamar' => 'required|string',
             'kapasitas' => 'required|integer',
@@ -151,21 +148,14 @@ class KamarOwnerController extends Controller
         ], [
             'nama_kamar.required' => 'Nama kamar wajib diisi.',
             'nama_kamar.string' => 'Format nama kamar harus berupa teks.',
-
-            'tags.required' => 'fasiitas wajib diisi.',
-
             'kamar_mandi.required' => 'Keterangan kamar mandi wajib diisi.',
             'kamar_mandi.string' => 'Format keterangan kamar mandi harus berupa teks.',
-
             'peraturan_kamar.required' => 'Peraturan kamar wajib diisi.',
             'peraturan_kamar.string' => 'Format peraturan kamar harus berupa teks.',
-
             'kapasitas.required' => 'Kapasitas kamar wajib diisi.',
             'kapasitas.integer' => 'Kapasitas kamar harus berupa angka.',
-
             'harga.required' => 'Harga kamar wajib diisi.',
             'harga.numeric' => 'Harga kamar harus berupa angka.',
-
             'night.required' => 'Jumlah malam menginap wajib diisi.',
             'night.integer' => 'Jumlah malam menginap harus berupa angka.',
         ]);

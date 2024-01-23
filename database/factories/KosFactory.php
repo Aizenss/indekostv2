@@ -31,9 +31,10 @@ class KosFactory extends Factory
             'fasilitas_kamar_mandi' => $this->faker->words(2, true),
             'fasilitas_tempat_parkir' => $this->faker->words(2, true),
             'status' => $this->faker->randomElement(['pending', 'setuju']),
-            'foto_depan' => 'https://source.unsplash.com/random',
-            'foto_dalam' => 'https://source.unsplash.com/random',
-            'foto_tambahan' => json_encode(['https://source.unsplash.com/random', 'https://source.unsplash.com/random']),
+            'foto_depan' => $this->faker->image(public_path('kosts'), 640, 480, null, false),
+            'foto_dalam' => $this->faker->image(public_path('kosts'), 640, 480, null, false),
+            'foto_tambahan' => json_encode([$this->faker->image(public_path('kosts'), 640, 480, null, false)]),
         ];
     }
 }
+

@@ -2,19 +2,19 @@
 @extends('layout.sidebar_owner')
 
 <style>
-  body>div>div>div>div>table>tbody>tr>td.ellipsis {
-    max-width: 200px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+    body>div>div>div>div>table>tbody>tr>td.ellipsis {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 
-  body>div>div>div>div>table>tbody>tr>td:nth-child(2) {
-    max-width: 200px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+    body>div>div>div>div>table>tbody>tr>td:nth-child(2) {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 </style>
 
 @section('isi')
@@ -156,6 +156,4 @@
 
       </div>
     </div>
-  @endforeach
-</div>
 @endsection

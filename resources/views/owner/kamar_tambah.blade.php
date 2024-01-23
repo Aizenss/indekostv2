@@ -168,7 +168,7 @@
 
                         <!-- Delete Button Form -->
                         <form action="{{ route('owner.kamar.hapus', ['kamar' => $kamar->id, 'kos' => $kos->id]) }}"
-                            method="post">
+                            method="post" onsubmit="return confirmDelete(event)">
                             @csrf
                             @method('DELETE')
                             <button data-modal-hide="detail-kamar" type="submit"
