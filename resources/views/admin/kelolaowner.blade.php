@@ -16,11 +16,12 @@
                         <div class="flex mt-4 md:mt-6 gap-2">
                             <a href="{{ route('kelolaowner.delete', ['owner' => $owner->id]) }}"
                                 class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1.5 me-2 mb-2 ">Hapus</a>
-                            <button data-modal-target="popup-modal{{ $owner->id }}" data-modal-toggle="popup-modal{{ $owner->id }}"
-                                class="inline-flex items-center font-medium text-center text-white  bg-[#4F6F52] focus:ring-4 focus:ring-gray-300 rounded-lg text-sm px-3 py-1.5 me-2 mb-2"
-                                type="button">
-                                Info
-                            </button>
+                            <a href="#" data-modal-target="popup-modal{{ $owner->id }}" data-modal-toggle="popup-modal{{ $owner->id }}"
+                                    class="inline-flex items-center font-medium text-center text-white bg-[#4F6F52] focus:ring-4 focus:ring-gray-300 rounded-lg text-sm px-3 py-1.5 me-2 mb-2"
+                                    role="button">
+                                    Info
+                                </a>
+
                         </div>
                         <div id="popup-modal{{ $owner->id }}" tabindex="-1"
                             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50  items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -48,13 +49,13 @@
                                     <div class="flex flex-col ms-20 gap-4">
                                       <div class="kost flex items-center">
                                         <div class="bg-[#4F6F52] p-2 w-10 h-10 me-4 flex items-center justify-center text-lg rounded">
-                                          <i class="fa-solid fa-house text-white"></i> 
+                                          <i class="fa-solid fa-house text-white"></i>
                                         </div>
                                         <span class="font-semibold text-lg text-gray-900 truncate">Memiliki 25 Kempat Kost</span>
                                       </div>
                                       <div class="kost flex items-center">
                                         <div class="bg-[#4F6F52] p-2 w-10 h-10 me-4 flex items-center justify-center text-lg rounded">
-                                          <i class="fa-solid fa-house text-white"></i> 
+                                          <i class="fa-solid fa-house text-white"></i>
                                         </div>
                                         <span class="font-semibold text-lg text-gray-900 truncate">Memiliki 125 Kamar</span>
                                       </div>
