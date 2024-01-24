@@ -37,7 +37,7 @@
                                         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                                         data-dropdown-placement="bottom">
                                         <span class="sr-only">Open user menu</span>
-                                        <img class="w-8 h-8 rounded-full" src="{{ asset('foto/dummy.jpeg') }}"
+                                        <img class="w-8 h-8 rounded-full" src="{{ asset('profiles/'. Auth::user()->foto) }}"
                                             alt="user photo">
                                     </button>
                                     <!-- Dropdown menu -->
