@@ -58,76 +58,72 @@
             </div>
             <div class="grid grid-cols-3 gap-8">
                 @forelse ($kost as $kos)
-                        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                            <img class="rounded-t-lg" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt="" />
-                            <div class="px-5 py-3">
-                                <h5 class="text-xl font-bold tracking-tight text-gray-900 truncate">{{ $kos->nama_kost }}
-                                </h5>
-                                <style>
-                                    .sc-sm::-webkit-scrollbar{
-                                        width: 0px;
-                                    }
-                                </style>
-                                <div class="overflow-y-scroll sc-sm max-h-16 max-w-56">
-                                    <p class="mb-1 text-sm font-normal text-gray-700">
-                                        gvtuiyouabepifvqapvoieq
-                                    </p>
-                                </div>
-                                <hr class="mb-2">
-                                @php
-                                    $kamartersedia = $kos->kamar->where('status', 'kosong')->count();
-                                @endphp
-                                @if ($kamartersedia > 0)
-                                    <p class="text-base text-gray-700 font-semibold truncate">Tersedia
-                                        {{ $kamartersedia }} Kamar</p>
-                                @else
-                                    <p class="text-xs text-gray-700 font-semibold truncate">Tidak Ada Kamar Tersedia</p>
-                                @endif
-
-                                <hr class="mb-2">
-                                <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
-                                <div class="grid grid-cols-2 gap-2">
-                                    @if ($kos->fasilitas_umum == null)
-                                    @else
-                                        @foreach (json_decode($kos->fasilitas_umum) as $fasilitas)
-                                            <span class="text-sm text-gray-700 font-medium truncate">
-                                                <i class="fa-solid fa-check me-2"></i>{{ $fasilitas->value }}
-                                            </span>
-                                        @endforeach
-                                    @endif
-                                </div>
-                                @php
-                                    $totalRating = 0;
-                                    $numberOfRatings = count($kos->ulasan);
-
-                                    foreach ($kos->ulasan as $rating) {
-                                        $totalRating += $rating->rating;
-                                    }
-
-                                    $averageRating = $numberOfRatings > 0 ? number_format(round($totalRating / $numberOfRatings, 2), 1, '.', ',') : 0;
-                                @endphp
-
-                                <div class="flex justify-between items-end gap-3">
-                                    <div class="rate mb-1 font-semibold text-sm">
-                                        <i class="fas fa-star text-yellow-300"> </i>{{ $averageRating }}/5
-                                    </div>
-                                    <a href="{{ route('user.detailkost', ['kos' => $kos->id]) }}"
-                                        class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-medium text-sm text-white rounded-lg text-center mt-5">
-                                        Detail Kost
-                                    </a>
-                                </div>
-
+                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                        <img class="rounded-t-lg" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt="" />
+                        <div class="px-5 py-3">
+                            <h5 class="text-xl font-bold tracking-tight text-gray-900 truncate">{{ $kos->nama_kost }}
+                            </h5>
+                            <style>
+                                .sc-sm::-webkit-scrollbar {
+                                    width: 0px;
+                                }
+                            </style>
+                            <div class="overflow-y-scroll sc-sm max-h-16 max-w-56">
+                                <p class="mb-1 text-sm font-normal text-gray-700">
+                                    gvtuiyouabepifvqapvoieq
+                                </p>
                             </div>
+                            <hr class="mb-2">
+                            @php
+                                $kamartersedia = $kos->kamar->where('status', 'kosong')->count();
+                            @endphp
+                            @if ($kamartersedia > 0)
+                                <p class="text-base text-gray-700 font-semibold truncate">Tersedia
+                                    {{ $kamartersedia }} Kamar</p>
+                            @else
+                                <p class="text-xs text-gray-700 font-semibold truncate">Tidak Ada Kamar Tersedia</p>
+                            @endif
+
+                            <hr class="mb-2">
+                            <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
+                            <div class="grid grid-cols-2 gap-2">
+                                @if ($kos->fasilitas_umum == null)
+                                @else
+                                    @foreach (json_decode($kos->fasilitas_umum) as $fasilitas)
+                                        <span class="text-sm text-gray-700 font-medium truncate">
+                                            <i class="fa-solid fa-check me-2"></i>{{ $fasilitas->value }}
+                                        </span>
+                                    @endforeach
+                                @endif
+                            </div>
+                            @php
+                                $totalRating = 0;
+                                $numberOfRatings = count($kos->ulasan);
+
+                                foreach ($kos->ulasan as $rating) {
+                                    $totalRating += $rating->rating;
+                                }
+
+                                $averageRating = $numberOfRatings > 0 ? number_format(round($totalRating / $numberOfRatings, 2), 1, '.', ',') : 0;
+                            @endphp
+
+                            <div class="flex justify-between items-end gap-3">
+                                <div class="rate mb-1 font-semibold text-sm">
+                                    <i class="fas fa-star text-yellow-300"> </i>{{ $averageRating }}/5
+                                </div>
+                                <a href="{{ route('user.detailkost', ['kos' => $kos->id]) }}"
+                                    class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-medium text-sm text-white rounded-lg text-center mt-5">
+                                    Detail Kost
+                                </a>
+                            </div>
+
                         </div>
-                    @empty
-                    <tr>
-                        <td colspan="7" class="px-6 py-4 text-center font-semibold text-gray-900">
-                            <img src="{{ asset('foto/nodataadmin.png') }}" class="h-52 w-52 mx-auto" alt="">
-
-                        </td>
-                    </tr>
+                    </div>
+                @empty
+                <div class="flex  w-full ml-[400px] h-screen">
+                    <img src="{{ asset('foto/nodataadmin.png') }}" class="h-52 w-52" alt="">
+                </div>
                 @endforelse
-
             </div>
         </section>
         <div class="flex justify-center mt-4">
