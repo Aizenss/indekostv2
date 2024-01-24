@@ -7,10 +7,11 @@
         <div class="p-6 my-2">
             <h2 class="text-xl font-semibold mb-4">Riwayat Penyewaan</h2>
 
-            <table class="min-w-full border rounded overflow-hidden text-center">
-                <thead class="bg-gray-200">
+            <div class="ml-8 mr-8 relative overflow-x-auto shadow-md sm:rounded-lg mb-4">
+                <table class="w-full text-sm text-left rtl:text-right text-white">
+                    <thead class="text-xs text-white uppercase bg-[#4F6F52]">
                     <tr>
-                        <th class="py-2 px-4">#</th>
+                        <th class="py-2 px-4">No</th>
                         <th class="py-2 px-4">Kamar</th>
                         <th class="py-2 px-4">Harga</th>
                         <th class="py-2 px-4">Check in</th>
