@@ -1,8 +1,8 @@
 @extends('layout.main')
-@extends('layout.sidebar_owner')
+@extends('layout.sidebar')
 
 @section('isi')
-    <div class="sm:ml-64">
+    <div class=" py-20 px-10 sm:ml-64">
         <div class=" mx-auto bg-white p-8 mb-6 rounded-md shadow-md">
             <span class="font-semibold text-2xl text-gray-900">Tambah Kamar</span>
             <form action="{{ route('owner.kamar.tambah.detail.proses', $kos) }}" method="post" enctype="multipart/form-data"

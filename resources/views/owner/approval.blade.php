@@ -1,10 +1,11 @@
 @extends('layout.main')
-@include('layout.sidebar_owner')
+@include('layout.sidebar')
 
 @section('isi')
-<div class="sm:ml-64 p-6">
+<div class="sm:ml-64 py-20 px-10">
     <h1 class="text-xl my-5">Persetujuan Pembayaran</h1>
-    <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div
+        class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
         <div class="relative overflow-x-auto">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                 <thead class="text-xs text-white uppercase bg-[#4F6F52]">

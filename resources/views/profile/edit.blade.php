@@ -1,18 +1,18 @@
 @extends('layout.main')
 
 @if (Auth::user()->role == 'user')
-    @extends('layout.sidebar_user')
+    @extends('layout.sidenavbar')
 @elseif (Auth::user()->role == 'owner')
-    @extends('layout.sidebar_owner')
+    @extends('layout.sidebar')
 @else
-    @extends('layout.sidebar_admin')
+    @extends('layout.sidebar')
 @endif
 
 @section('isi')
-    <div class="sm:ml-64 bg-[#E8F1E3]">
+    <div class="py-20 px-10 sm:ml-64 bg-gray-50">
         <div class="grid grid-cols-3 gap-5 ">
             <div class="bg-white p-3 rounded-lg shadow-md mt-6 ml-4">
-                <div class=" mt-8 p-3 relative w-full cursor-pointer h-40 mx-auto border-4 border-white overflow-hidden flex justify-center items-center">
+                <div class=" mt-8 p-3 relative w-full cursor-pointer h-40 mx-auto overflow-hidden flex justify-center items-center">
                     <div class="pp ">
                         <img src="{{ asset('profiles/' . Auth::user()->foto) }}" alt="Profile" class="w-40 h-40 rounded-full object-cover">
                     </div>

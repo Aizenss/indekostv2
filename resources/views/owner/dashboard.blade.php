@@ -1,8 +1,8 @@
 @extends('layout.main')
-@include('layout.sidebar_owner')
+@include('layout.sidebar')
 
 @section('isi')
-    <div class="sm:ml-64">
+    <div class="py-20 px-10 sm:ml-64">
         <h1 class="text-xl font-bold my-5">Welcome {{ auth()->user()->name }}</h1>
         <section class="grid grid-cols-3 gap-5">
             <div href="#"

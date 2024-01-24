@@ -1,60 +1,60 @@
 @extends('layout.main')
 
-@extends('layout.sidebar_admin')
+@extends('layout.sidebar')
 
 @section('isi')
-    <div class="sm:ml-64 mt-8 ml-2 justify-center">
-        <h1 class="mb-4 mt-4 ml-4  text-3xl font-black text-gray-900">Persetujuan Kos</h1>
-        <br>
-        <div class="ml-8 mr-8 relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left rtl:text-right text-white">
-                <thead class="text-xs text-white uppercase bg-[#4F6F52] ">
-                    <tr>
-                        <th scope="col" class="px-6 py-3">
-                            No
-                        </th>
-                        <th scope="col" class="px-16 py-3">
-                            {{-- <span class="sr-only">Image</span> --}}
-                            Image
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Nama Owner
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Nama Kos
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Alamat
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Status
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Aksi
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($kosts as $kost)
-                        <tr class="bg-white border-b hover:bg-gray-50 ">
-                            <td class="px-6 py-4 font-semibold text-gray-900">
-                                {{ $loop->iteration }}
-                            </td>
-                            <td class="p-4">
-                                <img src="{{ asset('kosts/' . $kost->foto_depan) }}" class="object-cover  max-w-64 h-28"
-                                    alt="Foto Kos">
-                            </td>
-                            <td class="px-6 py-4 font-semibold text-gray-900">
-                                {{ $kost->user->name }}
-                            </td>
-                            <td class="px-6 py-4 font-semibold text-gray-900">
-                                {{ $kost->nama_kost }}
-                            </td>
-                            <td class="px-6 py-4 font-semibold text-gray-900">
-                                {{ Str::limit($kost->lokasi, 5, '...') }}
-                            </td>
-                            <td
-                                class="px-6 py-4 font-semibold
+  <div class="py-20 px-10 sm:ml-64 justify-center">
+    <h1 class="mb-4 mt-4 ml-4 text-3xl font-black text-gray-900">Persetujuan Kos</h1>
+    <br>
+    <div class="mx-8 mb-5 relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left rtl:text-right text-white">
+        <thead class="text-xs text-white uppercase bg-[#4F6F52] ">
+          <tr>
+            <th scope="col" class="px-6 py-3">
+              No
+            </th>
+            <th scope="col" class="px-16 py-3">
+              {{-- <span class="sr-only">Image</span> --}}
+              Image
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Nama Owner
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Nama Kos
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Alamat
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Status
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Aksi
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($kosts as $kost)
+            <tr class="bg-white border-b hover:bg-gray-50 ">
+              <td class="px-6 py-4 font-semibold text-gray-900">
+                {{ $loop->iteration }}
+              </td>
+              <td class="p-4">
+                <img src="{{ asset('kosts/' . $kost->foto_depan) }}" class="object-cover  max-w-64 h-28"
+                  alt="Foto Kos">
+              </td>
+              <td class="px-6 py-4 font-semibold text-gray-900">
+                {{ $kost->user->name }}
+              </td>
+              <td class="px-6 py-4 font-semibold text-gray-900">
+                {{ $kost->nama_kost }}
+              </td>
+              <td class="px-6 py-4 font-semibold text-gray-900">
+                {{ Str::limit($kost->lokasi, 5, '...') }}
+              </td>
+              <td
+                class="px-6 py-4 font-semibold
                             @if ($kost->status == 'pending') text-yellow-500
                             @elseif($kost->status == 'setuju') text-green-500
                             @elseif($kost->status == 'tolak') text-red-500 @endif">

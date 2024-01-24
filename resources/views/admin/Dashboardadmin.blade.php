@@ -1,10 +1,10 @@
 @extends('layout.main')
 
-@extends('layout.sidebar_admin')
+@extends('layout.sidebar')
 
 @section('isi')
-    <div class="sm:ml-64 ">
-        <h1 class="mb-4 mt-4 ml-4  text-3xl font-black text-gray-900 dark:text-white">Welcome {{ auth()->user()->name }}!
+    <div class="py-20 px-10 sm:ml-64">
+        <h1 class="text-3xl font-black text-gray-900 ">Welcome {{ auth()->user()->name }}!
         </h1>
         <section class="grid grid-cols-3 gap-4 p-8">
             <div href="#"

@@ -1,8 +1,8 @@
 @extends('layout.main')
-@include('layout.sidebar_owner')
+@include('layout.sidebar')
 
 @section('isi')
-    <div class="sm:ml-64">
+    <div class="py-20 px-10 sm:ml-64">
         <div class="my-2 p-6">
             {{-- {{ $tracking }} --}}
             <div class="relative overflow-x-auto my-2">

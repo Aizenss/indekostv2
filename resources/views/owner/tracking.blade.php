@@ -1,14 +1,11 @@
 @extends('layout.main')
-
-@extends('layout.sidebar_owner')
+@include('layout.sidebar')
 
 @section('isi')
-  <div class="sm:ml-64 mt-8 ml-2 justify-center">
-    <h1 class="mb-4 mt-4 ml-4  text-3xl font-black text-gray-900">Tracking Kos</h1>
-    <br>
-    <div class="ml-8 mr-8 relative overflow-x-auto shadow-md sm:rounded-lg">
-      <table class="w-full text-sm text-left rtl:text-right text-white">
-        <thead class="text-xs text-white uppercase bg-[#4F6F52] ">
+    <div class="py-20 px-10 sm:ml-64 ">
+        <h1 class="mb-4 mt-4 ml-4  text-3xl font-black text-gray-900">Tracking Kos</h1>
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         nama

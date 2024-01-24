@@ -30,7 +30,7 @@
 <aside id="default-sidebar"
     class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
     aria-label="Sidebar">
-    <div class="h-full px-3 py-4 overflow-y-auto bg-[#D2E3C8]">
+    <div class="h-full px-3 py-4 overflow-y-auto ">
         <ul class="space-y-2 font-medium">
             <li>
                 <div class="flex justify-center">
@@ -45,27 +45,27 @@
                 </a>
             </li>
             @auth
-                <li>
-                    <a href="{{ route('admin.approvaladmin') }}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 hover:shadow-xl {{ request()->RouteIs('admin.approvaladmin') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
-                        <i class="fa-solid fa-house-circle-check"></i>
-                        <span class="ms-3">Approval Kost</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('kelola-admin') }}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 hover:shadow-xl {{ request()->RouteIs('kelola-admin') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
-                        <i class="fa-solid fa-people-arrows"></i>
-                        <span class="ms-3">Kelola Owner</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.transaksiowner') }}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 hover:shadow-xl {{ request()->RouteIs('admin.transaksiowner') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
-                        <i class="fa-solid fa-hand-holding-dollar"></i>
-                        <span class="ms-3">Transaksi</span>
-                    </a>
-                </li>
+                    <li>
+                        <a href="{{ route('admin.approvaladmin') }}"
+                            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 hover:shadow-xl {{ request()->RouteIs('admin.approvaladmin') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
+                            <i class="fa-solid fa-house-circle-check"></i>
+                            <span class="ms-3">Approval Kost</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('kelola-admin') }}"
+                            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 hover:shadow-xl {{ request()->RouteIs('kelola-admin') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
+                            <i class="fa-solid fa-people-arrows"></i>
+                            <span class="ms-3">Kelola Owner</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.transaksiowner') }}"
+                            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 hover:shadow-xl {{ request()->RouteIs('admin.transaksiowner') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                            <span class="ms-3">Transaksi</span>
+                        </a>
+                    </li>
                 <li>
                     <!-- Authentication -->
                     <form method="POST" action="{{ route('logout') }}">

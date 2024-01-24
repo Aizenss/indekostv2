@@ -1,12 +1,12 @@
 @extends('layout.main')
-@extends('layout.sidebar_owner')
+@extends('layout.sidebar')
 
 @section('style')
     <style></style>
 @endsection
 
 @section('isi')
-    <div class="sm:ml-64 py-5">
+    <div class="sm:ml-64 py-20 px-10">
         <h1 class="text-xl">List Kamar</h1>
         <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow my-2">
             <div class="relative overflow-x-auto">

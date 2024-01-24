@@ -41,38 +41,26 @@
                                     <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow"
                                         id="user-dropdown">
                                         <div class="px-4 py-3">
-                                            <span class="block text-base font-semibold text-gray-900">{{auth()->user()->name}}</span>
+                                            <span
+                                                class="block text-base font-semibold text-gray-900">{{ auth()->user()->name }}</span>
                                             {{-- <span class="block text-sm text-gray-500 max-w-32">Masuk / Daftar terlebih
                                                 dahulu</span> --}}
                                         </div>
                                         <ul class="py-2" aria-labelledby="user-menu-button">
-                                            @auth
-                                                <li>
-                                                    <a href="{{route('profile.edit')}}"
-                                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
-                                                </li>
-                                                <li>
-                                                    <form method="POST" action="{{ route('logout') }}">
-                                                        @csrf
-                                                        <a :href="route('logout')"
-                                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                                            onclick="event.preventDefault(); this.closest('form').submit();">
-                                                            Log Out
-                                                        </a>
-                                                    </form>
-                                                </li>
-                                            @else
-                                                <li class="flex items-center space-x-2 ms-2">
-                                                    <i class="fa-solid fa-user text-black me-3.5"></i>
-                                                    <a href="/login"
-                                                        class="block px-2 py-2 text-sm text-gray-700 hover:bg-gray-100">Masuk</a>
-                                                </li>
-                                                <li class="flex items-center space-x-2 ms-2">
-                                                    <i class="fa-solid fa-user-plus text-black"></i>
-                                                    <a href="/pilih role"
-                                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Daftar</a>
-                                                </li>
-                                            @endauth
+                                            <li>
+                                                <a href="{{ route('profile.edit') }}"
+                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                                            </li>
+                                            <li>
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+                                                    <a :href="route('logout')"
+                                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                                        onclick="event.preventDefault(); this.closest('form').submit();">
+                                                        Log Out
+                                                    </a>
+                                                </form>
+                                            </li>
                                         </ul>
                                     </div>
                                     <button data-collapse-toggle="navbar-user" type="button"
