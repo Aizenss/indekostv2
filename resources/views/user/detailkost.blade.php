@@ -1,9 +1,27 @@
 @extends('layout.main')
 
-@extends('layout.sidebar_user')
+@extends('layout.sidenavbar')
+
+@section('css')
+    <style>
+        .scsm::-webkit-scrollbar{
+            width: 10px;
+            color: black;
+        }
+        .scsm::scr
+        .rating .fa-star {
+                    color: rgb(218, 218, 4);
+                    cursor: pointer;
+                }
+
+                .fa-star:hover {
+                    transform: scale(1.1);
+                }
+    </style>
+@endsection
 
 @section('isi')
-    <div class="sm:ml-64 py-10 px-[140px]">
+    <div class="py-10 px-[140px]">
         <section class="image">
             <div id="custom-controls-gallery" class="relative w-full" data-carousel="slide">
                 <!-- Carousel wrapper -->
@@ -124,7 +142,6 @@
                                 @endforeach
                             </div>
                         </div>
-
                         <div class="p-5">
                             <div class="flex justify-between items-center">
                                 <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">{{ $kamar->nama_kamar }}
@@ -133,7 +150,7 @@
                                         class="fa-solid fa-users me-1"></i>2 Orang</h5>
                             </div>
                             <span class="text-lg font-semibold text-gray-900">Fasilitas</span>
-                            <div class="grid grid-cols-2 gap-2">
+                            <div class="grid grid-cols-2 gap-2 h-24 overflow-y-scroll scsm">
                                 @foreach (json_decode($kamar->fasilitas) as $fasilitas)
                                     <div class="flex flex-wrap">
                                         <span class="text-base font-medium text-gray-900">
@@ -144,10 +161,9 @@
                                 @endforeach
                             </div>
                             <span class="text-lg font-semibold text-gray-900 text-balance">Peraturan Kamar</span>
-                            <div class="grid grid-cols-2 gap-2">
+                            <div class="h-20 overflow-y-scroll scsm">
                                 <div class="flex flex-wrap">
                                     <span class="text-base font-medium text-gray-900">
-                                        <i class="fa-solid fa-check me-1"></i>
                                         {{ $kamar->peraturan_kamar }}
                                     </span>
                                 </div>
@@ -155,13 +171,12 @@
                             <div class="grid grid-cols-2 gap-2">
                                 <div class="flex flex-wrap">
                                     <span class="text-base font-black  text-gray-900">
-                                        Rp
-                                        {{ $kamar->harga }}
+                                        Rp {{ number_format($kamar->harga, 0, ',', '.') }}
                                     </span>
                                 </div>
                             </div>
                             <div class="flex justify-between mt-3">
-                                <div class="info mt-1">
+                                <div class="info">
                                     <button data-modal-target="default-modal{{ $kamar->id }}"
                                         data-modal-toggle="default-modal{{ $kamar->id }}"
                                         class="border border-[#4F6F52] py-1 px-3 rounded-lg text-gray-900">Info</button>
@@ -196,17 +211,6 @@
             <div class="my-3">
                 <span class="font-semibold text-lg">Review</span>
             </div>
-            <style>
-                .rating .fa-star {
-                    color: rgb(218, 218, 4);
-                    cursor: pointer;
-                }
-
-                .fa-star:hover {
-                    transform: scale(1.1);
-                }
-            </style>
-
             <form action="{{ route('ratting.buat') }}" method="POST">
                 @csrf
                 <input type="hidden" name="kos_id" value="{{ $kos->id }}">

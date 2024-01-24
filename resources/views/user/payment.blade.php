@@ -1,9 +1,9 @@
 @extends('layout.main')
 
-@extends('layout.sidebar_user')
+@extends('layout.sidenavbar')
 
 @section('isi')
-    <div class="sm:ml-64 mt-8 ml-2 justify-center">
+    <div class="py-20 justify-center">
         <h1 class="mb-4 mt-4 ml-4 text-2xl font-black text-gray-900 dark:text-white">Pembayaran Sewa</h1>
         <br>
         <div class="ml-8 mr-8 relative overflow-x-auto shadow-md sm:rounded-lg mb-4">
@@ -50,7 +50,7 @@
             </table>
         </div>
     </div>
-    <div class="sm:ml-64 mt-8 ml-2 justify-center">
+    <div class="py-20 justify-center">
         <h1 class="mb-4 mt-4 ml-4 text-2xl font-black text-gray-900 dark:text-white">Pembayaran Ulang</h1>
         <br>
         <div class="ml-8 mr-8 relative overflow-x-auto shadow-md sm:rounded-lg mb-4">

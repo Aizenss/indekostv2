@@ -1,11 +1,11 @@
 @extends('layout.main')
 
-@extends('layout.sidebar_user')
+@extends('layout.sidenavbar')
 
 @section('isi')
-    <div class="sm:ml-64 py-12">
+    <div class="py-20">
         <div class="p-6 my-2">
-            <h2 class="text-xl font-semibold mb-4">Purchase History</h2>
+            <h2 class="text-xl font-semibold mb-4">Riwayat Penyewaan</h2>
 
             <table class="min-w-full border rounded overflow-hidden text-center">
                 <thead class="bg-gray-200">
