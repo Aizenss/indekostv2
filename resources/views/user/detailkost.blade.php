@@ -8,10 +8,10 @@
             width: 10px;
             color: black;
         }
-        .scsm::scr
         .rating .fa-star {
-                    color: rgb(218, 218, 4);
+                    color: #FEC553;
                     cursor: pointer;
+                    transition-duration: 300ms;
                 }
 
                 .fa-star:hover {
@@ -54,13 +54,22 @@
 
         </section>
         <section class="informan my-5">
-            <div class="flex justify-between items-center mx-3">
+            <div class="flex justify-between items-center mx-3 my-2">
                 <div class="judul">
                     <h1 class="text-3xl text-gray-900 font-semibold">{{ $kos->nama_kost }}</h1>
                 </div>
                 <div class="owner flex">
                     <span class="text-gray-900 text-base font-medium me-1">Dikelola Oleh {{ $kos->user->name }}</span>
                     <img src="{{ asset('profiles/' . $kos->user->foto) }}" alt="" class="w-7 h-7 rounded-full">
+                </div>
+            </div>
+            <hr>
+            <div class="flex flex-col gap-2 my-3 mx-3">
+                <div class="judul text-xl text-gray-900 font-semibold ">
+                    Lokasi Kost
+                </div>
+                <div class="informasi">
+                    {{ $kos->lokasi }}
                 </div>
             </div>
             <hr>
@@ -77,7 +86,7 @@
                 <div class="judul text-xl text-gray-900 font-semibold ">
                     Fasilitas Umum
                 </div>
-                <div class="grid grid-cols-4 gap-2">
+                <div class="grid grid-cols-4 gap-2 h-28 overflow-y-scroll scsm">
                     @forelse (json_decode($kos->fasilitas_umum) ??[] as $kost)
                         <div class="fasilitas text-gray-700 flex itmes-center">
                             <i class="fa-solid fa-users-rays me-2 text-2xl"></i><span
@@ -110,15 +119,6 @@
                         <i class="fa-solid fa-square-parking me-2 text-2xl"></i><span
                             class="font-medium text-lg">{{ $kos->fasilitas_tempat_parkir }}</span>
                     </div>
-                </div>
-            </div>
-            <hr>
-            <div class="flex flex-col gap-2 my-3 mx-3">
-                <div class="judul text-xl text-gray-900 font-semibold ">
-                    Lokasi Kost
-                </div>
-                <div class="informasi">
-                    {{ $kos->lokasi }}
                 </div>
             </div>
             <hr class="mb-3">

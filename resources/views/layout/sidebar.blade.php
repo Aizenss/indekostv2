@@ -18,45 +18,86 @@
                     <span class="self-center text-lg font-semibold sm:text-xl whitespace-nowrap ">In De Kost</span>
                 </a>
             </div>
-            <div class="flex items-center">
-                <div class="flex items-center ms-3">
+            <div class="flex items-center ms-3">
+                @if (Auth::user()->role == 'owner')
+                <div class="flex gap-4">
+                    <div class="notif">
+                        <button type="button" class="flex text-sm rounded-full md:me-0" id="massage"
+                            aria-expanded="false" data-dropdown-toggle="massage-dropdown"
+                            data-dropdown-placement="bottom">
+                            <i class="fa-solid fa-bell text-2xl text-gray-900 hover:text-gray-700 duration-200"></i>
+                            <div
+                                class="inline-flex items-center justify-center w-2 h-2 -mb-[10px] -ms-2 border border-white rounded-full bg-red-500">
+                            </div>
+                        </button>
+                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3"
+                            id="massage-dropdown">
+                            <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>
+                            <div class="flex flex-col gap-3 px-4 py-3">
+                                {{-- nggen foreachmu lek ojo salah nggen --}}
+                                <div class="flex items-start gap-2.5">
+                                    <div
+                                        class="flex flex-col w-full max-w-[250px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl">
+                                        <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                                            <span class="text-sm font-semibold text-gray-900">Nama Owner/User</span>
+                                        </div>
+                                        <p class="text-sm font-normal py-2.5 text-gray-900">Lorem ipsum dolor sit amet
+                                            consectetur, adipisicing elit. Adipisci odio sequi numquam laudantium quos.
+                                            Officiis saepe ab enim ex provident.</p>
+                                    </div>
+                                </div>
+                                {{-- iki tutupe foreach --}}
+                            </div>
+                        </div>
+                    </div>
                     <div>
                         <button type="button"
                             class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 "
                             aria-expanded="false" data-dropdown-toggle="dropdown-user">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-8 h-8 rounded-full"
-                                src="{{ asset('profiles/'. Auth::user()->foto) }}" alt="user photo">
+                            <img class="w-8 h-8 rounded-full" src="{{ asset('profiles/' . Auth::user()->foto) }}"
+                                alt="user photo">
                         </button>
                     </div>
-                    <div class="z-50 hidden my-4 text-base list-none bg-gray-50 divide-y divide-gray-100 rounded shadow"
-                        id="dropdown-user">
-                        <div class="px-4 py-3" role="none">
-                            <p class="text-base text-gray-900 " role="none">
-                               {{Auth::user()->name}}
-                            </p>
-                            <p class="text-sm font-medium text-gray-400 truncate" role="none">
-                                {{ Auth::user()->email }}
-                            </p>
-                        </div>
-                        <ul class="py-1" role="none">
-                            <li>
-                                <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                    role="menuitem"><i class="fa-solid fa-gear me-3"></i>Pengaturan</a>
-                            </li>
-                            <li>
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <a :href="route('logout')"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-                                        role="menuitem"
-                                        onclick="event.preventDefault(); this.closest('form').submit();">
-                                        <i class="fa-solid fa-arrow-right-from-bracket me-3"></i>Keluar
-                                    </a>
-                                </form>
-                            </li>
-                        </ul>
+                </div>
+                @else
+                <div>
+                    <button type="button"
+                        class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 "
+                        aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                        <span class="sr-only">Open user menu</span>
+                        <img class="w-8 h-8 rounded-full" src="{{ asset('profiles/' . Auth::user()->foto) }}"
+                            alt="user photo">
+                    </button>
+                </div>
+                @endif
+                <div class="z-50 hidden my-4 text-base list-none bg-gray-50 divide-y divide-gray-100 rounded shadow"
+                    id="dropdown-user">
+                    <div class="px-4 py-3" role="none">
+                        <p class="text-base text-gray-900 " role="none">
+                            {{ Auth::user()->name }}
+                        </p>
+                        <p class="text-sm font-medium text-gray-400 truncate" role="none">
+                            {{ Auth::user()->email }}
+                        </p>
                     </div>
+                    <ul class="py-1" role="none">
+                        <li>
+                            <a href="{{ route('profile.edit') }}"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem"><i
+                                    class="fa-solid fa-gear me-3"></i>Pengaturan</a>
+                        </li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a :href="route('logout')"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                                    role="menuitem" onclick="event.preventDefault(); this.closest('form').submit();">
+                                    <i class="fa-solid fa-arrow-right-from-bracket me-3"></i>Keluar
+                                </a>
+                            </form>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

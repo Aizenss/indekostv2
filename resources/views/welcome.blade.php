@@ -13,8 +13,10 @@
                         menyediakan
                         solusi terbaik bagi para pencari tempat tinggal. Menyediakan informasi yang akurat, foto-foto
                         berkualitas, dan fitur pencarian yang canggih.</p>
+                    @if (Auth::guest())
                     <a href="{{ url('/login') }}" class="bg-[#86A789] py-1 px-3 rounded-xl text-white">Mulai<i
-                            class="fa-solid fa-arrow-right text-white ms-2"></i></a>
+                        class="fa-solid fa-arrow-right text-white ms-2"></i></a>
+                    @endif
                 </div>
                 <div class="gambar-wellcome">
                     <img src="{{ asset('ilustrasi/hero-section.png') }}" alt="">

@@ -31,14 +31,38 @@
                                 |
                             </li>
                             <li>
+                                <button type="button" class="flex text-sm rounded-full md:me-0" id="massage"
+                                    aria-expanded="false" data-dropdown-toggle="massage-dropdown"
+                                    data-dropdown-placement="bottom">
+                                    <i class="fa-solid fa-bell text-2xl text-gray-900 hover:text-gray-700 duration-200"></i>
+                                    <div class="inline-flex items-center justify-center w-2 h-2 -mb-[10px] -ms-2 border border-white rounded-full bg-red-500"></div>
+                                </button>
+                                <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3"
+                                    id="massage-dropdown">
+                                    <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>
+                                    <div class="flex flex-col gap-3 px-4 py-3">
+                                        {{-- nggen foreachmu lek ojo salah nggen --}}
+                                        <div class="flex items-start gap-2.5">
+                                            <div class="flex flex-col w-full max-w-[250px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl">
+                                                <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                                                    <span class="text-sm font-semibold text-gray-900">Nama Owner/User</span>
+                                                </div>
+                                                <p class="text-sm font-normal py-2.5 text-gray-900">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci odio sequi numquam laudantium quos. Officiis saepe ab enim ex provident.</p>
+                                            </div>
+                                        </div>
+                                        {{-- iki tutupe foreach --}}
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
                                 <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                                     <button type="button"
                                         class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300"
                                         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                                         data-dropdown-placement="bottom">
                                         <span class="sr-only">Open user menu</span>
-                                        <img class="w-8 h-8 rounded-full" src="{{ asset('profiles/'. Auth::user()->foto) }}"
-                                            alt="user photo">
+                                        <img class="w-8 h-8 rounded-full"
+                                            src="{{ asset('profiles/' . Auth::user()->foto) }}" alt="user photo">
                                     </button>
                                     <!-- Dropdown menu -->
                                     <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow"
@@ -46,11 +70,13 @@
                                         <div class="px-4 py-3">
                                             <span
                                                 class="block text-base font-semibold text-gray-900">{{ Auth::user()->name }}</span>
-                                            <span class="block text-sm text-gray-500 max-w-32">{{Auth::user()->email}}</span>
+                                            <span
+                                                class="block text-sm text-gray-500 max-w-32">{{ Auth::user()->email }}</span>
                                         </div>
                                         <ul class="py-1" role="none">
                                             <li>
-                                                <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                                <a href="{{ route('profile.edit') }}"
+                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                                     role="menuitem"><i class="fa-solid fa-gear me-3"></i>Pengaturan</a>
                                             </li>
                                             <li>

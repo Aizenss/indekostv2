@@ -18,7 +18,7 @@
                         <th class="py-2 px-4">Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-gray-900">
                     @forelse ($historys as $history)
                         <tr class="border-t">
                             <td class="py-2 px-4">{{ $loop->iteration }}</td>

@@ -3,7 +3,7 @@
 @extends('layout.sidenavbar')
 
 @section('isi')
-    <div class="sm:ml-64 py-12">
+    <div class="py-20">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-2">
             <table class="w-full text-sm text-gray-500 text-center">
                 <h1 class="text-start ms-5 mb-3 text-lg">Detail Penyewaan</h1>
