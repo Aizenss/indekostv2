@@ -26,17 +26,17 @@
                             aria-expanded="false" data-dropdown-toggle="dropdown-user">
                             <span class="sr-only">Open user menu</span>
                             <img class="w-8 h-8 rounded-full"
-                                src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
+                                src="{{ asset('profiles/'. Auth::user()->foto) }}" alt="user photo">
                         </button>
                     </div>
                     <div class="z-50 hidden my-4 text-base list-none bg-gray-50 divide-y divide-gray-100 rounded shadow"
                         id="dropdown-user">
                         <div class="px-4 py-3" role="none">
                             <p class="text-base text-gray-900 " role="none">
-                                Nama User
+                               {{Auth::user()->name}}
                             </p>
                             <p class="text-sm font-medium text-gray-400 truncate" role="none">
-                                emailuser@gmail.com
+                                {{ Auth::user()->email }}
                             </p>
                         </div>
                         <ul class="py-1" role="none">

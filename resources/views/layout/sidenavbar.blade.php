@@ -27,6 +27,9 @@
                                 <a href="/history"
                                     class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">History</a>
                             </li>
+                            <li class="mx-2">
+                                |
+                            </li>
                             <li>
                                 <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                                     <button type="button"
@@ -45,18 +48,19 @@
                                                 class="block text-base font-semibold text-gray-900">{{ Auth::user()->name }}</span>
                                             <span class="block text-sm text-gray-500 max-w-32">{{Auth::user()->email}}</span>
                                         </div>
-                                        <ul class="py-2" aria-labelledby="user-menu-button">
+                                        <ul class="py-1" role="none">
                                             <li>
-                                                <a href="{{ route('profile.edit') }}"
-                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                                                <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                                    role="menuitem"><i class="fa-solid fa-gear me-3"></i>Pengaturan</a>
                                             </li>
                                             <li>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <a :href="route('logout')"
                                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                                                        role="menuitem"
                                                         onclick="event.preventDefault(); this.closest('form').submit();">
-                                                        Log Out
+                                                        <i class="fa-solid fa-arrow-right-from-bracket me-3"></i>Keluar
                                                     </a>
                                                 </form>
                                             </li>
@@ -80,25 +84,6 @@
                             <a href="#home"
                                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">Beranda</a>
                         </li>
-                        @auth
-                        <li>
-                            <a href="#tentang"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">Tentang</a>
-                        </li>
-                        <li>
-                            <a href="#keuntungan"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">Keuntungan</a>
-                        </li>
-                        <li>
-                            <a href="#listkost"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">List
-                                Kost</a>
-                        </li>
-                        <li>
-                            <a href="#kontak"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">Kontak</a>
-                        </li>
-                        @endauth
                         <li class="mx-2">
                             |
                         </li>
