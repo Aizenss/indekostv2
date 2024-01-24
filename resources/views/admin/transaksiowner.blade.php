@@ -112,14 +112,6 @@
                                                     class="font-semibold text-gray-900">{{ $transaksi->kamar->kos->lokasi }}</span>
                                             </li>
                                         </ul>
-                                        <br>
-                                        <br>
-                                        @php
-                                            $foto = json_decode($transaksi->kamar->foto_kamar);
-                                        @endphp
-                                        <img src="{{ asset('kamar/' . $foto[0]) }}"
-                                            class=" justify-center md:w-56 max-w-full max-h-full rounded-lg shadow-lg"
-                                            alt="Apple Watch">
                                     </div>
                                 </div>
                             </div>
