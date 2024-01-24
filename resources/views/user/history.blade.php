@@ -3,22 +3,22 @@
 @extends('layout.sidebar_user')
 
 @section('isi')
-    <div class="sm:ml-64 py-12">
-        <div class="p-6 my-2">
-            <h2 class="text-xl font-semibold mb-4">Purchase History</h2>
-
-            <table class="min-w-full border rounded overflow-hidden text-center">
-                <thead class="bg-gray-200">
-                    <tr>
-                        <th class="py-2 px-4">#</th>
+<div class="sm:ml-64 mt-8 ml-2 justify-center">
+    <h1 class="mb-4 mt-4 ml-4 text-2xl font-black text-gray-900 dark:text-white">Riwayat Pembelian</h1>
+    <br>
+    <div class="ml-8 mr-8 relative overflow-x-auto shadow-md sm:rounded-lg mb-4">
+        <table class="w-full text-sm text-left rtl:text-right text-white">
+            <thead class="text-xs text-white uppercase bg-[#4F6F52]">
+                <tr>
+                        <th class="py-2 px-4">No</th>
                         <th class="py-2 px-4">Kamar</th>
                         <th class="py-2 px-4">Harga</th>
                         <th class="py-2 px-4">Check in</th>
-                        <th class="py-2 px-4">Actions</th>
+                        <th class="py-2 px-4">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($historys as $history)
+                    @forelse ($historys as $history)
                         <tr class="border-t">
                             <td class="py-2 px-4">{{ $loop->iteration }}</td>
                             <td class="py-2 px-4">{{ $history->kamar->nama_kamar }}</td>
@@ -29,7 +29,13 @@
                                     class="text-blue-500 hover:underline">Lihat Detail</a>
                             </td>
                         </tr>
-                    @endforeach
+                        @empty
+                        <tr>
+                            <td colspan="7" class="px-6 py-4 text-center font-semibold text-gray-900">
+                                <img src="{{ asset('foto/nodataadmin.png') }}" class="h-52 w-52 mx-auto" alt="">
+                            </td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
