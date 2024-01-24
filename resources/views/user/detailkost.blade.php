@@ -4,26 +4,27 @@
 
 @section('css')
     <style>
-        .scsm::-webkit-scrollbar {
+        .scsm::-webkit-scrollbar{
             width: 10px;
             color: black;
         }
-
+        .scsm::scr
         .rating .fa-star {
-            color: #F7AF05;
-            cursor: pointer;
-        }
+                    color: rgb(218, 218, 4);
+                    cursor: pointer;
+                }
 
-        .fa-star:hover {
-            transform: scale(1.1);
-        }
+                .fa-star:hover {
+                    transform: scale(1.1);
+                }
     </style>
 @endsection
 
 @section('isi')
-    <div class="py-28 px-[140px]">
+    <div class="py-10 px-[140px]">
         <section class="image">
-            <div id="custom-controls-gallery" class="relative w-full z-10" data-carousel="slide1">
+            <div id="custom-controls-gallery" class="relative w-full" data-carousel="slide">
+                <!-- Carousel wrapper -->
                 <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                     <!-- Item 1 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -46,8 +47,11 @@
                             </div>
                         </div>
                     @endforeach
+
                 </div>
             </div>
+
+
         </section>
         <section class="informan my-5">
             <div class="flex justify-between items-center mx-3">
@@ -124,15 +128,16 @@
             <div class="grid grid-cols-3 gap-3 my-3 mx-3">
                 @forelse ($kamars as $kamar)
                     <div class="max-w-sm bg-gray-200 border border-gray-200 rounded-lg shadow ">
-                        <div id="custom-controls-gallery" class="relative w-full z-10" data-carousel="slide2">
+
+
+                        <div id="custom-controls-gallery" class="relative w-full" data-carousel="slide">
+                            <!-- Carousel wrapper -->
                             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                                 @foreach (json_decode($kamar->foto_kamar) as $item)
                                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                        <div>
-                                            <img src="{{ asset('kosts/' . $item) }}"
-                                                class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                                alt="Additional Photo">
-                                        </div>
+                                        <img src="{{ asset('kamar/' . $item) }}"
+                                            class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                            alt="">
                                     </div>
                                 @endforeach
                             </div>
@@ -142,7 +147,7 @@
                                 <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">{{ $kamar->nama_kamar }}
                                 </h5>
                                 <h5 class=" text-base font-semibold tracking-tight text-gray-900"><i
-                                        class="fa-solid fa-users me-1"></i>{{ $kamar->kapasitas }} Orang</h5>
+                                        class="fa-solid fa-users me-1"></i>2 Orang</h5>
                             </div>
                             <span class="text-lg font-semibold text-gray-900">Fasilitas</span>
                             <div class="grid grid-cols-2 gap-2 h-24 overflow-y-scroll scsm">
@@ -239,16 +244,6 @@
                     });
                 });
             </script>
-            @php
-                $totalRating = 0;
-                $numberOfRatings = count($kos->ulasan);
-
-                foreach ($kos->ulasan as $rating) {
-                    $totalRating += $rating->rating;
-                }
-
-                $averageRating = $numberOfRatings > 0 ? number_format(round($totalRating / $numberOfRatings, 2), 1, '.', ',') : 0;
-            @endphp
             <div class="flex items-center gap-4">
                 <span class="font-bold text-[80px] ">{{ $averageRating }} <i
                         class="fas fa-star text-yellow-300"></i></span>
