@@ -120,7 +120,7 @@
                         </div>
                     </div>
                 @empty
-                <div class="flex  w-full ml-[400px] h-screen">
+                <div class="flex  w-full ml-[500px] h-screen">
                     <img src="{{ asset('foto/nodataadmin.png') }}" class="h-52 w-52" alt="">
                 </div>
                 @endforelse
