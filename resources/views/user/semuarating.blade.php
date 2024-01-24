@@ -1,9 +1,9 @@
 @extends('layout.main')
 
-@extends('layout.sidebar_user')
+@extends('layout.sidenavbar')
 
 @section('isi')
-<div class="sm:ml-64 py-5 px-[20px]">
+<div class="py-20 px-[20px]">
         <div class="bg-gray-50 py-3 px-5 rounded-lg border border-white-900 shadow-md mb-5">
             <div class="flex gap-4">
                 <div class="profile">

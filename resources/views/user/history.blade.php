@@ -1,16 +1,16 @@
 @extends('layout.main')
 
-@extends('layout.sidebar_user')
+@extends('layout.sidenavbar')
 
 @section('isi')
-<div class="sm:ml-64 mt-8 ml-2 justify-center">
-    <h1 class="mb-4 mt-4 ml-4 text-2xl font-black text-gray-900 dark:text-white">Riwayat Pembelian</h1>
-    <br>
-    <div class="ml-8 mr-8 relative overflow-x-auto shadow-md sm:rounded-lg mb-4">
-        <table class="w-full text-sm text-left rtl:text-right text-white">
-            <thead class="text-xs text-white uppercase bg-[#4F6F52]">
-                <tr>
-                        <th class="py-2 px-4">No</th>
+    <div class="py-20">
+        <div class="p-6 my-2">
+            <h2 class="text-xl font-semibold mb-4">Riwayat Penyewaan</h2>
+
+            <table class="min-w-full border rounded overflow-hidden text-center">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="py-2 px-4">#</th>
                         <th class="py-2 px-4">Kamar</th>
                         <th class="py-2 px-4">Harga</th>
                         <th class="py-2 px-4">Check in</th>

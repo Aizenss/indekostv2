@@ -1,4 +1,4 @@
-    <nav class="bg-[#D2E3C8] border-gray-400 w-full fixed">
+    <nav class="bg-[#D2E3C8] border-gray-400 w-full fixed z-10">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{ asset('foto/inilogo.png') }}" class="h-10" alt="Flowbite Logo" />
@@ -7,24 +7,24 @@
 
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
                 <ul
-                    class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-3 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
+                    class="flex flex-col font-medium items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-5 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
                     @auth
                         @if (Auth::user()->role == 'user')
                             <li>
-                                <a href="#"
+                                <a href="/"
                                     class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">Beranda</a>
                             </li>
                             <li>
-                                <a href="#"
+                                <a href="/list-kos"
                                     class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">List
                                     Kost</a>
                             </li>
                             <li>
-                                <a href="#"
+                                <a href="/payment"
                                     class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">Pembayaran</a>
                             </li>
                             <li>
-                                <a href="#"
+                                <a href="/history"
                                     class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">History</a>
                             </li>
                             <li>
@@ -42,9 +42,8 @@
                                         id="user-dropdown">
                                         <div class="px-4 py-3">
                                             <span
-                                                class="block text-base font-semibold text-gray-900">{{ auth()->user()->name }}</span>
-                                            {{-- <span class="block text-sm text-gray-500 max-w-32">Masuk / Daftar terlebih
-                                                dahulu</span> --}}
+                                                class="block text-base font-semibold text-gray-900">{{ Auth::user()->name }}</span>
+                                            <span class="block text-sm text-gray-500 max-w-32">{{Auth::user()->email}}</span>
                                         </div>
                                         <ul class="py-2" aria-labelledby="user-menu-button">
                                             <li>
@@ -55,7 +54,7 @@
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <a :href="route('logout')"
-                                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                                                         onclick="event.preventDefault(); this.closest('form').submit();">
                                                         Log Out
                                                     </a>
@@ -81,6 +80,7 @@
                             <a href="#home"
                                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">Beranda</a>
                         </li>
+                        @auth
                         <li>
                             <a href="#tentang"
                                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">Tentang</a>
@@ -98,6 +98,7 @@
                             <a href="#kontak"
                                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">Kontak</a>
                         </li>
+                        @endauth
                         <li class="mx-2">
                             |
                         </li>

@@ -1,9 +1,9 @@
 @extends('layout.main')
 
-@extends('layout.sidebar_user')
+@extends('layout.sidenavbar')
 
 @section('isi')
-    <div class="sm:ml-64 py-12">
+    <div class="py-20">
         <div class="filterasi flex justify-center items-center ">
             <div class="bg-[#739072] flex px-10 space-x-4 rounded-xl pt-4">
                 {{-- search --}}
