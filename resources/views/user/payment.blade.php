@@ -42,18 +42,9 @@
                             </tr>
                         @endif
                     @empty
-                        <!-- Display placeholder rows -->
-                        @for ($i = 1; $i <= 1; $i++)
-                            <tr>
-                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $i }}</td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">-</td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">-</td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">-</td>
-                                <td class="px-6 py-4">
-                                    <span class="text-gray-500">-</span>
-                                </td>
-                            </tr>
-                        @endfor
+                        <td colspan="7" class="px-6 py-4 text-center font-semibold text-gray-900">
+                            <img src="{{ asset('foto/nodataadmin.png') }}" class="h-52 w-52 mx-auto" alt="">
+                        </td>
                     @endforelse
                 </tbody>
             </table>
@@ -98,24 +89,11 @@
                             </tr>
                         @endif
                     @empty
-                    <tr>
-                        <td colspan="7" class="px-6 py-4 text-center font-semibold text-gray-900">
-                            <img src="{{ asset('foto/nodataadmin.png') }}" class="h-52 w-52 mx-auto" alt="">
-
-                        </td>
-                    </tr>
-                        <!-- Display placeholder rows -->
-                        @for ($i = 1; $i <= 1; $i++)
-                            <tr>
-                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $i }}</td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">-</td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">-</td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">-</td>
-                                <td class="px-6 py-4">
-                                    <span class="text-gray-500">-</span>
-                                </td>
-                            </tr>
-                        @endfor
+                        <tr>
+                            <td colspan="7" class="px-6 py-4 text-center font-semibold text-gray-900">
+                                <img src="{{ asset('foto/nodataadmin.png') }}" class="h-52 w-52 mx-auto" alt="">
+                            </td>
+                        </tr>
                     @endforelse
                 </tbody>
             </table>
