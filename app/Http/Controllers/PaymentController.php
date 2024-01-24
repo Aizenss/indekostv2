@@ -55,7 +55,7 @@ class PaymentController extends Controller
         ]);
 
         // $kamar->save();
-        return redirect()->back();
+        return redirect()->route('payment');
     }
     public function payAgain(Request $request, Kos $kos, Kamar $kamar)
     {

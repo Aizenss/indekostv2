@@ -116,11 +116,11 @@
                             <!-- Carousel wrapper -->
                             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                                 @foreach (json_decode($kamar->foto_kamar) as $item)
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="{{ asset('kamar/' . $item) }}"
-                                        class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                        alt="">
-                                </div>
+                                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                        <img src="{{ asset('kamar/' . $item) }}"
+                                            class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                            alt="">
+                                    </div>
                                 @endforeach
                             </div>
                         </div>
@@ -171,8 +171,13 @@
                                         action="{{ route('user.detailkost.payment', ['kos' => $kos, 'kamar' => $kamar]) }}"
                                         method="post">
                                         @csrf
-                                        <button type="submit" class="py-1 px-3 rounded-lg text-white"
-                                            style="background-color: #4F6F52;">Ajukan Sewa</button>
+                                        @if ($kamar->status == 'kosong')
+                                            <button type="submit" class="py-1 px-3 rounded-lg text-white"
+                                                style="background-color: #4F6F52;">Ajukan Sewa</button>
+                                        @else
+                                            <button type="button" disabled class="py-1 px-3 rounded-lg text-white"
+                                                style="background-color: #4F6F52;">telah dipesan</button>
+                                        @endif
                                     </form>
                                 </div>
                             </div>
