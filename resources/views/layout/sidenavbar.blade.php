@@ -35,7 +35,9 @@
                                     aria-expanded="false" data-dropdown-toggle="massage-dropdown"
                                     data-dropdown-placement="bottom">
                                     <i class="fa-solid fa-bell text-2xl text-gray-900 hover:text-gray-700 duration-200"></i>
+                                    {{-- iki indikator lak enek pesan anyar --}}
                                     <div class="inline-flex items-center justify-center w-2 h-2 -mb-[10px] -ms-2 border border-white rounded-full bg-red-500"></div>
+                                    {{-- oke wo --}}
                                 </button>
                                 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3"
                                     id="massage-dropdown">
