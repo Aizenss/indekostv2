@@ -1,25 +1,26 @@
 <?php
 
 use App\Models\Kamarkami;
+use App\Models\Transaksi;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\UlasanController;
+use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\ListKosController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\TerminateCsrfToken;
 use App\Http\Controllers\OwnerKosController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\DetailKostController;
 use App\Http\Controllers\KamarOwnerController;
 use App\Http\Controllers\KelolaAdminController;
 use App\Http\Controllers\KelolaOwnerController;
+use App\Http\Controllers\SemuaRatingControoller;
 use App\Http\Controllers\ApprovalAdminController;
 use App\Http\Controllers\ApprovalOwnerController;
-use App\Http\Controllers\HistoryController;
-use App\Http\Controllers\ListKosController;
 use App\Http\Controllers\TransaksiAdminController;
-use App\Http\Controllers\TransaksiController;
-use App\Models\Transaksi;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,9 +67,7 @@ Route::middleware(['auth', 'role:user', 'verified'])->group(function () {
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
     Route::post('/payment/proses-data/{kamar}', [PaymentController::class, 'proses'])->name('payment.proses');
     Route::put('/payment/batalkan/{kamar}', [PaymentController::class, 'batal'])->name('payment.batal');
-    Route::get('/semuarating', function () {
-        return view('user.semuarating');
-    });
+    Route::get('/semuarating{kos}',[SemuaRatingControoller::class, 'index'])->name('semuarating');
 
     route::get('/history', [HistoryController::class, 'index'])->name('history');
     route::get('/history/{kamar}', [HistoryController::class, 'show'])->name('history.detail');
