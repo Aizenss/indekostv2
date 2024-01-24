@@ -259,6 +259,7 @@
                         class="fas fa-star text-yellow-300"></i></span>
                 <span class="text-base font-medium">Dari {{ $numberOfRatings }} User</span>
             </div>
+            <a href="{{ route('semuarating', ['kos' => $kos->id]) }}">Lihat semua</a>
             <div class="flex flex-col gap-5">
                 @forelse ($kos->ulasan as $rating)
                     <div class="bg-gray-50 py-3 px-5 rounded-lg border border-gray-900">
