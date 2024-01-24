@@ -63,6 +63,6 @@ class HistoryController extends Controller
             'checkout' => $request->checkout,
         ]);
 
-        return redirect()->route('owner.history');
+        return redirect()->route('owner.history')->with('success', 'Tracking Berhasil Di Ubah');
     }
 }

@@ -19,11 +19,11 @@ class ApprovalAdminController extends Controller
     public function setuju(Request $request, Kos $kos){
         // dd($kos);
         $kos->update(['status' => 'setuju',]);
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Kamar Berhasil Di Setujui');
     }
 
     public function tolak(Request $request, Kos $kos){
         $kos->update(['status' => 'tolak',]);
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Kamar Berhasil Di Tolak');
     }
 }

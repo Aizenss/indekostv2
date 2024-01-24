@@ -52,8 +52,11 @@
             pointer-events: none;
             opacity: 0;
         }
-        </style>
-        @yield('css')
+    </style>
+    @yield('css')
+    {{-- alert --}}
+    @include('layout.alert')
+    {{-- end-alert --}}
     {{-- Style Font --}}
     <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />

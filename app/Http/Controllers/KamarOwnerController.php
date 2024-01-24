@@ -92,7 +92,7 @@ class KamarOwnerController extends Controller
         ]);
 
         // dd($result);
-        return redirect()->route('owner.kamar.tambah', $kos);
+        return redirect()->route('owner.kamar.tambah', $kos)->with('success', 'Kamar ' . $request->nama_kamar . ' ditambahkan');
     }
 
     public function status(Request $request, Kamar $kamar,)
@@ -115,10 +115,9 @@ class KamarOwnerController extends Controller
     {
         if ($kamar->status != 'paid') {
             $kamar->delete();
-
-            return redirect()->route('owner.kamar');
+            return redirect()->route('owner.kamar')->with('success', 'Kamar ' . $kamar->nama_kamar . ' di hapus');
         } else {
-            return redirect()->route('owner.kamar');
+            return redirect()->route('owner.kamar')->with('error', 'Kamar ' . $kamar->nama_kamar . ' tidak di hapus');
         }
     }
 
@@ -190,6 +189,6 @@ class KamarOwnerController extends Controller
             'foto_kamar' => $foto_json
         ]);
 
-        return redirect()->route('owner.kamar.tambah', ['kos' => $kos->id]);
+        return redirect()->route('owner.kamar.tambah', ['kos' => $kos->id])->with('success', 'Kamar' . $kamar->nama_kamar . ' diperbarui.');
     }
 }

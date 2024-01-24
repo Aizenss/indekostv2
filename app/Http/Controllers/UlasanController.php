@@ -36,6 +36,6 @@ class UlasanController extends Controller
             'ulasan' => $request->ulasan
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Ulasan berhasil dikirim.');
     }
 }

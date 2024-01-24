@@ -37,7 +37,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.edit')->with('success', 'profile berhasil di update');
     }
 
     /**
@@ -53,7 +53,7 @@ class ProfileController extends Controller
             'password' => Hash::make($request->new_password)
         ]);
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.edit')->with('success', 'password berhasil di update');
     }
 
     public function uploadfoto(Request $request)
@@ -76,7 +76,7 @@ class ProfileController extends Controller
             'foto' => $foto
         ]);
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.edit')->with('success', 'foto profile berhasil di update');
 
     }
 }

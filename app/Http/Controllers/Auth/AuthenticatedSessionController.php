@@ -41,7 +41,7 @@ class AuthenticatedSessionController extends Controller
             default => RouteServiceProvider::HOME, // Redirect ke halaman default jika role tidak ditemukan
         };
 
-        return redirect()->intended($redirectUrl);
+        return redirect()->intended($redirectUrl)->with('success', 'Login Berhasil');
     }
 
     /**

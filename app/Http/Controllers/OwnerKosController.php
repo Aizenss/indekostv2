@@ -112,7 +112,7 @@ class OwnerKosController extends Controller
 
         // dd($result);
 
-        return redirect()->route('owner.kos');
+        return redirect()->route('owner.kos')->with('success', 'Kost' . $request->nama_kost . ' berhasil ditambahkan');
     }
 
     public function ubah($id)
@@ -214,7 +214,7 @@ class OwnerKosController extends Controller
 
                     $foto_tambahan[] = $fototambahans;
                 } else {
-                    
+
                 }
             }
 
@@ -240,7 +240,7 @@ class OwnerKosController extends Controller
             'foto_tambahan' => $foto_json,
         ]);
 
-        return redirect()->route('owner.kos');
+        return redirect()->route('owner.kos')->with('success', 'Kos ' . $kos->nama_kost . ' di ubah');
     }
 
     public function hapus($id)

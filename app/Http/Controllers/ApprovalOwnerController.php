@@ -21,14 +21,14 @@ class ApprovalOwnerController extends Controller
         $kamar->update([
             'status' => 'terima'
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Kamar Berhasil Di Setujui');
     }
     public function terimaLagi(Kamar $kamar)
     {
         $kamar->update([
             'status' => 'diterima'
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Kamar Berhasil Di Setujui');
     }
 
     public function tolak(Kamar $kamar)
@@ -36,6 +36,6 @@ class ApprovalOwnerController extends Controller
         $kamar->update([
             'status' => 'tolak'
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Kamar Berhasil Di Tolak');
     }
 }

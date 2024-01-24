@@ -35,6 +35,10 @@ use App\Http\Controllers\TransaksiAdminController;
 
 Route::get('/', [ListKosController::class, 'landing'])->name('landing');
 
+Route::get('gaga', function () {
+    return view('gaga');
+});
+
 Route::middleware('auth', 'verified')->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');

@@ -55,7 +55,7 @@ class PaymentController extends Controller
         ]);
 
         // $kamar->save();
-        return redirect()->route('payment');
+        return redirect()->route('payment')->with('success', 'Silahkan lakukan pembayaran');
     }
     public function payAgain(Request $request, Kos $kos, Kamar $kamar)
     {
@@ -88,7 +88,7 @@ class PaymentController extends Controller
         ]);
 
         // $kamar->save();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Silahkan lakukan pembayaran');
     }
 
     public function batal(Kamar $kamar)
@@ -98,7 +98,7 @@ class PaymentController extends Controller
             'snap_token' => null,
             'status' => 'kosong',
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Pembayaran Berhasil Di Batalkan');
     }
 
     public function batalLagi(Kamar $kamar)
@@ -108,7 +108,7 @@ class PaymentController extends Controller
             'snap_token' => null,
             'status' => $kamar->status,
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Pembayaran Berhasil Di Batalkan');
     }
 
     public function proses(Request $request, Kamar $kamar)
@@ -163,7 +163,7 @@ class PaymentController extends Controller
         ]);
         // User::where('id', 1)->update(['pendapatan' => $admin]);
         // return response()->json(['message' => 'Data berhasil diproses']);
-        return redirect()->route('user.kamarkami');
+        return redirect()->route('user.kamarkami')->with('success', 'Pembayaran Berhasil Di Proses');
     }
 
     public function prosesLagi(Request $request, Kamar $kamar)
@@ -224,6 +224,6 @@ class PaymentController extends Controller
         ]);
         // User::where('id', 1)->update(['pendapatan' => $admin]);
         // return response()->json(['message' => 'Data berhasil diproses']);
-        return redirect()->route('user.kamarkami');
+        return redirect()->route('user.kamarkami')->with('success', 'Pembayaran Berhasil Di Proses');
     }
 }
