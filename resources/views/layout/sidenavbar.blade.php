@@ -80,15 +80,30 @@
                                                     role="menuitem"><i class="fa-solid fa-gear me-3"></i>Pengaturan</a>
                                             </li>
                                             <li>
-                                                <form method="POST" action="{{ route('logout') }}">
+                                                <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                                     @csrf
-                                                    <a :href="route('logout')"
-                                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-                                                        role="menuitem"
-                                                        onclick="event.preventDefault(); this.closest('form').submit();">
+                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                                                        role="menuitem" onclick="event.preventDefault(); showLogoutAlert();">
                                                         <i class="fa-solid fa-arrow-right-from-bracket me-3"></i>Keluar
                                                     </a>
                                                 </form>
+
+                                                <script>
+                                                function showLogoutAlert() {
+                                                    Swal.fire({
+                                                        title: 'Konfirmasi',
+                                                        text: 'Anda yakin ingin keluar?',
+                                                        icon: 'warning',
+                                                        showCancelButton: true,
+                                                        confirmButtonText: 'Ya, Keluar',
+                                                        cancelButtonText: 'Batal',
+                                                    }).then((result) => {
+                                                        if (result.isConfirmed) {
+                                                            document.getElementById('logout-form').submit();
+                                                        }
+                                                    });
+                                                }
+                                                </script>
                                             </li>
                                         </ul>
                                     </div>

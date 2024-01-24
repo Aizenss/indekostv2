@@ -66,7 +66,7 @@
                                         class="my-auto">
                                         @csrf
                                         @method('patch')
-                                        <button type="submit" class="text-green-600 self-center">Terima</button>
+                                        <button type="button" onclick="showRejectionReason()" class="text-green-600 self-center">Terima</button>
                                     </form>
                                 @else
                                     -
@@ -84,6 +84,31 @@
                                         @method('patch')
                                         <button type="submit" class="text-green-600 self-center">Terima</button>
                                     </form>
+                                    <script>
+                                        function showRejectionReason() {
+                                            Swal.fire({
+                                                title: 'Alasan Penolakan',
+                                                html: '<label for="rejection_reason">Masukkan alasan penolakan:</label>' +
+                                                      '<textarea id="rejection_reason" name="rejection_reason" class="swal2-textarea" rows="" maxlength="255" minlength="3"></textarea>',
+                                                icon: 'warning',
+                                                showCancelButton: true,
+                                                confirmButtonText: 'Tolak',
+                                                cancelButtonText: 'Batal',
+                                                preConfirm: () => {
+                                                    const rejectionReason = document.getElementById('rejection_reason').value;
+                                                    if (!rejectionReason) {
+                                                        Swal.showValidationMessage('Alasan penolakan harus diisi');
+                                                    }
+                                                    return rejectionReason;
+                                                }
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    // Alasan penolakan yang dimasukkan tersedia di result.value
+                                                    document.getElementById('reject-form').submit();
+                                                }
+                                            });
+                                        }
+                                        </script>
                                 @else
                                     -
                                 @endif

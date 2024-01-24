@@ -87,18 +87,43 @@
                                                 </svg>
                                             </button>
                                         </form>
-                                        <form action="{{ route('admin.approvaladmin.tolak', $kost) }}" method="POST" >
+                                        <form id="reject-form" action="{{ route('admin.approvaladmin.tolak', $kost) }}" method="POST">
                                             @csrf
                                             @method('patch')
-                                            <button type="submit"
-                                                class="mt-4 text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-md text-sm px-3 py-1.5">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                                                    viewBox="0 0 24 24">
-                                                    <path fill="currentColor"
-                                                        d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12z" />
+                                            <button type="button"
+                                                class="mt-4 text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-md text-sm px-3 py-1.5"
+                                                onclick="showRejectionReason()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                                    <path fill="currentColor" d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12z" />
                                                 </svg>
                                             </button>
                                         </form>
+
+                                        <script>
+                                        function showRejectionReason() {
+                                            Swal.fire({
+                                                title: 'Alasan Penolakan',
+                                                html: '<label for="rejection_reason">Masukkan alasan penolakan:</label>' +
+                                                      '<textarea id="rejection_reason" name="rejection_reason" class="swal2-textarea" rows="" maxlength="255" minlength="3"></textarea>',
+                                                icon: 'warning',
+                                                showCancelButton: true,
+                                                confirmButtonText: 'Tolak',
+                                                cancelButtonText: 'Batal',
+                                                preConfirm: () => {
+                                                    const rejectionReason = document.getElementById('rejection_reason').value;
+                                                    if (!rejectionReason) {
+                                                        Swal.showValidationMessage('Alasan penolakan harus diisi');
+                                                    }
+                                                    return rejectionReason;
+                                                }
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    // Alasan penolakan yang dimasukkan tersedia di result.value
+                                                    document.getElementById('reject-form').submit();
+                                                }
+                                            });
+                                        }
+                                        </script>
                                     @endif
                                 </div>
                             </td>
