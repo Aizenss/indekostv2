@@ -2,9 +2,9 @@
 @extends('layout.sidebar')
 
 @section('isi')
-    <div class="py-20 px-10 sm:ml-64">
-        <div class=" mx-auto bg-white p-8 mb-6 rounded-md shadow-md">
-            <span class="font-semibold text-2xl text-gray-900">rubah kamar</span>
+    <div class="sm:ml-64">
+        <div class=" mx-5 my-10 border border-gray-100 bg-white p-8 mb-6 rounded-md shadow-lg">
+            <span class="font-semibold text-2xl text-gray-900">Ubah kamar</span>
             <form action="{{ route('owner.kamar.update', ['kamar' => $kamar->id, 'kos' => $kos->id]) }}" method="post"
                 enctype="multipart/form-data" class="space-y-6">
                 @method('put')
@@ -18,6 +18,18 @@
                             <p class="text-red-500 text-sm">{{ $message }}</p>
                         @enderror
                     </div>
+                    <div>
+                        <label for="harga" class="text-lg font-semibold text-gray-800">Kapasitas</label>
+                        <input type="number" name="kapasitas" id="harga" value="{{ $kamar->kapasitas }}"
+                            class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
+                            autocomplete="off">
+                        @error('kapasitas')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                </div>
+                <div class="grid grid-cols-2 gap-4 items-center">
                     <div>
                         <style>
                             .sc-sm::-webkit-scrollbar {
@@ -45,30 +57,14 @@
                             <p class="text-red-500 text-sm">{{ $message }}</p>
                         @enderror
                     </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 items-center">
                     <div>
                         <label for="harga" class="text-lg font-semibold text-gray-800">harga</label>
                         <input type="number" name="harga" id="harga" value="{{ $kamar->harga }}"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">
                         @error('harga')
-                            <p class="text-red-500 text-sm">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="harga" class="text-lg font-semibold text-gray-800">Kapasitas</label>
-                        <input type="number" name="kapasitas" id="harga" value="{{ $kamar->kapasitas }}"
-                            class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
-                            autocomplete="off">
-                        @error('kapasitas')
-                            <p class="text-red-500 text-sm">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="harga" class="text-lg font-semibold text-gray-800">Peraturan kamar</label>
-                        <textarea name="peraturan_kamar" id="harga"
-                            class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
-                            autocomplete="off">{{ $kamar->peraturan_kamar }}</textarea>
-                        @error('peraturan_kamar')
                             <p class="text-red-500 text-sm">{{ $message }}</p>
                         @enderror
                     </div>
@@ -88,14 +84,25 @@
                             <p class="text-red-500 text-sm">{{ $message }}</p>
                         @enderror
                     </div>
+                </div>
+                <div class="grid-cols-3 gap-4 items-center">
                     <div>
-                        <label for="tambahin" class="text-lg font-semibold text-gray-800">Foto Kamar</label>
-                        <div class="flex items-center gap-3">
-                            <button type="button" id="tambahin"
-                                class="transition duration-300 ease-in-out bg-blue-500 hover:bg-blue-600 text-white px-6 py-1.5 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                                onclick="addField()">+</button>
-                            <p class="text-gray-500 text-sm">Tambahkan foto kamar sesuai kebutuhan.</p>
-                        </div>
+                        <label for="harga" class="text-lg font-semibold text-gray-800">Peraturan kamar</label>
+                        <textarea name="peraturan_kamar" id="harga"
+                            class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
+                            autocomplete="off">{{ $kamar->peraturan_kamar }}</textarea>
+                        @error('peraturan_kamar')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+                <div>
+                    <label for="tambahin" class="text-lg font-semibold text-gray-800">Foto Kamar</label>
+                    <div class="flex items-center gap-3">
+                        <button type="button" id="tambahin"
+                            class="transition duration-300 ease-in-out bg-blue-500 hover:bg-blue-600 text-white px-6 py-1.5 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                            onclick="addField()">+</button>
+                        <p class="text-gray-500 text-sm">Tambahkan foto kamar sesuai kebutuhan.</p>
                     </div>
                 </div>
                 <div>
@@ -113,7 +120,7 @@
     </div>
 
     <script>
-        const fields = []; 
+        const fields = [];
 
         function addField() {
             const newField = document.createElement("input");

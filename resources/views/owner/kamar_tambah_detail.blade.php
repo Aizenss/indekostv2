@@ -10,13 +10,25 @@
                 @csrf
                 <div class="grid grid-cols-2 gap-4 items-center">
                     <div>
-                        <label for="nomor_kamar" class="text-lg font-semibold text-gray-800">Nama Kamar</label>
-                        <input type="text" name="nama_kamar" id="nomor_kamar"
+                        <label for="nama_kamar" class="text-lg font-semibold text-gray-800">Nama Kamar</label>
+                        <input type="text" name="nama_kamar" id="nama_kamar" value=""
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none">
                         @error('nama_kamar')
                             <p class="text-red-500 text-sm">{{ $message }}</p>
                         @enderror
                     </div>
+                    <div>
+                        <label for="harga" class="text-lg font-semibold text-gray-800">Kapasitas</label>
+                        <input type="number" name="kapasitas" id="harga" value=""
+                            class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
+                            autocomplete="off">
+                        @error('kapasitas')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                </div>
+                <div class="grid grid-cols-2 gap-4 items-center">
                     <div>
                         <style>
                             .sc-sm::-webkit-scrollbar {
@@ -37,37 +49,21 @@
                     </div>
                     <div>
                         <label for="kamar_mandi" class="text-lg font-semibold text-gray-800">Info Kamar Mandi</label>
-                        <input type="text" name="kamar_mandi" id="kamar_mandi"
+                        <input type="text" name="kamar_mandi" id="kamar_mandi" value=""
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">
                         @error('kamar_mandi')
                             <p class="text-red-500 text-sm">{{ $message }}</p>
                         @enderror
                     </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 items-center">
                     <div>
                         <label for="harga" class="text-lg font-semibold text-gray-800">harga</label>
-                        <input type="number" name="harga" id="harga"
+                        <input type="number" name="harga" id="harga" value=""
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">
                         @error('harga')
-                            <p class="text-red-500 text-sm">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="harga" class="text-lg font-semibold text-gray-800">Kapasitas</label>
-                        <input type="number" name="kapasitas" id="harga"
-                            class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
-                            autocomplete="off">
-                        @error('kapasitas')
-                            <p class="text-red-500 text-sm">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="harga" class="text-lg font-semibold text-gray-800">Peraturan kamar</label>
-                        <textarea name="peraturan_kamar" id="harga"
-                            class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
-                            autocomplete="off"></textarea>
-                        @error('peraturan_kamar')
                             <p class="text-red-500 text-sm">{{ $message }}</p>
                         @enderror
                     </div>
@@ -76,7 +72,7 @@
                         <select name="night" id="month"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">
-                            <option disabled selected> Pilih bulan</option>
+                            <option selected disabled>pilih selama berapa Bulan</option>
                             <script>
                                 for (var i = 1; i <= 12; i++) {
                                     document.write('<option value="' + i + '">' + i + 'Bulan' + '</option>');
@@ -87,28 +83,36 @@
                             <p class="text-red-500 text-sm">{{ $message }}</p>
                         @enderror
                     </div>
+                </div>
+                <div class="grid-cols-3 gap-4 items-center">
                     <div>
-                        <label for="tambahin" class="text-lg font-semibold text-gray-800">Foto Kamar</label>
-                        <div class="flex items-center gap-3">
-                            <button type="button" id="tambahin"
-                                class="transition duration-300 ease-in-out bg-blue-500 hover:bg-blue-600 text-white px-6 py-1.5 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                                onclick="addField()">+</button>
-                            <p class="text-gray-500 text-sm">Tambahkan foto kamar sesuai kebutuhan.</p>
-                        </div>
+                        <label for="harga" class="text-lg font-semibold text-gray-800">Peraturan kamar</label>
+                        <textarea name="peraturan_kamar" id="harga"
+                            class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
+                            autocomplete="off"></textarea>
+                        @error('peraturan_kamar')
+                            <p class="text-red-500 text-sm">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+                <div>
+                    <label for="tambahin" class="text-lg font-semibold text-gray-800">Foto Kamar</label>
+                    <div class="flex items-center gap-3">
+                        <button type="button" id="tambahin"
+                            class="transition duration-300 ease-in-out bg-blue-500 hover:bg-blue-600 text-white px-6 py-1.5 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                            onclick="addField()">+</button>
+                        <p class="text-gray-500 text-sm">Tambahkan foto kamar sesuai kebutuhan.</p>
                     </div>
                 </div>
                 <div>
                     <div id="fotoContainer" class="container mt-4 space-y-4">
                         <input type="file" name="foto_kamar[]"
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50">
-                        @error('foto_kamar[]')
-                            <p class="text-red-500 text-sm">{{ $message }}</p>
-                        @enderror
                     </div>
                 </div>
                 <button type="submit"
                     class="w-full bg-blue-500 text-white p-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out">
-                    Tambah Kamar
+                    ubah
                 </button>
             </form>
         </div>
