@@ -120,6 +120,7 @@
                         </tr>
                         <td></td>
                         <td></td>
+                        <td></td>
                         <td><img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="size-52" alt=""></td>
                         </tr>
                     @endforelse

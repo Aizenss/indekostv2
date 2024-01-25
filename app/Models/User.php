@@ -59,4 +59,9 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
     {
         return $this->hasMany(kos::class, 'owner_id');
     }
+
+    public function notifikasi()
+    {
+        return $this->hasMany(Notifikasi::class);
+    }
 }

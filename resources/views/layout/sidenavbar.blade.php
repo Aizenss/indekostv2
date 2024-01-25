@@ -43,16 +43,14 @@
                                     id="massage-dropdown">
                                     <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>
                                     <div class="flex flex-col gap-3 px-4 py-3">
-                                        {{-- nggen foreachmu lek ojo salah nggen --}}
+                                        @foreach (Auth::user()->notifikasi()->orderBy('created_at', 'desc')->get() as $notif)
+                                        {{-- @dd($notif->pesan_user) --}}
                                         <div class="flex items-start gap-2.5">
                                             <div class="flex flex-col w-full max-w-[250px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl">
-                                                <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                                                    <span class="text-sm font-semibold text-gray-900">Nama Owner/User</span>
-                                                </div>
-                                                <p class="text-sm font-normal py-2.5 text-gray-900">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci odio sequi numquam laudantium quos. Officiis saepe ab enim ex provident.</p>
+                                                <p class="text-sm font-normal py-2.5 text-gray-900">{{ $loop->iteration }}.{{ $notif->pesan_user }}</p>
                                             </div>
                                         </div>
-                                        {{-- iki tutupe foreach --}}
+                                        @endforeach
                                     </div>
                                 </div>
                             </li>
