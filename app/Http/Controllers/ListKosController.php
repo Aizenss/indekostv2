@@ -29,49 +29,49 @@ class ListKosController extends Controller
                 $query->whereHas('ulasan', function ($subQuery) {
                     $subQuery->where('rating', 5);
                 })
-                ->withCount(['ulasan as jumlah_ulasan_rating_5' => function ($subQuery) {
-                    $subQuery->where('rating', 5);
-                }])
-                ->orderByDesc('jumlah_ulasan_rating_5');
+                    ->withCount(['ulasan as jumlah_ulasan_rating_5' => function ($subQuery) {
+                        $subQuery->where('rating', 5);
+                    }])
+                    ->orderByDesc('jumlah_ulasan_rating_5');
             })
             ->when($rating == '4', function ($query) {
                 $query->whereHas('ulasan', function ($subQuery) {
                     $subQuery->where('rating', 4);
                 })
-                ->withCount(['ulasan as jumlah_ulasan_rating_4' => function ($subQuery) {
-                    $subQuery->where('rating', 4);
-                }])
-                ->orderByDesc('jumlah_ulasan_rating_4');
+                    ->withCount(['ulasan as jumlah_ulasan_rating_4' => function ($subQuery) {
+                        $subQuery->where('rating', 4);
+                    }])
+                    ->orderByDesc('jumlah_ulasan_rating_4');
             })
             ->when($rating == '3', function ($query) {
                 $query->whereHas('ulasan', function ($subQuery) {
                     $subQuery->where('rating', 3);
                 })
-                ->withCount(['ulasan as jumlah_ulasan_rating_3' => function ($subQuery) {
-                    $subQuery->where('rating', 3);
-                }])
-                ->orderByDesc('jumlah_ulasan_rating_3');
+                    ->withCount(['ulasan as jumlah_ulasan_rating_3' => function ($subQuery) {
+                        $subQuery->where('rating', 3);
+                    }])
+                    ->orderByDesc('jumlah_ulasan_rating_3');
             })
             ->paginate(6);
         return view('user.listkost', compact('kost', 'keyword', 'dibuat', 'ketentuan', 'rating'));
     }
 
-    public function landing() {
+    public function landing()
+    {
         $kost = Kos::all()->take(6);
-    if(Auth::check()) {
-        if(Auth::user()->role == 'user') {
-            // Pengguna memiliki peran 'user'
-            $kost = Kos::all()->take(6);
-            return redirect('/', compact('kost'));
-        } elseif(Auth::user()->role == 'owner') {
-            // Pengguna memiliki peran 'owner'
-            return redirect('/dashboard/owner');
-        } elseif(Auth::user()->role == 'admin') {
-            return redirect('/dashboard/admin');
+        if (Auth::check()) {
+            if (Auth::user()->role == 'user') {
+                // Pengguna memiliki peran 'user'
+                $kost = Kos::all()->take(6);
+                return view('welcome', compact('kost'));
+            } elseif (Auth::user()->role == 'owner') {
+                // Pengguna memiliki peran 'owner'
+                return redirect('/dashboard/owner');
+            } elseif (Auth::user()->role == 'admin') {
+                return redirect('/dashboard/admin');
+            }
+        } else {
+            return view('welcome', compact('kost'));
         }
-    } else {
-        return view('welcome', compact('kost'));
     }
-}
-
 }
