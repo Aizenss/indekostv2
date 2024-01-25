@@ -66,7 +66,7 @@
                                         class="my-auto">
                                         @csrf
                                         @method('patch')
-                                        <button type="button" onclick="showRejectionReason()" class="text-green-600 self-center">Terima</button>
+                                        <button type="submit" class="text-green-600 self-center">Terima</button>
                                     </form>
                                 @else
                                     -
@@ -110,7 +110,6 @@
                                         }
                                         </script>
                                 @else
-                                    -
                                 @endif
                             </td>
                         </tr>

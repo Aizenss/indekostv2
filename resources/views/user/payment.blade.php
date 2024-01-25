@@ -28,13 +28,19 @@
                                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $kamar->status }}</td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                                     Rp.{{ number_format($kamar->harga, 0, ',', '.') }}</td>
-                                <td class="px-6 py-4">
+                                <td class="px-6 py-4 flex gap-2">
                                     @if ($kamar->status == 'terima')
+                                    <form action="">
                                         <button class="pay-button bg-blue-500 text-white px-4 py-2"
                                             data-token="{{ $kamar->snap_token }}"
                                             data-kamar-id="{{ $kamar->id }}">Bayar</button>
-                                        <button class="cancel-button bg-red-500 text-white px-4 py-2"
-                                            data-kamar-id="{{ $kamar->id }}">Batalkan Pembayaran</button>
+                                    </form>
+                                        <form action="{{ route('payment.batal', $kamar) }}" method="post">
+                                            @method('PUT')
+                                            @csrf
+                                            <button class="cancel-button bg-red-500 text-white px-4 py-2"
+                                                data-kamar-id="{{ $kamar->id }}">Batalkan Pembayaran</button>
+                                        </form>
                                     @else
                                         <span class="text-gray-500">-</span>
                                     @endif
@@ -65,29 +71,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($kamars as $kamar)
-                        @if ($kamar->status == 'diterima')
-                            <tr class="{{ $kamar->status == 'diterima' ? 'bg-white border-b hover:bg-gray-50' : '' }}">
-                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $loop->iteration }}
-                                </td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $kamar->nama_kamar }}
-                                </td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $kamar->status }}</td>
-                                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                    Rp.{{ number_format($kamar->harga, 0, ',', '.') }}</td>
-                                <td class="px-6 py-4">
-                                    @if ($kamar->status == 'diterima')
-                                        <button class="pay-button2 bg-blue-500 text-white px-4 py-2"
-                                            data-token="{{ $kamar->snap_token }}"
-                                            data-kamar-id="{{ $kamar->id }}">Bayar</button>
-                                        <button class="cancel-button bg-red-500 text-white px-4 py-2"
-                                            data-kamar-id="{{ $kamar->id }}">Batalkan Pembayaran</button>
-                                    @else
-                                        <span class="text-gray-500">-</span>
-                                    @endif
-                                </td>
-                            </tr>
-                        @endif
+                    @forelse ($kamarslagi as $kamar)
+                        <tr class="{{ $kamar->status == 'diterima' ? 'bg-white border-b hover:bg-gray-50' : '' }}">
+                            <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $loop->iteration }}
+                            </td>
+                            <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $kamar->nama_kamar }}
+                            </td>
+                            <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $kamar->status }}</td>
+                            <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                Rp.{{ number_format($kamar->harga, 0, ',', '.') }}</td>
+                            <td class="px-6 py-4">
+                                @if ($kamar->status == 'diterima')
+                                    <button class="pay-button2 bg-blue-500 text-white px-4 py-2"
+                                        data-token="{{ $kamar->snap_token }}"
+                                        data-kamar-id="{{ $kamar->id }}">Bayar</button>
+                                    <button class="cancel-button bg-red-500 text-white px-4 py-2"
+                                        data-kamar-id="{{ $kamar->id }}">Batalkan Pembayaran</button>
+                                @else
+                                    <span class="text-gray-500">-</span>
+                                @endif
+                            </td>
+                        </tr>
                     @empty
                         <tr>
                             <td colspan="7" class="px-6 py-4 text-center font-semibold text-gray-900">

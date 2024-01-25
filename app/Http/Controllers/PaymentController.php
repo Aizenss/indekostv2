@@ -21,8 +21,14 @@ class PaymentController extends Controller
 
     public function index()
     {
-        $kamars = Kamar::where('user_id', Auth::user()->id)->get();
-        return view('user.payment', compact('kamars'));
+        $kamars = Kamar::where('user_id', Auth::user()->id)
+            ->where('status', 'terima')
+            ->get();
+
+        $kamarslagi = Kamar::where('user_id', Auth::user()->id)
+            ->where('status', 'diterima')
+            ->get();
+        return view('user.payment', compact('kamars', 'kamarslagi'));
     }
     //
     public function pay(Request $request, Kos $kos, Kamar $kamar)
