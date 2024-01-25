@@ -58,12 +58,20 @@ class ListKosController extends Controller
 
     public function landing() {
         $kost = Kos::all()->take(6);
-        if(Auth::user()->role == 'user'){
-            return view('welcome', compact('kost'));
-        }elseif(Auth::user()->role == 'owner'){
-            return view('owner.dashboard');
-        }else{
-            return view('admin.Dashboardadmin'); 
-        };
+    if(Auth::check()) {
+        if(Auth::user()->role == 'user') {
+            // Pengguna memiliki peran 'user'
+            $kost = Kos::all()->take(6);
+            return redirect('/', compact('kost'));
+        } elseif(Auth::user()->role == 'owner') {
+            // Pengguna memiliki peran 'owner'
+            return redirect('/dashboard/owner');
+        } elseif(Auth::user()->role == 'admin') {
+            return redirect('/dashboard/admin');
+        }
+    } else {
+        return view('welcome', compact('kost'));
     }
+}
+
 }
