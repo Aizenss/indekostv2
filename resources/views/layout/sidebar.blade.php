@@ -20,33 +20,55 @@
             </div>
             <div class="flex items-center ms-3">
                 @if (Auth::user()->role == 'owner')
-                <div class="flex gap-4">
-                    <div class="notif">
-                        <button type="button" class="flex text-sm rounded-full md:me-0" id="massage"
-                            aria-expanded="false" data-dropdown-toggle="massage-dropdown"
-                            data-dropdown-placement="bottom">
-                            <i class="fa-solid fa-bell text-2xl text-gray-900 hover:text-gray-700 duration-200"></i>
-                            <div
-                                class="inline-flex items-center justify-center w-2 h-2 -mb-[10px] -ms-2 border border-white rounded-full bg-red-500">
-                            </div>
-                        </button>
-                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3 w-[300px]"
-                            id="massage-dropdown">
-                            <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>
-                            <div class="flex flex-col gap-3 px-4 py-3">
-                                {{-- nggen foreachmu lek ojo salah nggen --}}
-                                <div class="flex items-start gap-2.5">
+                    <div class="flex gap-4">
+                        <div class="notif">
+                            <button type="button" class="flex text-sm rounded-full md:me-0" id="massage"
+                                aria-expanded="false" data-dropdown-toggle="massage-dropdown"
+                                data-dropdown-placement="bottom">
+                                <i class="fa-solid fa-bell text-2xl text-gray-900 hover:text-gray-700 duration-200"></i>
+                                @foreach (Auth::user()->notifikasi()->where('is_indicator', true)->orderBy('created_at', 'desc')->get() as $notif)
                                     <div
-                                        class="flex flex-col max-w-[250px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl">
-                                        <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                                        </div>
-                                        <p class="text-sm font-normal py-2.5 text-gray-900">Lorem ipsum</p>
+                                        class="inline-flex items-center justify-center w-2 h-2 -mb-[10px] -ms-2 border border-white rounded-full bg-red-500">
                                     </div>
+                                    @php
+                                        $notif->is_indicator = false;
+                                        $notif->save();
+                                    @endphp
+                                @endforeach
+                            </button>
+                            <div class="z-50 hidden my-4 text-base w-80 list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3"
+                                id="massage-dropdown">
+                                <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>
+                                <div class="flex flex-col gap-3 px-4 py-3">
+                                    {{-- nggen foreachmu lek ojo salah nggen --}}
+                                    @foreach (Auth::user()->notifikasi()->orderBy('created_at', 'desc')->get() as $notif)
+                                        <div
+                                            class="flex items-center p-2 transition duration-150 ease-in-out rounded-lg hover:bg-gray-200">
+                                            <div class="">
+                                                <div class="text-sm font-medium text-gray-900">{{ $notif->user->name }}
+                                                </div>
+                                                <div class="text-sm text-gray-700">{{ $notif->pesan_owner }}</div>
+                                                <div class="text-xs text-gray-500">
+                                                    {{ $notif->created_at->diffForHumans() }}</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    @endforeach
+                                    {{-- iki tutupe foreach --}}
                                 </div>
-                                {{-- iki tutupe foreach --}}
                             </div>
                         </div>
+                        <div>
+                            <button type="button"
+                                class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 "
+                                aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                                <span class="sr-only">Open user menu</span>
+                                <img class="w-8 h-8 rounded-full" src="{{ asset('profiles/' . Auth::user()->foto) }}"
+                                    alt="user photo">
+                            </button>
+                        </div>
                     </div>
+                @else
                     <div>
                         <button type="button"
                             class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 "
@@ -56,17 +78,6 @@
                                 alt="user photo">
                         </button>
                     </div>
-                </div>
-                @else
-                <div>
-                    <button type="button"
-                        class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 "
-                        aria-expanded="false" data-dropdown-toggle="dropdown-user">
-                        <span class="sr-only">Open user menu</span>
-                        <img class="w-8 h-8 rounded-full" src="{{ asset('profiles/' . Auth::user()->foto) }}"
-                            alt="user photo">
-                    </button>
-                </div>
                 @endif
                 <div class="z-50 hidden my-4 text-base list-none bg-gray-50 divide-y divide-gray-100 rounded shadow"
                     id="dropdown-user">
@@ -87,27 +98,28 @@
                         <li>
                             <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                                <a href="#"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                                     role="menuitem" onclick="event.preventDefault(); showLogoutAlert();">
                                     <i class="fa-solid fa-arrow-right-from-bracket me-3"></i>Keluar
                                 </a>
                             </form>
 
                             <script>
-                            function showLogoutAlert() {
-                                Swal.fire({
-                                    title: 'Konfirmasi',
-                                    text: 'Anda yakin ingin keluar?',
-                                    icon: 'warning',
-                                    showCancelButton: true,
-                                    confirmButtonText: 'Ya, Keluar',
-                                    cancelButtonText: 'Batal',
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        document.getElementById('logout-form').submit();
-                                    }
-                                });
-                            }
+                                function showLogoutAlert() {
+                                    Swal.fire({
+                                        title: 'Konfirmasi',
+                                        text: 'Anda yakin ingin keluar?',
+                                        icon: 'warning',
+                                        showCancelButton: true,
+                                        confirmButtonText: 'Ya, Keluar',
+                                        cancelButtonText: 'Batal',
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            document.getElementById('logout-form').submit();
+                                        }
+                                    });
+                                }
                             </script>
                         </li>
                     </ul>

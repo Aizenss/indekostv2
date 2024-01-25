@@ -31,10 +31,9 @@
                                 <td class="px-6 py-4 flex gap-2">
                                     @if ($kamar->status == 'terima')
                                     <div>
-                                        <button class="pay-button bg-blue-500 text-white px-4 py-2"
+                                        <button class="pay-button bg-blue-500 text-white px-4 py-2" 
                                             data-token="{{ $kamar->snap_token }}"
                                             data-kamar-id="{{ $kamar->id }}">Bayar</button>
-
                                     </div>
                                         <form action="{{ route('payment.batal', $kamar) }}" method="post">
                                             @method('PUT')

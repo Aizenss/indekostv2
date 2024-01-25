@@ -36,16 +36,22 @@
                                     data-dropdown-placement="bottom">
                                     <i class="fa-solid fa-bell text-2xl text-gray-900 hover:text-gray-700 duration-200"></i>
                                     {{-- iki indikator lak enek pesan anyar --}}
-                                    <div
-                                        class="inline-flex items-center justify-center w-2 h-2 -mb-[10px] -ms-2 border border-white rounded-full bg-red-500">
-                                    </div>
+                                    @foreach (Auth::user()->notifikasi()->where('is_indicator', true)->orderBy('created_at', 'desc')->get() as $notif)
+                                        <div
+                                            class="inline-flex items-center justify-center w-2 h-2 -mb-[10px] -ms-2 border border-white rounded-full bg-red-500">
+                                        </div>
+                                        @php
+                                            $notif->is_indicator = false;
+                                            $notif->save();
+                                        @endphp
+                                    @endforeach
                                     {{-- oke wo --}}
                                 </button>
-                                <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3"
+                                <div class="z-50 hidden my-4 text-base w-80 list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3"
                                     id="massage-dropdown">
                                     <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>
                                     <div class="flex flex-col gap-3 px-4 py-3">
-                                        @foreach (Auth::user()->notifikasi()->orderBy('created_at', 'desc')->take(5)->get() as $notif)
+                                        @foreach (Auth::user()->notifikasi()->orderBy('created_at', 'desc')->get() as $notif)
                                             <div
                                                 class="flex items-center p-2 transition duration-150 ease-in-out rounded-lg hover:bg-gray-200">
                                                 <div class="">
@@ -56,6 +62,7 @@
                                                         {{ $notif->created_at->diffForHumans() }}</div>
                                                 </div>
                                             </div>
+                                            <hr>
                                         @endforeach
                                     </div>
                                 </div>
