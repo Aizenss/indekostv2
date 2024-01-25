@@ -62,22 +62,17 @@ Route::middleware(['auth', 'role:admin', 'verified'])->group(function () {
 
 Route::middleware(['auth', 'role:user', 'verified'])->group(function () {
     Route::get('/list-kos', [ListKosController::class, 'index'])->name('user.kamarkami');
-
     Route::get('/detail-kost/{kos}', [DetailKostController::class, 'index'])->name('user.detailkost');
     Route::post('/detail-kost/{kos}/payment{kamar}', [PaymentController::class, 'pay'])->name('user.detailkost.payment');
-
     Route::post('/buat/ulasan', [UlasanController::class, 'buat'])->name('ratting.buat');
-
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
     Route::post('/payment/proses-data/{kamar}', [PaymentController::class, 'proses'])->name('payment.proses');
     Route::put('/payment/batalkan/{kamar}', [PaymentController::class, 'batal'])->name('payment.batal');
     Route::get('/semuarating{kos}',[SemuaRatingControoller::class, 'index'])->name('semuarating');
-
     route::get('/history', [HistoryController::class, 'index'])->name('history');
     route::get('/history/{kamar}', [HistoryController::class, 'show'])->name('history.detail');
     route::post('/history/{kamar}/ajukanLagi', [PaymentController::class, 'payAgain'])->name('history.detail.pay');
     route::post('/history/{kamar}/proses', [PaymentController::class, 'prosesLagi'])->name('history.detail.proses');
-
 });
 
 Route::middleware(['auth', 'role:owner', 'verified'])->group(function () {

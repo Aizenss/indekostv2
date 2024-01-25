@@ -124,7 +124,6 @@
                         /* You may add your own implementation here */
                         alert("Payment success!");
                         console.log(result);
-
                         // Contoh menggunakan jQuery
                         $.ajax({
                             type: 'POST',

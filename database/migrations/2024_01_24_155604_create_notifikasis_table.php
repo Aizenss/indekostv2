@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('notifikasis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('kamar_id')->constrained('kamar')->cascadeOnDelete();
-            $table->string('pesan');
+            $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('owner_id')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('kamar_id')->nullable()->constrained('kamar')->cascadeOnDelete();
+            $table->string('pesan_user');
+            $table->string('pesan_owner');
             $table->timestamps();
         });
     }

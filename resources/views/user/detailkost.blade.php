@@ -4,7 +4,7 @@
 
 @section('css')
     <style>
-        .scsm::-webkit-scrollbar{
+        .scsm::-webkit-scrollbar {
             width: 10px;
             color: black;
         }
@@ -14,9 +14,14 @@
                     transition-duration: 300ms;
                 }
 
-                .fa-star:hover {
-                    transform: scale(1.1);
-                }
+        .scsm::scr .rating .fa-star {
+            color: rgb(218, 218, 4);
+            cursor: pointer;
+        }
+
+        .fa-star:hover {
+            transform: scale(1.1);
+        }
     </style>
 @endsection
 
@@ -38,16 +43,17 @@
                             class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                             alt="">
                     </div>
-                    @foreach (json_decode($kos->foto_tambahan) as $item)
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <div>
-                                <img src="{{ asset('kosts/' . $item) }}"
-                                    class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                    alt="Additional Photo">
+                    @if (!empty(json_decode($kos->foto_tambahan)))
+                        @foreach (json_decode($kos->foto_tambahan) as $item)
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <div>
+                                    <img src="{{ asset('kosts/' . $item) }}"
+                                        class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                        alt="Additional Photo">
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
-
+                        @endforeach
+                    @endif
                 </div>
             </div>
 

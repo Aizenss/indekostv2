@@ -9,6 +9,7 @@ use App\Models\Kos;
 use App\Models\User;
 use Midtrans\Config;
 use App\Models\Kamar;
+use App\Models\Notifikasi;
 use App\Models\Tracking;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
@@ -54,6 +55,14 @@ class PaymentController extends Controller
             'snap_token' => $snapToken
         ]);
 
+        Notifikasi::create([
+            'user_id' => $kamar->user_id,
+            'owner_id' => $kamar->kos->owner_id,
+            'kamar' => $kamar->id,
+            'pesan_user' => 'penyewaan anda sedang diproses',
+            'pesan_owner' => 'ada penyewaan kamar segera berikan tindakan'
+        ]);
+
         // $kamar->save();
         return redirect()->route('payment')->with('success', 'Silahkan lakukan pembayaran');
     }
@@ -87,6 +96,14 @@ class PaymentController extends Controller
             'snap_token' => $snapToken
         ]);
 
+        Notifikasi::create([
+            'user_id' => $kamar->user_id,
+            'owner_id' => $kamar->kos->owner_id,
+            'kamar' => $kamar->id,
+            'pesan_user' => 'penambahan waktu sedang diproses',
+            'pesan_owner' => 'ada pengajuan penambahan waktu kamar segera berikan tindakan'
+        ]);
+
         // $kamar->save();
         return redirect()->back()->with('success', 'Silahkan lakukan pembayaran');
     }
@@ -98,6 +115,15 @@ class PaymentController extends Controller
             'snap_token' => null,
             'status' => 'kosong',
         ]);
+
+        Notifikasi::create([
+            'user_id' => $kamar->user_id,
+            'owner_id' => $kamar->kos->owner_id,
+            'kamar' => $kamar->id,
+            'pesan_user' => 'penyewaan telah dibatalkan',
+            'pesan_owner' => 'sewa kamar telah dibatalkan oleh pembeli'
+        ]);
+
         return redirect()->back()->with('success', 'Pembayaran Berhasil Di Batalkan');
     }
 
@@ -108,6 +134,15 @@ class PaymentController extends Controller
             'snap_token' => null,
             'status' => $kamar->status,
         ]);
+
+        Notifikasi::create([
+            'user_id' => $kamar->user_id,
+            'owner_id' => $kamar->kos->owner_id,
+            'kamar' => $kamar->id,
+            'pesan_user' => 'penyewaan telah dibatalkan',
+            'pesan_owner' => 'sewa kamar telah dibatalkan oleh pembeli'
+        ]);
+
         return redirect()->back()->with('success', 'Pembayaran Berhasil Di Batalkan');
     }
 
@@ -161,6 +196,12 @@ class PaymentController extends Controller
             'checkin' =>  $startDate,
             'checkout' =>  $endDate
         ]);
+
+        // Notifikasi::create([
+        //     'user_id' => $kamar->kos->user_id,
+        //     'kamar' => $kamar->id,
+        //     'pesan_user' => 'Kamar diterima!'
+        // ]);
         // User::where('id', 1)->update(['pendapatan' => $admin]);
         // return response()->json(['message' => 'Data berhasil diproses']);
         return redirect()->route('user.kamarkami')->with('success', 'Pembayaran Berhasil Di Proses');
@@ -222,6 +263,11 @@ class PaymentController extends Controller
             'checkin' => $startDate,
             'checkout' => $endDate
         ]);
+        // Notifikasi::create([
+        //     'user_id' => $kamar->kos->user_id,
+        //     'kamar' => $kamar->id,
+        //     'pesan_user' => 'Kamar diterima!'
+        // ]);
         // User::where('id', 1)->update(['pendapatan' => $admin]);
         // return response()->json(['message' => 'Data berhasil diproses']);
         return redirect()->route('user.kamarkami')->with('success', 'Pembayaran Berhasil Di Proses');
