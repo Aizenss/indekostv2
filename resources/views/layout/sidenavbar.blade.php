@@ -12,20 +12,20 @@
                         @if (Auth::user()->role == 'user')
                             <li>
                                 <a href="/"
-                                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">Beranda</a>
+                                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52]   md:p-0 {{ request()->is('/') ? 'underline underline-offset-4' : '' }}">Beranda</a>
                             </li>
                             <li>
                                 <a href="/list-kos"
-                                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">List
+                                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0 {{ request()->is('list-kos') ? 'underline underline-offset-4' : '' }} ">List
                                     Kost</a>
                             </li>
                             <li>
                                 <a href="/payment"
-                                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">Pembayaran</a>
+                                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0 {{ request()->is('payment') ? 'underline underline-offset-4' : '' }}">Pembayaran</a>
                             </li>
                             <li>
                                 <a href="/history"
-                                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">History</a>
+                                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0 {{ request()->is('history') ? 'underline underline-offset-4' : '' }}">History</a>
                             </li>
                             <li class="mx-2">
                                 |
@@ -138,7 +138,7 @@
                     @else
                         <li>
                             <a href="#home"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">Beranda</a>
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0 {{ request()->is('/') ? 'underline underline-offset-4' : '' }}">Beranda</a>
                         </li>
                         <li class="mx-2">
                             |
