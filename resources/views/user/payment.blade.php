@@ -30,11 +30,12 @@
                                     Rp.{{ number_format($kamar->harga, 0, ',', '.') }}</td>
                                 <td class="px-6 py-4 flex gap-2">
                                     @if ($kamar->status == 'terima')
-                                    <form action="">
+                                    <div>
                                         <button class="pay-button bg-blue-500 text-white px-4 py-2"
                                             data-token="{{ $kamar->snap_token }}"
                                             data-kamar-id="{{ $kamar->id }}">Bayar</button>
-                                    </form>
+
+                                    </div>
                                         <form action="{{ route('payment.batal', $kamar) }}" method="post">
                                             @method('PUT')
                                             @csrf
