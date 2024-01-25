@@ -38,7 +38,7 @@
                                     {{-- iki indikator lak enek pesan anyar --}}
                                     <div class="inline-flex items-center justify-center w-2 h-2 -mb-[10px] -ms-2 border border-white rounded-full bg-red-500"></div>
                                     {{-- oke wo --}}
-                                </button>
+                                 </button>
                                 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3"
                                     id="massage-dropdown">
                                     <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>

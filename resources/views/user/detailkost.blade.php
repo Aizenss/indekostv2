@@ -84,7 +84,18 @@
             <hr>
             <div class="flex flex-col gap-2 my-3 mx-3">
                 <div class="judul text-xl text-gray-900 font-semibold ">
-                    Fasilitas Umum
+                    Fasilitas Umum <button data-popover-target="popover-description" data-popover-placement="bottom-end" type="button"><i
+                        class="fa-solid fa-circle-info text-base text-gray-900"></i></button>
+                </div>
+                <div data-popover id="popover-description" role="tooltip"
+                    class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72">
+                    <div class="p-3">
+                        <p>Fasilitas ini bisa di geser ke bawah</p>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 9 4-4-4-4" />
+                        </svg></a>
+                    </div>
+                    <div data-popper-arrow></div>
                 </div>
                 <div class="grid grid-cols-4 gap-2 h-28 overflow-y-scroll scsm">
                     @forelse (json_decode($kos->fasilitas_umum) ??[] as $kost)
