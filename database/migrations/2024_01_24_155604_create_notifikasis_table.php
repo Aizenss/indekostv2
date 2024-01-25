@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete();
             $table->foreignId('owner_id')->nullable()->constrained('users')->cascadeOnDelete();
             $table->foreignId('kamar_id')->nullable()->constrained('kamar')->cascadeOnDelete();
-            $table->string('pesan_user');
-            $table->string('pesan_owner');
+            $table->string('pesan_user')->nullable();
+            $table->string('pesan_owner')->nullable();
             $table->timestamps();
         });
     }

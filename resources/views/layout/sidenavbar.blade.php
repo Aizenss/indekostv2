@@ -36,20 +36,26 @@
                                     data-dropdown-placement="bottom">
                                     <i class="fa-solid fa-bell text-2xl text-gray-900 hover:text-gray-700 duration-200"></i>
                                     {{-- iki indikator lak enek pesan anyar --}}
-                                    <div class="inline-flex items-center justify-center w-2 h-2 -mb-[10px] -ms-2 border border-white rounded-full bg-red-500"></div>
+                                    <div
+                                        class="inline-flex items-center justify-center w-2 h-2 -mb-[10px] -ms-2 border border-white rounded-full bg-red-500">
+                                    </div>
                                     {{-- oke wo --}}
-                                 </button>
+                                </button>
                                 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3"
                                     id="massage-dropdown">
                                     <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>
                                     <div class="flex flex-col gap-3 px-4 py-3">
-                                        @foreach (Auth::user()->notifikasi()->orderBy('created_at', 'desc')->get() as $notif)
-                                        {{-- @dd($notif->pesan_user) --}}
-                                        <div class="flex items-start gap-2.5">
-                                            <div class="flex flex-col w-full max-w-[250px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl">
-                                                <p class="text-sm font-normal py-2.5 text-gray-900">{{ $loop->iteration }}.{{ $notif->pesan_user }}</p>
+                                        @foreach (Auth::user()->notifikasi()->orderBy('created_at', 'desc')->take(5)->get() as $notif)
+                                            <div
+                                                class="flex items-center p-2 transition duration-150 ease-in-out rounded-lg hover:bg-gray-200">
+                                                <div class="">
+                                                    <div class="text-sm font-medium text-gray-900">{{ $notif->user->name }}
+                                                    </div>
+                                                    <div class="text-sm text-gray-700">{{ $notif->pesan_user }}</div>
+                                                    <div class="text-xs text-gray-500">
+                                                        {{ $notif->created_at->diffForHumans() }}</div>
+                                                </div>
                                             </div>
-                                        </div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -82,27 +88,29 @@
                                             <li>
                                                 <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                                     @csrf
-                                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
-                                                        role="menuitem" onclick="event.preventDefault(); showLogoutAlert();">
+                                                    <a href="#"
+                                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                                                        role="menuitem"
+                                                        onclick="event.preventDefault(); showLogoutAlert();">
                                                         <i class="fa-solid fa-arrow-right-from-bracket me-3"></i>Keluar
                                                     </a>
                                                 </form>
 
                                                 <script>
-                                                function showLogoutAlert() {
-                                                    Swal.fire({
-                                                        title: 'Konfirmasi',
-                                                        text: 'Anda yakin ingin keluar?',
-                                                        icon: 'warning',
-                                                        showCancelButton: true,
-                                                        confirmButtonText: 'Ya, Keluar',
-                                                        cancelButtonText: 'Batal',
-                                                    }).then((result) => {
-                                                        if (result.isConfirmed) {
-                                                            document.getElementById('logout-form').submit();
-                                                        }
-                                                    });
-                                                }
+                                                    function showLogoutAlert() {
+                                                        Swal.fire({
+                                                            title: 'Konfirmasi',
+                                                            text: 'Anda yakin ingin keluar?',
+                                                            icon: 'warning',
+                                                            showCancelButton: true,
+                                                            confirmButtonText: 'Ya, Keluar',
+                                                            cancelButtonText: 'Batal',
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                document.getElementById('logout-form').submit();
+                                                            }
+                                                        });
+                                                    }
                                                 </script>
                                             </li>
                                         </ul>
