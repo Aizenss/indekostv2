@@ -3,7 +3,7 @@
 @extends('layout.sidenavbar')
 
 @section('isi')
-    <div class="py-10 px-[140px] px-[20px] mt-20">
+    <div class="py-10 px-[140px] mt-20">
         @foreach ($ulasans as $ulasan)
             <div class="py-3 px-5 rounded-lg mb-5">
                 <div class="flex gap-4">

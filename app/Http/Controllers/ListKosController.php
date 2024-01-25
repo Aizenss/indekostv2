@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ListKosController extends Controller
 {
@@ -57,6 +58,12 @@ class ListKosController extends Controller
 
     public function landing() {
         $kost = Kos::all()->take(6);
-        return view('welcome', compact('kost'));
+        if(Auth::user()->role == 'user'){
+            return view('welcome', compact('kost'));
+        }elseif(Auth::user()->role == 'owner'){
+            return view('owner.dashboard');
+        }else{
+            return view('admin.Dashboardadmin'); 
+        };
     }
 }

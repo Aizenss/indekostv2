@@ -35,8 +35,8 @@ use App\Http\Controllers\TransaksiAdminController;
 
 Route::get('/', [ListKosController::class, 'landing'])->name('landing');
 
-Route::get('gaga', function () {
-    return view('gaga');
+Route::get('/gaga', function () {
+    return view('titip');
 });
 
 Route::middleware('auth', 'verified')->group(function () {
