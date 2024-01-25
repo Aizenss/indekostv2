@@ -189,6 +189,6 @@ class KamarOwnerController extends Controller
             'foto_kamar' => $foto_json
         ]);
 
-        return redirect()->route('owner.kamar.tambah', ['kos' => $kos->id])->with('success', 'Kamar' . $kamar->nama_kamar . ' diperbarui.');
+        return redirect()->route('owner.kamar.tambah', ['kos' => $kos->id])->with('success', 'Kamar ' . $kamar->nama_kamar . ' diperbarui.');
     }
 }
