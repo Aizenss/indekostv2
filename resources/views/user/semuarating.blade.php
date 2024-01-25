@@ -15,7 +15,6 @@
                             <div>
                                 <h1 class="text-2xl font-semibold text-gray-900">{{ $ulasan->user->name }}</h1>
                             </div>
-
                             <div class="text-xs">
                                 {{ \Carbon\Carbon::parse($ulasan->created_at)->isoformat('dddd, D-MMMM-YYYY') }}
                             </div>
