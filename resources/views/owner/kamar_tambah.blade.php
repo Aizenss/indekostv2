@@ -55,7 +55,7 @@
                         <div class="overflow-y-scroll sc-sm h-10">
                             <p class="text-sm font-medium text-gray-900">{{ $kamar->peraturan_kamar }}!</p>
                         </div>
-                        <div class="my-3">
+                        <div class="my-3 h-[50px]">
                             <span class="text-xl font-bold text-gray-700">Rp.
                                 {{ number_format($kamar->harga, 0, ',', '.') }}/{{ $kamar->night }} Bulan</span>
                         </div>

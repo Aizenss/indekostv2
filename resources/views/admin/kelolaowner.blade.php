@@ -54,7 +54,7 @@
                                                 class="bg-[#4F6F52] p-2 w-10 h-10 me-4 flex items-center justify-center text-lg rounded">
                                                 <i class="fa-solid fa-house text-white"></i>
                                             </div>
-                                            <span class="font-semibold text-lg text-gray-900 truncate">Memiliki 25 Kempat
+                                            <span class="font-semibold text-lg text-gray-900 truncate">Memiliki 2 Tempat
                                                 Kost</span>
                                         </div>
                                         <div class="kost flex items-center">

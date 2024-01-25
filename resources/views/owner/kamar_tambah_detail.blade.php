@@ -112,7 +112,7 @@
                 </div>
                 <button type="submit"
                     class="w-full bg-blue-500 text-white p-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 transition duration-300 ease-in-out">
-                    ubah
+                    Tambah
                 </button>
             </form>
         </div>

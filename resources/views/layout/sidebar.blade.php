@@ -1,4 +1,4 @@
-<nav class="fixed top-0 z-50 w-full bg-[#D2E3C8]">
+<nav class="fixed top-0 z-30     w-full bg-[#D2E3C8]">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
             <div class="flex items-center justify-start rtl:justify-end">
@@ -30,20 +30,17 @@
                                 class="inline-flex items-center justify-center w-2 h-2 -mb-[10px] -ms-2 border border-white rounded-full bg-red-500">
                             </div>
                         </button>
-                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3"
+                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3 w-[300px]"
                             id="massage-dropdown">
                             <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>
                             <div class="flex flex-col gap-3 px-4 py-3">
                                 {{-- nggen foreachmu lek ojo salah nggen --}}
                                 <div class="flex items-start gap-2.5">
                                     <div
-                                        class="flex flex-col w-full max-w-[250px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl">
+                                        class="flex flex-col max-w-[250px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl">
                                         <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                                            <span class="text-sm font-semibold text-gray-900">Nama Owner/User</span>
                                         </div>
-                                        <p class="text-sm font-normal py-2.5 text-gray-900">Lorem ipsum dolor sit amet
-                                            consectetur, adipisicing elit. Adipisci odio sequi numquam laudantium quos.
-                                            Officiis saepe ab enim ex provident.</p>
+                                        <p class="text-sm font-normal py-2.5 text-gray-900">Lorem ipsum</p>
                                     </div>
                                 </div>
                                 {{-- iki tutupe foreach --}}
@@ -121,7 +118,7 @@
 </nav>
 
 <aside id="logo-sidebar"
-    class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-[#D2E3C8] border-r border-gray-200 sm:translate-x-0 "
+    class="fixed top-0 left-0 z-20 w-64 h-screen pt-20 transition-transform -translate-x-full bg-[#D2E3C8] border-r border-gray-200 sm:translate-x-0 "
     aria-label="Sidebar">
     <div class="h-full px-3 pb-4 overflow-y-auto bg-[#D2E3C8]">
         <ul class="space-y-2 font-medium">

@@ -104,7 +104,7 @@
     </div>
 
 {{-- Akhir Modal --}}
-  <div class="py-3 px-[90px] px-[90px] mt-3">
+  <div class="py-3 px-[90px] mt-3">
 
     @foreach ($ulasans as $ulasan)
       <div class="py-3 px-15 rounded-lg mb-5">
