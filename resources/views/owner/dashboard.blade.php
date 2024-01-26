@@ -34,57 +34,45 @@
                     style="height: 50px; width: 50px;">
             </div>
         </section>
-        <section class="py-10 px-5 grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div id="chart"></div>
-            <div id="charts"></div>
+        <section class="py-10 px-5 flex flex-col gap-8">
+            <div class="my-8">
+                <span class="text-lg font-semibold text-gray-900">Kamar Tersewa</span>
+                <div id="chart"></div>
+            </div>
+            <div class="my-8">
+                <span class="text-lg font-semibold text-gray-900">Pendapatan</span>
+                <div id="charts"></div>
+            </div>
         </section>
     </div>
     <script>
         let chartData = @json($data);
 
         var options = {
-            series: [{
-                name: 'Kamar Disewa',
-                data: chartData.map(item => item.data2),
-                color: '#4F6F52'
-            }],
-            chart: {
-                type: 'bar',
-                height: 350
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded'
-                },
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-            },
-            xaxis: {
-                categories: chartData.map(item => item.month),
-            },
-            yaxis: {
-                title: {
-                    text: 'Data Kost'
-                }
-            },
-            fill: {
-                opacity: 1
-            },
-            tooltip: {
-                y: {
-                    formatter: function(val) {
-                        return val
-                    }
-                }
-            }
+          series: [{
+          name: 'Jumlah',
+          data: [31, 40, 28, 51, 42, 109, 100],
+          color: '#86A789'
+        }],
+          chart: {
+          height: 350,
+          type: 'area'
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+        xaxis: {
+          type: 'datetime',
+          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+        },
+        tooltip: {
+          x: {
+            format: 'dd/MM/yy HH:mm'
+          },
+        },
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
@@ -92,52 +80,34 @@
 
         // let chartData = @json($data);
 
-        var options = {
-            series: [{
-                name: 'Pendapatan',
-                data: chartData.map(item => item.data),
-                color: '#79AC78'
-            }],
-            chart: {
-                type: 'bar',
-                height: 350
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded'
-                },
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-            },
-            xaxis: {
-                categories: chartData.map(item => item.month),
-            },
-            yaxis: {
-                title: {
-                    text: 'Pendapatan'
-                }
-            },
-            fill: {
-                opacity: 1
-            },
-            tooltip: {
-                y: {
-                    formatter: function(val) {
-                        return "Rp." + val
-                    }
-                }
-            }
+        var option = {
+          series: [{
+          name: 'Pendapatan',
+          data: [31, 40, 28, 51, 42, 109, 100],
+          color: '#86A789'
+        }],
+          chart: {
+          height: 350,
+          type: 'area'
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+        xaxis: {
+          type: 'datetime',
+          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+        },
+        tooltip: {
+          x: {
+            format: 'dd/MM/yy HH:mm'
+          },
+        },
         };
 
-        var chart = new ApexCharts(document.querySelector("#charts"), options);
-        chart.render();
+        var charts = new ApexCharts(document.querySelector("#charts"), option);
+        charts.render();
     </script>
 @endsection

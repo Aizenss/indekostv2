@@ -38,9 +38,15 @@
                 </div>
             </div>
         </section>
-        <section class="py-10 px-5 grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div id="chart"></div>
-            <div id="charts"></div>
+        <section class="py-10 px-5 flex flex-col gap-8">
+            <div class="my-8">
+                <span class="text-lg font-semibold text-gray-900">Data Kost & Kamar</span>
+                <div id="chart"></div>
+            </div>
+            <div class="my-8">
+                <span class="text-lg font-semibold text-gray-900">Pendapatan</span>
+                <div id="charts"></div>
+            </div>
         </section>
     </div>
 
@@ -51,11 +57,11 @@
         var options = {
             series: [{
                 name: 'Total Kost',
-                data:  cartData.map(item=> item.data4),
+                data: cartData.map(item => item.data4),
                 color: '#4F6F52'
             }, {
                 name: 'Total Kamar',
-                data: cartData.map(item=> item.data3),
+                data: cartData.map(item => item.data3),
                 color: '#86A789'
             }],
             chart: {
@@ -78,7 +84,7 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: cartData.map(item=> item.month) ,
+                categories: cartData.map(item => item.month),
             },
             yaxis: {
                 title: {
@@ -104,52 +110,38 @@
 
         //  chart kanan
 
-        var options = {
+        var option = {
             series: [{
-                name: 'Admin',
-                data: cartData.map(item=> item.data),
-                color: '#79AC78'
+                name: 'series1',
+                data: [31, 40, 28, 51, 42, 109, 100],
+                color: '#86A789'
             }],
             chart: {
-                type: 'bar',
-                height: 350
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded'
-                },
+                height: 350,
+                type: 'area'
             },
             dataLabels: {
                 enabled: false
             },
             stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
+                curve: 'smooth'
             },
             xaxis: {
-                categories: cartData.map(item=> item.month),
-            },
-            yaxis: {
-                title: {
-                    text: 'Pendapatan'
-                }
-            },
-            fill: {
-                opacity: 1
+                type: 'datetime',
+                categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z",
+                    "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z",
+                    "2018-09-19T06:30:00.000Z"
+                ]
             },
             tooltip: {
-                y: {
-                    formatter: function(val) {
-                        return "Rp." + val
-                    }
-                }
-            }
+                x: {
+                    format: 'dd/MM/yy HH:mm'
+                },
+            },
         };
 
-        var chart = new ApexCharts(document.querySelector("#charts"), options);
-        chart.render();
+        var charts = new ApexCharts(document.querySelector("#charts"), option);
+        charts.render();
+        
     </script>
 @endsection
