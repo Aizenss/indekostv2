@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kos;
+use App\Models\Notifikasi;
 use App\Models\ulasan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,13 @@ class UlasanController extends Controller
             'kost_id' => $kost_id->id,
             'rating' => $request->rating,
             'ulasan' => $request->ulasan
+        ]);
+
+        Notifikasi::created([
+            'owner_id' => $kost_id->owner_id,
+            'user_id' => $user_id,
+            'pesan_owner' => 'Kamu mendapat ulasan dari ' . Auth::user()->name . ' dengan rating ' . $request->rating,
+            'pesan_user' => 'Kamu memberikan ulasan ' . 'ke'. $request->kost->nama_kost . ' dengan rating ' . $request->rating,
         ]);
 
         return redirect()->back()->with('success', 'Ulasan berhasil dikirim.');

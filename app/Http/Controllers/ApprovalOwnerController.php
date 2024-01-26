@@ -64,13 +64,22 @@ class ApprovalOwnerController extends Controller
             Notifikasi::create([
                 'user_id' => $kamar->user_id,
                 'kamar' => $kamar->id,
-                'pesan_user' => 'pengajuan sewa ditolak oleh pemilik ' . $request->rejection_reason
+                'pesan_user' => 'pengajuan sewa ditolak oleh pemilik ' . 'Pesan: ' . $request->rejection_reason
             ]);
 
-            $kamar->update([
-                'user_id' => null,
-                'status' => 'tolak'
-            ]);
+
+            if( $kamar->status == 'dipesan'){
+                $kamar->update([
+                    'user_id' => null,
+                    'status' => 'kosong'
+                ]);
+            }else if($kamar->status == 'menambah waktu'){
+                $kamar->update([
+                    'user_id' => $kamar->user_id,
+                    'status' => 'paid'
+                ]);
+            }
+
 
             return redirect()->back()->with('success', 'Kamar Berhasil Di Tolak');
         } catch (\Throwable $th) {
