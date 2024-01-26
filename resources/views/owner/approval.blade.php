@@ -77,7 +77,8 @@
                                             class="my-auto">
                                             @csrf
                                             @method('patch')
-                                            <button type="submit" class="text-red-600 self-center">Tolak</button>
+                                            <input type="hidden" name="rejection_reason" id="rejection_reason">
+                                            <button type="button" onclick="showRejectionReason()" class="text-red-600 self-center">Tolak</button>
                                         </form>
                                         <form action="{{ route('owner.approval.terimaLagi', $kamar) }}" method="post"
                                             class="my-auto">

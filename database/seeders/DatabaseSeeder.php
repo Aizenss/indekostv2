@@ -46,8 +46,8 @@ class DatabaseSeeder extends Seeder
             'role' => 'owner',
             'email_verified_at' => now()
         ]);
-        // Kos::factory(4)->create();
+        Kos::factory(4)->create();
 
-        // Kamar::factory(8)->create();
+        Kamar::factory(8)->create();
     }
 }

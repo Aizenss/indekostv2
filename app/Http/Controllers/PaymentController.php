@@ -114,42 +114,78 @@ class PaymentController extends Controller
         return redirect()->back()->with('success', 'Silahkan lakukan pembayaran');
     }
 
-    public function batal(Kamar $kamar)
+    public function batal(Kamar $kamar, Request $request)
     {
-        $kamar->update([
-            'user_id' => null,
-            'snap_token' => null,
-            'status' => 'kosong',
-        ]);
+        // dd($request->all());
+        try {
+            $request->validate(
+                [
+                    'rejection_reason' => 'required|max:255|string|min:10',
+                ],
+                [
+                    'rejection_reason.max' => 'Maksimal 255 karakter',
+                    'rejection_reason.required' => 'Kolom harus diisi',
+                    'rejection_reason.string' => 'Kolom harus berupa string',
+                    'rejection_reason.min' => 'Minimal 10 karakter',
+                ]
+            );
 
-        Notifikasi::create([
-            'user_id' => $kamar->user_id,
-            'owner_id' => $kamar->kos->owner_id,
-            'kamar' => $kamar->id,
-            'pesan_user' => 'penyewaan telah dibatalkan',
-            'pesan_owner' => 'sewa kamar telah dibatalkan oleh pembeli'
-        ]);
+            // dd($kamar->kos->owner_id);
+            Notifikasi::create([
+                'user_id' => Auth::user()->id,
+                'owner_id' => $kamar->kos->owner_id,
+                'kamar' => $kamar->id,
+                'pesan_user' => 'penyewaan telah dibatalkan',
+                'pesan_owner' => 'sewa kamar telah dibatalkan oleh pembeli karena ' . $request->rejection_reason
+            ]);
 
-        return redirect()->back()->with('success', 'Pembayaran Berhasil Di Batalkan');
+            $kamar->update([
+                'user_id' => null,
+                'snap_token' => null,
+                'status' => 'kosong',
+            ]);
+
+
+            return redirect()->back()->with('success', 'Pembayaran Berhasil Di Batalkan');
+        } catch (\Throwable $th) {
+
+            return redirect()->back()->with('error', $th->getMessage());
+        }
     }
 
-    public function batalLagi(Kamar $kamar)
+    public function batalLagi(Kamar $kamar, Request $request)
     {
-        $kamar->update([
-            'user_id' => null,
-            'snap_token' => null,
-            'status' => $kamar->status,
-        ]);
+        try {
+            $request->validate(
+                [
+                    'rejection_reason' => 'required|max:255|string|min:10',
+                ],
+                [
+                    'rejection_reason.max' => 'Maksimal 255 karakter',
+                    'rejection_reason.required' => 'Kolom harus diisi',
+                    'rejection_reason.string' => 'Kolom harus berupa string',
+                    'rejection_reason.min' => 'Minimal 10 karakter',
+                ]
+            );
+            $kamar->update([
+                'user_id' => null,
+                'snap_token' => null,
+                'status' => $kamar->status,
+            ]);
 
-        Notifikasi::create([
-            'user_id' => $kamar->user_id,
-            'owner_id' => $kamar->kos->owner_id,
-            'kamar' => $kamar->id,
-            'pesan_user' => 'penyewaan telah dibatalkan',
-            'pesan_owner' => 'sewa kamar telah dibatalkan oleh pembeli'
-        ]);
+            Notifikasi::create([
+                'user_id' => $kamar->user_id,
+                'owner_id' => $kamar->kos->owner_id,
+                'kamar' => $kamar->id,
+                'pesan_user' => 'penyewaan telah dibatalkan',
+                'pesan_owner' => 'sewa kamar telah dibatalkan oleh pembeli Karena ' . $request->rejection_reason
+            ]);
 
-        return redirect()->back()->with('success', 'Pembayaran Berhasil Di Batalkan');
+            return redirect()->back()->with('success', 'Pembayaran Berhasil Di Batalkan');
+        } catch (\Throwable $th) {
+
+            return redirect()->back()->with('error', $th->getMessage());
+        }
     }
 
     public function proses(Request $request, Kamar $kamar)
@@ -203,13 +239,18 @@ class PaymentController extends Controller
             'checkout' =>  $endDate
         ]);
 
-        // Notifikasi::create([
-        //     'user_id' => $kamar->kos->user_id,
-        //     'kamar' => $kamar->id,
-        //     'pesan_user' => 'Kamar diterima!'
-        // ]);
+        Notifikasi::create([
+            'user_id' => auth()->user()->id,
+            'owner_id' => $kamar->kos->owner_id,
+            'kamar' => $kamar->id,
+            'pesan_user' => 'Kamar Berhasil di bayar!',
+            'pesan_owner' => 'Pembayaran telah selesai di proses oleh ' . auth()->user()->name
+        ]);
+
+
         // User::where('id', 1)->update(['pendapatan' => $admin]);
         // return response()->json(['message' => 'Data berhasil diproses']);
+
         return redirect()->route('user.kamarkami')->with('success', 'Pembayaran Berhasil Di Proses');
     }
 
@@ -269,11 +310,13 @@ class PaymentController extends Controller
             'checkin' => $startDate,
             'checkout' => $endDate
         ]);
-        // Notifikasi::create([
-        //     'user_id' => $kamar->kos->user_id,
-        //     'kamar' => $kamar->id,
-        //     'pesan_user' => 'Kamar diterima!'
-        // ]);
+        Notifikasi::create([
+            'user_id' => auth()->user()->id,
+            'owner_id' => $kamar->kos->owner_id,
+            'kamar' => $kamar->id,
+            'pesan_user' => 'Kamar Berhasil di bayar!',
+            'pesan_owner' => 'Pembayaran telah selesai di proses oleh ' . auth()->user()->name
+        ]);
         // User::where('id', 1)->update(['pendapatan' => $admin]);
         // return response()->json(['message' => 'Data berhasil diproses']);
         return redirect()->route('user.kamarkami')->with('success', 'Pembayaran Berhasil Di Proses');

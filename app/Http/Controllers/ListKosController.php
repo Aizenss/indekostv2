@@ -58,11 +58,10 @@ class ListKosController extends Controller
 
     public function landing()
     {
-        $kost = Kos::all()->take(6);
+        $kost = Kos::where('status', 'setuju')->get()->take(6);
         if (Auth::check()) {
             if (Auth::user()->role == 'user') {
-                // Pengguna memiliki peran 'user'
-                $kost = Kos::all()->take(6);
+                
                 return view('welcome', compact('kost'));
             } elseif (Auth::user()->role == 'owner') {
                 // Pengguna memiliki peran 'owner'
