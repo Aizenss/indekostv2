@@ -35,19 +35,19 @@
           <!-- Item 1 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <img src="{{ asset('kosts/' . $kos->foto_depan) }}"
-              class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+              class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
           </div>
           <!-- Item 2 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
             <img src="{{ asset('kosts/' . $kos->foto_dalam) }}"
-              class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+              class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
           </div>
           @if (!empty(json_decode($kos->foto_tambahan)))
             @foreach (json_decode($kos->foto_tambahan) as $item)
               <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <div>
                   <img src="{{ asset('kosts/' . $item) }}"
-                    class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                    class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                     alt="Additional Photo">
                 </div>
               </div>
@@ -150,7 +150,7 @@
                 @foreach (json_decode($kamar->foto_kamar) as $item)
                   <div class="hidden duration-700 ease-in-out" data-carousel-item>
                     <img src="{{ asset('kamar/' . $item) }}"
-                      class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                      class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                       alt="">
                   </div>
                 @endforeach

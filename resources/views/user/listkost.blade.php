@@ -59,7 +59,7 @@
             <div class="grid grid-cols-3 gap-8">
                 @forelse ($kost as $kos)
                     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <img class="rounded-t-lg" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt="" />
+                        <img class="rounded-t-lg h-[200px] w-full object-cover" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt=""  />
                         <div class="px-5 py-3">
                             <h5 class="text-xl font-bold tracking-tight text-gray-900 truncate">{{ $kos->nama_kost }}
                             </h5>
@@ -81,20 +81,22 @@
                                 <p class="text-base text-gray-700 font-semibold truncate">Tersedia
                                     {{ $kamartersedia }} Kamar</p>
                             @else
-                                <p class="text-xs text-gray-700 font-semibold truncate">Tidak Ada Kamar Tersedia</p>
+                                <p class="text-base text-gray-700 font-semibold truncate">Tidak Ada Kamar Tersedia</p>
                             @endif
 
                             <hr class="mb-2">
                             <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
-                            <div class="grid grid-cols-2 gap-2">
-                                @if ($kos->fasilitas_umum == null)
-                                @else
-                                    @foreach (json_decode($kos->fasilitas_umum) as $fasilitas)
-                                        <span class="text-sm text-gray-700 font-medium truncate">
-                                            <i class="fa-solid fa-check me-2"></i>{{ $fasilitas->value }}
-                                        </span>
-                                    @endforeach
-                                @endif
+                            <div class="h-16">
+                                <div class="grid grid-cols-2 gap-2 max-h-16 overflow-y-scroll sc-sm">
+                                    @if ($kos->fasilitas_umum == null)
+                                    @else
+                                        @foreach (json_decode($kos->fasilitas_umum) as $fasilitas)
+                                            <span class="text-sm text-gray-700 font-medium truncate">
+                                                <i class="fa-solid fa-check me-2"></i>{{ $fasilitas->value }}
+                                            </span>
+                                        @endforeach
+                                    @endif
+                                </div>
                             </div>
                             @php
                                 $totalRating = 0;

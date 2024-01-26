@@ -5,16 +5,16 @@
 @else
 <footer class="bg-[#E8F1E3] sm:ml-64">
 @endif
-    <div class="md:px-[140px] w-full py-6 lg:py-8" id="kontak">
+    <div class="px-[15px] md:px-[80px] lg:px-[140px]  w-full py-6 lg:py-8" id="kontak">
         <a href="" class="flex items-center justify-center">
             <img src="{{ asset('foto/inilogo.png') }}" class="h-20 me-3" alt="logo" />
         </a>
         <div class="md:flex md:justify-between gap-4 mt-4">
             <div class="mb-6 md:mb-0 md:w-1/2">
-                <p class=" text-black">Kemudahan menemukan kost sesuai keinginan Anda! Gunakan Indekost untuk
+                <p class="px-5 text-black">Kemudahan menemukan kost sesuai keinginan Anda! Gunakan Indekost untuk
                     menjelajahi tempat tinggal yang nyaman dan sesuai dengan anggaran Anda.</p>
                 <br>
-                <div class="flex text-white gap-5">
+                <div class="px-5 flex text-white gap-5">
                     <div class="bg-[#4F6F52] flex justify-center items-center p-2 rounded w-10 h-10">
                         <i class="fa-brands fa-instagram text-2xl"></i>
                     </div>
@@ -28,7 +28,7 @@
             </div>
             <div class="md:w-1/2">
                 <div class="">
-                    <ul class="text-black font-medium">
+                    <ul class="px-5 text-black font-medium">
                         <li class="mb-6">
                             <div class=" flex items-center gap-2">
                                 <i class="fa-solid fa-location-dot ms-0.5 text-xl text-black"></i>

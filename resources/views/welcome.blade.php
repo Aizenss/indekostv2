@@ -3,12 +3,12 @@
 @extends('layout.sidenavbar')
 
 @section('isi')
-    <div class=" mb-20">
-        <section class="section-hero bg-[#E8F1E3] pt-20" id="home">
-            <div class="mx-[15px] md:mx-[140px] grid grid-cols-1  md:grid-cols-2 gap-4 items-center">
+    <div class="mb-20">
+        <section class="section-hero bg-[#E8F1E3] pt-10" id="home">
+            <div class="mx-[15px] md:mx-[80px] lg:mx-[140px] py-5  grid grid-cols-1  md:grid-cols-2 gap-4 items-center">
                 <div class="textt">
-                    <h1 class="text-4xl font-semibold text-[#537256]">Selamat Datang</h1>
-                    <h2 class="text-4xl font-semibold text-black mt-3">Di Website In De Kost</h2>
+                    <h1 class="text-[50px] font-semibold text-[#537256]">Selamat Datang</h1>
+                    <h2 class="text-[30px] font-semibold text-black mt-3">Di In De Kost</h2>
                     <p class="mb-4 mt-3">Indekost adalah platform pencarian kost terkemuka yang didedikasikan untuk
                         menyediakan
                         solusi terbaik bagi para pencari tempat tinggal. Menyediakan informasi yang akurat, foto-foto
@@ -18,7 +18,7 @@
                         class="fa-solid fa-arrow-right text-white ms-2"></i></a>
                     @endif
                 </div>
-                <div class="gambar-wellcome">
+                <div class="gambar-wellcome hidden md:block">
                     <img src="{{ asset('ilustrasi/hero-section.png') }}" alt="">
                 </div>
             </div>
@@ -29,8 +29,8 @@
             </path>
         </svg>
         <section class="tantang-indekost" id="tentang">
-            <div class="grid grid-rows-2 gap-4 mx-[15px] md:mx-[140px] my-14">
-                <div class="grid grid-cols-2 gap-5 items-center">
+            <div class="flex flex-col gap-4 mx-[15px] md:mx-[80px] lg:mx-[140px] my-14">
+                <div class="md:grid md:grid-cols-2 gap-5 items-center">
                     <div class="apa-itu">
                         <h1 class="text-2xl text-[#537256] font-semibold">Apa Itu In De Kost?</h1>
                         <p class="text-[#252525] text-base font-medium mt-3">In De Kost adalah solusi canggih dari para
@@ -38,12 +38,12 @@
                             ekstensif terhadap setiap properti yang terdaftar. Kami berkomitmen untuk memastikan bahwa
                             setiap kost yang terdaftar dijamin aman, nyaman, dan layak huni</p>
                     </div>
-                    <div class="fapa-itu">
+                    <div class="fapa-itu hidden md:block">
                         <img src="{{ asset('ilustrasi/apa-itu.png') }}" alt="" class="w-[500px]">
                     </div>
                 </div>
-                <div class="grid grid-cols-2 gap-5 items-center">
-                    <div class="fapa-itu">
+                <div class="md:grid md:grid-cols-2 gap-5 items-center">
+                    <div class="fapa-itu hidden md:block">
                         <img src="{{ asset('ilustrasi/benefit.png') }}" alt="" class="w-[500px]">
                     </div>
                     <div class="yang-didapatkan">
@@ -55,9 +55,9 @@
                 </div>
             </div>
             <div id="keuntungan"
-                class="px-[15px] md:px-[140px] py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-top bg-[#E8F1E3] text-center">
+                class="px-[15px] md:px-[80px] lg:px-[140px]  py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-top bg-[#E8F1E3] text-center">
                 <div class="keuntungan-1">
-                    <div class="fapa-itu">
+                    <div class="fapa-itu flex justify-center">
                         <img src="{{ asset('ilustrasi/waktu.png') }}" alt="" class="w-[300px]">
                     </div>
                     <div class="yang-didapatkan">
@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="keuntungan-1">
-                    <div class="fapa-itu">
+                    <div class="fapa-itu flex justify-center">
                         <img src="{{ asset('ilustrasi/aman.png') }}" alt="" class="w-[300px]">
                     </div>
                     <div class="yang-didapatkan">
@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="keuntungan-1">
-                    <div class="fapa-itu">
+                    <div class="fapa-itu flex justify-center">
                         <img src="{{ asset('ilustrasi/enjoy.png') }}" alt="" class="w-[300px]">
                     </div>
                     <div class="yang-didapatkan">
@@ -96,20 +96,18 @@
                 d="M0,160L8,170.7C16,181,32,203,48,224C64,245,80,267,96,256C112,245,128,203,144,202.7C160,203,176,245,192,234.7C208,224,224,160,240,160C256,160,272,224,288,229.3C304,235,320,181,336,154.7C352,128,368,128,384,138.7C400,149,416,171,432,160C448,149,464,107,480,106.7C496,107,512,149,528,186.7C544,224,560,256,576,261.3C592,267,608,245,624,208C640,171,656,117,672,96C688,75,704,85,720,128C736,171,752,245,768,282.7C784,320,800,320,816,288C832,256,848,192,864,160C880,128,896,128,912,149.3C928,171,944,213,960,229.3C976,245,992,235,1008,229.3C1024,224,1040,224,1056,202.7C1072,181,1088,139,1104,112C1120,85,1136,75,1152,90.7C1168,107,1184,149,1200,181.3C1216,213,1232,235,1248,250.7C1264,267,1280,277,1296,250.7C1312,224,1328,160,1344,154.7C1360,149,1376,203,1392,202.7C1408,203,1424,149,1432,122.7L1440,96L1440,0L1432,0C1424,0,1408,0,1392,0C1376,0,1360,0,1344,0C1328,0,1312,0,1296,0C1280,0,1264,0,1248,0C1232,0,1216,0,1200,0C1184,0,1168,0,1152,0C1136,0,1120,0,1104,0C1088,0,1072,0,1056,0C1040,0,1024,0,1008,0C992,0,976,0,960,0C944,0,928,0,912,0C896,0,880,0,864,0C848,0,832,0,816,0C800,0,784,0,768,0C752,0,736,0,720,0C704,0,688,0,672,0C656,0,640,0,624,0C608,0,592,0,576,0C560,0,544,0,528,0C512,0,496,0,480,0C464,0,448,0,432,0C416,0,400,0,384,0C368,0,352,0,336,0C320,0,304,0,288,0C272,0,256,0,240,0C224,0,208,0,192,0C176,0,160,0,144,0C128,0,112,0,96,0C80,0,64,0,48,0C32,0,16,0,8,0L0,0Z">
             </path>
         </svg>
-        <section class="kamarkami px-[8px] lg:px-[140px] py-8 " id="listkost">
+        <section class="kamarkami px-[15px] md:px-[80px] lg:px-[140px]  py-8 " id="listkost">
             <div class="flex justify-between items-center">
                 <div class="judul">
                     <h1 class="font-semibold text-2xl text-black text-center mt-3">Kost Tersedia</h1>
                 </div>
                 <div class="text-center">
                     <a href="{{ route('user.kamarkami') }}"
-                        class="bg-[#86A789] text-white font-medium text-lg rounded-lg sm:text-sm p-2 shadow-lg hover:bg-[#4F6F52] hover:shadow-2xl hover:shadow-[#4F6F52] duration-300">Lihat
-                        Selengkapnya</a>
+                        class="bg-[#86A789] text-white font-medium text-lg rounded-lg sm:text-sm p-2 shadow-lg hover:bg-[#4F6F52] hover:shadow-2xl hover:shadow-[#4F6F52] duration-300">Lainnya</a>
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8 mb-10">
                 @forelse ($kost as $kos)
-                    <a href="{{ route('user.detailkost', ['kos' => $kos->id]) }}" class="text-decoration-none">
                         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                             <img class="rounded-t-lg" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt="" />
                             <div class="px-5 py-3">
@@ -157,15 +155,13 @@
                                     <div class="rate mb-1 font-semibold text-lg">
                                         <i class="fas fa-star text-yellow-300"> </i>{{ $averageRating }}/5
                                     </div>
-                                    <div
-                                        class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">
+                                    <a href="{{ route('user.detailkost', ['kos' => $kos->id]) }}" class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">
                                         Detail Kost
-                                    </div>
+                                    </a>
                                 </div>
 
                             </div>
                         </div>
-                    </a>
                 @empty
                     <div class=" flex justify-center align-middle">
                         <img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="size-52" alt="">

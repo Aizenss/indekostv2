@@ -1,3 +1,11 @@
+<style>
+    .pnt{
+        word-break: break-word;
+    }
+    .overvflow-y-scroll::-webkit-scrollbar{
+        width: 3px;
+    }
+</style>
 <nav class="fixed top-0 z-30     w-full bg-[#D2E3C8]">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
@@ -39,7 +47,7 @@
                             <div class="z-50 hidden my-4 text-base w-80 list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3"
                                 id="massage-dropdown">
                                 <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>
-                                <div class="flex flex-col gap-3 px-4 py-3">
+                                <div class="flex flex-col gap-3 px-4 py-3  overflow-y-scroll h-[200px]">
                                     {{-- nggen foreachmu lek ojo salah nggen --}}
                                     {{-- @dd(Auth::user()->notifikasiowner()->orderBy('created_at', 'desc')->get()); --}}
                                     @foreach (Auth::user()->notifikasiowner()->orderBy('created_at', 'desc')->get() as $notif)
@@ -48,7 +56,7 @@
                                             <div class="">
                                                 <div class="text-sm font-medium text-gray-900">{{ $notif->owner->name }}
                                                 </div>
-                                                <div class="text-sm text-gray-700">{{ $notif->pesan_owner }}</div>
+                                                <div class="text-sm text-gray-700 text-wrap pnt">{{ $notif->pesan_owner }}</div>
                                                 <div class="text-xs text-gray-500">
                                                     {{ $notif->created_at->diffForHumans() }}</div>
                                             </div>

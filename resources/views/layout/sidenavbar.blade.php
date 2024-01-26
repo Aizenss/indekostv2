@@ -1,4 +1,9 @@
-    <nav class="bg-[#D2E3C8] border-gray-400 w-full fixed z-50">
+    <style>
+        .pnt{
+            word-break: break-word;
+        }
+    </style>
+    <nav class="bg-[#D2E3C8] border-gray-400 w-full sticky z-50">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{ asset('foto/inilogo.png') }}" class="h-10" alt="Flowbite Logo" />
@@ -50,7 +55,7 @@
                                 <div class="z-50 hidden my-4 text-base w-80 list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3"
                                     id="massage-dropdown">
                                     <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>
-                                    <div class="flex flex-col gap-3 px-4 py-3">
+                                    <div class="flex flex-col gap-3 px-4 py-3 overflow-y-scroll h-[200px]">
                                         {{-- @dd(Auth::user()->notifikasi()->orderBy('created_at', 'desc')->get()); --}}
                                         @foreach (Auth::user()->notifikasi()->orderBy('created_at', 'desc')->get() as $notif)
                                             <div
@@ -58,7 +63,7 @@
                                                 <div class="">
                                                     <div class="text-sm font-medium text-gray-900">{{ $notif->user->name }}
                                                     </div>
-                                                    <div class="text-sm text-gray-700">{{ $notif->pesan_user }}</div>
+                                                    <div class="text-sm text-gray-700 text-wrap pnt">{{ $notif->pesan_user }}</div>
                                                     <div class="text-xs text-gray-500">
                                                         {{ $notif->created_at->diffForHumans() }}</div>
                                                 </div>
@@ -85,7 +90,7 @@
                                             <span
                                                 class="block text-base font-semibold text-gray-900">{{ Auth::user()->name }}</span>
                                             <span
-                                                class="block text-sm text-gray-500 max-w-32">{{ Auth::user()->email }}</span>
+                                                class="block text-sm text-gray-500 max-w-32 truncate">{{ Auth::user()->email }}</span>
                                         </div>
                                         <ul class="py-1" role="none">
                                             <li>
@@ -146,7 +151,7 @@
                         </li>
                         <li>
                             <a href="/pilih-role"
-                                class="block py-2 px-1 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">Daftar</a>
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#4F6F52] md:p-0">Daftar</a>
                         </li>
                         <li>
                             <a href="/login"
