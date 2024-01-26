@@ -43,13 +43,17 @@
                                 Hari
                             </td>
                             <td class="px-6 py-4">
-                                <form action="{{ route('history.detail.pay', ['kamar' => $kamar]) }}" method="POST">
-                                    @csrf
-                                    <button type="submit"
-                                        class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-                                        Ajukan Sewa Lagi
-                                    </button>
-                                </form>
+                                @if (\Carbon\Carbon::parse($track->checkin)->diffInDays(\Carbon\Carbon::parse($track->checkout)) === 0)
+                                    terimakasih telah menyewa kos ini, silahkan lihat lihat kos kembali
+                                @else
+                                    <form action="{{ route('history.detail.pay', ['kamar' => $kamar]) }}" method="POST">
+                                        @csrf
+                                        <button type="submit"
+                                            class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                                            Ajukan Sewa Lagi
+                                        </button>
+                                    </form>
+                                @endif
                             </td>
                         @endforeach
                     </tr>

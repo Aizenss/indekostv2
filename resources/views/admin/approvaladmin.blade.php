@@ -87,7 +87,6 @@
                                                 </svg>
                                             </button>
                                         </form>
-                                        p
                                         <form id="reject-form" action="{{ route('admin.approvaladmin.tolak', $kost) }}" method="POST">
                                             @csrf
                                             @method('patch')

@@ -25,11 +25,20 @@ class HistoryController extends Controller
 
     public function show(Kamar $kamar)
     {
-        // Fetch tracking data that is related to the given Kamar by its id
         $tracking = Tracking::whereHas('kamar', function ($query) use ($kamar) {
             $query->where('id', $kamar->id);
         })->get();
 
+
+        $firstTracking = $tracking->first();
+        $daysDifference = Carbon::parse($firstTracking->checkin)->diffInDays(Carbon::parse($firstTracking->checkout), false);
+
+        if ($daysDifference === 0) {
+            foreach ($tracking as $track) {
+                $kamar = Kamar::findOrFail($track->kamar_id);
+                $kamar->update(['status' => 'kosong']);
+            }
+        }
         return view('user.history_detail', compact('kamar', 'tracking'));
     }
 
