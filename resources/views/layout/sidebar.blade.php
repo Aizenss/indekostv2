@@ -175,7 +175,7 @@
                 <li>
                     <a href="{{ route('admin.transaksiowner') }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 hover:shadow-xl {{ request()->RouteIs('admin.transaksiowner') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
-                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                        <i class="fa-solid fa-arrows-down-to-line"></i>
                         <span class="ms-3">Footer</span>
                     </a>
                 </li>
