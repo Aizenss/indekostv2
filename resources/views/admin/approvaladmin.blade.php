@@ -173,7 +173,18 @@
                                     <span class="font-semibold text-gray-900">Nama Kos:</span> {{ $kost->nama_kost }}
                                 </div>
                                 <div>
-                                    <span class="font-semibold text-gray-900">Alamat:</span> {{ $kost->lokasi }}
+                                    <span class="font-semibold text-gray-900">Alamat:</span>
+                                    <article class="text-wrap">
+                                        <p >
+                                            {{ $kost->lokasi }}
+                                        </p>
+                                    </article>
+                                    <style>
+                                        .text-wrap p {
+                                            word-wrap: break-word;
+                                            overflow:  break-word ;
+                                        }
+                                    </style>
                                 </div>
                                 <div class="text-wrap">
                                     <span class="font-semibold text-gray-900">Peraturan:</span> {{ $kost->peraturan }}
