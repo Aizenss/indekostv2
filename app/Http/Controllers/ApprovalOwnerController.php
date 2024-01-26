@@ -44,17 +44,38 @@ class ApprovalOwnerController extends Controller
         return redirect()->back()->with('success', 'Kamar Berhasil Di Setujui');
     }
 
-    public function tolak(Kamar $kamar)
+    public function tolak(Kamar $kamar, Request $request)
     {
-        $kamar->update([
-            'status' => 'tolak'
-        ]);
+        // dd($request->all());
+        try {
+            $request->validate(
+                [
+                    'rejection_reason' => 'required|min:20|max:255|string',
 
-        Notifikasi::create([
-            'user_id' => $kamar->kos->user_id,
-            'kamar' => $kamar->id,
-            'pesan' => 'pengajuan sewa ditolak oleh pemilik'
-        ]);
-        return redirect()->back()->with('success', 'Kamar Berhasil Di Tolak');
+                ],
+                [
+                    'rejection_reason.min' => 'Minimal 20 karakter',
+                    'rejection_reason.max' => 'Maksimal 255 karakter',
+                    'rejection_reason.required' => 'Kolom harus diisi',
+                    'rejection_reason.string' => 'Kolom harus berupa string',
+                ]
+            );
+
+            Notifikasi::create([
+                'user_id' => $kamar->user_id,
+                'kamar' => $kamar->id,
+                'pesan_user' => 'pengajuan sewa ditolak oleh pemilik ' . $request->rejection_reason
+            ]);
+
+            $kamar->update([
+                'user_id' => null,
+                'status' => 'tolak'
+            ]);
+
+            return redirect()->back()->with('success', 'Kamar Berhasil Di Tolak');
+        } catch (\Throwable $th) {
+
+            return redirect()->back()->with('error', $th->getMessage());
+        }
     }
 }

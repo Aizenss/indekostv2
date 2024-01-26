@@ -14,6 +14,10 @@ class Notifikasi extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function owner(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
     public function kamar(): BelongsTo
     {
         return $this->belongsTo(Kamar::class, 'kamar_id');

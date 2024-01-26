@@ -41,11 +41,12 @@
                                 <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>
                                 <div class="flex flex-col gap-3 px-4 py-3">
                                     {{-- nggen foreachmu lek ojo salah nggen --}}
-                                    @foreach (Auth::user()->notifikasi()->orderBy('created_at', 'desc')->get() as $notif)
+                                    {{-- @dd(Auth::user()->notifikasiowner()->orderBy('created_at', 'desc')->get()); --}}
+                                    @foreach (Auth::user()->notifikasiowner()->orderBy('created_at', 'desc')->get() as $notif)
                                         <div
                                             class="flex items-center p-2 transition duration-150 ease-in-out rounded-lg hover:bg-gray-200">
                                             <div class="">
-                                                <div class="text-sm font-medium text-gray-900">{{ $notif->user->name }}
+                                                <div class="text-sm font-medium text-gray-900">{{ $notif->owner->name }}
                                                 </div>
                                                 <div class="text-sm text-gray-700">{{ $notif->pesan_owner }}</div>
                                                 <div class="text-xs text-gray-500">

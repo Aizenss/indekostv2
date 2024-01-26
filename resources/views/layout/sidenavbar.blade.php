@@ -51,6 +51,7 @@
                                     id="massage-dropdown">
                                     <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>
                                     <div class="flex flex-col gap-3 px-4 py-3">
+                                        {{-- @dd(Auth::user()->notifikasi()->orderBy('created_at', 'desc')->get()); --}}
                                         @foreach (Auth::user()->notifikasi()->orderBy('created_at', 'desc')->get() as $notif)
                                             <div
                                                 class="flex items-center p-2 transition duration-150 ease-in-out rounded-lg hover:bg-gray-200">

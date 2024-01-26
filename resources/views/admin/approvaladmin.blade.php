@@ -3,58 +3,58 @@
 @extends('layout.sidebar')
 
 @section('isi')
-  <div class="py-20 px-10 sm:ml-64 justify-center">
-    <h1 class="mb-4 mt-4 ml-4 text-3xl font-black text-gray-900">Persetujuan Kos</h1>
-    <br>
-    <div class="mx-8 mb-5 relative overflow-x-auto shadow-md sm:rounded-lg">
-      <table class="w-full text-sm text-left rtl:text-right text-white">
-        <thead class="text-xs text-white uppercase bg-[#4F6F52] ">
-          <tr>
-            <th scope="col" class="px-6 py-3">
-              No
-            </th>
-            <th scope="col" class="px-16 py-3">
-              {{-- <span class="sr-only">Image</span> --}}
-              Image
-            </th>
-            <th scope="col" class="px-6 py-3">
-              Nama Owner
-            </th>
-            <th scope="col" class="px-6 py-3">
-              Nama Kos
-            </th>
-            <th scope="col" class="px-6 py-3">
-              Alamat
-            </th>
-            <th scope="col" class="px-6 py-3">
-              Status
-            </th>
-            <th scope="col" class="px-6 py-3">
-              Aksi
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($kosts as $kost)
-            <tr class="bg-white border-b hover:bg-gray-50 ">
-              <td class="px-6 py-4 font-semibold text-gray-900">
-                {{ $loop->iteration }}
-              </td>
-              <td class="p-4">
-                <img src="{{ asset('kosts/' . $kost->foto_depan) }}" class="object-cover  max-w-64 h-28"
-                  alt="Foto Kos">
-              </td>
-              <td class="px-6 py-4 font-semibold text-gray-900">
-                {{ $kost->user->name }}
-              </td>
-              <td class="px-6 py-4 font-semibold text-gray-900">
-                {{ $kost->nama_kost }}
-              </td>
-              <td class="px-6 py-4 font-semibold text-gray-900">
-                {{ Str::limit($kost->lokasi, 5, '...') }}
-              </td>
-              <td
-                class="px-6 py-4 font-semibold
+    <div class="py-20 px-10 sm:ml-64 justify-center">
+        <h1 class="mb-4 mt-4 ml-4 text-3xl font-black text-gray-900">Persetujuan Kos</h1>
+        <br>
+        <div class="mx-8 mb-5 relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left rtl:text-right text-white">
+                <thead class="text-xs text-white uppercase bg-[#4F6F52] ">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            No
+                        </th>
+                        <th scope="col" class="px-16 py-3">
+                            {{-- <span class="sr-only">Image</span> --}}
+                            Image
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Nama Owner
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Nama Kos
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Alamat
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Status
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Aksi
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($kosts as $kost)
+                        <tr class="bg-white border-b hover:bg-gray-50 ">
+                            <td class="px-6 py-4 font-semibold text-gray-900">
+                                {{ $loop->iteration }}
+                            </td>
+                            <td class="p-4">
+                                <img src="{{ asset('kosts/' . $kost->foto_depan) }}" class="object-cover  max-w-64 h-28"
+                                    alt="Foto Kos">
+                            </td>
+                            <td class="px-6 py-4 font-semibold text-gray-900">
+                                {{ $kost->user->name }}
+                            </td>
+                            <td class="px-6 py-4 font-semibold text-gray-900">
+                                {{ $kost->nama_kost }}
+                            </td>
+                            <td class="px-6 py-4 font-semibold text-gray-900">
+                                {{ Str::limit($kost->lokasi, 5, '...') }}
+                            </td>
+                            <td
+                                class="px-6 py-4 font-semibold
                             @if ($kost->status == 'pending') text-yellow-500
                             @elseif($kost->status == 'setuju') text-green-500
                             @elseif($kost->status == 'tolak') text-red-500 @endif">
@@ -87,42 +87,53 @@
                                                 </svg>
                                             </button>
                                         </form>
-                                        <form id="reject-form" action="{{ route('admin.approvaladmin.tolak', $kost) }}" method="POST">
+                                        <form id="reject-form" action="{{ route('admin.approvaladmin.tolak', $kost) }}"
+                                            method="POST">
                                             @csrf
                                             @method('patch')
+
+                                            <input type="hidden" name="rejection_reason" id="rejection_reason">
+
                                             <button type="button"
                                                 class="mt-4 text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-md text-sm px-3 py-1.5"
                                                 onclick="showRejectionReason()">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
-                                                    <path fill="currentColor" d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12z" />
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="currentColor"
+                                                        d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12z" />
                                                 </svg>
                                             </button>
                                         </form>
 
                                         <script>
-                                        function showRejectionReason() {
-                                            Swal.fire({
-                                                title: 'Alasan Penolakan',
-                                                html: '<label for="rejection_reason">Masukkan alasan penolakan:</label>' +
-                                                      '<textarea id="rejection_reason" name="rejection_reason" class="swal2-textarea" rows="" maxlength="255" minlength="3"></textarea>',
-                                                icon: 'warning',
-                                                showCancelButton: true,
-                                                confirmButtonText: 'Tolak',
-                                                cancelButtonText: 'Batal',
-                                                preConfirm: () => {
-                                                    const rejectionReason = document.getElementById('rejection_reason').value;
-                                                    if (!rejectionReason) {
-                                                        Swal.showValidationMessage('Alasan penolakan harus diisi');
+                                            function showRejectionReason() {
+                                                Swal.fire({
+                                                    title: 'Alasan Penolakan',
+                                                    input: 'textarea',
+                                                    inputLabel: 'Masukan alasan penolakan disini',
+                                                    inputPlaceholder: 'Type your message here...',
+                                                    inputAttributes: {
+                                                        'aria-label': 'Type your message here',
+                                                    },
+                                                    showCancelButton: true,
+                                                    confirmButtonText: 'Tolak',
+                                                    cancelButtonText: 'Batal',
+                                                    preConfirm: () => {
+                                                        const rejectionReason = Swal.getPopup().querySelector('textarea').value;
+                                                        if (!rejectionReason) {
+                                                            Swal.showValidationMessage('Alasan penolakan harus diisi');
+                                                        }
+                                                        return rejectionReason;
+                                                    },
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        // Set the rejection reason to the hidden input field
+                                                        document.getElementById('rejection_reason').value = result.value;
+                                                        // Submit the form
+                                                        document.getElementById('reject-form').submit();
                                                     }
-                                                    return rejectionReason;
-                                                }
-                                            }).then((result) => {
-                                                if (result.isConfirmed) {
-                                                    // Alasan penolakan yang dimasukkan tersedia di result.value
-                                                    document.getElementById('reject-form').submit();
-                                                }
-                                            });
-                                        }
+                                                });
+                                            }
                                         </script>
                                     @endif
                                 </div>
