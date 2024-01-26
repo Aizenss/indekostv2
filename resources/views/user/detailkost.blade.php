@@ -263,35 +263,39 @@
       </div>
       <div class="flex items-end justify-end mt-0 mb-20">
         <div class="flex">
-        <a href="{{ route('semuarating', ['kos' => $kos->id]) }}">Lihat semua </a>
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="currentColor" d="M16.15 13H5q-.425 0-.712-.288T4 12q0-.425.288-.712T5 11h11.15L13.3 8.15q-.3-.3-.288-.7t.288-.7q.3-.3.713-.312t.712.287L19.3 11.3q.15.15.213.325t.062.375q0 .2-.062.375t-.213.325l-4.575 4.575q-.3.3-.712.288t-.713-.313q-.275-.3-.288-.7t.288-.7z"/></svg>
+          <a href="{{ route('semuarating', ['kos' => $kos->id]) }}">Lihat semua </a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+            <path fill="currentColor"
+              d="M16.15 13H5q-.425 0-.712-.288T4 12q0-.425.288-.712T5 11h11.15L13.3 8.15q-.3-.3-.288-.7t.288-.7q.3-.3.713-.312t.712.287L19.3 11.3q.15.15.213.325t.062.375q0 .2-.062.375t-.213.325l-4.575 4.575q-.3.3-.712.288t-.713-.313q-.275-.3-.288-.7t.288-.7z" />
+          </svg>
         </div>
-    </div>
+      </div>
       <div class="flex flex-col gap-5">
         @forelse ($kos->ulasan as $rating)
-        <div class="py-3 px-15 rounded-lg mb-5">
+          <div class="py-3 px-15 rounded-lg mb-5">
             <div class="flex gap-4">
               <div class="profile">
-                <img src="{{ asset('profiles/' . $rating    ->user->foto) }}" alt="" width="50" class="rounded-full">
+                <img src="{{ asset('profiles/' . $rating->user->foto) }}" alt="" width="50"
+                  class="rounded-full">
               </div>
               <div class="Informasinya flex-grow">
                 <div class="flex justify-between">
                   <div>
-                    <h1 class="text-2xl font-semibold text-gray-900">{{ $rating ->user->name }}</h1>
+                    <h1 class="text-2xl font-semibold text-gray-900">{{ $rating->user->name }}</h1>
                   </div>
                   <div class="text-xs">
-                    {{ \Carbon\Carbon::parse($rating    ->created_at)->isoformat('dddd, D-MMMM-YYYY') }}
+                    {{ \Carbon\Carbon::parse($rating->created_at)->isoformat('dddd, D-MMMM-YYYY') }}
                   </div>
                 </div>
 
                 <div class="flex items-center"> <!-- Updated this line -->
-                  <p class="text-balance rounded-md py-2 px-2 text-sm">{{ $rating   ->ulasan }}</p>
+                  <p class="text-balance rounded-md py-2 px-2 text-sm">{{ $rating->ulasan }}</p>
 
                 </div>
 
                 <div class="flex">
                   @for ($i = 1; $i <= 5; $i++)
-                    @if ($i <= $rating  ->rating)
+                    @if ($i <= $rating->rating)
                       <span>⭐</span>
                     @else
                       <span></span>
@@ -335,82 +339,97 @@
           </div>
           <!-- Modal body -->
           <!-- Modal -->
-<div class="modal">
-    <div class="grid grid-cols-3 gap-4 p-4">
-      <!-- Carousel in the first two columns -->
-      <div class="col-span-2 relative h-56 md:h-96 overflow-hidden rounded-lg">
-        <!-- Carousel wrapper -->
-        <div id="controls-carousel" class="relative w-full" data-carousel="static">
-          <!-- Item 1 -->
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="{{ asset('asset/login/loginn.png') }}" class="absolute block w-full -translate-x-1/2 -translate-y-2 top-1/2 left-1/2" alt="...">
-          </div>
-          <!-- Item 2 -->
-          <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-            <img src="{{ asset('foto/404.png') }}" class="absolute block w-full -translate-x-1/2 -translate-y-2 top-1/2 left-1/2" alt="...">
-          </div>
-          <!-- Item 3 -->
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="{{ asset('foto/403.png') }}" class="absolute block w-full -translate-x-1/2 -translate-y-2 top-1/2 left-1/2" alt="...">
-          </div>
-        </div>
-        <!-- Slider controls -->
-        <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-          <!-- Previous button icon -->
-        </button>
-        <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-          <!-- Next button icon -->
-        </button>
-      </div>
+          <div class="modal">
+            <div class="grid grid-cols-3 gap-4 p-4">
+              <!-- Carousel in the first two columns -->
+              <div class="col-span-2 relative h-56 md:h-96 overflow-hidden rounded-lg">
+                <!-- Carousel wrapper -->
+                <div id="controls-carousel" class="relative w-full" data-carousel="static">
+                  <!-- Item 1 -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="{{ asset('asset/login/loginn.png') }}"
+                      class="absolute block w-full -translate-x-1/2 -translate-y-2 top-1/2 left-1/2" alt="...">
+                  </div>
+                  <!-- Item 2 -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                    <img src="{{ asset('foto/404.png') }}"
+                      class="absolute block w-full -translate-x-1/2 -translate-y-2 top-1/2 left-1/2" alt="...">
+                  </div>
+                  <!-- Item 3 -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="{{ asset('foto/403.png') }}"
+                      class="absolute block w-full -translate-x-1/2 -translate-y-2 top-1/2 left-1/2" alt="...">
+                  </div>
+                </div>
+                <!-- Slider controls -->
+                <button type="button"
+                  class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                  data-carousel-prev>
+                  <!-- Previous button icon -->
+                </button>
+                <button type="button"
+                  class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                  data-carousel-next>
+                  <!-- Next button icon -->
+                </button>
+              </div>
 
-      <!-- Text in the third column -->
-      <div class="col-span-1 gap-5 mb-4">
-        <h1 class="text-lg font-semibold text-gray-900">Informasi Kamar</h1>
-       <div class="flex items-center mr-10">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48"><defs><mask id="ipTRulerOne0"><g fill="none" stroke="#fff" stroke-linecap="round" stroke-width="4"><path stroke-linejoin="round" d="M43 41H23"/><path fill="#555" stroke-linejoin="round" d="M38.718 5H21L5 41h17.662z"/><path stroke-linejoin="round" d="M9.959 29.882h8.028m-4.722-7.412h8.028m-4.519-7.87h8.029"/><path d="M21 5L5 41"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTRulerOne0)"/></svg>
-        <h1>Lebar<span>3*4</span></h1>
+              <!-- Text in the third column -->
+              <div class="col-span-1 gap-5 mb-4">
+                <h1 class="text-lg font-semibold text-gray-900">Informasi Kamar</h1>
+                <div class="flex items-center">
+                  {{-- <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48">
+                    <defs>
+                      <mask id="ipTRulerOne0">
+                        <g fill="none" stroke="#fff" stroke-linecap="round" stroke-width="4">
+                          <path stroke-linejoin="round" d="M43 41H23" />
+                          <path fill="#555" stroke-linejoin="round" d="M38.718 5H21L5 41h17.662z" />
+                          <path stroke-linejoin="round" d="M9.959 29.882h8.028m-4.722-7.412h8.028m-4.519-7.87h8.029" />
+                          <path d="M21 5L5 41" />
+                        </g>
+                      </mask>
+                    </defs>
+                    <path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTRulerOne0)" />
+                  </svg> --}}
+                  {{-- <h1>Lebar : <span>{{ $kamar->kapasitas }}</span></h1> --}}
 
-       <div class="flex items-center ml-10">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M17 15q-1.05 0-1.775-.725T14.5 12.5q0-1.05.725-1.775T17 10q1.05 0 1.775.725T19.5 12.5q0 1.05-.725 1.775T17 15m-4 5q-.425 0-.712-.288T12 19v-.4q0-.6.313-1.112t.887-.738q.9-.375 1.863-.562T17 16q.975 0 1.938.188t1.862.562q.575.225.888.738T22 18.6v.4q0 .425-.288.713T21 20zm-3-8q-1.65 0-2.825-1.175T6 8q0-1.65 1.175-2.825T10 4q1.65 0 2.825 1.175T14 8q0 1.65-1.175 2.825T10 12m-8 5.2q0-.85.425-1.562T3.6 14.55q1.5-.75 3.113-1.15T10 13q.875 0 1.75.15t1.75.35l-1.7 1.7q-.625.625-1.213 1.275T10 18v.975q0 .3.113.563t.362.462H4q-.825 0-1.412-.587T2 18z"/></svg>
-        <h1>3 orang</span></h1>
-       </div>
-       </div>
-       <hr class="mt-5">
-       <h1 class="mt-4 mb-4 text-lg font-semibold text-gray-900">Fasilitas Kamar</h1>
-       <div class="grid grid-cols-3 gap-4">
-        <div class="flex">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m10 13.6l5.9-5.9q.275-.275.7-.275t.7.275q.275.275.275.7t-.275.7l-6.6 6.6q-.3.3-.7.3t-.7-.3l-2.6-2.6q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275z"/></svg>
-          <h1>kasur</h1>
-        </div>
-        <div class="flex">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m10 13.6l5.9-5.9q.275-.275.7-.275t.7.275q.275.275.275.7t-.275.7l-6.6 6.6q-.3.3-.7.3t-.7-.3l-2.6-2.6q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275z"/></svg>
-          <h1>bantal</h1>
-        </div>
-        <div class="flex">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m10 13.6l5.9-5.9q.275-.275.7-.275t.7.275q.275.275.275.7t-.275.7l-6.6 6.6q-.3.3-.7.3t-.7-.3l-2.6-2.6q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275z"/></svg>
-          <h1>guling</h1>
-        </div>
-        <div class="flex">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m10 13.6l5.9-5.9q.275-.275.7-.275t.7.275q.275.275.275.7t-.275.7l-6.6 6.6q-.3.3-.7.3t-.7-.3l-2.6-2.6q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275z"/></svg>
-            <h1>kasur</h1>
+                  <div class="flex items-center ml-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                      <path fill="currentColor"
+                        d="M17 15q-1.05 0-1.775-.725T14.5 12.5q0-1.05.725-1.775T17 10q1.05 0 1.775.725T19.5 12.5q0 1.05-.725 1.775T17 15m-4 5q-.425 0-.712-.288T12 19v-.4q0-.6.313-1.112t.887-.738q.9-.375 1.863-.562T17 16q.975 0 1.938.188t1.862.562q.575.225.888.738T22 18.6v.4q0 .425-.288.713T21 20zm-3-8q-1.65 0-2.825-1.175T6 8q0-1.65 1.175-2.825T10 4q1.65 0 2.825 1.175T14 8q0 1.65-1.175 2.825T10 12m-8 5.2q0-.85.425-1.562T3.6 14.55q1.5-.75 3.113-1.15T10 13q.875 0 1.75.15t1.75.35l-1.7 1.7q-.625.625-1.213 1.275T10 18v.975q0 .3.113.563t.362.462H4q-.825 0-1.412-.587T2 18z" />
+                    </svg>
+                   <div class="flex">
+                     <h1>{{ $kamar->kapasitas }}<span> orang</span></h1>
+                   </div>
+                  </div>
+                </div>
+                <hr class="mt-5">
+                <h1 class="mt-4 mb-4 text-lg font-semibold text-gray-900">Fasilitas Kamar</h1>
+                <div class="grid grid-cols-2 gap-2 h-24 overflow-y-scroll scsm">
+                  @foreach (json_decode($kamar->fasilitas) as $fasilitas)
+                    <div class="flex flex-wrap">
+                      <span class="text-base font-medium text-gray-900">
+                        <i class="fa-solid fa-check me-1"></i>
+                        {{ $fasilitas->value }}
+                      </span>
+                    </div>
+                  @endforeach
+                </div>
+                <h1 class="text-lg font-semibold text-gray-900">Peraturan Kamar</h1>
+                <h1 class="mb-2">{{ $kamar->peraturan_kamar }}</h1>
+                  <h1 class="text-xl font-black text-green-900">                    Rp {{ number_format($kamar->harga, 0, ',', '.') }}
+                    <span
+                    class="text-xl font-black text-green-900">/{{ $kamar->night }} <span>bulan</span></span></h1>
+                    <button type="button"
+                    class="focus:outline-none text-white item-center bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-lg px-20 py-2.5 mb-2 ml-4 mr-4 mt-2">Ajukan
+                    Sewa</button>
+                </div>
+                <hr class=" mb-4">
+
+
+              </div>
+            </div>
           </div>
-          <div class="flex">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m10 13.6l5.9-5.9q.275-.275.7-.275t.7.275q.275.275.275.7t-.275.7l-6.6 6.6q-.3.3-.7.3t-.7-.3l-2.6-2.6q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275z"/></svg>
-            <h1>bantal</h1>
-          </div>
-          <div class="flex">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m10 13.6l5.9-5.9q.275-.275.7-.275t.7.275q.275.275.275.7t-.275.7l-6.6 6.6q-.3.3-.7.3t-.7-.3l-2.6-2.6q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275z"/></svg>
-            <h1>guling</h1>
-          </div>
-      </div>
-      <hr class=" mb-4">
-      <h1 class="text-lg font-semibold text-gray-900">Peraturan Kamar</h1>
-      <h1 class="mb-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam harum tempore nesciunt </h1>
-      <h1 class="text-xl font-black text-green-900">Rp.5000.000 <span class="text-xl font-black text-green-900">/bulan</span></h1>
-      <button type="button" class="focus:outline-none text-white item-center bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-lg px-20 py-2.5 mb-2 ml-4 mr-4 mt-2">Ajukan Sewa</button>
-    </div>
-    </div>
-  </div>
 
           <!-- Modal footer -->
           {{-- <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">

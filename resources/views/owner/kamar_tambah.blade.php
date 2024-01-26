@@ -144,7 +144,7 @@
                             <div class="informasi-2">
                                 <div class="fsnya">
                                     <p class="font-semibold">fasilitas</p>
-                                    <div class="grid grid-cols-3 gap-3 h-12 overflow-y-scroll sc-sm">
+                                    <div class="grid grid-cols-3 gap-3 h-16 overflow-y-scroll sc-sm">
                                         @foreach (json_decode($kamar->fasilitas) ?? [] as $fasilitas)
                                             <span class="text-sm text-gray-700 font-medium"><i class="fa-solid fa-lock-open me-2"></i>{{ $fasilitas->value }}</span>
                                         @endforeach

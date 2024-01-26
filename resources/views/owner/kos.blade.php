@@ -39,7 +39,7 @@
                                     Kententuan
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Alamatz
+                                    Alamat
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     status
