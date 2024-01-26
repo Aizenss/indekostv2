@@ -27,10 +27,10 @@
                             {{ \Carbon\Carbon::parse($track->checkout)->isoFormat('dddd, D MMMM Y') }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ \Carbon\Carbon::parse($track->checkin)->diffInDays(\Carbon\Carbon::parse($track->checkout)) }} Hari
+                            {{ \Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse($track->checkout), false) }} Hari
                         </td>
                         <td class="px-6 py-4">
-                            @if (\Carbon\Carbon::parse($track->checkin)->diffInDays(\Carbon\Carbon::parse($track->checkout)) === 0)
+                            @if (\Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse($track->checkout), false) === 0)
                                 {{-- No action needed for 0 days --}}
                             @else
                                 <a href="{{ route('owner.history.show', $track) }}">edit</a>

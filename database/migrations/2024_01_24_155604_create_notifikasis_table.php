@@ -18,8 +18,7 @@ return new class extends Migration
             $table->foreignId('kamar_id')->nullable()->constrained('kamar')->cascadeOnDelete();
             $table->string('pesan_user')->nullable();
             $table->string('pesan_owner')->nullable();
-            $table->boolean('is_new')->default(true);
-            $table->boolean('is_indicator')->default(true);
+            $table->string('status')->default('no read');
             $table->timestamps();
         });
     }

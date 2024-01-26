@@ -42,7 +42,7 @@ class KamarOwnerController extends Controller
             'kapasitas' => 'required|numeric|min:1',
             'harga' => 'required|numeric|min:0',
             'night' => 'required|numeric|between:1,12',
-            'foto_kamar' => 'nullable|array',
+            'foto_kamar' => 'required|array',
             'foto_kamar.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ], [
             'nama_kamar.required' => 'Nama kamar harus diisi.',
@@ -60,6 +60,7 @@ class KamarOwnerController extends Controller
             'night.required' => 'Durasi sewa per malam harus diisi.',
             'night.numeric' => 'Durasi sewa per malam harus berupa angka.',
             'night.between' => 'Durasi sewa per malam harus antara 1 sampai 12.',
+            'foto_kamar.required' => 'Foto kamar harus diisi.',
             'foto_kamar.array' => 'Foto kamar harus berupa sebuah array.',
             'foto_kamar.*.image' => 'Foto kamar harus berupa gambar.',
             'foto_kamar.*.mimes' => 'Foto kamar harus berupa file dengan tipe: jpeg, png, jpg, gif, atau svg.',

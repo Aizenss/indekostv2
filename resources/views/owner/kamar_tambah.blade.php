@@ -3,7 +3,7 @@
 
 @section('isi')
     <div class="py-20 px-10 sm:ml-64">
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 my-10 mx-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-10 mx-10">
             <a href="{{ route('owner.kamar.tambah.detail', $kos) }}"
                 class="bg-white border border-gray-200 rounded-lg flex justify-center items-center shadow-lg transition ease-in-out delay-150 hover:translate-y-3 duration-500 hover:shadow-gray-500 min-h-[300px]">
                 <i class="fa-solid fa-plus text-[50px] font-semibold"></i>

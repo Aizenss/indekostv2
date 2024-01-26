@@ -1,5 +1,5 @@
     <style>
-        .pnt{
+        .pnt {
             word-break: break-word;
         }
     </style>
@@ -41,20 +41,20 @@
                                     data-dropdown-placement="bottom">
                                     <i class="fa-solid fa-bell text-2xl text-gray-900 hover:text-gray-700 duration-200"></i>
                                     {{-- iki indikator lak enek pesan anyar --}}
-                                    @foreach (Auth::user()->notifikasi()->where('is_indicator', true)->orderBy('created_at', 'desc')->get() as $notif)
+                                    @foreach (Auth::user()->notifikasi()->where('status', 'no read')->orderBy('created_at', 'desc')->get() as $notif)
                                         <div
                                             class="inline-flex items-center justify-center w-2 h-2 -mb-[10px] -ms-2 border border-white rounded-full bg-red-500">
                                         </div>
-                                        @php
-                                            $notif->is_indicator = false;
-                                            $notif->save();
-                                        @endphp
                                     @endforeach
                                     {{-- oke wo --}}
                                 </button>
                                 <div class="z-50 hidden my-4 text-base w-80 list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3"
                                     id="massage-dropdown">
                                     <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>
+                                    <form action="{{route('notif')}}" method="post">
+                                        @csrf
+                                        <button type="submit">w</button>
+                                    </form>
                                     <div class="flex flex-col gap-3 px-4 py-3 overflow-y-scroll h-[200px]">
                                         {{-- @dd(Auth::user()->notifikasi()->orderBy('created_at', 'desc')->get()); --}}
                                         @foreach (Auth::user()->notifikasi()->orderBy('created_at', 'desc')->get() as $notif)
@@ -63,7 +63,8 @@
                                                 <div class="">
                                                     <div class="text-sm font-medium text-gray-900">{{ $notif->user->name }}
                                                     </div>
-                                                    <div class="text-sm text-gray-700 text-wrap pnt">{{ $notif->pesan_user }}</div>
+                                                    <div class="text-sm text-gray-700 text-wrap pnt">
+                                                        {{ $notif->pesan_user }}</div>
                                                     <div class="text-xs text-gray-500">
                                                         {{ $notif->created_at->diffForHumans() }}</div>
                                                 </div>

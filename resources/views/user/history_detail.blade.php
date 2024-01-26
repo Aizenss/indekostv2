@@ -27,11 +27,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            {{ $kamar->nama_kamar }}
-                        </th>
-                        @foreach ($tracking as $track)
+                    @foreach ($tracking as $track)
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                {{ $track->kamar->nama_kamar }}
+                            </th>
+                            {{-- {{$track}} --}}
                             <td class="px-6 py-4">
                                 {{ \Carbon\Carbon::parse($track->checkin)->isoformat('dddd, D MMMM Y') }}
                             </td>
@@ -39,24 +40,24 @@
                                 {{ \Carbon\Carbon::parse($track->checkout)->isoformat('dddd, D MMMM Y') }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ \Carbon\Carbon::parse($track->checkin)->diffInDays(\Carbon\Carbon::parse($track->checkout)) }}
+                                {{ \Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse($track->checkout), false) }}
                                 Hari
                             </td>
                             <td class="px-6 py-4">
-                                @if (\Carbon\Carbon::parse($track->checkin)->diffInDays(\Carbon\Carbon::parse($track->checkout)) === 0)
+                                @if (\Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse($track->checkout), false) === 0)
                                     terimakasih telah menyewa kos ini, silahkan lihat lihat kos kembali
                                 @else
                                     <form action="{{ route('history.detail.pay', ['kamar' => $kamar]) }}" method="POST">
                                         @csrf
                                         <button type="submit"
                                             class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-                                            Ajukan Sewa Lagi
+                                            Ajuka n Sewa Lagi
                                         </button>
                                     </form>
                                 @endif
                             </td>
-                        @endforeach
-                    </tr>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

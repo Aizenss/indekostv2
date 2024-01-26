@@ -20,6 +20,7 @@ use App\Http\Controllers\KelolaOwnerController;
 use App\Http\Controllers\SemuaRatingControoller;
 use App\Http\Controllers\ApprovalAdminController;
 use App\Http\Controllers\ApprovalOwnerController;
+use App\Http\Controllers\NotifController;
 use App\Http\Controllers\TransaksiAdminController;
 
 /*
@@ -73,6 +74,7 @@ Route::middleware(['auth', 'role:user', 'verified'])->group(function () {
     route::get('/history/{kamar}', [HistoryController::class, 'show'])->name('history.detail');
     route::post('/history/{kamar}/ajukanLagi', [PaymentController::class, 'payAgain'])->name('history.detail.pay');
     route::post('/history/{kamar}/proses', [PaymentController::class, 'prosesLagi'])->name('history.detail.proses');
+    route::post('/notif', [NotifController::class, 'update'])->name('notif');
 });
 
 Route::middleware(['auth', 'role:owner', 'verified'])->group(function () {
