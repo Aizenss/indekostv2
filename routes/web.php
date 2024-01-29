@@ -65,7 +65,6 @@ Route::middleware(['auth', 'role:admin', 'verified'])->group(function () {
     Route::post('/footer/tambah', [FooterController::class, 'tambah'])->name('admin.footer.tambah');
     // Route::put('/admin/footer', [FooterController::class, 'update'])->name('admin.footer.update');
     Route::put('/admin/footer/{footer}', [FooterController::class, 'update'])->name('admin.footer.update');
-
 });
 
 Route::middleware(['auth', 'role:user', 'verified'])->group(function () {

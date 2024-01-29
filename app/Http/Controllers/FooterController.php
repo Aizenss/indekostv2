@@ -18,24 +18,12 @@ class FooterController extends Controller
 
     public function edit()
     {
-        // Assuming you have the authenticated user available
         $user = Auth::user();
-
-        // Check if the user has the 'admin' role
-        if ($user && $user->role == 'admin') {
-            // Fetch the footer information (assuming you only have one footer)
-            $footer = Footer::first();
-
-            // Check if the footer exists
-            if ($footer) {
-                return view('layout.footer', ['footer' => $footer]);
-            } else {
-                // Handle the case where the footer is not found
-                return redirect()->back()->with('error', 'Footer not found');
-            }
+        $footer = Footer::first();
+        if ($footer) {
+            return view('layout.footer', ['footer' => $footer]);
         } else {
-            // Handle the case where the user doesn't have the required role
-            return redirect()->back()->with('error', 'Permission denied');
+            return redirect()->back()->with('error', 'Footer not found');
         }
     }
 
