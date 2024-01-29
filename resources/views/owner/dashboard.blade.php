@@ -49,30 +49,24 @@
         let chartData = @json($data);
 
         var options = {
-          series: [{
-          name: 'Jumlah',
-          data: [31, 40, 28, 51, 42, 109, 100],
-          color: '#86A789'
-        }],
-          chart: {
-          height: 350,
-          type: 'area'
-        },
-        dataLabels: {
-          enabled: false
-        },
-        stroke: {
-          curve: 'smooth'
-        },
-        xaxis: {
-          type: 'datetime',
-          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-        },
-        tooltip: {
-          x: {
-            format: 'dd/MM/yy HH:mm'
-          },
-        },
+            series: [{
+                name: 'Jumlah',
+                data: chartData.map(item => item.data2),
+                color: '#86A789'
+            }],
+            chart: {
+                height: 350,
+                type: 'area'
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            xaxis: {
+                categories: chartData.map(item => item.month)
+            },
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
@@ -81,30 +75,24 @@
         // let chartData = @json($data);
 
         var option = {
-          series: [{
-          name: 'Pendapatan',
-          data: [31, 40, 28, 51, 42, 109, 100],
-          color: '#86A789'
-        }],
-          chart: {
-          height: 350,
-          type: 'area'
-        },
-        dataLabels: {
-          enabled: false
-        },
-        stroke: {
-          curve: 'smooth'
-        },
-        xaxis: {
-          type: 'datetime',
-          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-        },
-        tooltip: {
-          x: {
-            format: 'dd/MM/yy HH:mm'
-          },
-        },
+            series: [{
+                name: 'Pendapatan',
+                data: chartData.map(item => item.data),
+                color: '#86A789'
+            }],
+            chart: {
+                height: 350,
+                type: 'area'
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            xaxis: {
+                categories: chartData.map(item => item.month),
+            },
         };
 
         var charts = new ApexCharts(document.querySelector("#charts"), option);

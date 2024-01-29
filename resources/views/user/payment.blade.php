@@ -164,6 +164,8 @@
                     onSuccess: function(result) {
                         /* You may add your own implementation here */
                         alert("Payment success!");
+                        window.location.href = '/payment';
+
                         console.log(result);
                         // Contoh menggunakan jQuery
                         $.ajax({
@@ -175,7 +177,7 @@
                                 // tambahkan data lain jika diperlukan
                             },
                             success: function(response) {
-                                console.log(response.message);
+                                window.location.href = '/payment';
                                 // Lakukan sesuatu setelah menerima respons dari server
                                 // window.location.href = '/payment/proses-data/' + kamarId;
                             },
@@ -219,6 +221,7 @@
                     onSuccess: function(result) {
                         /* You may add your own implementation here */
                         alert("Payment success!");
+                        window.location.href = '/payment';
                         console.log(result);
 
                         // Contoh menggunakan jQuery
@@ -231,9 +234,7 @@
                                 // tambahkan data lain jika diperlukan
                             },
                             success: function(response) {
-                                console.log(response.message);
-                                // Lakukan sesuatu setelah menerima respons dari server
-                                // window.location.href = '/payment/proses-data/' + kamarId;
+                                window.location.href = '/payment';
                             },
                             error: function(error) {
                                 console.error('Error:', error);
@@ -259,6 +260,4 @@
             });
         }
     </script>
-
-
 @endsection

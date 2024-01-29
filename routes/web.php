@@ -62,10 +62,6 @@ Route::middleware(['auth', 'role:admin', 'verified'])->group(function () {
     Route::get('/admin-kelolaowner/{owner}', [KelolaOwnerController::class, 'show'])->name('kelolaowner.show');
     Route::get('/admin-kelolaowner/{owner}/delete', [KelolaOwnerController::class, 'delete'])->name('kelolaowner.delete');
     Route::get('/dashboard/admin', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('/footer', [FooterController::class, 'index'])->name('admin.footer');
-    Route::post('/footer/tambah', [FooterController::class, 'tambah'])->name('admin.footer.tambah');
-    // Route::put('/admin/footer', [FooterController::class, 'update'])->name('admin.footer.update');
-    Route::put('/admin/footer/{footer}', [FooterController::class, 'update'])->name('admin.footer.update');
 });
 
 Route::middleware(['auth', 'role:user', 'verified'])->group(function () {

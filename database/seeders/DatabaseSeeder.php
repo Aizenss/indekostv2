@@ -48,15 +48,6 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now()
         ]);
 
-        Footer::create([
-            'kalimat' => 'Copyright 2022 - Indekost',
-            'alamat' => 'Jl. Raya Cibinong, Cibinong, Bogor',
-            'email' => 'qQpO2@example.com',
-            'nomorhp' => '08123456789',
-            'linkinsta' => 'https://www.instagram.com',
-            'linktwitter' => 'https://www.twitter.com',
-            'linkyt' => 'https://www.youtube.com',
-        ]);
 
         Kos::factory(2)->create();
 

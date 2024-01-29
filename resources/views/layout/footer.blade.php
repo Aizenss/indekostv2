@@ -11,23 +11,24 @@
     </a>
     <div class="md:flex md:justify-between gap-4 mt-4">
         <div class="mb-6 md:mb-0 md:w-1/2">
-            <p class="px-5 text-black">{{ $footer->kalimat }}</p>
+            <p class="px-5 text-black">Kemudahan menemukan kost sesuai keinginan Anda! Gunakan Indekost untuk
+                menjelajahi tempat tinggal yang nyaman dan sesuai dengan anggaran Anda.</p>
             <br>
             <div class="px-5 flex text-white gap-5">
                 <div class="bg-[#4F6F52] flex justify-center items-center p-2 rounded w-10 h-10">
-                    <a href="{{ $footer->linkinsta }}" target="_blank">
+                    <a href="https://www.instagram.com/dekasajaaa/" target="_blank">
                         <i class="fa-brands fa-instagram text-2xl"></i>
                     </a>
                 </div>
 
                 <div class="bg-[#4F6F52] flex justify-center items-center p-2 rounded w-10 h-10">
-                    <a href="{{ $footer->linktwitter }}" target="_blank">
+                    <a href="https://www.instagram.com/dekasajaaa/" target="_blank">
                         <i class="fa-brands fa-twitter text-2xl"></i>
                     </a>
                 </div>
 
                 <div class="bg-[#4F6F52] flex justify-center items-center p-2 rounded w-10 h-10">
-                    <a href="{{ $footer->linkyt }}" target="_blank">
+                    <a href="https://www.instagram.com/dekasajaaa/" target="_blank">
                         <i class="fa-brands fa-youtube text-2xl"></i>
                     </a>
                 </div>
@@ -40,20 +41,19 @@
                     <li class="mb-6">
                         <div class=" flex items-center gap-2">
                             <i class="fa-solid fa-location-dot ms-0.5 text-xl text-black"></i>
-                            <p class="ml-2 hover:text-[#739072] duration-300 cursor-none"><span
-                                    class="font-semibold">{{ $footer->alamat }}</span></p>
+                            <p class="ml-2 hover:text-[#739072] duration-300 cursor-none">Malang <span class="font-semibold">Jawa Timur, Indonesia</span></p>
                         </div>
                     </li>
                     <li class="mb-6">
                         <div class=" flex items-center gap-2">
                             <i class="fa-solid fa-envelope text-xl text-black"></i>
-                            <span class="ml-2 hover:text-[#739072] duration-300 cursor-none">{{ $footer->email }}</span>
+                            <span class="ml-2 hover:text-[#739072] duration-300 cursor-none">@Irsyadandhikaariadi</span>
                         </div>
                     </li>
                     <li class="mb-6">
                         <div class=" flex items-center gap-2">
                             <i class="fa-brands fa-square-whatsapp ms-0.5 text-xl text-black"></i>
-                            <span class="ml-2 hover:text-[#739072] duration-300">{{ $footer->nomorhp }}</span>
+                            <span class="ml-2 hover:text-[#739072] duration-300">+6283845435993</span>
                         </div>
                     </li>
                 </ul>
