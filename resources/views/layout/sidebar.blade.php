@@ -42,18 +42,24 @@
                             </button>
                             <div class="z-50 hidden my-4 text-base w-80 list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3"
                                 id="massage-dropdown">
-                                <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>
-                                <form action="{{route('notif')}}" method="post">
-                                    @csrf
-                                    <button type="submit">w</button>
-                                </form>
+                                <div class="flex justify-between mx-3">
+                                    <div class="note">
+                                        <span class="text-xl text-gray-900 font-semibold">Notifikasi</span>
+                                    </div>
+                                    <div class="clear">
+                                        <form action="{{route('notif')}}" method="post" class="inline-flex justify-end items-center">
+                                            @csrf
+                                            <button type="submit">Tandai Baca</button>
+                                        </form>
+                                    </div>
+                                </div>
                                 <div class="flex flex-col gap-3 px-4 py-3  overflow-y-scroll h-[200px]">
                                     {{-- nggen foreachmu lek ojo salah nggen --}}
                                     {{-- @dd(Auth::user()->notifikasiowner()->orderBy('created_at', 'desc')->get()); --}}
                                     @foreach (Auth::user()->notifikasiowner()->orderBy('created_at', 'desc')->get() as $notif)
                                         <div
                                             class="flex items-center p-2 transition duration-150 ease-in-out rounded-lg hover:bg-gray-200">
-                                            <div class="">
+                                            <div>
                                                 <div class="text-sm font-medium text-gray-900">{{ $notif->owner->name }}
                                                 </div>
                                                 <div class="text-sm text-gray-700 text-wrap pnt">{{ $notif->pesan_owner }}</div>

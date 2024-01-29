@@ -48,6 +48,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::put('/profile/upload', [ProfileController::class, 'uploadfoto'])->name('profile.foto.upload');
     Route::patch('/profile/password/update', [ProfileController::class, 'passwordupdate'])->name('profile.password.update');
+    route::post('/notif', [NotifController::class, 'update'])->name('notif');
 
 });
 
@@ -80,7 +81,6 @@ Route::middleware(['auth', 'role:user', 'verified'])->group(function () {
     route::get('/history/{kamar}', [HistoryController::class, 'show'])->name('history.detail');
     route::post('/history/{kamar}/ajukanLagi', [PaymentController::class, 'payAgain'])->name('history.detail.pay');
     route::post('/history/{kamar}/proses', [PaymentController::class, 'prosesLagi'])->name('history.detail.proses');
-    route::post('/notif', [NotifController::class, 'update'])->name('notif');
 });
 
 Route::middleware(['auth', 'role:owner', 'verified'])->group(function () {
