@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Footer;
 use App\Models\Kamar;
 use App\Models\Kos;
 use App\Models\User;
@@ -46,8 +47,9 @@ class DatabaseSeeder extends Seeder
             'role' => 'owner',
             'email_verified_at' => now()
         ]);
-        Kos::factory(4)->create();
 
-        Kamar::factory(8)->create();
+        Kos::factory(2)->create();
+
+        Kamar::factory(3)->create();
     }
 }

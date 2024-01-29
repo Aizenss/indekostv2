@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Footer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FooterController extends Controller
 {
@@ -27,7 +28,7 @@ class FooterController extends Controller
 
             // Check if the footer exists
             if ($footer) {
-                return view('admin.footer.edit', ['footer' => $footer]);
+                return view('layout.footer', ['footer' => $footer]);
             } else {
                 // Handle the case where the footer is not found
                 return redirect()->back()->with('error', 'Footer not found');
@@ -40,18 +41,18 @@ class FooterController extends Controller
 
 
     public function tambah()
-{
-    return view('admin.footer');
-}
+    {
+        return view('admin.footer');
+    }
 
-public function update(Request $request, Footer $footer)
+    public function update(Request $request, Footer $footer)
 
     {
         $request->validate([
             'kalimat' => 'required|min:10',
             'alamat' => 'required|min:10',
             'email' => 'required|email|ends_with:@gmail.com',
-            'nomorhp' => 'required|numeric|digits_between:10,13', 
+            'nomorhp' => 'required|numeric|digits_between:10,13',
             'linkinsta' => 'required|url',
             'linkyt' => 'required|url',
             'linktwitter' => 'required|url',
@@ -72,11 +73,8 @@ public function update(Request $request, Footer $footer)
             'linkyt.url' => 'Masukkan link Youtube yang sesuai',
         ]);
 
-
-
         $footer->update($request->all());
 
         return redirect()->route('admin.footer')->with('success', 'Footer berhasil diperbarui.');
     }
-
 }
