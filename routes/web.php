@@ -62,8 +62,8 @@ Route::middleware(['auth', 'role:admin', 'verified'])->group(function () {
     Route::get('/admin-kelolaowner/{owner}', [KelolaOwnerController::class, 'show'])->name('kelolaowner.show');
     Route::get('/admin-kelolaowner/{owner}/delete', [KelolaOwnerController::class, 'delete'])->name('kelolaowner.delete');
     Route::get('/dashboard/admin', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('/penarikan', [PenarikanController::class, 'index'])->name('admin.penarikan');
-    Route::post('/penarikan/tambah', [PenarikanController::class, 'tambah'])->name('admin.penarikan.tambah');
+    Route::get('/penarikan/admin', [PenarikanController::class, 'index'])->name('admin.penarikan');
+    Route::post('/penarikan/admin/tambah', [PenarikanController::class, 'tambah'])->name('admin.penarikan.tambah');
 });
 
 Route::middleware(['auth', 'role:user', 'verified'])->group(function () {
