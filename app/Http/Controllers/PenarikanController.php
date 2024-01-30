@@ -9,6 +9,6 @@ class PenarikanController extends Controller
 {
     //
     public function index(){
-        return view('/');
+        return view('owner.withdraw');
     }
 }

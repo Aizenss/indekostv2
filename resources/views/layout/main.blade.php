@@ -75,11 +75,11 @@
             loop autoplay></dotlottie-player>
     </div>
     <div id="main-content" class="flex flex-col min-h-screen">
-        <div class="footernya">
-            @extends('layout.footer')
-        </div>
         <div class="main">
             @yield('isi')
+        </div>
+        <div class="footernya">
+            @extends('layout.footer')
         </div>
     </div>
     @yield('js')

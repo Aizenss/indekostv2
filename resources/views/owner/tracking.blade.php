@@ -38,12 +38,12 @@
                         </td>
                     </tr>
                 @empty
-                    <tr class="bg-white dark:bg-gray-800 items-center">
-                        <td colspan="5" class="px-6 py-4 text-center text-xs text-gray-900 dark:text-white">
+                <tr class="bg-white px-6 py-4 w-full flex justify-center items-center text-center text-xs text-gray-900">
+                    <td colspan="5" class="">
                             <img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="size-52" alt="No Data">
                             <p>No tracking data available.</p>
-                        </td>
-                    </tr>
+                    </td>
+                </tr>                
                 @endforelse
             </tbody>
         </table>
