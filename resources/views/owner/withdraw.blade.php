@@ -23,15 +23,19 @@
                     <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Metode Pembayaran</label>
                     <select id="countries" name="metode_pembayaran"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                        <option selected disabled>Metode Pembayaran</option>
+                        <option disabled selected>Metode Pembayaran</option>
                         <option value="BRI">Bank Bri</option>
                         <option value="BNI">Bank Bni</option>
                         <option value="BCA">Bank Bca</option>
                     </select>
+                    @error('metode_pembayaran')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+
                 </div>
                 <div class="mb-6">
                     <label for="norek" class="block mb-2 text-sm font-medium text-gray-900">No Rekening</label>
-                    <input placeholder="Cth: 123456789" name="no_rek" type="number" id="norek"
+                    <input placeholder="Cth: 123456789" name="no_rek" type="number" id="norek" value="{{ old('no_rek') }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     @error('no_rek')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -40,7 +44,7 @@
             </div>
             <div class="mb-6">
                 <label for="nominal class=" class="block mb-2 text-sm font-medium text-gray-900">Nominal</label>
-                <input type="text" placeholder="Cth: 100000" id="nominal" name="nominal"
+                <input type="number" placeholder="Cth: 100000" id="nominal" name="nominal" value="{{ old('nominal') }}"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                 @error('nominal')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -69,7 +73,7 @@
             </div>
             <div class="grid grid-cols-1 gap-5 my-10 px-24">
                 @php
-                    $sortedPenarikanTransaksi = collect($penarikanTransaksi)->sortBy('data.waktu');
+                    $sortedPenarikanTransaksi = collect($penarikanTransaksi)->sortBy('data.created_at')->reverse()->all();
                 @endphp
                 @foreach ($sortedPenarikanTransaksi as $item)
                     @if ($item['type'] == 'transaksi')

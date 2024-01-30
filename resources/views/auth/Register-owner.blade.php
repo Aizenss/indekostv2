@@ -33,7 +33,7 @@
                     </div>
                     <div class="mb-1">
                         <label for="password" class="block text-sm font-medium text-white mb-2">Sandi</label>
-                        <input type="password" name="password" id="password" placeholder="••••••••"
+                        <input type="password" name="password" id="password" placeholder="••••••••" value="{{ old('password') }}"
                             class="shadow-md bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4F6F52] focus:border-[#4F6F52] block w-full p-2.5 ">
                         @error('password')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -42,7 +42,7 @@
                     <div class="mb-1">
                         <label for="password_confirmation" class="block text-sm font-medium text-white mb-2">Konfirmasi
                             Kata Sandi</label>
-                        <input type="password" name="password_confirmation" id="password_confirmation"
+                        <input type="password" name="password_confirmation" id="password_confirmation" 
                             placeholder="••••••••"
                             class="shadow-md bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4F6F52] focus:border-[#4F6F52] block w-full p-2.5 ">
                         @error('password_confirmation')

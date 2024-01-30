@@ -10,7 +10,7 @@
                 <div class="grid md:grid-cols-2 gap-5">
                     <div class="">
                         <div class="mb-5">
-                            <label for="nama_kost" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
+                            <label for="nama_kost"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
                                 Kost</label>
                             <input type="text" id="nama_kost" name="nama_kost" value="{{ old('nama_kost') }}"
                                 class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -55,7 +55,7 @@
                             <label for="spesifikasi"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fasilitas umum</label>
                             <div class="flex gap-3">
-                                <input id="tagsInput" name="fasilitas_umum" type="text"
+                                <input id="tagsInput" name="fasilitas_umum" type="text" value="{{ old('fasilitas_umum') }}"
                                     class="mt-2 p-1 w-full border border-gray-900 rounded-md  focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none overflow-y-scroll sc-sm max-h-9"
                                     value="" autocomplete="off">
                                 <button class='tags-jquery--removeAllBtn text-gray-900 text-3xl' type='button'><i

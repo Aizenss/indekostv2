@@ -39,7 +39,7 @@
                     <div class="mb-1">
                         <label for="password"
                             class="block text-sm font-medium text-white mb-2">Sandi</label>
-                        <input type="password" name="password" id="password" placeholder="••••••••"
+                        <input type="password" name="password" id="password" placeholder="••••••••" value="{{ old('password') }}"
                             class="shadow-md bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4F6F52] focus:border-[#4F6F52] block w-full p-2.5 "
                         >
                         @error('password')
