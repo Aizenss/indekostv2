@@ -180,6 +180,13 @@
                         <span class="ms-3">Transaksi</span>
                     </a>
                 </li>
+                <li>
+                    <a href="/penarikan/admin"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 hover:shadow-xl {{ request()->is('penarikan/admin') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
+                        <i class="fa-solid fa-wallet"></i>
+                        <span class="ms-3">Penarikan</span>
+                    </a>
+                </li>
             @elseif (Auth::user()->role == 'owner')
                 <li>
                     <a href="/dashboard/owner"
@@ -218,7 +225,7 @@
                 </li>
                 <li>
                     <a href="/penarikan"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 hover:shadow-xl {{ request()->is('tracking/owner') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-[#739072] hover:text-white duration-300 hover:shadow-xl {{ request()->is('penarikan') ? 'bg-[#739072] text-white' : 'bg-[#D2E3C8]' }}">
                         <i class="fa-solid fa-wallet"></i>
                         <span class="ms-3">Penarikan</span>
                     </a>
