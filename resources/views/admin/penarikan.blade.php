@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <form action="{{ route('owner.penarikan.tambah') }}" method="POST" class="my-12">
+        <form action="{{ route('admin.penarikan.tambah') }}" method="POST" class="my-12">
             @csrf
             <div class="grid grid-cols-2 gap-8">
                 <div class="metode">
