@@ -1,8 +1,9 @@
 <style>
-    .pnt{
+    .pnt {
         word-break: break-word;
     }
-    .overvflow-y-scroll::-webkit-scrollbar{
+
+    .overvflow-y-scroll::-webkit-scrollbar {
         width: 3px;
     }
 </style>
@@ -34,7 +35,8 @@
                                 aria-expanded="false" data-dropdown-toggle="massage-dropdown"
                                 data-dropdown-placement="bottom">
                                 <i class="fa-solid fa-bell text-2xl text-gray-900 hover:text-gray-700 duration-200"></i>
-                                @foreach (Auth::user()->notifikasi()->where('status', 'no read')->orderBy('created_at', 'desc')->get() as $notif)
+                                {{-- @dd(Auth::user()->notifikasiowner()->where('status', 'no read')->orderBy('created_at', 'desc')->get()); --}}
+                                @foreach (Auth::user()->notifikasiowner()->where('status_owner', 'no read')->orderBy('created_at', 'desc')->get() as $notif)
                                     <div
                                         class="inline-flex items-center justify-center w-2 h-2 -mb-[10px] -ms-2 border border-white rounded-full bg-red-500">
                                     </div>
@@ -47,22 +49,22 @@
                                         <span class="text-xl text-gray-900 font-semibold">Notifikasi</span>
                                     </div>
                                     <div class="clear">
-                                        <form action="{{route('notif')}}" method="post" class="inline-flex justify-end items-center">
+                                        <form action="{{ route('notif') }}" method="post"
+                                            class="inline-flex justify-end items-center">
                                             @csrf
                                             <button type="submit">Tandai Baca</button>
                                         </form>
                                     </div>
                                 </div>
                                 <div class="flex flex-col gap-3 px-4 py-3  overflow-y-scroll h-[200px]">
-                                    {{-- nggen foreachmu lek ojo salah nggen --}}
-                                    {{-- @dd(Auth::user()->notifikasiowner()->orderBy('created_at', 'desc')->get()); --}}
-                                    @foreach (Auth::user()->notifikasiowner()->orderBy('created_at', 'desc')->get() as $notif)
+                                    @foreach (Auth::user()->notifikasiowner()->where('pesan_owner', '<>', null)->orderBy('created_at', 'desc')->get() as $notif)
                                         <div
                                             class="flex items-center p-2 transition duration-150 ease-in-out rounded-lg hover:bg-gray-200">
                                             <div>
                                                 <div class="text-sm font-medium text-gray-900">{{ $notif->owner->name }}
                                                 </div>
-                                                <div class="text-sm text-gray-700 text-wrap pnt">{{ $notif->pesan_owner }}</div>
+                                                <div class="text-sm text-gray-700 text-wrap pnt">
+                                                    {{ $notif->pesan_owner }}</div>
                                                 <div class="text-xs text-gray-500">
                                                     {{ $notif->created_at->diffForHumans() }}</div>
                                             </div>

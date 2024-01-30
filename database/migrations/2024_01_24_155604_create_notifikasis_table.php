@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('pesan_user')->nullable();
             $table->string('pesan_owner')->nullable();
             $table->string('status')->default('no read');
+            $table->string('status_owner')->default('no read');
             $table->timestamps();
         });
     }

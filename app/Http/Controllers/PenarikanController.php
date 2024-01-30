@@ -2,40 +2,54 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Penarikan;
 use App\Models\Transaksi;
-use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PenarikanController extends Controller
 {
     //
-    public function index(){
-        return view('owner.withdraw');
+    public function index()
+    {
+        $penarikanTransaksi = [];
+
+        foreach (Penarikan::where('user_id', Auth::user()->id)->get() as $penarikan) {
+            $penarikanTransaksi[] = [
+                'type' => 'penarikan',
+                'data' => $penarikan
+            ];
+        }
+
+        foreach (Transaksi::where('owner_id', Auth::user()->id)->get() as $transaksi) {
+            $penarikanTransaksi[] = [
+                'type' => 'transaksi',
+                'data' => $transaksi
+            ];
+        }
+        return view('owner.withdraw', compact('penarikanTransaksi'));
     }
 
     public function tambah(Request $request)
     {
+        // dd($request->all());
         $request->validate([
-            'user_id' => 'required|exists:users,id',
             'nominal' => 'required',
             'no_rek' => 'required',
             'metode_pembayaran' => 'required|in:BNI,BRI,BCA',
         ], [
-            'user_id.required' => 'ID pengguna wajib diisi.',
-            'user_id.exists' => 'ID pengguna tidak ditemukan.',
             'nominal.required' => 'Nominal wajib diisi.',
             'no_rek.required' => 'Nomor rekening wajib diisi.',
             'metode_pembayaran.required' => 'Metode pembayaran wajib diisi.',
             'metode_pembayaran.in' => 'Metode pembayaran harus salah satu dari: BNI, BRI, BCA.',
         ]);
-
         try {
-            //code...
-            $user = User::find($request->user_id);
+            $userid = Auth::user();
+            $user = User::find($userid->id);
 
             if ($user->pendapatan < $request->nominal) {
-                return response()->json(['error' => 'nominal tidak mencukupi'], 400);
+                return redirect()->back()->with('error', 'Saldo anda tidak mencukupi');
             }
 
             $user->pendapatan -= $request->nominal;
@@ -47,16 +61,10 @@ class PenarikanController extends Controller
                 'no_rek' => $request->no_rek,
                 'metode_pembayaran' => $request->metode_pembayaran
             ]);
-
-            if ($penarikan) {
-                return response()->json(['pesan' => 'Penarikan berhasil ditambahkan', 'data' => $penarikan], 200);
-            } else {
-                return response()->json(['error' => 'Gagal menambahkan penarikan'], 500);
-            }
-            return response()->json(['pesan' => 'data berhasil ditambahkan'], 200);
+            return redirect()->back()->with('success', 'Penarikan Berhasil Di Tambah');
         } catch (\Exception $e) {
             //throw $th;
-            return response()->json(['error' => $e->getMessage()], 500);
+            return redirect()->back()->with('error', $e->getMessage());
         }
     }
 }

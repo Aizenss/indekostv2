@@ -26,7 +26,7 @@ class ApprovalAdminController extends Controller
             'owner_id' => $kos->owner_id,
             'pesan_owner' => 'pengajuan kos telah disetujui'
         ]);
-        return redirect()->back()->with('success', 'Kamar Berhasil Di Setujui');
+        return redirect()->back()->with('success', 'Kos Berhasil Di Setujui');
     }
 
     public function tolak(Request $request, Kos $kos)

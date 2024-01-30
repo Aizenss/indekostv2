@@ -114,7 +114,7 @@ class OwnerKosController extends Controller
 
         // dd($result);
 
-        return redirect()->route('owner.kos')->with('success', 'Kost' . $request->nama_kost . ' berhasil ditambahkan');
+        return redirect()->route('owner.kos')->with('success', 'Kost ' . $request->nama_kost . ' berhasil ditambahkan');
     }
 
     public function ubah($id)
