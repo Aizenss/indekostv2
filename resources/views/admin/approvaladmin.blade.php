@@ -35,7 +35,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($kosts as $kost)
+                    @forelse ($kosts as $kost)
                         <tr class="bg-white border-b hover:bg-gray-50 ">
                             <td class="px-6 py-4 font-semibold text-gray-900">
                                 {{ $loop->iteration }}
@@ -140,7 +140,16 @@
                             </td>
 
                         </tr>
-                    @endforeach
+                        @empty
+                    <tr class="bg-white dark:bg-gray-800 items-center">
+                    <tr scope="row" colspan="8"
+                        class="px-6 flex items-center justify-center py-4 font-medium text-xs text-gray-900 whitespace-nowrap">
+                    </tr>
+                    <td></td>
+                    <td></td>
+                    <td><img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="size-52" alt=""></td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

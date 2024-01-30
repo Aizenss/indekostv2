@@ -162,11 +162,16 @@
 
                             </div>
                         </div>
-                @empty
-                    <div class=" flex justify-center align-middle">
-                        <img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="size-52" alt="">
-                    </div>
-                @endforelse
+                        @empty
+                        <tr class="bg-white dark:bg-gray-800 items-center">
+                        <tr scope="row" colspan="8"
+                            class="px-6 flex items-center justify-center py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
+                        </tr>
+                        <td></td>
+                        <td></td>
+                        <td><img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="size-52" alt=""></td>
+                        </tr>
+                    @endforelse
             </div>
         </section>
     </div>

@@ -24,12 +24,17 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
-        VerifyEmail::toMailUsing(function (object $notifiable, string $url) {
+        VerifyEmail::toMailUsing(function ($notifiable, $url) {
             return (new MailMessage)
-                ->subject('Verify Email Address')
-                ->line('Click the button below to verify your email address.')
-                ->action('Verify Email Address', $url);
+                ->subject('Verifikasi Email')
+                ->greeting('Hallo IN DE Mates')
+                ->line('Terima kasih telah bergabung dengan platform IN DE KOS!')
+                ->line('Klik tombol di bawah untuk memverifikasi alamat email Anda.')
+                ->action('Verifikasi Email', $url)
+                ->line('Jika Anda tidak melakukan registrasi, abaikan pesan ini.')
+                ->line('Terimakasih telah menggunakan layanan website kami')
+                ->salutation('Hormat kami, IN DE KOS');
         });
     }
+
 }
