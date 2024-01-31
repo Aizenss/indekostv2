@@ -113,7 +113,7 @@
                 <div class="mb-2 mt-4">
                     <div class="grid grid-cols-3">
                         <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Password Lama</label>
-                        <input type="password" id="nama" name="old_password"
+                        <input type="password" id="nama" name="old_password" value="{{ old('old_password') }}"
                             class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                             placeholder="Password lama" >
                             @error('old_password')
@@ -124,7 +124,7 @@
                 <div class="mb-2 mt-4">
                     <div class="grid grid-cols-3">
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Password Baru</label>
-                        <input type="password" id="email" name="new_password"
+                        <input type="password" id="email" name="new_password"  value="{{ old('new_password') }}"
                             class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                             placeholder="password" >
                             @error('new_password')
@@ -136,7 +136,7 @@
                     <div class="grid grid-cols-3">
                         <label for="number" class="block mb-2 text-sm font-medium text-gray-900">Konfirmasi
                             Password</label>
-                        <input type="password" id="number" name="new_password_confirm"
+                        <input type="password" id="number" name="new_password_confirm" value="{{ old('new_password_confirm') }}"
                             class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                             placeholder="Masukan password baru" >
                             @error('new_password_confirm')

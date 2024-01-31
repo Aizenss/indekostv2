@@ -346,21 +346,12 @@
                 <!-- Carousel wrapper -->
                 <div id="controls-carousel" class="relative w-full" data-carousel="static">
                   <!-- Item 1 -->
+                  @foreach (json_decode($kamar->foto_kamar) as $item)
                   <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="{{ asset('asset/login/loginn.png') }}"
+                    <img src="{{ asset('kamar/' . $item) }}"
                       class="absolute block w-full -translate-x-1/2 -translate-y-2 top-1/2 left-1/2" alt="...">
-                  </div>
-                  <!-- Item 2 -->
-                  <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                    <img src="{{ asset('foto/404.png') }}"
-                      class="absolute block w-full -translate-x-1/2 -translate-y-2 top-1/2 left-1/2" alt="...">
-                  </div>
-                  <!-- Item 3 -->
-                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="{{ asset('foto/403.png') }}"
-                      class="absolute block w-full -translate-x-1/2 -translate-y-2 top-1/2 left-1/2" alt="...">
-                  </div>
-                </div>
+                    </div>
+                    @endforeach
                 <!-- Slider controls -->
                 <button type="button"
                   class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
@@ -420,9 +411,17 @@
                   <h1 class="text-xl font-black text-green-900">                    Rp {{ number_format($kamar->harga, 0, ',', '.') }}
                     <span
                     class="text-xl font-black text-green-900">/{{ $kamar->night }} <span>bulan</span></span></h1>
-                    <button type="button"
-                    class="focus:outline-none text-white item-center bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-lg px-20 py-2.5 mb-2 ml-4 mr-4 mt-2">Ajukan
-                    Sewa</button>
+                    <form class="flex justify-between mt-3" action="{{ route('user.detailkost.payment', ['kos' => $kos, 'kamar' => $kamar]) }}"
+                        method="post">
+                        @csrf
+                        @if ($kamar->status == 'kosong')
+                          <button type="submit" class="py-1 px-3 rounded-lg text-white"
+                            style="background-color: #4F6F52;">Ajukan Sewa</button>
+                        @else
+                          <button type="button" disabled class="py-1 px-3 rounded-lg text-white"
+                            style="background-color: #4F6F52;">telah dipesan</button>
+                        @endif
+                      </form>
                 </div>
                 <hr class=" mb-4">
 
