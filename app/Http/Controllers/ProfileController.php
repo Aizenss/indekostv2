@@ -45,16 +45,29 @@ class ProfileController extends Controller
      */
     public function passwordupdate(PasswordUpdateRequest $request): RedirectResponse
     {
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|min:8',
+            'new_password_confirm' => 'required|same:new_password', // Perubahan pada baris ini
+        ], [
+            'old_password.required' => 'Password Lama harus diisi',
+            'new_password.required' => 'Password Baru harus diisi',
+            'new_password.min' => 'Password Baru minimal harus 8 karakter',
+            'new_password_confirm.required' => 'Konfirmasi Password harus diisi',
+            'new_password_confirm.same' => 'Konfirmasi Password tidak cocok dengan Password Baru',
+        ]);
+
         if (!Hash::check($request->old_password, $request->user()->password)) {
             return redirect()->back()->with('error', 'Password lama tidak cocok');
         }
 
         $request->user()->update([
-            'password' => Hash::make($request->new_password)
+            'password' => Hash::make($request->new_password),
         ]);
 
-        return Redirect::route('profile.edit')->with('success', 'password berhasil di update');
+        return Redirect::route('profile.edit')->with('success', 'Password berhasil diperbarui');
     }
+
 
     public function uploadfoto(Request $request)
     {

@@ -69,8 +69,10 @@
                             <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
                             <input type="text" id="nama" value="{{ Auth::user()->name }}" name="name"
                                 class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                                placeholder="nama mu" required>
-
+                                placeholder="nama mu" >
+                                @error('nama')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                 @enderror
                         </div>
                     </div>
                     <div class="mb-2 mt-6">
@@ -78,7 +80,10 @@
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
                             <input type="email" id="email" value="{{ Auth::user()->email }}" name="email"
                                 class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                                placeholder="emailmu@gmail.com" required>
+                                placeholder="emailmu@gmail.com" >
+                                @error('email')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                 @enderror
                         </div>
                     </div>
                     <div class="mb-2 mt-6">
@@ -87,7 +92,10 @@
                                 Handphone</label>
                             <input type="number" id="number" value="{{ Auth::user()->no_telp }}" name="no_telp"
                                 class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                                placeholder="08*********" required>
+                                placeholder="08*********" >
+                                @error('no_telp')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="flex justify-end">
@@ -107,7 +115,10 @@
                         <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Password Lama</label>
                         <input type="password" id="nama" name="old_password"
                             class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="Password lama" required>
+                            placeholder="Password lama" >
+                            @error('old_password')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="mb-2 mt-4">
@@ -115,8 +126,10 @@
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Password Baru</label>
                         <input type="password" id="email" name="new_password"
                             class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="password" required>
-
+                            placeholder="password" >
+                            @error('new_password')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="mb-2 mt-4">
@@ -125,7 +138,10 @@
                             Password</label>
                         <input type="password" id="number" name="new_password_confirm"
                             class="col-span-2 bg-green-100 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="Masukan password baru" required>
+                            placeholder="Masukan password baru" >
+                            @error('new_password_confirm')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="flex justify-end">
