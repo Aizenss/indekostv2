@@ -5,7 +5,7 @@
     <div class="py-20 px-10 sm:ml-64">
         <h1 class="mb-4 mt-4 ml-4 text-3xl font-black text-gray-900">Tracking Kos</h1>
         <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <thead class="text-xs text-white uppercase bg-[#4F6F52]">
                 <tr>
                     <th scope="col" class="px-6 py-3">nama</th>
                     <th scope="col" class="px-6 py-3">checkin</th>
@@ -33,7 +33,7 @@
                             @if (\Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse($track->checkout), false) === 0)
                                 {{-- No action needed for 0 days --}}
                             @else
-                                <a href="{{ route('owner.history.show', $track) }}">edit</a>
+                                <a href="{{ route('owner.history.show', $track) }}" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-1.5 me-1 mb-1">edit</a>
                             @endif
                         </td>
                     </tr>

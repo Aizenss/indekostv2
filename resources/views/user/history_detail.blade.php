@@ -7,7 +7,7 @@
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-2">
             <table class="w-full text-sm text-gray-500 text-center">
                 <h1 class="text-start ms-5 mb-3 text-lg">Detail Penyewaan</h1>
-                <thead class="text-xs text-gray-700  uppercase bg-[#D2E3C8]">
+                <thead class="text-xs text-white  uppercase bg-[#4F6F52]">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             Nama Kamar
@@ -51,7 +51,7 @@
                                         @csrf
                                         <button type="submit"
                                             class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-                                            Ajuka n Sewa Lagi
+                                            Ajukan Sewa Lagi
                                         </button>
                                     </form>
                                 @endif
