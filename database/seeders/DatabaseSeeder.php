@@ -49,8 +49,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        Kos::factory(2)->create();
+        // Kos::factory(2)->create();
 
-        Kamar::factory(3)->create();
+        // Kamar::factory(3)->create();
     }
 }

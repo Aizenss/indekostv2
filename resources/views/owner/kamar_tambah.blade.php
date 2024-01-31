@@ -15,6 +15,16 @@
                         <div class="relative h-36 md:h-56 overflow-hidden rounded-t-lg">
                             <!-- Item 1 -->
                             @foreach (json_decode($kamar->foto_kamar) ?? [] as $foto)
+                                @if (count(json_decode($kamar->foto_kamar)) === 1)
+                                    @foreach (json_decode($kamar->foto_kamar) as $foto)
+                                        <div class="duration-700 ease-in-out" data-carousel-item>
+                                            <div class="max-w-full h-36 md:h-56 bg-cover rounded-t-lg">
+                                                <img src="{{ asset('kamar/' . $foto) }}" class="w-full h-full object-cover"
+                                                    alt="">
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                     <div class="max-w-full h-36 md:h-56 bg-cover rounded-t-lg">
                                         <img src="{{ asset('kamar/' . $foto) }}" class="w-full h-full object-cover"
@@ -129,24 +139,28 @@
                     <div class="p-4 md:p-5 space-y-4">
                         <div class="grid grid-cols-1 gap-2 h-[200px] overflow-y-scroll sc-sm">
                             @foreach (json_decode($kamar->foto_kamar) ?? [] as $foto)
-                            <div class="mx-auto">
-                                <img class="h-[400px] w-[400px] object-cover rounded"
-                                    src="{{ asset('kamar/' . $foto) }}" alt="">
-                            </div>
-                        @endforeach
+                                <div class="mx-auto">
+                                    <img class="h-[400px] w-[400px] object-cover rounded"
+                                        src="{{ asset('kamar/' . $foto) }}" alt="">
+                                </div>
+                            @endforeach
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                             <div class="informasi-1">
                                 <p>Nama Kamar: <span class="font-semibold">{{ $kamar->nama_kamar }}</span></p>
-                                <p>Kapasitas: <span class="font-semibold">{{ $kamar->kapasitas }} <i class="fa-solid fa-users text-gray-900"></i></span></p>
-                                <p>Harga: <span class="font-semibold">Rp. {{ number_format($kamar->harga, 0, ',', '.') }}/{{ $kamar->night }} Bulan</span></p>
+                                <p>Kapasitas: <span class="font-semibold">{{ $kamar->kapasitas }} <i
+                                            class="fa-solid fa-users text-gray-900"></i></span></p>
+                                <p>Harga: <span class="font-semibold">Rp.
+                                        {{ number_format($kamar->harga, 0, ',', '.') }}/{{ $kamar->night }} Bulan</span>
+                                </p>
                             </div>
                             <div class="informasi-2">
                                 <div class="fsnya">
                                     <p class="font-semibold">fasilitas</p>
                                     <div class="grid grid-cols-3 gap-3 h-16 overflow-y-scroll sc-sm">
                                         @foreach (json_decode($kamar->fasilitas) ?? [] as $fasilitas)
-                                            <span class="text-sm text-gray-700 font-medium"><i class="fa-solid fa-lock-open me-2"></i>{{ $fasilitas->value }}</span>
+                                            <span class="text-sm text-gray-700 font-medium"><i
+                                                    class="fa-solid fa-lock-open me-2"></i>{{ $fasilitas->value }}</span>
                                         @endforeach
                                     </div>
                                 </div>
