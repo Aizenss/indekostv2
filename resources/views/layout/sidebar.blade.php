@@ -57,20 +57,29 @@
                                     </div>
                                 </div>
                                 <div class="flex flex-col gap-3 px-4 py-3  overflow-y-scroll h-[200px]">
-                                    @foreach (Auth::user()->notifikasiowner()->where('pesan_owner', '<>', null)->orderBy('created_at', 'desc')->get() as $notif)
-                                        <div
-                                            class="flex items-center p-2 transition duration-150 ease-in-out rounded-lg hover:bg-gray-200">
-                                            <div>
-                                                <div class="text-sm font-medium text-gray-900">{{ $notif->owner->name }}
+                                    @if (Auth::user()->notifikasiowner()->where('pesan_owner', '<>', null)->where('status_owner', 'no read')->exists())
+                                        @foreach (Auth::user()->notifikasiowner()->where('pesan_owner', '<>', null)->where('status_owner', 'no read')->orderBy('created_at', 'desc')->get() as $notif)
+                                            <div
+                                                class="flex items-center p-2 transition duration-150 ease-in-out rounded-lg hover:bg-gray-200">
+                                                <div>
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        {{ $notif->owner->name }}
+                                                    </div>
+                                                    <div class="text-sm text-gray-700 text-wrap pnt">
+                                                        {{ $notif->pesan_owner }}
+                                                    </div>
+                                                    <div class="text-xs text-gray-500">
+                                                        {{ $notif->created_at->diffForHumans() }}
+                                                    </div>
                                                 </div>
-                                                <div class="text-sm text-gray-700 text-wrap pnt">
-                                                    {{ $notif->pesan_owner }}</div>
-                                                <div class="text-xs text-gray-500">
-                                                    {{ $notif->created_at->diffForHumans() }}</div>
                                             </div>
+                                            <hr>
+                                        @endforeach
+                                    @else
+                                        <div class="text-center text-gray-500">
+                                            Tidak ada notifikasi baru.
                                         </div>
-                                        <hr>
-                                    @endforeach
+                                    @endif
                                     {{-- iki tutupe foreach --}}
                                 </div>
                             </div>
