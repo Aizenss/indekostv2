@@ -410,8 +410,13 @@
                                 <h1 class="mb-2">{{ $kamar->peraturan_kamar }}</h1>
                                 <h1 class="text-xl font-black text-green-900"> Rp
                                     {{ number_format($kamar->harga, 0, ',', '.') }}
-                                    <span class="text-xl font-black text-green-900">/{{ $kamar->night }}
-                                        <span>bulan</span></span>
+                                    @if ($kamar->night == '1')
+                                        <span class="text-xl font-black text-green-900">/
+                                            <span>Perbulan</span></span>
+                                    @else
+                                        <span class="text-xl font-black text-green-900">/{{ $kamar->night }}
+                                            <span>bulan</span></span>
+                                    @endif
                                 </h1>
                                 <form class="flex justify-between mt-3"
                                     action="{{ route('user.detailkost.payment', ['kos' => $kos, 'kamar' => $kamar]) }}"
