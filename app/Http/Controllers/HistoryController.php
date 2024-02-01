@@ -26,8 +26,15 @@ class HistoryController extends Controller
     public function show(Kamar $kamar)
     {
         $tracking = Tracking::with('kamar')->get();
-
-        
+        // Calculate the days remaining until checkout
+        foreach ($tracking as $track) {
+            $daysRemaining = Carbon::parse($track->checkout)->diffInDays(Carbon::now(), false);
+            if ($daysRemaining <= 0) {
+                $track->kamar->update(['status' => 'kosong']);
+            } else {
+                // Handle the case where days are remaining
+            }
+        }
         return view('user.history_detail', compact('kamar', 'tracking'));
     }
 

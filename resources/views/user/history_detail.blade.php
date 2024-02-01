@@ -32,22 +32,32 @@
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                 {{ $track->kamar->nama_kamar }}
                             </th>
-                            {{-- {{$track}} --}}
                             <td class="px-6 py-4">
-                                {{ \Carbon\Carbon::parse($track->checkin)->isoformat('dddd, D MMMM Y') }}
+                                {{ \Carbon\Carbon::parse($track->checkin)->isoFormat('dddd, D MMMM Y') }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ \Carbon\Carbon::parse($track->checkout)->isoformat('dddd, D MMMM Y') }}
+                                {{ \Carbon\Carbon::parse($track->checkout)->isoFormat('dddd, D MMMM Y') }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ \Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse($track->checkout), false) }}
+                                @php
+                                    $checkoutDate = \Carbon\Carbon::parse($track->checkout);
+                                    $currentDate = \Carbon\Carbon::now();
+                                    $daysRemaining = $currentDate->lte($checkoutDate) ? $checkoutDate->diffInDays($currentDate) : 0;
+                                @endphp
+                                {{ $daysRemaining }}
                                 Hari
                             </td>
                             <td class="px-6 py-4">
-                                @if (\Carbon\Carbon::now()->diffInDays(\Carbon\Carbon::parse($track->checkout), false) === 0)
-                                    terimakasih telah menyewa kos ini, silahkan lihat lihat kos kembali
+                                @php
+                                    $checkoutDate = \Carbon\Carbon::parse($track->checkout);
+                                    $currentDate = \Carbon\Carbon::now();
+                                    $daysRemaining = $currentDate->lte($checkoutDate) ? $checkoutDate->diffInDays($currentDate) : 0;
+                                @endphp
+                                @if ($daysRemaining === 0)
+                                    Terimakasih telah menyewa kos ini, silahkan lihat-lihat kos kembali.
                                 @else
-                                    <form action="{{ route('history.detail.pay', ['kamar' => $kamar]) }}" method="POST">
+                                    <form action="{{ route('history.detail.pay', ['kamar' => $track->kamar->id]) }}"
+                                        method="POST">
                                         @csrf
                                         <button type="submit"
                                             class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
