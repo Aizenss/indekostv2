@@ -73,9 +73,14 @@
                         <select name="night" id="month"
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">
+                            @if ($kamar->night == 1)
+                            <option value="{{ $kamar->night }}" selected>Perbulan</option>
+                            @else
                             <option value="{{ $kamar->night }}" selected>{{ $kamar->night }} Bulan</option>
+                            @endif
+                            <option value="1">Perbulan</option>
                             <script>
-                                for (var i = 1; i <= 12; i++) {
+                                for (var i = 2; i <= 12; i++) {
                                     document.write('<option value="' + i + '">' + i + 'Bulan' + '</option>');
                                 }
                             </script>

@@ -66,8 +66,14 @@
                             <p class="text-sm font-medium text-gray-900">{{ $kamar->peraturan_kamar }}!</p>
                         </div>
                         <div class="my-3 h-[50px]">
+                            @if ($kamar->night == 1)
+                            <span class="text-xl font-bold text-gray-700">Rp.
+                                {{ number_format($kamar->harga, 0, ',', '.') }}/Perbulan</span>
+                            @else
+
                             <span class="text-xl font-bold text-gray-700">Rp.
                                 {{ number_format($kamar->harga, 0, ',', '.') }}/{{ $kamar->night }} Bulan</span>
+                            @endif
                         </div>
                         <div class="flex justify-center gap-2">
                             <div>

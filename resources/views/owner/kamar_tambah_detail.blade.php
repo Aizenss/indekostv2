@@ -73,8 +73,9 @@
                             class="mt-2 p-1 w-full border border-gray-900 rounded-md focus:ring focus:ring-blue-500 focus:border-gray-900 focus:outline-none"
                             autocomplete="off">
                             <option selected disabled>pilih selama berapa Bulan</option>
+                            <option value="1">Perbulan</option>
                             <script>
-                                for (var i = 1; i <= 12; i++) {
+                                for (var i = 2; i <= 12; i++) {
                                     document.write('<option value="' + i + '">' + i + 'Bulan' + '</option>');
                                 }
                             </script>
