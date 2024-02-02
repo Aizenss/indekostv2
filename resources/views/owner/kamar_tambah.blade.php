@@ -94,7 +94,7 @@
                                         class="bg-[#B03E3E] border border-[#B03E3E] hover:bg-[#983636] py-2 px-3 rounded-lg duration-300">
                                         <span class="text-base font-medium text-white flex items-center">
                                             <i class="fa-solid fa-toggle-off me-2"></i>
-                                            Mati
+                                            Off
                                         </span>
                                     </button>
                                 @elseif ($kamar->status == 'kosong')
@@ -102,14 +102,14 @@
                                         class="bg-green-500 border border-green-500 hover:bg-green-600 py-2 px-3 rounded-lg duration-300">
                                         <span class="text-base font-medium text-white flex items-center">
                                             <i class="fa-solid fa-toggle-on me-2"></i>
-                                            Hidup
+                                            On
                                         </span>
                                     </button>
                                 @else
                                     <button disabled
                                         class="bg-[#9c9ea1] border border-[#9c9ea1] py-2 px-3 rounded-lg duration-300">
                                         <span class="text-base font-medium text-white flex"><i
-                                                class="fa-solid fa-user-lock me-2"></i>Di sewa</span>
+                                                class="fa-solid fa-user-lock me-2"></i>Use</span>
                                     </button>
                                 @endif
                             </form>
@@ -176,12 +176,12 @@
                     </div>
                     <!-- Modal footer -->
                     <div
-                        class="flex items-center justify-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                        class="flex items-center justify-center p-4 md:p-5 border-t border-gray-200 rounded-b">
                         <!-- Edit Button Form -->
                         <form>
                             <button data-modal-hide="detail-kamar" type="button"
                                 onclick="window.location.href='{{ route('owner.kamar.edit', ['kos' => $kos->id, 'kamar' => $kamar->id]) }}'"
-                                class="flex items-center text-white bg-yellow-500 hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-400 dark:hover:bg-yellow-500 dark:focus:ring-yellow-500">
+                                class="flex items-center text-white bg-yellow-500 hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                                 <i class="fas fa-pencil-alt mr-2"></i> ubah
                             </button>
                         </form>
@@ -192,7 +192,7 @@
                             @csrf
                             @method('DELETE')
                             <button data-modal-hide="detail-kamar" type="submit"
-                                class="flex items-center ms-3 text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg text-sm font-medium px-5 py-2.5 hover:text-white focus:z-10 dark:bg-red-400 dark:hover:bg-red-500 dark:focus:ring-red-500">
+                                class="flex items-center ms-3 text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg text-sm font-medium px-5 py-2.5 hover:text-white focus:z-10">
                                 <i class="fas fa-trash-alt mr-2"></i> Hapus
                             </button>
                         </form>

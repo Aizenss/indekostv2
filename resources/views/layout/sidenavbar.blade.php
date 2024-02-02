@@ -51,11 +51,18 @@
                                 </button>
                                 <div class="z-50 hidden my-4 text-base w-80 list-none bg-white divide-y divide-gray-100 rounded-lg shadow p-3"
                                     id="massage-dropdown">
-                                    <span class="text-xl text-gray-900 font-semibold ms-3">Notifikasi</span>
-                                    <form action="{{ route('notif') }}" method="post">
-                                        @csrf
-                                        <button type="submit">tandai baca</button>
-                                    </form>
+                                    <div class="flex justify-between mx-3">
+                                        <div class="note">
+                                            <span class="text-xl text-gray-900 font-semibold">Notifikasi</span>
+                                        </div>
+                                        <div class="clear">
+                                            <form action="{{ route('notif') }}" method="post"
+                                                class="inline-flex justify-end items-center">
+                                                @csrf
+                                                <button type="submit">Tandai Baca</button>
+                                            </form>
+                                        </div>
+                                    </div>
                                     <div class="flex flex-col gap-3 px-4 py-3 overflow-y-scroll h-[200px]">
                                         {{-- @dd(Auth::user()->notifikasi()->orderBy('created_at', 'desc')->get()); --}}
                                         @if (Auth::user()->notifikasiowner()->where('pesan_user', '<>', null)->where('status_owner', 'no read')->exists())

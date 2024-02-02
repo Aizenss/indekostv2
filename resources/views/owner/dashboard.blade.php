@@ -4,34 +4,31 @@
 @section('isi')
     <div class="py-20 px-10 sm:ml-64">
         <h1 class="text-xl font-bold my-5">Welcome {{ auth()->user()->name }}</h1>
-        <section class="grid grid-cols-3 gap-5">
-            <div href="#"
+        <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+            <div
                 class="card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 flex justify-between">
-                <div>
+                <div class="z-10">
                     <p class="font-normal text-gray-700 dark:text-gray-400 text-sm">Kamar Disewa</p>
                     <p class="font-semibold text-gray-900 dark:text-gray-400 text-sm">{{ $kamar }}</p>
                 </div>
-                <img src="{{ asset('icon/7341109_e-commerce_online_shopping_ui_receipt_icon.png') }}" alt=""
-                    style="height: 50px; width: 50px;">
+                <i class="fa-solid fa-clipboard-check text-[50px] font-semibold hidden mdd:block"></i>
             </div>
-            <div href="#"
+            <div
                 class="card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 flex justify-between">
                 <div>
                     <p class="font-normal text-gray-700 dark:text-gray-400 text-sm">Total Kost</p>
                     <p class="font-semibold text-gray-900 dark:text-gray-400 text-sm">{{ $kos }}</p>
                 </div>
-                <img src="{{ asset('icon/2419681_apartment_building_construction_home_hotel_icon.png') }}" alt=""
-                    style="height: 50px; width: 50px;">
+                <i class="fa-solid fa-building text-[50px] font-semibold hidden mdd:block"></i>
             </div>
-            <div href="#"
+            <div
                 class="card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 flex justify-between">
                 <div>
                     <p class="font-normal text-gray-700 dark:text-gray-400 text-sm">Pendapatan</p>
                     <p class="font-semibold text-gray-900 dark:text-gray-400 text-sm">
                         Rp.{{ number_format(auth()->user()->pendapatan) }}</p>
                 </div>
-                <img src="{{ asset('icon/4634986_moneys_financial_layers_money_icon.png') }}" alt=""
-                    style="height: 50px; width: 50px;">
+                <i class="fa-solid fa-coins text-[50px] font-semibold hidden mdd:block"></i>
             </div>
         </section>
         <section class="py-10 px-5 flex flex-col gap-8">
