@@ -90,15 +90,14 @@
                                 </td>
                             </tr>
                         @empty
-                            <tr class="bg-white dark:bg-gray-800 items-center">
-                            <tr scope="row" colspan="8"
-                                class="px-6 flex items-center justify-center py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
-                            </tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="w-32 lg:w-48" alt=""></td>
-                            </tr>
+                        <tr class="bg-white items-center">
+                            <td colspan="7" class="px-6 py-4">
+                                <div class="flex flex-col items-center justify-center">
+                                    <img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="w-32 lg:w-48" alt="">
+                                    <span class="text-gray-900 text-lg font-medium">Data Kosong Kaka</span>
+                                </div>
+                            </td>
+                        </tr>                        
                         @endforelse
                     </tbody>
                 </table>
