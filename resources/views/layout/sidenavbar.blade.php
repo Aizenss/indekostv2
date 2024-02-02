@@ -120,7 +120,7 @@
                                                 <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <a href="#"
-                                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                                                        class="block px-4 py-2 text-sm text-red-500 hover:bg-gray-100 cursor-pointer"
                                                         role="menuitem"
                                                         onclick="event.preventDefault(); showLogoutAlert();">
                                                         <i class="fa-solid fa-arrow-right-from-bracket me-3"></i>Keluar

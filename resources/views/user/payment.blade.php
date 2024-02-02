@@ -26,10 +26,10 @@
                                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $kamar->status }}</td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                                     Rp.{{ number_format($kamar->harga, 0, ',', '.') }}</td>
-                                <td class="px-6 py-4 flex gap-2">
+                                <td class="px-6 py-4 flex gap-2 flex-wrap">
                                     @if ($kamar->status == 'terima')
                                         <div>
-                                            <button class="pay-button bg-blue-500 text-white px-4 py-2"
+                                            <button class="pay-button bg-blue-500 text-white px-4 py-2 rounded-sm"
                                                 data-token="{{ $kamar->snap_token }}"
                                                 data-kamar-id="{{ $kamar->id }}">Bayar</button>
                                         </div>
@@ -39,9 +39,9 @@
 
                                             <input type="hidden" name="rejection_reason" id="rejection_reason">
 
-                                            <button class="cancel-button bg-red-500 text-white px-4 py-2" type="button"
-                                                onclick="showRejectionReason()" data-kamar-id="{{ $kamar->id }}">Batalkan
-                                                Pembayaran</button>
+                                            <button class="cancel-button bg-red-500 text-white px-4 py-2 rounded" type="button"
+                                                onclick="showRejectionReason()" data-kamar-id="{{ $kamar->id }}">Cancel
+                                                </button>
                                         </form>
                                         <script>
                                             function showRejectionReason() {
@@ -113,16 +113,16 @@
                             <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">{{ $kamar->status }}</td>
                             <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                                 Rp.{{ number_format($kamar->harga, 0, ',', '.') }}</td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 flex gap-2 flex-wrap">
                                 @if ($kamar->status == 'diterima')
-                                    <button class="pay-button2 bg-blue-500 text-white px-4 py-2"
+                                    <button class="pay-button2 bg-blue-500 text-white px-4 py-2 rounded"
                                         data-token="{{ $kamar->snap_token }}"
                                         data-kamar-id="{{ $kamar->id }}">Bayar</button>
 
                                     <input type="hidden" name="rejection_reason" id="rejection_reason">
-                                    <button class="cancel-button bg-red-500 text-white px-4 py-2"
+                                    <button class="cancel-button bg-red-500 text-white px-4 py-2 rounded"
                                         data-kamar-id="{{ $kamar->id }}" type="button"
-                                        onclick="showRejectionReason()">Batalkan Pembayaran</button>
+                                        onclick="showRejectionReason()">Cancel</button>
                                 @else
                                     <span class="text-gray-500">-</span>
                                 @endif

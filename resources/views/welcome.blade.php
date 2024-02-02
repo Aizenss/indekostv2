@@ -104,9 +104,9 @@
                         class="bg-[#86A789] text-white font-medium text-lg rounded-lg sm:text-sm p-2 shadow-lg hover:bg-[#4F6F52] hover:shadow-2xl hover:shadow-[#4F6F52] duration-300">Lainnya</a>
                 </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8 mb-10">
+            <div class="grid grid-cols-1 justify-center md:grid-cols-2  lg:grid-cols-3 gap-5 mt-8 mb-10">
                 @forelse ($kost as $kos)
-                        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow mx-auto">
                             <img class="rounded-t-lg" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt="" />
                             <div class="px-5 py-3">
                                 <h5 class="text-xl font-bold tracking-tight text-gray-900 truncate">{{ $kos->nama_kost }}
@@ -161,9 +161,9 @@
                             </div>
                         </div>
                         @empty
-                        <tr class="bg-white dark:bg-gray-800 items-center">
+                        <tr class="bg-white  items-center">
                         <tr scope="row" colspan="8"
-                            class="px-6 flex items-center justify-center py-4 font-medium text-xs text-gray-900 whitespace-nowrap dark:text-white">
+                            class="px-6 flex items-center justify-center py-4 font-medium text-xs text-gray-900 whitespace-nowrap">
                         </tr>
                         <td></td>
                         <td></td>

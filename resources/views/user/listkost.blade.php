@@ -50,13 +50,13 @@
                 {{-- search --}}
             </div>
         </div>
-        <section class="list py-10 px-[140px]">
+        <section class="list py-10 px-5 md:px-[140px]">
             <div class="mb-3">
                 <span class="text-xl font-semibold text-gray-900">List Kost</span>
             </div>
-            <div class="grid grid-cols-3 gap-8">
+            <div class="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
                 @forelse ($kost as $kos)
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                    <div class="max-w-sm min-w-[300px] bg-white justify-center mx-auto border border-gray-200 rounded-lg shadow">
                         <img class="rounded-t-lg h-[200px] w-full object-cover" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt=""  />
                         <div class="px-5 py-3">
                             <h5 class="text-xl font-bold tracking-tight text-gray-900 truncate">{{ $kos->nama_kost }}
@@ -68,7 +68,7 @@
                             </style>
                             <div class="overflow-y-scroll sc-sm max-h-16 max-w-56">
                                 <p class="mb-1 text-sm font-normal text-gray-700">
-                                    gvtuiyouabepifvqapvoieq
+                                    {{ $kos->alamat }}
                                 </p>
                             </div>
                             <hr class="mb-2">

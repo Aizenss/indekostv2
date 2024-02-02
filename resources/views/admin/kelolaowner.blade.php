@@ -4,9 +4,9 @@
 @section('isi')
     <div class="py-20 px-10 sm:ml-64">
         <h1 class="mb-4 mt-4 ml-4 text-3xl font-black text-gray-900">Kelola Owner</h1>
-        <div class="grid grid-cols-4 gap-4 mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center mx-auto">
             @forelse ($owners as $owner)
-                <div class="ml-4 mr-4 bg-gray-200 p-4 text-center w-full max-w-72 border border-gray-200 rounded-lg shadow">
+                <div class="bg-gray-200 p-4 text-center w-full max-w-72  border border-gray-200 rounded-lg shadow">
                     <div class="flex flex-col items-center pb-3">
                         <img class="w-24 h-24 mb-3 rounded-full shadow-lg"
                             src="{{ asset('asset/images/default/default.png') }}" alt="Bonnie image" />

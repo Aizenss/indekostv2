@@ -5,35 +5,35 @@
     <div class="py-20 px-10 sm:ml-64">
         <h1 class="text-3xl font-black text-gray-900 ">Welcome {{ auth()->user()->name }}!
         </h1>
-        <section class="grid grid-cols-3 gap-4 p-8">
-            <div href="#"
-                class="ml-6 card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 flex justify-between">
+        <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+            <div
+                class=" card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 flex justify-between">
                 <div>
                     <p class="font-semibold text-gray-900 text-xl">Owner</p>
                     <p class="font-semibold text-gray-900 text-base">{{ $owner }}</p>
                 </div>
-                <div class="logonya">
-                    <i class="fa-solid fa-users text-[60px]"></i>
+                <div class="logonya hidden lg:block">
+                    <i class=" fa-solid fa-users text-[60px]"></i>
                 </div>
             </div>
-            <div href="#"
+            <div
                 class="card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  flex justify-between">
                 <div>
                     <p class="font-semibold text-gray-900 text-xl">Total Kost</p>
                     <p class="font-semibold text-gray-900 text-base">{{ $kos }}</p>
                 </div>
-                <div class="logonya">
-                    <i class="fa-solid fa-hotel text-[60px]"></i>
+                <div class="logonya  hidden lg:block">
+                    <i class=" fa-solid fa-hotel text-[60px]"></i>
                 </div>
             </div>
-            <div href="#"
-                class=" mr-6 card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  flex justify-between">
+            <div
+                class="card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100  flex justify-between">
                 <div>
                     <p class="font-semibold text-gray-900 text-xl">Total Kamar</p>
                     <p class="font-semibold text-gray-900 text-base">{{ $kamar }}</p>
                 </div>
-                <div class="logonya">
-                    <i class="fa-solid fa-bed text-[60px]"></i>
+                <div class="logonya hidden lg:block">
+                    <i class=" fa-solid fa-bed text-[60px]"></i>
                 </div>
             </div>
         </section>

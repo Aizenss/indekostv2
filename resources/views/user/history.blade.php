@@ -26,7 +26,7 @@
                             <td class="py-2 px-4"> {{ \Carbon\Carbon::parse($history->created_at)->isoFormat('dddd, D MMMM Y') }}</td>
                             <td class="py-2 px-4">
                                 <a href="{{ route('history.detail', ['kamar' => $history->kamar->id]) }}"
-                                    class="text-blue-500 hover:underline">Lihat Detail</a>
+                                    class="text-blue-500 hover:underline">Detail</a>
                             </td>
                         </tr>
                         @empty

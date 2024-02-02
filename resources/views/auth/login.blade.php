@@ -40,8 +40,5 @@
                 </form>
             </div>
         </div>
-        <div class="coba flex-1">
-            <img src="{{ asset('asset/login/loginn.png') }}" alt="" class="object-cover w-full h-full">
-        </div>
     </div>
 @endsection
