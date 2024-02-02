@@ -18,7 +18,7 @@
                 </a>
             </div>
         </div>
-        <div class="grid grid-cols-3 gap-5 ">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 ">
             <div class="bg-white p-3 rounded-lg shadow-md mt-6 ml-4">
                 <div
                     class=" mt-8 p-3 relative w-full cursor-pointer h-40 mx-auto overflow-hidden flex justify-center items-center">
@@ -105,7 +105,7 @@
                 </form>
             </div>
         </div>
-        <div class="p-4 col-span-2 bg-white rounded-md  mt-4 shadow-md mr-4 ml-4">
+        <div class="p-4 col-span-2 bg-white rounded-md  mt-4 shadow-md md:mr-4 md:ml-4">
             <h5 class="text-lg font-semibold text-gray-800 mb-4 text-center">Ubah Password</h5>
             <form method="post" action="{{ route('profile.password.update') }}">
                 @method('patch')
