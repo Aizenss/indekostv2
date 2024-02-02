@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.mainedit')
 
 @section('isi')
 <div class="py-10 px-10 bg-gray-50">
