@@ -98,7 +98,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td><img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="size-52" alt=""></td>
+                            <td><img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="w-32 lg:w-48" alt=""></td>
                             </tr>
                         @endforelse
                     </tbody>
