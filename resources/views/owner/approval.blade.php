@@ -1,5 +1,4 @@
 @extends('layout.main')
-@include('layout.sidebar')
 
 @section('isi')
     <div class="sm:ml-64 py-20 px-10">

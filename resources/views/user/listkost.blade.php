@@ -1,7 +1,5 @@
 @extends('layout.main')
 
-@extends('layout.sidenavbar')
-
 @section('isi')
     <div class="py-20">
         <div class="filterasi flex justify-center items-center ">

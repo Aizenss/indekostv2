@@ -1,7 +1,5 @@
 @extends('layout.main')
 
-@extends('layout.sidenavbar')
-
 @section('isi')
   <div class="py-5 px-[90px] mt-20 flex justify-between">
     <div class="flex text-green-500 items-center justify-end">

@@ -1,7 +1,5 @@
 @extends('layout.main')
 
-@extends('layout.sidebar')
-
 @section('isi')
     <div class="py-20 px-10 sm:ml-64 justify-center">
         <h1 class=" text-3xl font-black text-gray-900 dark:text-white">Transaksi</h1>

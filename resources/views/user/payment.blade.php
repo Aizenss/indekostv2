@@ -1,7 +1,5 @@
 @extends('layout.main')
 
-@extends('layout.sidenavbar')
-
 @section('isi')
     <div class="py-20 justify-center">
         <h1 class="mb-4 mt-4 ml-4 text-2xl font-black text-gray-900 dark:text-white">Pembayaran Sewa</h1>

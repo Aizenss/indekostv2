@@ -1,6 +1,5 @@
 @extends('layout.main')
 
-@extends('layout.sidenavbar')
 
 @section('isi')
     <div class="py-20">

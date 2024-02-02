@@ -1,6 +1,5 @@
 @extends('layout.main')
 
-@extends('layout.sidenavbar')
 
 @section('css')
     <style>

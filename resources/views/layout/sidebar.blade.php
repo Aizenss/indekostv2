@@ -1,17 +1,8 @@
-<style>
-    .pnt {
-        word-break: break-word;
-    }
-
-    .overvflow-y-scroll::-webkit-scrollbar {
-        width: 3px;
-    }
-</style>
-<nav class="fixed top-0 z-30     w-full bg-[#D2E3C8]">
+<nav class="fixed top-0 z-50 w-full bg-[#D2E3C8] ">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
             <div class="flex items-center justify-start rtl:justify-end">
-                <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
+                <button data-drawer-target="sisidebar" data-drawer-toggle="sisidebar" aria-controls="sisidebar"
                     type="button"
                     class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200   ">
                     <span class="sr-only">Open sidebar</span>
@@ -155,8 +146,8 @@
     </div>
 </nav>
 
-<aside id="logo-sidebar"
-    class="fixed top-0 left-0 z-20 w-64 h-screen pt-20 transition-transform -translate-x-full bg-[#D2E3C8] border-r border-gray-200 sm:translate-x-0 "
+<aside id="sisidebar"
+    class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-[#D2E3C8] border-r border-gray-200 sm:translate-x-0 block "
     aria-label="Sidebar">
     <div class="h-full px-3 pb-4 overflow-y-auto bg-[#D2E3C8]">
         <ul class="space-y-2 font-medium">

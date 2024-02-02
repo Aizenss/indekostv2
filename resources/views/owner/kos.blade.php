@@ -1,5 +1,4 @@
 @extends('layout.main')
-@extends('layout.sidebar')
 
 <style>
     body>div>div>div>div>table>tbody>tr>td.ellipsis {

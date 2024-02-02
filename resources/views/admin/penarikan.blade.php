@@ -1,6 +1,5 @@
 @extends('layout.main')
 
-@extends('layout.sidebar')
 
 @section('isi')
     <div class="sm:ml-64 px-10 py-20">

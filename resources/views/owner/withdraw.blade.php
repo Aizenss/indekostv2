@@ -1,24 +1,21 @@
 @extends('layout.main')
-
-@extends('layout.sidebar')
-
 @section('isi')
     <div class="sm:ml-64 px-10 py-20">
-        <div class="bg-[#4F6F52] py-5 px-20 w-full rounded-lg">
-            <div class="flex justify-between items-center">
+        <div class="bg-[#4F6F52] py-5 px-3 md:px-20 w-full rounded-lg">
+            <div class="grid grid-cols-1 md:grid-cols-2 items-center">
                 <div class="informasi flex flex-col">
-                    <span class="text-xl text-gray-300 font-semibold">Total Saldo Anda</span>
-                    <span class="text-3xl text-gray-300 font-semibold ms-3 mt-3">Rp.
+                    <span class="text-lg md:text-xl text-gray-300 font-semibold">Total Saldo Anda</span>
+                    <span class="text-xl md:text-3xl text-gray-300 font-semibold ms-3 mt-3 truncate">Rp.
                         {{ number_format(Auth::user()->pendapatan, 0, ',', '.') }}</span>
                 </div>
-                <div class="icon">
+                <div class="icon hidden md:block justify-self-end">
                     <i class="fa-solid fa-wallet text-[100px] text-gray-100/50"></i>
                 </div>
             </div>
         </div>
         <form action="{{ route('owner.penarikan.tambah') }}" method="POST" class="my-12">
             @csrf
-            <div class="grid grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="metode">
                     <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Metode Pembayaran</label>
                     <select id="countries" name="metode_pembayaran"
@@ -33,9 +30,10 @@
                     @enderror
 
                 </div>
-                <div class="mb-6">
+                <div class="mb-4">
                     <label for="norek" class="block mb-2 text-sm font-medium text-gray-900">No Rekening</label>
-                    <input placeholder="Cth: 123456789" name="no_rek" type="number" id="norek" value="{{ old('no_rek') }}"
+                    <input placeholder="Cth: 123456789" name="no_rek" type="number" id="norek"
+                        value="{{ old('no_rek') }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     @error('no_rek')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -56,39 +54,47 @@
             </div>
         </form>
         <div class="history">
-            <div class="flex justify-between px-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 px-3 md:px-20">
                 <div class="title">
                     <span class="text-xl text-[#4F6F52] ">Riwayat</span>
                 </div>
-                <div class="indikator flex items-center gap-5">
+                <div class="indikator flex items-center justify-end gap-3">
                     <div class="masuk flex items-center gap-2">
                         <div class="bg-[#739072] rounded-full w-3 h-3"></div>
-                        <span class="text-lg text-gray-900">Dana Masuk</span>
+                        <span class="text-lg text-gray-900">Income</span>
                     </div>
                     <div class="masuk flex items-center gap-2">
                         <div class="bg-[#ce6262] rounded-full w-3 h-3"></div>
-                        <span class="text-lg text-gray-900">Dana Keluar</span>
+                        <span class="text-lg text-gray-900">Outcome</span>
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-1 gap-5 my-10 px-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10 px-2 lg:px-24">
                 @php
-                    $sortedPenarikanTransaksi = collect($penarikanTransaksi)->sortBy('data.created_at')->reverse()->all();
+                    $sortedPenarikanTransaksi = collect($penarikanTransaksi)
+                        ->sortBy('data.created_at')
+                        ->reverse()
+                        ->all();
                 @endphp
                 @foreach ($sortedPenarikanTransaksi as $item)
                     @if ($item['type'] == 'transaksi')
                         {{-- History masuk --}}
-                        <div class="grid grid-cols-2 items-center">
-                            <div class="informasinya flex items-center gap-5">
+                        <div class="flex flex-col items-center">
+                            <div class="flex items-center gap-3">
                                 <div class="bg-[#739072] rounded-full w-4 h-4"></div>
-                                <div class="text">
-                                    <span class="text-xl font-medium text-gray-900">Transfer dari
-                                        {{ $item['data']->user->name }}</span>
-                                    <div class="flex gap-8 items-center">
-                                        <span
-                                            class="text-sm text-gray-900">{{ $item['data']->created_at->diffForHumans() }}</span>
-                                        <span
-                                            class="text-xs text-gray-900">{{ $item['data']->created_at->isoFormat('dddd, D MMMM Y') }}</span>
+                                <span class="text-base lg:text-xl font-medium text-gray-900 text-start">Transfer dari
+                                    {{ $item['data']->user->name }}</span>
+                            </div>
+                            <div class="informasinya">
+                                <div class="flex items-center gap-5">
+
+                                    <div class="text">
+                                        <div class="flex gap-8 items-center">
+                                            <span
+                                                class="text-sm text-gray-900">{{ $item['data']->created_at->diffForHumans() }}</span>
+                                            <span
+                                                class="text-xs text-gray-900">{{ $item['data']->created_at->isoFormat('D MMMM Y') }}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -99,17 +105,20 @@
                         {{-- History masuk --}}
                     @elseif($item['type'] == 'penarikan')
                         {{-- History Tarik --}}
-                        <div class="grid grid-cols-2 items-center">
-                            <div class="informasinya flex items-center gap-5">
+                        <div class="flex flex-col items-center">
+                            <div class="flex items-center gap-3">
                                 <div class="bg-[#ce6262] rounded-full w-4 h-4"></div>
-                                <div class="text">
-                                    <span class="text-xl font-medium text-gray-900">Berhasil melakukan penarikan
-                                        tunai</span>
-                                    <div class="flex gap-8 items-center">
-                                        <span
-                                            class="text-sm text-gray-900">{{ $item['data']->created_at->diffForHumans() }}</span>
-                                        <span
-                                            class="text-xs text-gray-900">{{ $item['data']->created_at->isoFormat('dddd, D MMMM Y') }}</span>
+                                <span class="text-base lg:text-xl font-medium text-gray-900 text-start">Tarik Tunai</span>
+                            </div>
+                            <div class="informasinya">
+                                <div class="flex items-center gap-5">
+                                    <div class="text">
+                                        <div class="flex gap-8 items-center">
+                                            <span
+                                                class="text-sm text-gray-900">{{ $item['data']->created_at->diffForHumans() }}</span>
+                                            <span
+                                                class="text-xs text-gray-900">{{ $item['data']->created_at->isoFormat('D MMMM Y') }}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +127,7 @@
                             </div>
                         </div>
                         {{-- History Tarik --}}
-                    @endif
+                        @endif
                 @endforeach
 
                 {{-- perulangan --}}

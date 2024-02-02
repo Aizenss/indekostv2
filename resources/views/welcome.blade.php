@@ -1,7 +1,5 @@
 @extends('layout.main')
 
-@extends('layout.sidenavbar')
-
 @section('isi')
     <div class="mb-20">
         <section class="section-hero bg-[#E8F1E3] pt-10" id="home">

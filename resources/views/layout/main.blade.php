@@ -74,6 +74,11 @@
             background="transparent" speed="1" style="width: 300px; height: 300px" direction="1" mode="normal"
             loop autoplay></dotlottie-player>
     </div>
+    @if (Auth::guest() || Auth::user()->role == 'user')
+        @include('layout.sidenavbar')
+    @else
+        @include('layout.sidebar')
+    @endif
     <div id="main-content" class="flex flex-col min-h-screen">
         <div class="main">
             @yield('isi')

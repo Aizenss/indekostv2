@@ -1,5 +1,4 @@
 @extends('layout.main')
-@extends('layout.sidebar')
 
 @section('style')
     <style></style>
