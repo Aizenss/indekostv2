@@ -26,7 +26,7 @@
 @endsection
 
 @section('isi')
-    <div class="py-10 px-[140px]">
+    <div class="py-10 px-5 lg:px-[120px]">
         <section class="image">
             <div id="custom-controls-gallery" class="relative w-full" data-carousel="slide">
                 <!-- Carousel wrapper -->
@@ -103,7 +103,7 @@
                     </div>
                     <div data-popper-arrow></div>
                 </div>
-                <div class="grid grid-cols-4 gap-2 h-28 overflow-y-scroll scsm">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 h-28 overflow-y-scroll scsm">
                     @forelse (json_decode($kos->fasilitas_umum) ??[] as $kost)
                         <div class="fasilitas text-gray-700 flex itmes-center">
                             <i class="fa-solid fa-users-rays me-2 text-2xl"></i><span
@@ -142,9 +142,9 @@
             <span class="text-xl text-gray-900 font-semibold mx-3">
                 Kamar Yang Tersedia
             </span>
-            <div class="grid grid-cols-3 gap-3 my-3 mx-3">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 place-items-center my-3">
                 @forelse ($kamars as $kamar)
-                    <div class="max-w-sm bg-gray-200 border border-gray-200 rounded-lg shadow ">
+                    <div class="w-[426px] md:w-[377px] lg:w-[280px] xl:w-[350px] bg-gray-200 border border-gray-200 rounded-lg shadow">
                         <div id="custom-controls-gallery" class="relative w-full" data-carousel="slide">
                             <!-- Carousel wrapper -->
                             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
