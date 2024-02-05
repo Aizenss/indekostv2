@@ -3,7 +3,7 @@
 @section('isi')
     <div class="py-20">
         <div class="filterasi flex justify-center items-center ">
-            <div class="bg-[#739072] flex px-10 space-x-4 rounded-xl pt-4">
+            <div class="bg-[#739072] flex px-10 space-x-4 rounded-xl pt-4 pb-4">
                 {{-- search --}}
                 <div>
                     <form method="GET" class="flex items-center" action="{{ route('user.kamarkami') }}">
@@ -54,9 +54,9 @@
             <div class="mb-3">
                 <span class="text-xl font-semibold text-gray-900">List Kost</span>
             </div>
-            <div class="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
                 @forelse ($kost as $kos)
-                    <div class="max-w-sm min-w-[300px] bg-white justify-center mx-auto border border-gray-200 rounded-lg shadow">
+                    <div class="max-w-[270px] min-w-[200px] bg-white justify-center mx-auto border border-gray-200 rounded-lg shadow">
                         <img class="rounded-t-lg h-[200px] w-full object-cover" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt=""  />
                         <div class="px-5 py-3">
                             <h5 class="text-xl font-bold tracking-tight text-gray-900 truncate">{{ $kos->nama_kost }}

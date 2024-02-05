@@ -104,33 +104,23 @@
                         class="bg-[#86A789] text-white font-medium text-lg rounded-lg sm:text-sm p-2 shadow-lg hover:bg-[#4F6F52] hover:shadow-2xl hover:shadow-[#4F6F52] duration-300">Lainnya</a>
                 </div>
             </div>
-            <div class="grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8 mb-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
                 @forelse ($kost as $kos)
-                    <div class="bg-white border border-gray-200 rounded-lg shadow max-w-lg mx-auto">
-                        <img class="rounded-t-lg w-full h-auto object-cover" src="{{ asset('kosts/' . $kos->foto_depan) }}"
-                            alt="">
-                        <div class="p-5">
-                            <h5 class="text-xl font-bold tracking-tight text-gray-900 truncate">{{ $kos->nama_kost }}
-                            </h5>
-                            <p class="mb-1 text-sm font-normal text-gray-700 truncate">
-                                <i class="fa-solid fa-map-location-dot me-3"></i>{{ $kos->lokasi }}
-                            </p>
-                            <hr class="mb-2">
-                            @php
-                                $kamartersedia = $kos->kamar->where('status', 'kosong')->count();
-                            @endphp
-                            @if ($kamartersedia > 0)
-                                <span class="text-base text-gray-700 font-semibold truncate">Tersedia
-                                    {{ $kamartersedia }} Kamar</span>
-                            @else
-                                <span class="text-xs text-gray-700 font-semibold truncate">Tidak ada kamar yang
-                                    tersedia</span>
-                            @endif
-
-                            <hr class="mb-2">
-                            <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
-                            <div class="grid grid-cols-2 gap-2">
-                                @if ($kos->fasilitas_umum == null)
+                        <div class="max-w-[270px] min-w-[200px] bg-white justify-center mx-auto border border-gray-200 rounded-lg shadow">
+                            <img class="rounded-t-lg" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt="" />
+                            <div class="px-5 py-3">
+                                <h5 class="text-xl font-bold tracking-tight text-gray-900 truncate">{{ $kos->nama_kost }}
+                                </h5>
+                                <p class="mb-1 text-sm font-normal text-gray-700 truncate">
+                                    <i class="fa-solid fa-map-location-dot me-3"></i>{{ $kos->lokasi }}
+                                </p>
+                                <hr class="mb-2">
+                                @php
+                                    $kamartersedia = $kos->kamar->where('status', 'kosong')->count();
+                                @endphp
+                                @if ($kamartersedia > 0)
+                                    <span class="text-base text-gray-700 font-semibold truncate">Tersedia
+                                        {{ $kamartersedia }} Kamar</span>
                                 @else
                                     @foreach (json_decode($kos->fasilitas_umum) as $fasilitas)
                                         <span class="text-sm text-gray-700 font-medium truncate">
