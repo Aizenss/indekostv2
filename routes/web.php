@@ -46,7 +46,7 @@ Route::get('/gaga', function () {
 
 
 Route::middleware('auth', 'verified')->group(function () {
-    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit ');
     Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::put('/profile/upload', [ProfileController::class, 'uploadfoto'])->name('profile.foto.upload');
     Route::patch('/profile/password/update', [ProfileController::class, 'passwordupdate'])->name('profile.password.update');
