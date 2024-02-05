@@ -5,8 +5,8 @@
             background-color: #ffffff;
         }
     </style>
-    <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
-        <div class="formnya bg-white">
+    <div class="grid grid-cols-1 md:grid-cols-2 items-center">
+        <div class="formnya bg-white flex justify-center items-center h-screen">
             <div class="flex flex-col gap-3">
                 <form class="mx-auto bg-[#86A789] rounded-xl py-5 px-12 border border-white shadow-lg" method="POST"
                     action="{{ route('register') }}" enctype="multipart/form-data">
@@ -58,8 +58,7 @@
                 </form>
             </div>
         </div>
-        <div class="fotoo flex justify-between items-center bg-[#87A789] pe-14">
-            <img src="{{ asset('ilustrasi/wave90.png') }}" alt="" class="max-h-screen">
+        <div class="fotoo flex justify-between items-center bg-[#87A789] pe-14 md:h-screen">
             <img src="{{ asset('ilustrasi/signowner.png') }}" alt=""
                 class="hidden md:w-[530px] md:h-[530px] md:block">
         </div>

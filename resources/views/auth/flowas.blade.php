@@ -6,7 +6,7 @@
         background-color: #D9D9D9;
     }
 </style>
-        <div class="flex flex-col gap-10 h-full w-full justify-center items-center md:mt-[5%]">
+        <div class="flex flex-col gap-10 h-full w-full justify-center items-center md:mt-[5%] p-10">
             <div class="judul">
                 <h1 class="font-semibold text-xl text-[#252525]">Tampil sebagai siapa Anda saat mendaftar?</h1>
             </div>

@@ -47,7 +47,7 @@
                     <li class="mb-6">
                         <div class=" flex items-center gap-2">
                             <i class="fa-solid fa-envelope text-xl text-black"></i>
-                            <span class="ml-2 hover:text-[#739072] duration-300 cursor-none">@Irsyadandhikaariadi</span>
+                            <span class="ml-2 hover:text-[#739072] duration-300 cursor-none">@indekost.com</span>
                         </div>
                     </li>
                     <li class="mb-6">

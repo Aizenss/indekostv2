@@ -5,12 +5,11 @@
         background-color: #ffffff;
     }
 </style>
-    <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
-        <div class="fotoo flex justify-between items-center bg-[#87A789] ps-8">
-            <img src="{{ asset('ilustrasi/signuser.png') }}" alt="" class="hidden md:w-[480px] md:h-[480px] md:block">
-            <img src="{{ asset('ilustrasi/wave90m.png') }}" alt="" class="max-h-screen">
+    <div class="grid grid-cols-1 md:grid-cols-2 items-center"> <!-- 1. Menambahkan md:flex-row -->
+        <div class="fotoo flex justify-between items-center bg-[#87A789] ps-8 md:h-screen">
+            <img src="{{ asset('ilustrasi/signuser.png') }}" alt="" class="hidden md:w-full md:h-[480px] md:block"> <!-- 2. Menyesuaikan kelas gambar -->
         </div>
-        <div class="formnya bg-white ">
+        <div class="formnya bg-white h-screen flex items-center justify-center">
             <div class="flex flex-col gap-3">
                 <form class="mx-auto bg-[#86A789] rounded-xl py-5 px-12 border border-white shadow-lg" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                     @csrf

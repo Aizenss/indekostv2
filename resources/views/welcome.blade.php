@@ -12,8 +12,8 @@
                         solusi terbaik bagi para pencari tempat tinggal. Menyediakan informasi yang akurat, foto-foto
                         berkualitas, dan fitur pencarian yang canggih.</p>
                     @if (Auth::guest())
-                    <a href="{{ url('/login') }}" class="bg-[#86A789] py-1 px-3 rounded-xl text-white">Mulai<i
-                        class="fa-solid fa-arrow-right text-white ms-2"></i></a>
+                        <a href="{{ url('/login') }}" class="bg-[#86A789] py-1 px-3 rounded-xl text-white">Mulai<i
+                                class="fa-solid fa-arrow-right text-white ms-2"></i></a>
                     @endif
                 </div>
                 <div class="gambar-wellcome hidden md:block">
@@ -104,72 +104,71 @@
                         class="bg-[#86A789] text-white font-medium text-lg rounded-lg sm:text-sm p-2 shadow-lg hover:bg-[#4F6F52] hover:shadow-2xl hover:shadow-[#4F6F52] duration-300">Lainnya</a>
                 </div>
             </div>
-            <div class="grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3 gap-3 mt-8 mb-10 place-items-center">
+            <div class="grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8 mb-10">
                 @forelse ($kost as $kos)
-                        <div class="max-w-[260px] min-w-[200px] bg-white border border-gray-200 rounded-lg shadow mx-auto">
-                            <img class="rounded-t-lg" src="{{ asset('kosts/' . $kos->foto_depan) }}" alt="" />
-                            <div class="px-5 py-3">
-                                <h5 class="text-xl font-bold tracking-tight text-gray-900 truncate">{{ $kos->nama_kost }}
-                                </h5>
-                                <p class="mb-1 text-sm font-normal text-gray-700 truncate">
-                                    <i class="fa-solid fa-map-location-dot me-3"></i>{{ $kos->lokasi }}
-                                </p>
-                                <hr class="mb-2">
-                                @php
-                                    $kamartersedia = $kos->kamar->where('status', 'kosong')->count();
-                                @endphp
-                                @if ($kamartersedia > 0)
-                                    <span class="text-base text-gray-700 font-semibold truncate">Tersedia
-                                        {{ $kamartersedia }} Kamar</span>
+                    <div class="bg-white border border-gray-200 rounded-lg shadow max-w-lg mx-auto">
+                        <img class="rounded-t-lg w-full h-auto object-cover" src="{{ asset('kosts/' . $kos->foto_depan) }}"
+                            alt="">
+                        <div class="p-5">
+                            <h5 class="text-xl font-bold tracking-tight text-gray-900 truncate">{{ $kos->nama_kost }}
+                            </h5>
+                            <p class="mb-1 text-sm font-normal text-gray-700 truncate">
+                                <i class="fa-solid fa-map-location-dot me-3"></i>{{ $kos->lokasi }}
+                            </p>
+                            <hr class="mb-2">
+                            @php
+                                $kamartersedia = $kos->kamar->where('status', 'kosong')->count();
+                            @endphp
+                            @if ($kamartersedia > 0)
+                                <span class="text-base text-gray-700 font-semibold truncate">Tersedia
+                                    {{ $kamartersedia }} Kamar</span>
+                            @else
+                                <span class="text-xs text-gray-700 font-semibold truncate">Tidak ada kamar yang
+                                    tersedia</span>
+                            @endif
+
+                            <hr class="mb-2">
+                            <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
+                            <div class="grid grid-cols-2 gap-2">
+                                @if ($kos->fasilitas_umum == null)
                                 @else
-                                    <span class="text-xs text-gray-700 font-semibold truncate">Tidak ada kamar yang
-                                        tersedia</span>
+                                    @foreach (json_decode($kos->fasilitas_umum) as $fasilitas)
+                                        <span class="text-sm text-gray-700 font-medium truncate">
+                                            <i class="fa-solid fa-check me-2"></i>{{ $fasilitas->value }}
+                                        </span>
+                                    @endforeach
                                 @endif
+                            </div>
+                            @php
+                                $totalRating = 0;
+                                $numberOfRatings = count($kos->ulasan);
 
-                                <hr class="mb-2">
-                                <span class="text-lg font-semibold text-gray-700">Fasilitas</span>
-                                <div class="grid grid-cols-2 gap-2">
-                                    @if ($kos->fasilitas_umum == null)
-                                    @else
-                                        @foreach (json_decode($kos->fasilitas_umum) as $fasilitas)
-                                            <span class="text-sm text-gray-700 font-medium truncate">
-                                                <i class="fa-solid fa-check me-2"></i>{{ $fasilitas->value }}
-                                            </span>
-                                        @endforeach
-                                    @endif
+                                foreach ($kos->ulasan as $rating) {
+                                    $totalRating += $rating->rating;
+                                }
+
+                                $averageRating = $numberOfRatings > 0 ? number_format(round($totalRating / $numberOfRatings, 2), 1, '.', ',') : 0;
+                            @endphp
+
+                            <div class="flex justify-between items-end gap-3">
+                                <div class="rate mb-1 font-semibold text-lg">
+                                    <i class="fas fa-star text-yellow-300"> </i>{{ $averageRating }}/5
                                 </div>
-                                @php
-                                    $totalRating = 0;
-                                    $numberOfRatings = count($kos->ulasan);
-
-                                    foreach ($kos->ulasan as $rating) {
-                                        $totalRating += $rating->rating;
-                                    }
-
-                                    $averageRating = $numberOfRatings > 0 ? number_format(round($totalRating / $numberOfRatings, 2), 1, '.', ',') : 0;
-                                @endphp
-
-                                <div class="flex justify-between items-end gap-3">
-                                    <div class="rate mb-1 font-semibold text-lg">
-                                        <i class="fas fa-star text-yellow-300"> </i>{{ $averageRating }}/5
-                                    </div>
-                                    <a href="{{ route('user.detailkost', ['kos' => $kos->id]) }}" class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">
-                                        Detail Kost
-                                    </a>
-                                </div>
-
+                                <a href="{{ route('user.detailkost', ['kos' => $kos->id]) }}"
+                                    class="hover:bg-[#4F6F52] duration-300 bg-[#739072] py-1 px-2 font-semibold text-medium text-white rounded-lg text-center mt-5">
+                                    Detail Kost
+                                </a>
                             </div>
                         </div>
-                        @empty
-                        <tr class="bg-white  items-center">
-                        <tr scope="row" colspan="8"
-                            class="px-6 flex items-center justify-center py-4 font-medium text-xs text-gray-900 whitespace-nowrap">
-                        </tr>
-                        <td></td>
-                        <td></td>
-                        <td><img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="size-52" alt=""></td>
-                        </tr>
-                    @endforelse
+                    </div>
+                @empty
+                <div class="bg-white border border-gray-200 rounded-lg shadow">
+                    <img src="{{ asset('ilustrasi/Empty-amico 1.png') }}" class="w-full" alt="">
+                    <div class="p-5">
+                        <!-- Konten Ketika Kosong -->
+                    </div>
+                </div>
+                @endforelse
             </div>
         </section>
     </div>
